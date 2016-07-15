@@ -1,0 +1,1 @@
+/// <reference path='main/soap-cookie/index.d.ts' />

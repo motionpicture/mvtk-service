@@ -1,0 +1,23 @@
+{
+  "name": "mvtkservice",
+  "version": "1.0.11",
+  "dependencies": {
+    "soap": "^0.13.0",
+    "soap-cookie": "^0.10.1"
+  },
+  "description": "Mvtk Client Library for Node.js",
+  "main": "./lib/mvtkservice.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://m-p.backlog.jp/git/MWSR/src_service.git"
+  },
+  "keywords": [
+    "mvtk",
+    "movieticket"
+  ],
+  "author": "Tetsu Yamazaki <yamazaki@motionpicture.jp>",
+  "license": "ISC"
+}
