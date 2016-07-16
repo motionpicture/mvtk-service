@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import CommonUtil from '../../../common/util/Util';
 import FilmUtilities from '../FilmUtilities';
 
 export default class GetTrailerDetailResult {

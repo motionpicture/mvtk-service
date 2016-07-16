@@ -1,5 +1,5 @@
-import Service from '../../Common/Service';
-import Constants from '../../Common/Util/Constants';
+import Service from '../../common/Service';
+import Constants from '../../common/util/Constants';
 import GiftCardIDAuthIn from './Models/GiftCardIDAuthIn';
 import GiftCardIDAuthResult from './Models/GiftCardIDAuthResult';
 import GiftCardCancelIn from './Models/GiftCardCancelIn';

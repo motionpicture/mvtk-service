@@ -1,5 +1,5 @@
-import Service from '../../Common/Service';
-import Constants from '../../Common/Util/Constants';
+import Service from '../../common/Service';
+import Constants from '../../common/util/Constants';
 import GetFavoriteFilmListResult from './Models/GetFavoriteFilmListResult';
 import GetUnusedTicketListResult from './Models/GetUnusedTicketListResult';
 import ShyzmtcktInfoListResult from './Models/ShyzmtcktInfoListResult';

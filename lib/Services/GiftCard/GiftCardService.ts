@@ -1,5 +1,5 @@
 import Service from '../../Common/Service';
-import Constants from '../../Common/Util/Constants';
+import Constants from '../../Common/util/Constants';
 import MvtkGiftCardEntryIn from './Models/MvtkGiftCardEntryIn';
 import MvtkGiftCardBalanceInquiryResult from './Models/MvtkGiftCardBalanceInquiryResult';
 import MvtkGiftCardEntryResult from './Models/MvtkGiftCardEntryResult';

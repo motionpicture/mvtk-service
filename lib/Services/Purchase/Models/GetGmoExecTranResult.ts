@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import CommonUtil from '../../../common/util/Util';
 
 export default class GetGmoExecTranResult {
     public acsKbn: string = ''; // 本人認証サービス対応区分

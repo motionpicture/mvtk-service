@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import CommonUtil from '../../../common/util/Util';
 
 export default class GetShhriInfoByKeyResult {
     public azkrknshhritmngTyp: string; // 預り金支払タイミング区分

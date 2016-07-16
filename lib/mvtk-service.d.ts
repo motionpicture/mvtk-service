@@ -1,4 +1,4 @@
-declare module "mvtkservice" {
+declare module "@motionpicture/mvtk-service" {
     module mvtkservice {
         module common {
             module util {
@@ -1165,18 +1165,18 @@ declare module "mvtkservice" {
             module RegisterMember {
                 module models {
                     export interface RegisterMemberTemporaryIn {
-                        nckNm: string; // ニックネーム
+                        nckNm?: string; // ニックネーム
                         kiinsiNm: string; // 会員姓名称
                         kiimmiNm: string; // 会員名名称
                         kiinsiKnnm: string; // 会員姓カナ名称
                         kiimmiKnnm: string; // 会員名カナ名称
                         sibtsTyp: string; // 性別区分
                         kiinsiYmd: string; // 会員生年月日(1999/01/01形式)
-                        kiinybnNo: string; // 会員郵便番号(123-5678形式)
+                        kiinybnNo?: string; // 会員郵便番号(123-5678形式)
                         tdfknCd: string; // 都道府県コード
-                        kiinshkchsnAddr: string; // 会員市区町村住所
-                        kiimbnchAddr: string; // 会員番地住所
-                        kiinttmnAddr: string; // 会員建物住所
+                        kiinshkchsnAddr?: string; // 会員市区町村住所
+                        kiimbnchAddr?: string; // 会員番地住所
+                        kiinttmnAddr?: string; // 会員建物住所
                         kiinjshiDo: string; // 会員住所緯度
                         kiinjshkiDo: string; // 会員住所経度
                         kiinshgikykNo: string; // 会員市外局番号
@@ -1184,10 +1184,10 @@ declare module "mvtkservice" {
                         kiinknyshNo: string; // 会員加入者番号
                         kiinMladdr: string; // 会員メールアドレス
                         kiinmladdrssdvcTyp: string; // 会員メールアドレスデバイス区分
-                        kiinsbMladdr: string; // 会員サブメールアドレス
-                        kiinsbmladdrssdvcTyp: string; // 会員サブメールアドレスデバイス区分
+                        kiinsbMladdr?: string; // 会員サブメールアドレス
+                        kiinsbmladdrssdvcTyp?: string; // 会員サブメールアドレスデバイス区分
                         kiinPwd: string; // 会員パスワード
-                        kiintrkmekssiknrNo: string; // 会員登録前決済管理番号
+                        kiintrkmekssiknrNo?: string; // 会員登録前決済管理番号
                         mlmgkbFlg: string; // 
                         kiintrkdvcTyp: string; // 会員登録デバイス区分
                     }

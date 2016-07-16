@@ -1,5 +1,5 @@
-import Service from '../../Common/Service';
-import Constants from '../../Common/Util/Constants';
+import Service from '../../common/Service';
+import Constants from '../../common/util/Constants';
 import EditMemberInfoIn from './Models/EditMemberInfoIn';
 import MemberInfoResult from './Models/MemberInfoResult';
 

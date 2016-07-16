@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import CommonUtil from '../../../common/util/Util';
 
 export default class TicketInfoTypeResult {
     public knshknknrmisiNo: string; // 鑑賞券管理明細番号

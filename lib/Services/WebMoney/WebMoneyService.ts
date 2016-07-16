@@ -1,5 +1,5 @@
-import Service from '../../Common/Service';
-import Constants from '../../Common/Util/Constants';
+import Service from '../../common/Service';
+import Constants from '../../common/util/Constants';
 import WebMoneyEntryIn from './Models/WebMoneyEntryIn';
 import WebMoneyEntryResult from './Models/WebMoneyEntryResult';
 import DecryptWebMoneyKssiInfoResult from './Models/DecryptWebMoneyKssiInfoResult';

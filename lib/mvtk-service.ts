@@ -1,31 +1,31 @@
 /// <reference path='../typings/index.d.ts' />
 /// <reference path='../definitions/main.d.ts' />
 
-import DigitalIncentiveDownloadService from './Services/DigitalIncentiveDownload/DigitalIncentiveDownloadService';
-import FilmService from './Services/Film/FilmService';
-import GiftCardService from './Services/GiftCard/GiftCardService';
-import GiftCardServiceNew from './Services2/GiftCard/GiftCardService';
-import InquiryService from './Services/Inquiry/InquiryService';
-import MailService from './Services2/Mail/MailService';
-import MemberInfoService from './Services/MemberInfo/MemberInfoService';
-import MovieLogService from './Services/MovieLog/MovieLogService';
-import PurchaseService from './Services/Purchase/PurchaseService';
-import PurchaseServiceNew from './Services2/Purchase/PurchaseService';
-import RegisterMemberService from './Services/RegisterMember/RegisterMemberService';
-import TicketChangeService from './Services2/TicketChange/TicketChangeService';
-import UtilService from './Services/Util/UtilService';
-import UtilServiceNew from './Services2/Util/UtilService';
-import WebMoneyService from './Services/WebMoney/WebMoneyService';
+import DigitalIncentiveDownloadService from './services/DigitalIncentiveDownload/DigitalIncentiveDownloadService';
+import FilmService from './services/Film/FilmService';
+import GiftCardService from './services/GiftCard/GiftCardService';
+import GiftCardServiceNew from './services2/GiftCard/GiftCardService';
+import InquiryService from './services/Inquiry/InquiryService';
+import MailService from './services2/Mail/MailService';
+import MemberInfoService from './services/MemberInfo/MemberInfoService';
+import MovieLogService from './services/MovieLog/MovieLogService';
+import PurchaseService from './services/Purchase/PurchaseService';
+import PurchaseServiceNew from './services2/Purchase/PurchaseService';
+import RegisterMemberService from './services/RegisterMember/RegisterMemberService';
+import TicketChangeService from './services2/TicketChange/TicketChangeService';
+import UtilService from './services/util/UtilService';
+import UtilServiceNew from './services2/util/UtilService';
+import WebMoneyService from './services/WebMoney/WebMoneyService';
 
-import Constants from './Common/Util/Constants';
-import Util from './Common/Util/Util';
+import Constants from './common/util/Constants';
+import Util from './common/util/Util';
 
-import DigitalIncentiveDownloadUtilities from './Services/MemberInfo/MemberInfoUtilities';
-import FilmUtilities from './Services/Film/FilmUtilities';
-import InquiryUtilities from './Services/Inquiry/InquiryUtilities';
-import MemberInfoUtilities from './Services/MemberInfo/MemberInfoUtilities';
-import GiftCardUtilities from './Services2/GiftCard/GiftCardUtilities';
-import PurchaseUtilities from './Services2/Purchase/PurchaseUtilities';
+import DigitalIncentiveDownloadUtilities from './services/MemberInfo/MemberInfoUtilities';
+import FilmUtilities from './services/Film/FilmUtilities';
+import InquiryUtilities from './services/Inquiry/InquiryUtilities';
+import MemberInfoUtilities from './services/MemberInfo/MemberInfoUtilities';
+import GiftCardUtilities from './services2/GiftCard/GiftCardUtilities';
+import PurchaseUtilities from './services2/Purchase/PurchaseUtilities';
 
 /**
  * ムビチケサービス作成クラス
@@ -35,8 +35,8 @@ import PurchaseUtilities from './Services2/Purchase/PurchaseUtilities';
 class ServicesBuilder
 {
     private static instance: ServicesBuilder;
-    public Constants: Object = Constants;
-    public Util: Util = Util;
+    public Constants = Constants;
+    public Util = Util;
 
     public DigitalIncentiveDownloadUtilities = DigitalIncentiveDownloadUtilities;
     public FilmUtilities = FilmUtilities;
@@ -61,11 +61,6 @@ class ServicesBuilder
      * サービス側でユーザーのログイン状態を判別するために用いる
      */
     private cookie: string;
-
-    public model(serviceName: string, modelName: string): any {
-        let model = require(`./Services/${serviceName}/Models/${modelName}`);
-        return model;
-    }
 
     public static getInstance() {
         if (!ServicesBuilder.instance) {
@@ -100,7 +95,7 @@ class ServicesBuilder
      * デジタルインセンティブサービスを生成する
      */
     public createDigitalIncentiveDownloadService(): DigitalIncentiveDownloadService {
-        let wsdl: string = this.endpoint + '/Services/DigitalIncentive/DigitalIncentiveDownloadsvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/DigitalIncentive/DigitalIncentiveDownloadsvc.svc?singleWsdl';
         let service = new DigitalIncentiveDownloadService(wsdl);
         service.setCookie(this.cookie);
         return service;
@@ -110,7 +105,7 @@ class ServicesBuilder
      * 作品サービスを生成する
      */
     public createFilmService(): FilmService {
-        let wsdl: string = this.endpoint + '/Services/Film/Filmsvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/Film/Filmsvc.svc?singleWsdl';
         let service = new FilmService(wsdl);
         service.setCookie(this.cookie);
         return service;
@@ -120,7 +115,7 @@ class ServicesBuilder
      * ギフトカードサービスを生成する
      */
     public createGiftCardService(): GiftCardService {
-        let wsdl: string = this.endpoint + '/Services/MvtkGiftCard/MvtkGiftCardSvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/MvtkGiftCard/MvtkGiftCardSvc.svc?singleWsdl';
         let service = new GiftCardService(wsdl);
         service.setCookie(this.cookie);
         return service;
@@ -160,7 +155,7 @@ class ServicesBuilder
      * 会員情報サービスを生成する
      */
     public createMemberInfoService(): MemberInfoService {
-        let wsdl: string = this.endpoint + '/Services/Member/MemberInfoSvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/Member/MemberInfoSvc.svc?singleWsdl';
         let service = new MemberInfoService(wsdl);
         service.setCookie(this.cookie);
         return service;
@@ -180,7 +175,7 @@ class ServicesBuilder
      * 購入サービスを生成する
      */
     public createPurchaseService(): PurchaseService {
-        let wsdl: string = this.endpoint + '/Services/Purchase/PurchaseSvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/Purchase/PurchaseSvc.svc?singleWsdl';
         let service = new PurchaseService(wsdl);
         service.setCookie(this.cookie);
         return service;
@@ -200,7 +195,7 @@ class ServicesBuilder
      * 会員登録サービスを生成する
      */
     public createRegisterMemberService(): RegisterMemberService {
-        let wsdl: string = this.endpoint + '/Services/Member/RegisterMemberSvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/Member/RegisterMemberSvc.svc?singleWsdl';
         let service = new RegisterMemberService(wsdl);
         service.setCookie(this.cookie);
         return service;
@@ -210,7 +205,7 @@ class ServicesBuilder
      * お直りサービスを生成する
      */
     public createTicketChangeService(): TicketChangeService {
-        let wsdl: string = this.endpoint + '/Services/ticketchange/Ticketchangesvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/ticketchange/Ticketchangesvc.svc?singleWsdl';
         let service = new TicketChangeService(wsdl);
         service.setCookie(this.cookie);
         return service;
@@ -220,7 +215,7 @@ class ServicesBuilder
      * ユーティリティサービスを生成する
      */
     public createUtilService(): UtilService {
-        let wsdl: string = this.endpoint + '/Services/util/Utilsvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/util/Utilsvc.svc?singleWsdl';
         let service = new UtilService(wsdl);
         service.setCookie(this.cookie);
         return service;
@@ -240,7 +235,7 @@ class ServicesBuilder
      * ウェブマネーサービスを生成する
      */
     public createWebMoneyService(): WebMoneyService {
-        let wsdl: string = this.endpoint + '/Services/WebMoney/WebMoneySvc.svc?singleWsdl';
+        let wsdl: string = this.endpoint + '/services/WebMoney/WebMoneySvc.svc?singleWsdl';
         let service = new WebMoneyService(wsdl);
         service.setCookie(this.cookie);
         return service;

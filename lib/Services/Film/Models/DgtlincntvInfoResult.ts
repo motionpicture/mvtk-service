@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import CommonUtil from '../../../common/util/Util';
 
 export default class DgtlincntvInfoResult {
     public dvcTyp: string; // デバイス区分

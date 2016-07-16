@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import CommonUtil from '../../../common/util/Util';
 import FilmUtilities from '../FilmUtilities';
 import TicketInfoResult from './TicketInfoResult';
 import FilmCastResult from './FilmCastResult';

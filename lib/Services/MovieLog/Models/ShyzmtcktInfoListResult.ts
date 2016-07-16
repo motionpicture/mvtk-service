@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import CommonUtil from '../../../common/util/Util';
 
 interface KnshInfo {
     KNSHKBN_NM: string; // 券種区分名称
