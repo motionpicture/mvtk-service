@@ -1,24 +1,26 @@
-export default class RegisterPurchaseInfoIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class RegisterPurchaseInfoIn extends BaseIn {
     /**
      * 決済管理番号
      */
-    public KSSIKNR_NO: string = '';
+    public KSSIKNR_NO: string;
     /**
      * 決済代行会社が取引を識別するために発行する ID
      */
-    public ACCESS_ID: string = '';
+    public ACCESS_ID: string;
     /**
      * 決済代行会社が取引を識別するために発行するパスワード
      */
-    public ACCESS_PWD: string = '';
+    public ACCESS_PWD: string;
     /**
      * 作品コード
      */
-    public SKHN_CD: string = '';
+    public SKHN_CD: string;
     /**
      * 鑑賞券管理番号
      */
-    public KNSHKNKNR_NO: string = '';
+    public KNSHKNKNR_NO: string;
     /**
      * 鑑賞券情報
      */
@@ -29,94 +31,94 @@ export default class RegisterPurchaseInfoIn {
             KNYMI_NUM: string;
             KNSHKNHMBI_UNIP: string;
         }>;
-    } = null;
+    };
     /**
      * 会員フラグ(0:非会員 1:会員)
      */
-    public KIIN_FLG: string = '0';
+    public KIIN_FLG: string;
     /**
      * 決済方法区分
      */
-    public KSSIHH_TYP: string = '';
+    public KSSIHH_TYP: string;
     /**
      * 購入者姓名称
      */
-    public KNYSHSI_NM: string = '';
+    public KNYSHSI_NM: string;
     /**
      * 購入者名名称
      */
-    public KNYSHMI_NM: string = '';
+    public KNYSHMI_NM: string;
     /**
      * 購入者姓カナ名称
      */
-    public KNYSHSI_KNNM: string = '';
+    public KNYSHSI_KNNM: string;
     /**
      * 購入者名カナ名称
      */
-    public KNYSHMI_KNNM: string = '';
+    public KNYSHMI_KNNM: string;
     /**
      * 購入者ＰＣメールアドレス
      */
-    public KNYSHPC_MLADDR: string = '';
+    public KNYSHPC_MLADDR: string;
     /**
      * 購入者携帯メールアドレス
      */
-    public KNYSHKITI_MLADDR: string = '';
+    public KNYSHKITI_MLADDR: string;
     /**
      * 購入者市外局番号
      */
-    public KNYSHSHGIKYK_NO: string = '';
+    public KNYSHSHGIKYK_NO: string;
     /**
      * 購入者市内局番号
      */
-    public KNYSHSHNIKYK_NO: string = '';
+    public KNYSHSHNIKYK_NO: string;
     /**
      * 購入者加入者番号
      */
-    public KNYSHKNYSH_NO: string = '';
+    public KNYSHKNYSH_NO: string;
     /**
      * 購入日時（yyyy/mm/ddThh24:mm:ss）
      */
-    public KNY_DT: string = '';
+    public KNY_DT: string;
     /**
      * チケットの販売チャネル
      */
-    public HMBICHNNL_TYP: string = '';
+    public HMBICHNNL_TYP: string;
     /**
      * チケット販売会社のコード
      */
-    public HMBGISH_CD: string = '';
+    public HMBGISH_CD: string;
     /**
      * 決済を行った日時（yyyy/mm/ddThh24:mm:ss）
      */
-    public TRAN_DT: string = '';
+    public TRAN_DT: string;
     /**
      * 与信を行ったカード会社の会社コード(決済方法区分が 00 の場合は必須)
      */
-    public FORWARD_CD: string = '';
+    public FORWARD_CD: string;
 
     /**
      * カード会社が発行した与信の承認番号
      * 決済方法区分が 00、01、02 の場合は必須
      * maximum length of 7
      */
-    public APPROVE_NO: string = '';
+    public APPROVE_NO: string;
     /**
      * 決済代行会社が処理を行う毎に発行している処理番号(決済方法区分が 00 の場合は必須)
      */
-    public TRAN_ID: string = '';
+    public TRAN_ID: string;
     /**
      * 購入チケットの合計金額
      */
-    public GRYKNGK: string = '';
+    public GRYKNGK: string;
     /**
      * 購入したデバイスの区分
      */
-    public KNYDVC_TYP: string = '';
+    public KNYDVC_TYP: string;
     /**
      * au 簡単決済の支払方法
      */
-    public AU_PAYMETHOD: string = '';
+    public AU_PAYMETHOD: string;
     /**
      * ギフトカード情報
      */
@@ -133,37 +135,27 @@ export default class RegisterPurchaseInfoIn {
             RY_MNY: string; // 
             TPPNSRVCRSPNS: string; // 
         }>;
-    } = null;
+    };
     /**
      * デバイス区分 
      */
-    public DVC_TYP: string = '';
+    public DVC_TYP: string;
     /**
      * 併用決済フラグ(0:単独決済 1:併用決済)
      */
-    public HIYKSSI_FLG: string = '';
+    public HIYKSSI_FLG: string;
     /**
      * 併用決済方法
      */
-    public HIYKSSIHH_TYP: string = '';
+    public HIYKSSIHH_TYP: string;
     /**
      * 併用決済で使用したムビチケオンラインギフトカードの決済金額合計
      */
-    public HIYKSSIRYGKI_MNY: string = '';
+    public HIYKSSIRYGKI_MNY: string;
     /**
      * WebMoney決済情報
      */
-    public WEBMONEYKSSIINFO: WebmoneykssiInfo = null;
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public WEBMONEYKSSIINFO: WebmoneykssiInfo;
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意

@@ -41,7 +41,7 @@ export default class GiftCardService extends Service {
     public mvtkGiftCardEntry(params: Object, cb: (err, response, mvtkGiftCardEntryResults: Array<MvtkGiftCardEntryResult>) => any) {
         let method = 'MvtkGiftCardEntry';
 
-        let args = MvtkGiftCardEntryIn.create(params);
+        let args = new MvtkGiftCardEntryIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);

@@ -1,4 +1,6 @@
-export default class SendInquiryMailIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class SendInquiryMailIn extends BaseIn {
     /**
      * 問合せ日時
      */
@@ -39,14 +41,4 @@ export default class SendInquiryMailIn {
      * 会員コード
      */
     public kiinCd: string;
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
 }

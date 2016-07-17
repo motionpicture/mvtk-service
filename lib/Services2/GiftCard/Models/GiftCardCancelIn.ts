@@ -1,4 +1,6 @@
-export default class GiftCardCancelIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class GiftCardCancelIn extends BaseIn {
     /**
      * ギフトカードID情報
      */
@@ -10,38 +12,28 @@ export default class GiftCardCancelIn {
             RYUKNGK: string; // ムビチケオンラインギフトカードで決済した金額
             SYRYKY_DT: string; // 取消を行う決済処理を要求した日時(取消区分が2の場合は必須)
         }>;
-    } = null;
+    };
 
     /**
      * 取消区分
      * 決済取消を行う区分
      * 0：ロック解除 1：取消 2：障害取消
      */
-    public TRKSH_TYP: string = '';
+    public TRKSH_TYP: string;
 
     /**
      * ギフトカード決済取消を行うデバイスの区分
      * 1：PC 09：SmartPhone
      */
-    public DVC_TYP: string = '';
+    public DVC_TYP: string;
     /**
      * 取消しする作品のコード
      */
-    public SKHN_CD: string = '';
+    public SKHN_CD: string;
     /**
      * 取消しする決済の管理番号
      */
-    public KSSIKNR_NO: string = '';
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public KSSIKNR_NO: string;
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意

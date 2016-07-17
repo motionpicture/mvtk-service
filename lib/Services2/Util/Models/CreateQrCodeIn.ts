@@ -1,26 +1,18 @@
-export default class CreateQrCodeIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class CreateQrCodeIn extends BaseIn {
     /**
      * 購入管理番号
      */
-    public KNYKNR_NO: string = '';
+    public KNYKNR_NO: string;
     /**
      * PIN コード
      */
-    public PIN_CD: string = '';
+    public PIN_CD: string;
     /**
      * 作品コード
      */
-    public SKHN_CD: string = '';
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public SKHN_CD: string;
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意

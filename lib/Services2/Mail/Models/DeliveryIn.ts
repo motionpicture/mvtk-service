@@ -1,24 +1,26 @@
-export default class DeliveryIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class DeliveryIn extends BaseIn {
     /**
      * 決済管理番号
      */
-    public KSSIKNR_NO: string = '';
+    public KSSIKNR_NO: string;
     /**
      * 購入管理番号
      */
-    public KNYKNR_NO: string = '';
+    public KNYKNR_NO: string;
     /**
      * 宛先
      */
-    public MAILADDRESS: string = '';
+    public MAILADDRESS: string;
     /**
      * 宛名
      */
-    public ADDRESS: string = '';
+    public ADDRESS: string;
     /**
      * 作品名
      */
-    public SKHN_NM: string = '';
+    public SKHN_NM: string;
     /**
      * 鑑賞券情報(ItemArray)
      */
@@ -33,41 +35,31 @@ export default class DeliveryIn {
              */
             KNYMI_NUM: string;
         }>;
-    } = null;
+    };
     /**
      * QR コード URL
      */
-    public QRCD_URL: string = '';
+    public QRCD_URL: string;
     /**
      * デジタルインセンティブ URL
      */
-    public DGTLINCNTV_URL: string = '';
+    public DGTLINCNTV_URL: string;
     /**
      * デバイス区分
      */
-    public DVC_TYP: string = '';
+    public DVC_TYP: string;
     /**
      * メールテンプレートコード
      */
-    public MLTMPLT_CD: string = '';
+    public MLTMPLT_CD: string;
     /**
      * 合計金額
      */
-    public TOTALCOST: string = '';
+    public TOTALCOST: string;
     /**
      * 作品コード
      */
-    public SKHN_CD: string = '';
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public SKHN_CD: string;
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意

@@ -1,30 +1,22 @@
-export default class GetGmoExecTranIn {
-    public kssiknrNo: string = ''; // 決済管理番号
-    public kssihhTyp: string = ''; // 決済方法区分
-    public accessId: string = ''; // 取引ID
-    public accessPwd: string = ''; // 取引パスワード
-    public crdtcrdinputKbn: string = ''; // カード情報入力区分
-    public httpAccept: string = ''; // HTTP_ACCEPT
-    public httpUserAgent: string = ''; // HTTP_USER_AGENT
-    public dvcTyp: string = ''; // デバイス区分
+import BaseIn from '../../../common/models/BaseIn';
 
-    public crdtcrdNo: string = ''; // クレジットカード番号
-    public crdykkgn: string = ''; // カード有効期限
-    public scrtyCd: string = ''; // セキュリティーコード
-    public kiinCd: string = ''; // 会員コード
-    public cardseq: string = ''; // カード登録連番
-    public knyshNm: string = ''; // 購入者名
-    public shhnTyp: string = ''; // ???
+export default class GetGmoExecTranIn extends BaseIn {
+    public kssiknrNo: string; // 決済管理番号
+    public kssihhTyp: string; // 決済方法区分
+    public accessId: string; // 取引ID
+    public accessPwd: string; // 取引パスワード
+    public crdtcrdinputKbn: string; // カード情報入力区分
+    public httpAccept: string; // HTTP_ACCEPT
+    public httpUserAgent: string; // HTTP_USER_AGENT
+    public dvcTyp: string; // デバイス区分
 
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public crdtcrdNo: string; // クレジットカード番号
+    public crdykkgn: string; // カード有効期限
+    public scrtyCd: string; // セキュリティーコード
+    public kiinCd: string; // 会員コード
+    public cardseq: string; // カード登録連番
+    public knyshNm: string; // 購入者名
+    public shhnTyp: string; // ???
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意

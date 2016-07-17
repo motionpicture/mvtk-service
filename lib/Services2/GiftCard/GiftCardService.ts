@@ -14,7 +14,7 @@ export default class GiftCardService extends Service {
     public giftCardIDAuth(params: Object, cb: (err, response, giftCardIDAuthResults: Array<GiftCardIDAuthResult>) => any) {
         let method = 'GiftCardIDAuth';
 
-        let args = GiftCardIDAuthIn.create(params);
+        let args = new GiftCardIDAuthIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
@@ -43,7 +43,7 @@ export default class GiftCardService extends Service {
     public giftCardCancel(params: Object, cb: (err, response, giftCardCancelResults: Array<GiftCardCancelResult>) => any) {
         let method = 'GiftCardCancel';
 
-        let args = GiftCardCancelIn.create(params);
+        let args = new GiftCardCancelIn(params);
 
         let message = args.toXml();
 

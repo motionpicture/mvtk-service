@@ -11,7 +11,7 @@ export default class InquiryService extends Service {
     public sendInquiryMail(params: Object, cb: (err, resonse, isSuccess: boolean) => any): void {
         let method = 'SendInquiryMail';
 
-        let args = SendInquiryMailIn.create(params);
+        let args = new SendInquiryMailIn(params);
 
         let isSuccess = false;
 

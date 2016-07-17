@@ -200,7 +200,7 @@ export default class UtilService extends Service {
     public encryptDataList(params: Object, cb: (err, response, encryptedStrings: Array<string>) => any): void {
         let method = 'EncryptDataList';
 
-        let args = EncryptDataListIn.create(params);
+        let args = new EncryptDataListIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);

@@ -1,6 +1,6 @@
-import CommonUtil from '../../../common/util/Util';
+import BaseIn from '../../../common/models/BaseIn';
 
-export default class EditMemberInfoIn {
+export default class EditMemberInfoIn extends BaseIn {
     /**
      * ニックネーム
      */
@@ -89,14 +89,4 @@ export default class EditMemberInfoIn {
      * メルマガ希望フラグ
      */
     public mlmgkbFlg: string;
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
 }

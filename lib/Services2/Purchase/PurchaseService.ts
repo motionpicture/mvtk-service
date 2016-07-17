@@ -14,7 +14,7 @@ export default class PurchaseService extends Service {
     public getGmoEntryTran(params: Object, cb: (err, response, result: GetGmoEntryTranResult) => any) {
         let method = 'GetGmoEntryTran';
 
-        let args = GetGmoEntryTranIn.create(params);
+        let args = new GetGmoEntryTranIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
@@ -37,7 +37,7 @@ export default class PurchaseService extends Service {
     public registerPurchaseInfo(params: Object, cb: (err, response, registerPurchaseInfoResult: RegisterPurchaseInfoResult) => any) {
         let method = 'RegisterPurchaseInfo';
 
-        let args = RegisterPurchaseInfoIn.create(params);
+        let args = new RegisterPurchaseInfoIn(params);
 
         let message = args.toXml();
 

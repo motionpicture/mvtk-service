@@ -1,4 +1,6 @@
-export default class GiftCardIDAuthIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class GiftCardIDAuthIn extends BaseIn {
     /**
      *  ギフトカードID情報
      */
@@ -17,54 +19,44 @@ export default class GiftCardIDAuthIn {
              */
             GFTCRDKSSIKNR_NO: string;
         }>;
-    } = null;
+    };
 
     /**
      * 利用金額
      */
-    public KSSIKNR_NO: string = '';
+    public KSSIKNR_NO: string;
     /**
      * デバイス区分
      */
-    public RYUKNGK: string = '';
+    public RYUKNGK: string;
     /**
      * ご利用金額
      */
-    public DVC_TYP: string = '';
+    public DVC_TYP: string;
     /**
      * ロックフラグ
      */
-    public LOCK_FLG: string = '0';
+    public LOCK_FLG: string;
     /**
      * 併用決済フラグ
      */
-    public HIYKSSI_FLG: string = '0';
+    public HIYKSSI_FLG: string;
     /**
      * 併用決済区分
      */
-    public HIYKSSI_TYP: string = '';
+    public HIYKSSI_TYP: string;
     /**
      * 購入者コード
      */
-    public KNYSH_CD: string = '';
+    public KNYSH_CD: string;
     /**
      * 会員フラグ
      */
-    public KIIN_FLG: string = '0';
+    public KIIN_FLG: string;
     /**
      * 作品コード
      */
-    public SKHN_CD: string = '';
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public SKHN_CD: string;
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意

@@ -1,41 +1,31 @@
-import CommonUtil from '../../../common/util/Util';
+import BaseIn from '../../../common/models/BaseIn';
 
-export default class RegisterMemberTemporaryIn {
-    public nckNm: string = ''; // ニックネーム
-    public kiinsiNm: string = ''; // 会員姓名称
-    public kiimmiNm: string = ''; // 会員名名称
-    public kiinsiKnnm: string = ''; // 会員姓カナ名称
-    public kiimmiKnnm: string = ''; // 会員名カナ名称
-    public sibtsTyp: string = ''; // 性別区分
-    public kiinsiYmd: string = ''; // 会員生年月日(1999/01/01形式)
-    public kiinybnNo: string = ''; // 会員郵便番号(123-5678形式)
-    public tdfknCd: string = ''; // 都道府県コード
-    public kiinshkchsnAddr: string = ''; // 会員市区町村住所
-    public kiimbnchAddr: string = ''; // 会員番地住所
-    public kiinttmnAddr: string = ''; // 会員建物住所
-    public kiinjshiDo: string = ''; // 会員住所緯度
-    public kiinjshkiDo: string = ''; // 会員住所経度
-    public kiinshgikykNo: string = ''; // 会員市外局番号
-    public kiinshnikykNo: string = ''; // 会員市内局番号
-    public kiinknyshNo: string = ''; // 会員加入者番号
-    public kiinMladdr: string = ''; // 会員メールアドレス
-    public kiinmladdrssdvcTyp: string = ''; // 会員メールアドレスデバイス区分
-    public kiinsbMladdr: string = ''; // 会員サブメールアドレス
-    public kiinsbmladdrssdvcTyp: string = ''; // 会員サブメールアドレスデバイス区分
-    public kiinPwd: string = ''; // 会員パスワード
-    public kiintrkmekssiknrNo: string = ''; // 会員登録前決済管理番号
-    public mlmgkbFlg: string = ''; // 
-    public kiintrkdvcTyp: string = ''; // 会員登録デバイス区分
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+export default class RegisterMemberTemporaryIn extends BaseIn {
+    public nckNm: string; // ニックネーム
+    public kiinsiNm: string; // 会員姓名称
+    public kiimmiNm: string; // 会員名名称
+    public kiinsiKnnm: string; // 会員姓カナ名称
+    public kiimmiKnnm: string; // 会員名カナ名称
+    public sibtsTyp: string; // 性別区分
+    public kiinsiYmd: string; // 会員生年月日(1999/01/01形式)
+    public kiinybnNo: string; // 会員郵便番号(123-5678形式)
+    public tdfknCd: string; // 都道府県コード
+    public kiinshkchsnAddr: string; // 会員市区町村住所
+    public kiimbnchAddr: string; // 会員番地住所
+    public kiinttmnAddr: string; // 会員建物住所
+    public kiinjshiDo: string; // 会員住所緯度
+    public kiinjshkiDo: string; // 会員住所経度
+    public kiinshgikykNo: string; // 会員市外局番号
+    public kiinshnikykNo: string; // 会員市内局番号
+    public kiinknyshNo: string; // 会員加入者番号
+    public kiinMladdr: string; // 会員メールアドレス
+    public kiinmladdrssdvcTyp: string; // 会員メールアドレスデバイス区分
+    public kiinsbMladdr: string; // 会員サブメールアドレス
+    public kiinsbmladdrssdvcTyp: string; // 会員サブメールアドレスデバイス区分
+    public kiinPwd: string; // 会員パスワード
+    public kiintrkmekssiknrNo: string; // 会員登録前決済管理番号
+    public mlmgkbFlg: string; // 
+    public kiintrkdvcTyp: string; // 会員登録デバイス区分
 
     public toXml(): string {
         let message = `

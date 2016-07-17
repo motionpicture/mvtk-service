@@ -1,46 +1,38 @@
-export default class GetGmoEntryTranIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class GetGmoEntryTranIn extends BaseIn {
     /**
      * 決済管理番号
      */
-    public KSSIKNR_NO: string = '';
+    public KSSIKNR_NO: string;
     /**
      * 決済方法区分
      */
-    public KSSIHH_TYP: string = '';
+    public KSSIHH_TYP: string;
     /**
      * ご利用金額
      */
-    public GRYKNGK: string = '';
+    public GRYKNGK: string;
     /**
      * 購入者コード
      */
-    public KNYSH_CD: string = '';
+    public KNYSH_CD: string;
     /**
      * 会員フラグ
      */
-    public KIIN_FLG: string = '0';
+    public KIIN_FLG: string;
     /**
      * 併用決済フラグ
      */
-    public HIYKSSI_FLG: string = '0';
+    public HIYKSSI_FLG: string;
     /**
      * 併用決済区分
      */
-    public HIYKSSI_TYP: string = '';
+    public HIYKSSI_TYP: string;
     /**
      * 作品コード
      */
-    public SKHN_CD: string = '';
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public SKHN_CD: string;
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意

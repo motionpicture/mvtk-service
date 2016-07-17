@@ -1,4 +1,6 @@
-export default class MvtkGiftCardEntryIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class MvtkGiftCardEntryIn extends BaseIn {
     /**
      * ギフトカードID情報
      */
@@ -21,21 +23,11 @@ export default class MvtkGiftCardEntryIn {
              */
             RYUKNGK: string;
         }>;
-    } = null;
+    };
     /**
      * ご利用金額
      */
-    public DVC_TYP: string = '';
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public DVC_TYP: string;
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意

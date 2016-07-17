@@ -140,7 +140,7 @@ export default class PurchaseService extends Service {
     {
         let method = 'GetGmoExecTran';
 
-        let args = GetGmoExecTranIn.create(params);
+        let args = new GetGmoExecTranIn(params);
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
@@ -192,7 +192,7 @@ export default class PurchaseService extends Service {
     public registerIchjknr(params: Object, cb: (err, response, isSuccess: boolean) => any) {
         let method = 'RegisterIchjknr';
 
-        let args = RegisterIchjknrInfoIn.create(params);
+        let args = new RegisterIchjknrInfoIn(params);
 
         let message = args.toXml();
 
@@ -338,7 +338,7 @@ export default class PurchaseService extends Service {
     public gMOCancel(params: Object, cb: (err, response, isSuccess: boolean) => any) {
         let method = 'GMOCancel';
 
-        let args = GMOCancelIn.create(params);
+        let args = new GMOCancelIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
@@ -361,7 +361,7 @@ export default class PurchaseService extends Service {
     public getQuestionnaireList(params: Object, cb: (err, response, getQuestionnaireListResult: GetQuestionnaireListResult) => any) {
         let method = 'GetQuestionnaireList';
 
-        let args = GetQuestionnaireListIn.create(params);
+        let args = new GetQuestionnaireListIn(params);
 
         let getQuestionnaireListResult: GetQuestionnaireListResult;
 
@@ -384,7 +384,7 @@ export default class PurchaseService extends Service {
     public registerQuestionnaire(params: Object, cb: (err, response, isSuccess: boolean) => any) {
         let method = 'RegisterQuestionnaire';
 
-        let args = RegisterQuestionnaireIn.create(params);
+        let args = new RegisterQuestionnaireIn(params);
 
         let message = args.toXml();
         let isSuccess = false;

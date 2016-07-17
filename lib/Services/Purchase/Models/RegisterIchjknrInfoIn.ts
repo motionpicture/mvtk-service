@@ -1,40 +1,32 @@
-export default class RegisterIchjknrInfoIn {
-    public ACCESS_ID: string = ''; // 取引ID
-    public ACCESS_PWD: string = ''; // 取引パスワード
-    public TKN_ID: string = ''; // トークンID
-    public KSSIKNR_NO: string = ''; // 決済管理番号
-    public HYJCRD_NO: string = ''; // 表示カード番号
-    public CRDMIGNN_NM: string = ''; // カード名義人名称
-    public CRDJHHJ_FLG: string = ''; // カード情報保持フラグ
-    public KNYSH_CD: string = ''; // 購入者コード
-    public KIIN_FLG: string = ''; // 会員フラグ
-    public KNYSHSI_NM: string = ''; // 購入者姓名称
-    public KNYSHMI_NM: string = ''; // 購入者名名称
-    public KNYSHSI_KNNM: string = ''; // 購入者姓カナ名称
-    public KNYSHMI_KNNM: string = ''; // 購入者名カナ名称
-    public KNYSHPC_MLADDR: string = ''; // 購入者PCメールアドレス
-    public KNYSHKITI_MLADDR: string = ''; // 購入者携帯メールアドレス
-    public KNYSHSHGIKYK_NO: string = ''; // 購入者市外局番号
-    public KNYSHSHNIKYK_NO: string = ''; // 購入者市内局番号
-    public KNYSHKNYSH_NO: string = ''; // 購入者加入者番号
-    public MLSF_FLG: string = ''; // メール送付フラグ
-    public SKHN_CD: string = ''; // 作品コード
-    public KNSHKNKNR_NO: string = ''; // 鑑賞券管理番号
-    public AZKRKNSHHRITMNG_TYP: string = ''; // 預り金支払タイミング区分
-    public AZKRKNSHHRISK_TYP: string = ''; // 預り金支払先区分
-    public THREDMGNDIKN_UNIP: string = ''; // 3Dメガネ代金単価
-    public HMBIJTHREDMGNDIKNSHHRISK_TYP: string = ''; // 販売時3Dメガネ代金支払先区分
-    public TICKETICHJKNR_LIST: ArrayOfTicketichjknrList = null; // チケット一時管理リスト
+import BaseIn from '../../../common/models/BaseIn';
 
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+export default class RegisterIchjknrInfoIn extends BaseIn {
+    public ACCESS_ID: string; // 取引ID
+    public ACCESS_PWD: string; // 取引パスワード
+    public TKN_ID: string; // トークンID
+    public KSSIKNR_NO: string; // 決済管理番号
+    public HYJCRD_NO: string; // 表示カード番号
+    public CRDMIGNN_NM: string; // カード名義人名称
+    public CRDJHHJ_FLG: string; // カード情報保持フラグ
+    public KNYSH_CD: string; // 購入者コード
+    public KIIN_FLG: string; // 会員フラグ
+    public KNYSHSI_NM: string; // 購入者姓名称
+    public KNYSHMI_NM: string; // 購入者名名称
+    public KNYSHSI_KNNM: string; // 購入者姓カナ名称
+    public KNYSHMI_KNNM: string; // 購入者名カナ名称
+    public KNYSHPC_MLADDR: string; // 購入者PCメールアドレス
+    public KNYSHKITI_MLADDR: string; // 購入者携帯メールアドレス
+    public KNYSHSHGIKYK_NO: string; // 購入者市外局番号
+    public KNYSHSHNIKYK_NO: string; // 購入者市内局番号
+    public KNYSHKNYSH_NO: string; // 購入者加入者番号
+    public MLSF_FLG: string; // メール送付フラグ
+    public SKHN_CD: string; // 作品コード
+    public KNSHKNKNR_NO: string; // 鑑賞券管理番号
+    public AZKRKNSHHRITMNG_TYP: string; // 預り金支払タイミング区分
+    public AZKRKNSHHRISK_TYP: string; // 預り金支払先区分
+    public THREDMGNDIKN_UNIP: string; // 3Dメガネ代金単価
+    public HMBIJTHREDMGNDIKNSHHRISK_TYP: string; // 販売時3Dメガネ代金支払先区分
+    public TICKETICHJKNR_LIST: ArrayOfTicketichjknrList; // チケット一時管理リスト
 
     public toXml(): string {
         let message = `

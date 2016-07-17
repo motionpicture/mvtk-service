@@ -11,7 +11,7 @@ export default class MailService extends Service {
     public delivery(params: Object, cb: (err, response, isSuccess: boolean) => any) {
         let method = 'Delivery';
 
-        let args = DeliveryIn.create(params);
+        let args = new DeliveryIn(params);
 
         let message = args.toXml();
 

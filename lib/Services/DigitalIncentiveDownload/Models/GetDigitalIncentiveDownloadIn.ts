@@ -1,24 +1,16 @@
-export default class GetDigitalIncentiveDownloadIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class GetDigitalIncentiveDownloadIn extends BaseIn {
     /**
      * 購入管理番号
      */
-    public knyknrNo: string = '';
+    public knyknrNo: string;
     /**
      * デジタルインセンティブコード
      */
-    public dgtlincntvCd: string = '';
+    public dgtlincntvCd: string;
     /**
      * デジタルインセンティブ枝番号
      */
-    public dgtlincntvedNo: string = '';
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+    public dgtlincntvedNo: string;
 }

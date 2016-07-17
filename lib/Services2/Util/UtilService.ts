@@ -11,7 +11,7 @@ export default class UtilService extends Service {
     public createQrCode(params: Object, cb: (err, response, qrcdUrl: string) => any) {
         let method = 'CreateQrCode';
 
-        let args = CreateQrCodeIn.create(params);
+        let args = new CreateQrCodeIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);

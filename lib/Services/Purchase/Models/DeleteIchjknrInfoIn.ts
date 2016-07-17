@@ -1,15 +1,7 @@
-export default class DeleteIchjknrInfoIn {
-    public accessIdList: Array<string>; // 取引ＩＤリスト
+import BaseIn from '../../../common/models/BaseIn';
 
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
+export default class DeleteIchjknrInfoIn extends BaseIn {
+    public accessIdList: Array<string> = null; // 取引ＩＤリスト
 
     public toXml(): string {
         let message = `

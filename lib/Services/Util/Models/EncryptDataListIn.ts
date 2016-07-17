@@ -1,18 +1,10 @@
-export default class EncryptDataListIn {
+import BaseIn from '../../../common/models/BaseIn';
+
+export default class EncryptDataListIn extends BaseIn {
     /**
      * 暗号化文字列リスト
      */
     public list: Array<string>;
-
-    public static create(propertyValues: Object) {
-        let instance = new this();
-
-        for (let property in propertyValues) {
-            instance[property] = propertyValues[property];
-        }
-
-        return instance;
-    }
 
     public toXml(): string {
         let message = `

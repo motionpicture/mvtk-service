@@ -177,7 +177,7 @@ export default class MemberInfoService extends Service {
     public editMemberInfo(params: Object, cb: (err, response, isSuccess: boolean) => any): void {
         let method = 'EditMemberInfo';
 
-        let args = EditMemberInfoIn.create(params);
+        let args = new EditMemberInfoIn(params);
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);

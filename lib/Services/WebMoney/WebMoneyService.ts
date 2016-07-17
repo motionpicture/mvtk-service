@@ -13,7 +13,7 @@ export default class WebMoneyService extends Service {
     public webMoneyEntry(params: Object, cb: (err, response, webMoneyEntryResult: WebMoneyEntryResult) => any) {
         let method = 'WebMoneyEntry';
 
-        let args = WebMoneyEntryIn.create(params);
+        let args = new WebMoneyEntryIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
