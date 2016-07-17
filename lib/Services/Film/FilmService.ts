@@ -13,7 +13,7 @@ export default class FilmService extends Service {
     * @param {string} skhnCd 作品コード
     * @param {string} dvcTyp デバイス区分
     */
-    public getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err, response, result: FilmResult) => any): void {
+    public getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err, response, result: FilmResult) => void ): void {
         let method = 'GetFilmDetail';
 
         let args = {
@@ -39,7 +39,7 @@ export default class FilmService extends Service {
      *
      * @param {string} dvcTyp
      */
-    public getFilmTopPage(dvcTyp: string, cb: (err, response, result: Array<FilmResult>) => any): void {
+    public getFilmTopPage(dvcTyp: string, cb: (err, response, result: Array<FilmResult>) => void ): void {
         let method = 'GetFilmTopPage';
 
         let args = {
@@ -72,7 +72,7 @@ export default class FilmService extends Service {
      *
      * @param {string} skhnCd 作品コード
      */
-    public getTicketInfoList(skhnCd: string, cb: (err, response, result: Array<TicketInfoResult>) => any): void {
+    public getTicketInfoList(skhnCd: string, cb: (err, response, result: Array<TicketInfoResult>) => void ): void {
         let method = 'GetTicketInfoList';
 
         let args = {
@@ -106,7 +106,7 @@ export default class FilmService extends Service {
      * @param {string} skhnCd 作品コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getBannerList(skhnCd: string, dvcTyp: string, cb: (err, response, bnnrInfoResults: Array<BnnrInfoResult>) => any): void {
+    public getBannerList(skhnCd: string, dvcTyp: string, cb: (err, response, bnnrInfoResults: Array<BnnrInfoResult>) => void ): void {
         let method = 'GetBannerList';
 
         let args = {
@@ -146,7 +146,7 @@ export default class FilmService extends Service {
      * @param {string} skhnCd 作品コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getTrailerDetail(skhnCd, dvcTyp, cb: (err, response, getTrailerDetailResult: GetTrailerDetailResult) => any): void {
+    public getTrailerDetail(skhnCd, dvcTyp, cb: (err, response, getTrailerDetailResult: GetTrailerDetailResult) => void ): void {
         let method = 'GetTrailerDetail';
 
         let args = {
@@ -173,7 +173,7 @@ export default class FilmService extends Service {
      * @param {string} skhnCd 作品コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getDigitalIncentiveList(skhnCd: string, dvcTyp: string, cb: (err, response, dgtlincntvInfoResults: Array<DgtlincntvInfoResult>) => any): void {
+    public getDigitalIncentiveList(skhnCd: string, dvcTyp: string, cb: (err, response, dgtlincntvInfoResults: Array<DgtlincntvInfoResult>) => void ): void {
         let method = 'GetDigitalIncentiveList';
 
         let args = {

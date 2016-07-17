@@ -13,7 +13,7 @@ export default class MovieLogService extends Service {
      * @param {number} shtkNum 取得件数
      * @param {string} dvcTyp  デバイス区分
      */
-    public getFavoriteFilmList(kiinCd, rcdNum, shtkNum, dvcTyp, cb: (err, response, getFavoriteFilmListResult: GetFavoriteFilmListResult) => any) {
+    public getFavoriteFilmList(kiinCd, rcdNum, shtkNum, dvcTyp, cb: (err, response, getFavoriteFilmListResult: GetFavoriteFilmListResult) => void): void {
         let method = 'GetFavoriteFilmList';
 
         let args = {
@@ -42,7 +42,7 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getUnusedTicketList(kiinCd, dvcTyp, cb: (err, response, getUnusedTicketListResult: GetUnusedTicketListResult) => any) {
+    public getUnusedTicketList(kiinCd, dvcTyp, cb: (err, response, getUnusedTicketListResult: GetUnusedTicketListResult) => void): void {
         let method = 'GetUnusedTicketList';
 
         let args = {
@@ -69,7 +69,7 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getSeatReservedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => any) {
+    public getSeatReservedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void): void {
         let method = 'GetSeatReservedTicketList';
 
         let args = {
@@ -99,7 +99,7 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getWatchedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => any) {
+    public getWatchedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void): void {
         let method = 'GetWatchedTicketList';
 
         let args = {
@@ -129,7 +129,7 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getGiftTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => any) {
+    public getGiftTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void): void {
         let method = 'GetGiftTicketList';
 
         let args = {
@@ -159,7 +159,7 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getExpiredTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => any) {
+    public getExpiredTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void): void {
         let method = 'GetExpiredTicketList';
 
         let args = {
@@ -188,7 +188,7 @@ export default class MovieLogService extends Service {
      *
      * @param {string} skhnCd 作品コード
      */
-    public registerFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => any) {
+    public registerFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'RegisterFavoriteFilm';
 
         let args = {
@@ -215,7 +215,7 @@ export default class MovieLogService extends Service {
      *
      * @param {string} skhnCd 作品コード
      */
-    public deleteFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => any) {
+    public deleteFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'DeleteFavoriteFilm';
 
         let args = {
@@ -311,7 +311,7 @@ export default class MovieLogService extends Service {
      *
      * @param {string} knyknrNo 購入管理番号
      */
-    public createQrCodeInMovieLog(knyknrNo, cb: (err, response, qrcdUrl: string) => any) {
+    public createQrCodeInMovieLog(knyknrNo, cb: (err, response, qrcdUrl: string) => void): void {
         let method = 'CreateQrCodeInMovieLog';
 
         let args = {

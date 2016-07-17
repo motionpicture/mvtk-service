@@ -10,7 +10,7 @@ export default class WebMoneyService extends Service {
      *
      * @param {WebMoneyEntryIn} webMoneyEntryIn
      */
-    public webMoneyEntry(params: Object, cb: (err, response, webMoneyEntryResult: WebMoneyEntryResult) => any) {
+    public webMoneyEntry(params: Object, cb: (err, response, webMoneyEntryResult: WebMoneyEntryResult) => void): void {
         let method = 'WebMoneyEntry';
 
         let args = new WebMoneyEntryIn(params);
@@ -33,7 +33,7 @@ export default class WebMoneyService extends Service {
      *
      * @param {string} encryptedKssiInfo
      */
-    public decryptWebMoneyKssiInfo(encryptedKssiInfo, cb: (err, response, decryptWebMoneyKssiInfoResult: DecryptWebMoneyKssiInfoResult) => any) {
+    public decryptWebMoneyKssiInfo(encryptedKssiInfo, cb: (err, response, decryptWebMoneyKssiInfoResult: DecryptWebMoneyKssiInfoResult) => void): void {
         let method = 'DecryptWebMoneyKssiInfo';
 
         let args = {

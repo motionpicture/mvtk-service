@@ -8,7 +8,7 @@ export default class UtilService extends Service {
      *
      * @param {CreateQrCodeIn} args
      */
-    public createQrCode(params: Object, cb: (err, response, qrcdUrl: string) => any) {
+    public createQrCode(params: Object, cb: (err, response, qrcdUrl: string) => void): void {
         let method = 'CreateQrCode';
 
         let args = new CreateQrCodeIn(params);

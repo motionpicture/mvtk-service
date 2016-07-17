@@ -11,7 +11,7 @@ export default class GiftCardService extends Service {
      * 
      * @param {GiftCardIDAuthIn} args
      */
-    public giftCardIDAuth(params: Object, cb: (err, response, giftCardIDAuthResults: Array<GiftCardIDAuthResult>) => any) {
+    public giftCardIDAuth(params: Object, cb: (err, response, giftCardIDAuthResults: Array<GiftCardIDAuthResult>) => void): void {
         let method = 'GiftCardIDAuth';
 
         let args = new GiftCardIDAuthIn(params);
@@ -40,7 +40,7 @@ export default class GiftCardService extends Service {
      * 
      * @param {Array<GiftCardCancelIn>} args
      */
-    public giftCardCancel(params: Object, cb: (err, response, giftCardCancelResults: Array<GiftCardCancelResult>) => any) {
+    public giftCardCancel(params: Object, cb: (err, response, giftCardCancelResults: Array<GiftCardCancelResult>) => void): void {
         let method = 'GiftCardCancel';
 
         let args = new GiftCardCancelIn(params);

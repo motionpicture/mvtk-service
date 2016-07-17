@@ -8,7 +8,7 @@ export default class MailService extends Service {
      *
      * @param {DeliveryIn} args
      */
-    public delivery(params: Object, cb: (err, response, isSuccess: boolean) => any) {
+    public delivery(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'Delivery';
 
         let args = new DeliveryIn(params);

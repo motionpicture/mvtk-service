@@ -76,11 +76,9 @@ class ServicesBuilder
      * @param {string} endpoint
      * @param {string} endpoint2
      */
-    public initialize(endpoint: string, endpoint2: string, cb: () => any): void {
+    public initialize(endpoint: string, endpoint2: string): void {
         this.endpoint = endpoint;
         this.endpoint2 = endpoint2;
-
-        cb();
     }
 
     public getCookie() {

@@ -8,7 +8,7 @@ export default class RegisterMemberService extends Service {
      *
      * @param {RegisterMemberTemporaryIn} registerMemberTemporaryIn
      */
-    public registerMemberTemporary(registerMemberTemporaryIn: RegisterMemberTemporaryIn, cb: (err, resonse, kiinCd: string) => any): void {
+    public registerMemberTemporary(registerMemberTemporaryIn: RegisterMemberTemporaryIn, cb: (err, resonse, kiinCd: string) => void ): void {
         let method = 'RegisterMemberTemporary';
 
         this.call(method, registerMemberTemporaryIn.toXml(), (err, response, result) => {
@@ -29,7 +29,7 @@ export default class RegisterMemberService extends Service {
      *
      * @param {string} kiinCd 会員コード
      */
-    public sendMemberTemporaryCompletionMail(kiinCd: string, cb: (err, response, isSuccess: boolean) => any) {
+    public sendMemberTemporaryCompletionMail(kiinCd: string, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'SendMemberTemporaryCompletionMail';
 
         let args = {
@@ -55,7 +55,7 @@ export default class RegisterMemberService extends Service {
      * @param {string} hmbntrkyUrl   本登録用パラメータ（本登録URLの末尾に付与されている）
      * @param {string} kiintrkdvcTyp 会員登録デバイス区分
      */
-    public registerMemberProperly(hmbntrkyUrl: string, kiintrkdvcTyp: string, cb: (err, response, kiinCd: string) => any) {
+    public registerMemberProperly(hmbntrkyUrl: string, kiintrkdvcTyp: string, cb: (err, response, kiinCd: string) => void): void {
         let method = 'RegisterMemberProperly';
 
         let args = {

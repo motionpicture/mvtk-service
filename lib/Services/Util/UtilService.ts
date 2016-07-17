@@ -91,7 +91,7 @@ export default class UtilService extends Service {
      *
      * @param {string} kiinCd ムビチケ会員コード
      */
-    public signIn(kiinCd: string, cb: (err, response, cookieString: string) => any): void {
+    public signIn(kiinCd: string, cb: (err, response, cookieString: string) => void ): void {
         let method = 'SignIn';
 
         let args = {
@@ -117,7 +117,7 @@ export default class UtilService extends Service {
      *
      * API側のセッション情報を破棄
      */
-    public signOut(cb: (err, response, isSuccess: boolean) => any): void {
+    public signOut(cb: (err, response, isSuccess: boolean) => void ): void {
         let method = 'SignOut';
 
         let args = {
@@ -142,7 +142,7 @@ export default class UtilService extends Service {
      * @param {string}  knyknrNo 購入管理番号
      * @param {string}  pinCd    PINコード（購入者電話番号下４桁）
      */
-    public createQrCode(knyknrNo, pinCd, cb: (err, response, qrcdUrl: string) => any) {
+    public createQrCode(knyknrNo, pinCd, cb: (err, response, qrcdUrl: string) => void): void {
         let method = 'CreateQrCode';
 
         let args = {
@@ -197,7 +197,7 @@ export default class UtilService extends Service {
      *
      * @param {Object} values
      */
-    public encryptDataList(params: Object, cb: (err, response, encryptedStrings: Array<string>) => any): void {
+    public encryptDataList(params: Object, cb: (err, response, encryptedStrings: Array<string>) => void ): void {
         let method = 'EncryptDataList';
 
         let args = new EncryptDataListIn(params);
@@ -222,7 +222,7 @@ export default class UtilService extends Service {
      * @param {string} typ 区分
      * @param {string} blnkarFlg ブランク有フラグ
      */
-    public getCodeName(kmkTyp: string, typ: string, blnkarFlg: string, cb: (err, response, getCodeNameResult: GetCodeNameResult) => any): void {
+    public getCodeName(kmkTyp: string, typ: string, blnkarFlg: string, cb: (err, response, getCodeNameResult: GetCodeNameResult) => void ): void {
         let method = 'GetCodeName';
 
         let args = {

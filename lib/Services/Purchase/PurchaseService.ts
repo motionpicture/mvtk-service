@@ -20,7 +20,7 @@ export default class PurchaseService extends Service {
      *
      * @param {string} skhnCd 作品コード
      */
-    public isPurchaseDatetime(skhnCd: string, cb: (err, responnes, isOnSalse: boolean) => any) {
+    public isPurchaseDatetime(skhnCd: string, cb: (err, responnes, isOnSalse: boolean) => void): void {
         let method = 'IsPurchaseDatetime';
 
         let args = {
@@ -46,7 +46,7 @@ export default class PurchaseService extends Service {
      *
      * @param {string} kiinCd
      */
-    public getGmoSearchCard(kiinCd: string, cb: (err, response, creditCardInfoResult: CreditCardInfoResult) => any) {
+    public getGmoSearchCard(kiinCd: string, cb: (err, response, creditCardInfoResult: CreditCardInfoResult) => void): void {
         let method = 'GetGmoSearchCard';
 
         let args = {
@@ -78,7 +78,7 @@ export default class PurchaseService extends Service {
      * @param {string} skhnCd
      * @param {string} dvcTyp
      */
-    public getTicketTypeList(skhnCd, dvcTyp, cb: (err, response, result: TicketInfoResult) => any) {
+    public getTicketTypeList(skhnCd, dvcTyp, cb: (err, response, result: TicketInfoResult) => void): void {
         let method = 'GetTicketTypeList';
 
         let args = {
@@ -107,7 +107,7 @@ export default class PurchaseService extends Service {
      *
      * @return string 決済管理番号
      */
-    public saibanKssiknrNo(cb: (err, response, kssiknrNo: string) => any) {
+    public saibanKssiknrNo(cb: (err, response, kssiknrNo: string) => void): void {
         let method = 'SaibanKssiknrNo';
 
         let args = {
@@ -162,7 +162,7 @@ export default class PurchaseService extends Service {
      * @param {string} kiinCd          会員コード
      * @param {string} mignn  クレジットカード名義人
      */
-    public getGmoSaveCard(kssiknrNo, kiinCd, mignn, cb: (err, response, isSuccess: boolean) => any) {
+    public getGmoSaveCard(kssiknrNo, kiinCd, mignn, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'GetGmoSaveCard';
 
         let args = {
@@ -189,7 +189,7 @@ export default class PurchaseService extends Service {
      *
      * @param {RegisterIchjknrInfoIn} args
      */
-    public registerIchjknr(params: Object, cb: (err, response, isSuccess: boolean) => any) {
+    public registerIchjknr(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'RegisterIchjknr';
 
         let args = new RegisterIchjknrInfoIn(params);
@@ -215,7 +215,7 @@ export default class PurchaseService extends Service {
      * @param {string} kssihhTyp    決済方法区分
      * @param {string} accessIdOrkssiknrNo 決済管理番号or取引ID。クレジットカード決済の場合のみ、取引ID
      */
-    public selectIchjknr(kssihhTyp, accessIdOrkssiknrNo, cb: (err, response, selectIchjknrInfoResults: Array<SelectIchjknrInfoResult>) => any) {
+    public selectIchjknr(kssihhTyp, accessIdOrkssiknrNo, cb: (err, response, selectIchjknrInfoResults: Array<SelectIchjknrInfoResult>) => void): void {
         let method = 'SelectIchjknr';
 
         let args = {
@@ -248,7 +248,7 @@ export default class PurchaseService extends Service {
      *
      * @param {Array<string>} accessIds
      */
-    public deleteIchjknr(accessIds: Array<string>, cb: (err, response, isSuccess: boolean) => any) {
+    public deleteIchjknr(accessIds: Array<string>, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'DeleteIchjknr';
 
         let deleteIchjknrInfoIn = new DeleteIchjknrInfoIn();
@@ -274,7 +274,7 @@ export default class PurchaseService extends Service {
      *
      * @param {string} knshknknrNo 鑑賞券管理番号
      */
-    public getTsuryShhziInfo(knshknknrNo, cb: (err, response, getTsuryShhziInfoResults: Array<GetTsuryShhziInfoResult>) => any) {
+    public getTsuryShhziInfo(knshknknrNo, cb: (err, response, getTsuryShhziInfoResults: Array<GetTsuryShhziInfoResult>) => void): void {
         let method = 'GetTsuryShhziInfo';
 
         let args = {
@@ -310,7 +310,7 @@ export default class PurchaseService extends Service {
      *
      * @param {string} knshknknrNo 鑑賞券管理番号
      */
-    public getShhriInfoByKey(knshknknrNo, cb: (err, respones, getShhriInfoByKeyResult: GetShhriInfoByKeyResult) => any) {
+    public getShhriInfoByKey(knshknknrNo, cb: (err, respones, getShhriInfoByKeyResult: GetShhriInfoByKeyResult) => void): void {
         let method = 'GetShhriInfoByKey';
 
         let args = {
@@ -335,7 +335,7 @@ export default class PurchaseService extends Service {
      *
      * @param {GMOCancelIn} args
      */
-    public gMOCancel(params: Object, cb: (err, response, isSuccess: boolean) => any) {
+    public gMOCancel(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'GMOCancel';
 
         let args = new GMOCancelIn(params);
@@ -358,7 +358,7 @@ export default class PurchaseService extends Service {
      *
      * @param {GetQuestionnaireListIn} args
      */
-    public getQuestionnaireList(params: Object, cb: (err, response, getQuestionnaireListResult: GetQuestionnaireListResult) => any) {
+    public getQuestionnaireList(params: Object, cb: (err, response, getQuestionnaireListResult: GetQuestionnaireListResult) => void): void {
         let method = 'GetQuestionnaireList';
 
         let args = new GetQuestionnaireListIn(params);
@@ -381,7 +381,7 @@ export default class PurchaseService extends Service {
      *
      * @param {RegisterQuestionnaireIn} args
      */
-    public registerQuestionnaire(params: Object, cb: (err, response, isSuccess: boolean) => any) {
+    public registerQuestionnaire(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
         let method = 'RegisterQuestionnaire';
 
         let args = new RegisterQuestionnaireIn(params);

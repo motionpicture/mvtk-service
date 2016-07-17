@@ -11,7 +11,7 @@ export default class DigitalIncentiveDownloadService extends Service {
     *
     * @param {GetDigitalIncentiveDownloadIn} args
     */
-    public getDigitalIncentiveDownload(params: Object, cb: (err, response, getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult) => any): void {
+    public getDigitalIncentiveDownload(params: Object, cb: (err, response, getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult) => void ): void {
         let method = 'GetDigitalIncentiveDownload';
 
         let args = new GetDigitalIncentiveDownloadIn(params);
@@ -34,7 +34,7 @@ export default class DigitalIncentiveDownloadService extends Service {
      *
      * @param {GetDigitalIncentiveDownloadLinkListIn} args
      */
-    public getDigitalIncentiveDownloadLinkList(params: Object, cb: (err, response, getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult) => any): void {
+    public getDigitalIncentiveDownloadLinkList(params: Object, cb: (err, response, getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult) => void ): void {
         let method = 'GetDigitalIncentiveDownloadLinkList';
 
         let args = new GetDigitalIncentiveDownloadLinkListIn(params);

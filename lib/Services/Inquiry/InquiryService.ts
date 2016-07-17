@@ -8,7 +8,7 @@ export default class InquiryService extends Service {
      *
      * @param {SendInquiryMailIn} sendInquiryMailIn
      */
-    public sendInquiryMail(params: Object, cb: (err, resonse, isSuccess: boolean) => any): void {
+    public sendInquiryMail(params: Object, cb: (err, resonse, isSuccess: boolean) => void ): void {
         let method = 'SendInquiryMail';
 
         let args = new SendInquiryMailIn(params);

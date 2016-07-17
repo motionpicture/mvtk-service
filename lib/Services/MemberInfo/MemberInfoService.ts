@@ -10,7 +10,7 @@ export default class MemberInfoService extends Service {
      * @param {string} kiinMladdr
      * @param {string} kiinPwd
      */
-    public getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err, resonse, kiinCd: string) => any): void {
+    public getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err, resonse, kiinCd: string) => void ): void {
         let method = 'GetMemberAuthorization';
 
         let args = {
@@ -36,7 +36,7 @@ export default class MemberInfoService extends Service {
      *
      * APIにてセッションに保存されている会員情報が取得される。
      */
-    public getMemberInfoDetail(cb: (err, response, memberInfoResult: MemberInfoResult) => any): void {
+    public getMemberInfoDetail(cb: (err, response, memberInfoResult: MemberInfoResult) => void ): void {
         let method = 'GetMemberInfoDetail';
 
         let args = {
@@ -63,7 +63,7 @@ export default class MemberInfoService extends Service {
      * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
      * @param {string} kiingnzipwdhssFlg 会員新パスワード
      */
-    public editPassword(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => any): void {
+    public editPassword(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => void ): void {
         let method = 'EditPassword';
 
         let args = {
@@ -94,7 +94,7 @@ export default class MemberInfoService extends Service {
      * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
      * @param {string} kiingnzipwdhssFlg 会員新パスワード
      */
-    public editPasswordSvc(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => any): void {
+    public editPasswordSvc(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => void ): void {
         let method = 'EditPasswordSvc';
 
         let args = {
@@ -122,7 +122,7 @@ export default class MemberInfoService extends Service {
      *
      * @param {string} kiinMladdr 会員メールアドレス
      */
-    public sendPasswordResetRequestMail(kiinMladdr, cb: (err, response, isSuccess: boolean) => any): void {
+    public sendPasswordResetRequestMail(kiinMladdr, cb: (err, response, isSuccess: boolean) => void ): void {
         let method = 'SendPasswordResetRequestMail';
 
         let args = {
@@ -148,7 +148,7 @@ export default class MemberInfoService extends Service {
      * @param {string} psswrdhnkyUrl パスワード変更用ＵＲＬ
      * @param {string} dvcTyp        デバイス区分
      */
-    public getPasswordResetMemberAuthorization(psswrdhnkyUrl, dvcTyp, cb: (err, response, kiinCd: string) => any): void {
+    public getPasswordResetMemberAuthorization(psswrdhnkyUrl, dvcTyp, cb: (err, response, kiinCd: string) => void ): void {
         let method = 'GetPasswordResetMemberAuthorization';
 
         let args = {
@@ -174,7 +174,7 @@ export default class MemberInfoService extends Service {
      *
      * @param {EditMemberInfoIn} editMemberInfoIn
      */
-    public editMemberInfo(params: Object, cb: (err, response, isSuccess: boolean) => any): void {
+    public editMemberInfo(params: Object, cb: (err, response, isSuccess: boolean) => void ): void {
         let method = 'EditMemberInfo';
 
         let args = new EditMemberInfoIn(params);

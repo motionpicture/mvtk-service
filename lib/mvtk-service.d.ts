@@ -1,8 +1,17 @@
 declare module "@motionpicture/mvtk-service" {
+    import soap = require('soap');
+    
     module mvtkservice {
         module common {
             module util {
                 module util {
+                    /**
+                     * soapサービス実行結果のプロパティ名をaBcdEfgの形式に変換する
+                     * 
+                     * @param {strign} propertyName
+                     * @return {string}
+                     */
+                    export function normalizePropertyName(propertyName: string): string;
                 }
 
                 module constants {
@@ -78,20 +87,94 @@ declare module "@motionpicture/mvtk-service" {
                     export var MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: string;
                 }
             }
+
+            class Service {
+                constructor(wsdl: string);
+                setCookie(cookie): void;
+                /**
+                 * soapメソッドを呼び出す
+                 */
+                protected call(method: string, args: Object|string, cb: (err: Error, response: any, result: any, lastResponseHeaders: any) => void): void;
+                /**
+                 * sopaクライアントを生成する
+                 */
+                private createClient(cb: (err: Error, client: soap.Client) => void): void;
+            }
         }
 
         module services {
             module DigitalIncentiveDownload {
                 module models {
-                    export interface GetDigitalIncentiveDownloadIn {}
-                    export interface GetDigitalIncentiveDownloadResult {}
-                    export interface GetDigitalIncentiveDownloadLinkListIn {}
-                    export interface GetDigitalIncentiveDownloadLinkListResult {}
+                    export interface GetDigitalIncentiveDownloadIn {
+                        /** 購入管理番号 */
+                        knyknrNo: string;
+                        /** デジタルインセンティブコード */
+                        dgtlincntvCd: string;
+                        /** デジタルインセンティブ枝番号 */
+                        dgtlincntvedNo: string;
+                    }
+                    export interface GetDigitalIncentiveDownloadResult {
+                        /**  ダウンロードファイル名 */
+                        dwnlodflNm: string;
+                        /** ダウンロードファイルバイナリデータ */
+                        dwnlodflDt: string;
+                    }
+                    export interface GetDigitalIncentiveDownloadLinkListIn {
+                        /** デバイス区分 */
+                        dvcTyp: string;
+                        /** デジタルインセンティブダウンロード画面URL */
+                        dgtlincntvdwnlodgmnUrl: string;
+                        /** 購入管理番号 */
+                        knyknrNo?: string;
+                        /** ムビチケ暗証番号 */
+                        pinCd?: string;
+                    }
+                    export interface GetDigitalIncentiveDownloadLinkListResult {
+                        /** デバイス区分 */
+                        dvcTyp: string;
+                        /** 購入管理番号 */
+                        knyknrNo: string;
+                        /** デジタルインセンティブ情報（itemArray） */
+                        dgtlincntvInfo: Array<DgtlincntvInfo>
+
+                    }
+
+                    interface DgtlincntvInfo {
+                        /** デジタルインセンティブコード */
+                        DGTLINCNTV_CD: string;
+                        /** デジタルインセンティブタイトル */
+                        DGTLINCNTV_TTL: string;
+                        /** デジタルインセンティブ説明本文 */
+                        DGTLINCNTVSTSMI_TXT: string;
+                        /** サンプル画像URL */
+                        SMPLGZ_URL: string;
+                        /** デジタルインセンティブ購入開始年月日 */
+                        DGTLINCNTVKNYKISH_YMD: string;
+                        /** デジタルインセンティブ購入終了年月日 */
+                        DGTLINCNTVKNYSHRY_YMD: string;
+                        /** デジタルインセンティブダウンロード有効期間 */
+                        DGTLINCNTVDWNLODYK_TM: string;
+                        /** デジタルインセンティブダウンロード上限回数 */
+                        DGTLINCNTVDWNLODJGNKI_NUM: string;
+                        /** 作品デジタルインセンティブ備考 */
+                        SKHNDGTLINCNTV_RMK: string;
+                        /** ダウンロード回数 */
+                        DWNLODKI_NUM: string;
+                        /** デジタルインセンティブ詳細情報 （itemArray） */
+                        DGTLINCNTVSHSI_INFO: {
+                            DgtlincntvshsiInfo: Array<{
+                                /** デジタルインセンティブ枝番号 */
+                                DGTLINCNTVED_NO: string;
+                                /** デジタルインセンティブ詳細タイトル */
+                                DGTLINCNTVSHSI_TTL: string;
+                            }>
+                        };
+                    }
                 }
 
-                export class DigitalIncentiveDownloadService {
-                    getDigitalIncentiveDownload(params: models.GetDigitalIncentiveDownloadIn, cb: (err, response, getDigitalIncentiveDownloadResult: any) => any): void;
-                    getDigitalIncentiveDownloadLinkList(params: models.GetDigitalIncentiveDownloadLinkListIn, cb: (err, response, getDigitalIncentiveDownloadLinkListResult: any) => any): void;
+                export class DigitalIncentiveDownloadService extends common.Service {
+                    getDigitalIncentiveDownload(params: models.GetDigitalIncentiveDownloadIn, cb: (err, response, getDigitalIncentiveDownloadResult: models.GetDigitalIncentiveDownloadResult) => void): void;
+                    getDigitalIncentiveDownloadLinkList(params: models.GetDigitalIncentiveDownloadLinkListIn, cb: (err, response, getDigitalIncentiveDownloadLinkListResult: models.GetDigitalIncentiveDownloadLinkListResult) => void): void;
                 }
 
                 module DigitalIncentiveDownloadUtilities {
@@ -416,28 +499,28 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class FilmService {
+                export class FilmService extends common.Service {
                     /**
                     * 作品詳細情報照会
                     *
                     * @param {string} skhnCd 作品コード
                     * @param {string} dvcTyp デバイス区分
                     */
-                    getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err, response, result: any) => any): void;
+                    getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err, response, result: models.FilmResult) => void): void;
 
                     /**
                      * トップページ作品検索
                      *
                      * @param {string} dvcTyp
                      */
-                    getFilmTopPage(dvcTyp: string, cb: (err, response, result: Array<any>) => any): void;
+                    getFilmTopPage(dvcTyp: string, cb: (err, response, result: Array<models.FilmResult>) => void): void;
 
                     /**
                      * 鑑賞券情報検索
                      *
                      * @param {string} skhnCd 作品コード
                      */
-                    getTicketInfoList(skhnCd: string, cb: (err, response, result: Array<any>) => any): void;
+                    getTicketInfoList(skhnCd: string, cb: (err, response, result: Array<models.TicketInfoResult>) => void): void;
 
                     /**
                      * バナーリスト取得
@@ -445,7 +528,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} skhnCd 作品コード
                      * @param {string} dvcTyp デバイス区分
                      */
-                    getBannerList(skhnCd: string, dvcTyp: string, cb: (err, response, bnnrInfoResults: Array<any>) => any): void;
+                    getBannerList(skhnCd: string, dvcTyp: string, cb: (err, response, bnnrInfoResults: Array<models.BnnrInfoResult>) => void): void;
 
                     /**
                      * 予告編取得
@@ -453,7 +536,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} skhnCd 作品コード
                      * @param {string} dvcTyp デバイス区分
                      */
-                    getTrailerDetail(skhnCd, dvcTyp, cb: (err, response, getTrailerDetailResult: any) => any): void;
+                    getTrailerDetail(skhnCd, dvcTyp, cb: (err, response, getTrailerDetailResult: models.GetTrailerDetailResult) => void): void;
 
                     /**
                      * 特典取得
@@ -461,7 +544,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} skhnCd 作品コード
                      * @param {string} dvcTyp デバイス区分
                      */
-                    getDigitalIncentiveList(skhnCd: string, dvcTyp: string, cb: (err, response, dgtlincntvInfoResults: Array<any>) => any): void;
+                    getDigitalIncentiveList(skhnCd: string, dvcTyp: string, cb: (err, response, dgtlincntvInfoResults: Array<models.DgtlincntvInfoResult>) => void): void;
                 }
 
                 module FilmUtilities {
@@ -576,21 +659,21 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class GiftCardService {
+                export class GiftCardService extends common.Service {
                     /**
                      * ムビチケギフトカード残高確認
                      *
                      * @param {string} mvtkgftcrdId ギフトカードID
                      * @param {string} mvtkgftcrdpinCd ギフトカードPINコード
                      */
-                    mvtkGiftCardBalanceInquiry(mvtkgftcrdId: string, mvtkgftcrdpinCd: string, cb: (err, response, mvtkGiftCardBalanceInquiryResult: any) => any): void;
+                    mvtkGiftCardBalanceInquiry(mvtkgftcrdId: string, mvtkgftcrdpinCd: string, cb: (err, response, mvtkGiftCardBalanceInquiryResult: models.MvtkGiftCardBalanceInquiryResult) => void): void;
 
                     /**
                      * ギフトカード利用
                      *
                      * @param {MvtkGiftCardEntryIn} args
                      */
-                    mvtkGiftCardEntry(params: models.MvtkGiftCardEntryIn, cb: (err, response, mvtkGiftCardEntryResults: Array<any>) => any): void;
+                    mvtkGiftCardEntry(params: models.MvtkGiftCardEntryIn, cb: (err, response, mvtkGiftCardEntryResults: Array<models.MvtkGiftCardEntryResult>) => void): void;
                 }
 
             }
@@ -621,13 +704,13 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class InquiryService {
+                export class InquiryService extends common.Service {
                     /**
                      * 問合せメール送信
                      *
                      * @param {SendInquiryMailIn} sendInquiryMailIn
                      */
-                    sendInquiryMail(params: models.SendInquiryMailIn, cb: (err, resonse, isSuccess: boolean) => any): void;
+                    sendInquiryMail(params: models.SendInquiryMailIn, cb: (err, resonse, isSuccess: boolean) => void): void;
                 }
 
                 module InquiryUtilities {
@@ -742,21 +825,21 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class MemberInfoService {
+                export class MemberInfoService extends common.Service {
                     /**
                      * 会員認証
                      *
                      * @param {string} kiinMladdr
                      * @param {string} kiinPwd
                      */
-                    getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err, resonse, kiinCd: string) => any): void;
+                    getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err, resonse, kiinCd: string) => void): void;
 
                     /**
                      * 会員情報照会
                      *
                      * APIにてセッションに保存されている会員情報が取得される。
                      */
-                    getMemberInfoDetail(cb: (err, response, memberInfoResult: any) => any): void;
+                    getMemberInfoDetail(cb: (err, response, memberInfoResult: models.MemberInfoResult) => void): void;
 
                     /**
                      * パスワード変更
@@ -766,7 +849,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
                      * @param {string} kiingnzipwdhssFlg 会員新パスワード
                      */
-                    editPassword(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => any): void;
+                    editPassword(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * パスワード変更(svc)
@@ -776,14 +859,14 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
                      * @param {string} kiingnzipwdhssFlg 会員新パスワード
                      */
-                    editPasswordSvc(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => any): void;
+                    editPasswordSvc(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * パスワード再設定依頼メール送信
                      *
                      * @param {string} kiinMladdr 会員メールアドレス
                      */
-                    sendPasswordResetRequestMail(kiinMladdr, cb: (err, response, isSuccess: boolean) => any): void;
+                    sendPasswordResetRequestMail(kiinMladdr, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * パスワード再設定会員認証
@@ -791,14 +874,14 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} psswrdhnkyUrl パスワード変更用ＵＲＬ
                      * @param {string} dvcTyp        デバイス区分
                      */
-                    getPasswordResetMemberAuthorization(psswrdhnkyUrl, dvcTyp, cb: (err, response, kiinCd: string) => any): void;
+                    getPasswordResetMemberAuthorization(psswrdhnkyUrl, dvcTyp, cb: (err, response, kiinCd: string) => void): void;
 
                     /**
                      * 会員情報更新
                      *
                      * @param {EditMemberInfoIn} editMemberInfoIn
                      */
-                    editMemberInfo(params: models.EditMemberInfoIn, cb: (err, response, isSuccess: boolean) => any): void;
+                    editMemberInfo(params: models.EditMemberInfoIn, cb: (err, response, isSuccess: boolean) => void): void;
                 }
 
                 module MemberInfoUtilities {
@@ -860,6 +943,13 @@ declare module "@motionpicture/mvtk-service" {
                     }
 
                     export interface GetUnusedTicketListResult {
+                        /** 会員コード */
+                        kiinCd: string;
+                        /** 作品詳細情報(itemArray) */
+                        mshyticktInfo: Array<MshyticktInfo>;
+                    }
+
+                    interface MshyticktInfo {
                         /** 購入管理番号 */
                         knyknrNo: string;
                         /** 作品コード */
@@ -886,14 +976,14 @@ declare module "@motionpicture/mvtk-service" {
                         shknhikygishCd: string;
                     }
 
-                    interface KnshInfo {
-                        /** 券種区分名称 */
-                        KNSHKBN_NM: string;
-                        /** 購入枚数 */
-                        KNY_NUM: string;
+                    export interface ShyzmtcktInfoListResult {
+                        /** 会員コード */
+                        kiinCd: string;
+                        /** 作品詳細情報(itemArray) */
+                        shyzmtcktInfo: Array<ShyzmtcktInfo>;
                     }
 
-                    export interface ShyzmtcktInfoListResult {
+                    interface ShyzmtcktInfo {
                         /** ムビログ番号 */
                         mvilgNo: string;
                         /** 購入日時 */
@@ -919,9 +1009,16 @@ declare module "@motionpicture/mvtk-service" {
                         /** 購入チケットステータス区分 */
                         knytcktSttsKbn: string;
                     }
+
+                    interface KnshInfo {
+                        /** 券種区分名称 */
+                        KNSHKBN_NM: string;
+                        /** 購入枚数 */
+                        KNY_NUM: string;
+                    }
                 }
 
-                export class MovieLogService {
+                export class MovieLogService extends common.Service {
                     /**
                      * 観たい作品検索
                      *
@@ -930,7 +1027,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {number} shtkNum 取得件数
                      * @param {string} dvcTyp  デバイス区分
                      */
-                    getFavoriteFilmList(kiinCd, rcdNum, shtkNum, dvcTyp, cb: (err, response, getFavoriteFilmListResult: any) => any): void;
+                    getFavoriteFilmList(kiinCd, rcdNum, shtkNum, dvcTyp, cb: (err, response, getFavoriteFilmListResult: models.GetFavoriteFilmListResult) => void): void;
 
                     /**
                      * 未使用チケット検索
@@ -938,7 +1035,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kiinCd 会員コード
                      * @param {string} dvcTyp デバイス区分
                      */
-                    getUnusedTicketList(kiinCd, dvcTyp, cb: (err, response, getUnusedTicketListResult: any) => any): void;
+                    getUnusedTicketList(kiinCd, dvcTyp, cb: (err, response, getUnusedTicketListResult: models.GetUnusedTicketListResult) => void): void;
 
                     /**
                      * 座席予約済チケット検索
@@ -946,7 +1043,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kiinCd 会員コード
                      * @param {string} dvcTyp デバイス区分
                      */
-                    getSeatReservedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: any) => any): void;
+                    getSeatReservedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: models.ShyzmtcktInfoListResult) => void): void;
 
                     /**
                      * 鑑賞済チケット検索
@@ -954,7 +1051,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kiinCd 会員コード
                      * @param {string} dvcTyp デバイス区分
                      */
-                    getWatchedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: any) => any): void;
+                    getWatchedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: models.ShyzmtcktInfoListResult) => void): void;
 
                     /**
                      * ギフト贈呈済チケット検索
@@ -962,7 +1059,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kiinCd 会員コード
                      * @param {string} dvcTyp デバイス区分
                      */
-                    getGiftTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: any) => any): void;
+                    getGiftTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: models.ShyzmtcktInfoListResult) => void): void;
 
                     /**
                      * 有効期限切れチケット検索
@@ -970,21 +1067,21 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kiinCd 会員コード
                      * @param {string} dvcTyp デバイス区分
                      */
-                    getExpiredTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: any) => any): void;
+                    getExpiredTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: models.ShyzmtcktInfoListResult) => void): void;
 
                     /**
                      * 観たい作品登録
                      *
                      * @param {string} skhnCd 作品コード
                      */
-                    registerFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => any): void;
+                    registerFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * 観たい作品削除
                      *
                      * @param {string} skhnCd 作品コード
                      */
-                    deleteFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => any): void;
+                    deleteFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * 作品感想検索
@@ -1030,7 +1127,7 @@ declare module "@motionpicture/mvtk-service" {
                      *
                      * @param {string} knyknrNo 購入管理番号
                      */
-                    createQrCodeInMovieLog(knyknrNo, cb: (err, response, qrcdUrl: string) => any): void;
+                    createQrCodeInMovieLog(knyknrNo, cb: (err, response, qrcdUrl: string) => void): void;
                 }
 
             }
@@ -1394,20 +1491,20 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class PurchaseService {
+                export class PurchaseService extends common.Service {
                     /**
                      * 購入日時チェック
                      *
                      * @param {string} skhnCd 作品コード
                      */
-                    isPurchaseDatetime(skhnCd: string, cb: (err, responnes, isOnSalse: boolean) => any): void;
+                    isPurchaseDatetime(skhnCd: string, cb: (err, responnes, isOnSalse: boolean) => void): void;
 
                     /**
                      * 代行会社カード参照呼出
                      *
                      * @param {string} kiinCd
                      */
-                    getGmoSearchCard(kiinCd: string, cb: (err, response, creditCardInfoResult: any) => any): void;
+                    getGmoSearchCard(kiinCd: string, cb: (err, response, creditCardInfoResult: models.CreditCardInfoResult) => void): void;
 
                     /**
                      * 券種情報検索
@@ -1415,7 +1512,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} skhnCd
                      * @param {string} dvcTyp
                      */
-                    getTicketTypeList(skhnCd, dvcTyp, cb: (err, response, result: any) => any): void;
+                    getTicketTypeList(skhnCd, dvcTyp, cb: (err, response, result: services.Film.models.TicketInfoResult) => void): void;
 
                     /**
                      * 決済管理番号採番
@@ -1425,7 +1522,7 @@ declare module "@motionpicture/mvtk-service" {
                      *
                      * @return string 決済管理番号
                      */
-                    saibanKssiknrNo(cb: (err, response, kssiknrNo: string) => any): void;
+                    saibanKssiknrNo(cb: (err, response, kssiknrNo: string) => void): void;
 
                     /**
                      * 代行会社決済実行呼出
@@ -1436,7 +1533,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} accessPwd  取引パスワード
                      * @param Array<string>  params
                      */
-                    getGmoExecTran(params: models.GetGmoExecTranIn, cb: (err, response, GetGmoExecTranResult: any) => any): void;
+                    getGmoExecTran(params: models.GetGmoExecTranIn, cb: (err, response, GetGmoExecTranResult: models.GetGmoExecTranResult) => void): void;
 
                     /**
                      * 代行会社カード登録更新呼出
@@ -1445,14 +1542,14 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kiinCd          会員コード
                      * @param {string} mignn  クレジットカード名義人
                      */
-                    getGmoSaveCard(kssiknrNo, kiinCd, mignn, cb: (err, response, isSuccess: boolean) => any): void;
+                    getGmoSaveCard(kssiknrNo, kiinCd, mignn, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * 一時管理テーブル（情報）登録
                      *
                      * @param {RegisterIchjknrInfoIn} args
                      */
-                    registerIchjknr(params: models.RegisterIchjknrInfoIn, cb: (err, response, isSuccess: boolean) => any): void;
+                    registerIchjknr(params: models.RegisterIchjknrInfoIn, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * 一時管理テーブル（情報）取得
@@ -1460,49 +1557,49 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} kssihhTyp    決済方法区分
                      * @param {string} accessIdOrkssiknrNo 決済管理番号or取引ID。クレジットカード決済の場合のみ、取引ID
                      */
-                    selectIchjknr(kssihhTyp, accessIdOrkssiknrNo, cb: (err, response, selectIchjknrInfoResults: Array<any>) => any): void;
+                    selectIchjknr(kssihhTyp, accessIdOrkssiknrNo, cb: (err, response, selectIchjknrInfoResults: Array<models.SelectIchjknrInfoResult>) => void): void;
 
                     /**
                      * 一時管理テーブル（情報）削除
                      *
                      * @param {Array<string>} accessIds
                      */
-                    deleteIchjknr(accessIds: Array<string>, cb: (err, response, isSuccess: boolean) => any): void;
+                    deleteIchjknr(accessIds: Array<string>, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * 手数料・消費税情報取得
                      *
                      * @param {string} knshknknrNo 鑑賞券管理番号
                      */
-                    getTsuryShhziInfo(knshknknrNo, cb: (err, response, getTsuryShhziInfoResults: Array<any>) => any): void;
+                    getTsuryShhziInfo(knshknknrNo, cb: (err, response, getTsuryShhziInfoResults: Array<models.GetTsuryShhziInfoResult>) => void): void;
 
                     /**
                      * 支払先情報取得
                      *
                      * @param {string} knshknknrNo 鑑賞券管理番号
                      */
-                    getShhriInfoByKey(knshknknrNo, cb: (err, respones, getShhriInfoByKeyResult: any) => any): void;
+                    getShhriInfoByKey(knshknknrNo, cb: (err, respones, getShhriInfoByKeyResult: models.GetShhriInfoByKeyResult) => void): void;
 
                     /**
                      * 代行会社決済取消呼出
                      *
                      * @param {GMOCancelIn} args
                      */
-                    gMOCancel(params: models.GMOCancelIn, cb: (err, response, isSuccess: boolean) => any): void;
+                    gMOCancel(params: models.GMOCancelIn, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * アンケート設問検索
                      *
                      * @param {GetQuestionnaireListIn} args
                      */
-                    getQuestionnaireList(params: models.GetQuestionnaireListIn, cb: (err, response, getQuestionnaireListResult: any) => any): void;
+                    getQuestionnaireList(params: models.GetQuestionnaireListIn, cb: (err, response, getQuestionnaireListResult: models.GetQuestionnaireListResult) => void): void;
 
                     /**
                      * アンケート設問登録
                      *
                      * @param {RegisterQuestionnaireIn} args
                      */
-                    registerQuestionnaire(params: models.RegisterQuestionnaireIn, cb: (err, response, isSuccess: boolean) => any): void;
+                    registerQuestionnaire(params: models.RegisterQuestionnaireIn, cb: (err, response, isSuccess: boolean) => void): void;
                 }
 
             }
@@ -1563,20 +1660,20 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class RegisterMemberService {
+                export class RegisterMemberService extends common.Service {
                     /**
                      * 会員情報仮登録
                      *
                      * @param {RegisterMemberTemporaryIn} registerMemberTemporaryIn
                      */
-                    registerMemberTemporary(params: models.RegisterMemberTemporaryIn, cb: (err, resonse, kiinCd: string) => any): void;
+                    registerMemberTemporary(params: models.RegisterMemberTemporaryIn, cb: (err, resonse, kiinCd: string) => void): void;
 
                     /**
                      * 会員情報仮登録完了メール送信
                      *
                      * @param {string} kiinCd 会員コード
                      */
-                    sendMemberTemporaryCompletionMail(kiinCd: string, cb: (err, response, isSuccess: boolean) => any): void;
+                    sendMemberTemporaryCompletionMail(kiinCd: string, cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * 会員情報本登録・代行会社会員登録呼出
@@ -1584,7 +1681,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} hmbntrkyUrl   本登録用パラメータ（本登録URLの末尾に付与されている）
                      * @param {string} kiintrkdvcTyp 会員登録デバイス区分
                      */
-                    registerMemberProperly(hmbntrkyUrl: string, kiintrkdvcTyp: string, cb: (err, response, kiinCd: string) => any): void;
+                    registerMemberProperly(hmbntrkyUrl: string, kiintrkdvcTyp: string, cb: (err, response, kiinCd: string) => void): void;
                 }
 
             }
@@ -1613,7 +1710,7 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class UtilService {
+                export class UtilService extends common.Service {
                     // getPrefectureCode(prefectureCode, addBlank = false): void;
                     // getPrefectureCodeWithMvitckttio(prefectureCode, addBlank = false): void;
 
@@ -1624,14 +1721,14 @@ declare module "@motionpicture/mvtk-service" {
                      *
                      * @param {string} kiinCd ムビチケ会員コード
                      */
-                    signIn(kiinCd: string, cb: (err, response, cookieString: string) => any): void;
+                    signIn(kiinCd: string, cb: (err, response, cookieString: string) => void): void;
 
                     /**
                      * サインアウト
                      *
                      * API側のセッション情報を破棄
                      */
-                    signOut(cb: (err, response, isSuccess: boolean) => any): void;
+                    signOut(cb: (err, response, isSuccess: boolean) => void): void;
 
                     /**
                      * 電子券QRコード生成
@@ -1639,7 +1736,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string}  knyknrNo 購入管理番号
                      * @param {string}  pinCd    PINコード（購入者電話番号下４桁）
                      */
-                    createQrCode(knyknrNo: string, pinCd: string, cb: (err, response, qrcdUrl: string) => any): void;
+                    createQrCode(knyknrNo: string, pinCd: string, cb: (err, response, qrcdUrl: string) => void): void;
 
                     /**
                      * 暗号化
@@ -1656,7 +1753,7 @@ declare module "@motionpicture/mvtk-service" {
                      *
                      * @param {Object} values
                      */
-                    encryptDataList(params: models.EncryptDataListIn, cb: (err, response, encryptedStrings: Array<string>) => any): void;
+                    encryptDataList(params: models.EncryptDataListIn, cb: (err, response, encryptedStrings: Array<string>) => void): void;
 
                     /**
                      * 各種コード検索
@@ -1665,7 +1762,7 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {string} typ 区分
                      * @param {string} blnkarFlg ブランク有フラグ
                      */
-                    getCodeName(kmkTyp: string, typ: string, blnkarFlg: string, cb: (err, response, getCodeNameResult: any) => any): void;
+                    getCodeName(kmkTyp: string, typ: string, blnkarFlg: string, cb: (err, response, getCodeNameResult: models.GetCodeNameResult) => void): void;
                 }
             }
 
@@ -1718,20 +1815,20 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class WebMoneyService {
+                export class WebMoneyService extends common.Service {
                     /**
                      * WebMoney決済実行
                      *
                      * @param {WebMoneyEntryIn} webMoneyEntryIn
                      */
-                    webMoneyEntry(params: models.WebMoneyEntryIn, cb: (err, response, webMoneyEntryResult: any) => any): void;
+                    webMoneyEntry(params: models.WebMoneyEntryIn, cb: (err, response, webMoneyEntryResult: models.WebMoneyEntryResult) => void): void;
 
                     /**
                      * WebMoney決済情報複合化
                      *
                      * @param {string} encryptedKssiInfo
                      */
-                    decryptWebMoneyKssiInfo(encryptedKssiInfo, cb: (err, response, decryptWebMoneyKssiInfoResult: any) => any): void;
+                    decryptWebMoneyKssiInfo(encryptedKssiInfo, cb: (err, response, decryptWebMoneyKssiInfoResult: models.DecryptWebMoneyKssiInfoResult) => void): void;
                 }
             }
         }
@@ -1839,20 +1936,20 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class GiftCardService {
+                export class GiftCardService extends common.Service {
                     /**
                      * ムビチケギフトカード認証
                      * 
                      * @param {GiftCardIDAuthIn} args
                      */
-                    giftCardIDAuth(params: models.GiftCardIDAuthIn, cb: (err, response, giftCardIDAuthResults: Array<any>) => any): void;
+                    giftCardIDAuth(params: models.GiftCardIDAuthIn, cb: (err, response, giftCardIDAuthResults: Array<models.GiftCardIDAuthResult>) => void): void;
 
                     /**
                      * ムビチケギフトカード取消
                      * 
                      * @param {Array<GiftCardCancelIn>} args
                      */
-                    giftCardCancel(params: models.GiftCardCancelIn, cb: (err, response, giftCardCancelResults: Array<any>) => any): void;
+                    giftCardCancel(params: models.GiftCardCancelIn, cb: (err, response, giftCardCancelResults: Array<models.GiftCardCancelResult>) => void): void;
                 }
 
                 module GiftCardUtilities {
@@ -1937,13 +2034,13 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class MailService {
+                export class MailService extends common.Service {
                     /**
                      * 購入管理番号メール送信
                      *
                      * @param {DeliveryIn} args
                      */
-                    delivery(params: models.DeliveryIn, cb: (err, response, isSuccess: boolean) => any): void;
+                    delivery(params: models.DeliveryIn, cb: (err, response, isSuccess: boolean) => void): void;
                 }
 
             }
@@ -2151,20 +2248,20 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class PurchaseService {
+                export class PurchaseService extends common.Service {
                     /**
                      * 代行会社取引登録呼出
                      *
                      * @param {GetGmoEntryTranIn} args
                      */
-                    getGmoEntryTran(params: models.GetGmoEntryTranIn, cb: (err, response, result: any) => any): void;
+                    getGmoEntryTran(params: models.GetGmoEntryTranIn, cb: (err, response, result: models.GetGmoEntryTranResult) => void): void;
 
                     /**
                      * 購入情報登録
                      *
                      * @params {RegisterPurchaseInfoIn} args
                      */
-                    registerPurchaseInfo(params: models.RegisterPurchaseInfoIn, cb: (err, response, registerPurchaseInfoResult: any) => any): void;
+                    registerPurchaseInfo(params: models.RegisterPurchaseInfoIn, cb: (err, response, registerPurchaseInfoResult: models.RegisterPurchaseInfoResult) => void): void;
                 }
 
                 module PurchaseUtilities {
@@ -2243,7 +2340,7 @@ declare module "@motionpicture/mvtk-service" {
                 module models {
                 }
 
-                export class TicketChangeService {
+                export class TicketChangeService extends common.Service {
                 }
             }
 
@@ -2259,13 +2356,13 @@ declare module "@motionpicture/mvtk-service" {
                     }
                 }
 
-                export class UtilService {
+                export class UtilService extends common.Service {
                     /**
                      * 電子券QRコード生成
                      *
                      * @param {CreateQrCodeIn} args
                      */
-                    createQrCode(params: models.CreateQrCodeIn, cb: (err, response, qrcdUrl: string) => any): void;
+                    createQrCode(params: models.CreateQrCodeIn, cb: (err, response, qrcdUrl: string) => void): void;
                 }
             }
         }
@@ -2276,7 +2373,7 @@ declare module "@motionpicture/mvtk-service" {
          * @param {string} endpoint
          * @param {string} endpoint2
          */
-        export function initialize(endpoint: string, endpoint2: string, cb: () => any): void;
+        export function initialize(endpoint: string, endpoint2: string): void;
         export function getCookie(): string;
         export function setCookie(cookie: string): void;
 

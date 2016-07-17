@@ -11,7 +11,7 @@ export default class PurchaseService extends Service {
      *
      * @param {GetGmoEntryTranIn} args
      */
-    public getGmoEntryTran(params: Object, cb: (err, response, result: GetGmoEntryTranResult) => any) {
+    public getGmoEntryTran(params: Object, cb: (err, response, result: GetGmoEntryTranResult) => void): void {
         let method = 'GetGmoEntryTran';
 
         let args = new GetGmoEntryTranIn(params);
@@ -34,7 +34,7 @@ export default class PurchaseService extends Service {
      *
      * @params {RegisterPurchaseInfoIn} args
      */
-    public registerPurchaseInfo(params: Object, cb: (err, response, registerPurchaseInfoResult: RegisterPurchaseInfoResult) => any) {
+    public registerPurchaseInfo(params: Object, cb: (err, response, registerPurchaseInfoResult: RegisterPurchaseInfoResult) => void): void {
         let method = 'RegisterPurchaseInfo';
 
         let args = new RegisterPurchaseInfoIn(params);

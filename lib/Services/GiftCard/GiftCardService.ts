@@ -11,7 +11,7 @@ export default class GiftCardService extends Service {
      * @param {string} mvtkgftcrdId ギフトカードID
      * @param {string} mvtkgftcrdpinCd ギフトカードPINコード
      */
-    public mvtkGiftCardBalanceInquiry(mvtkgftcrdId: string, mvtkgftcrdpinCd: string, cb: (err, response, mvtkGiftCardBalanceInquiryResult: MvtkGiftCardBalanceInquiryResult) => any) {
+    public mvtkGiftCardBalanceInquiry(mvtkgftcrdId: string, mvtkgftcrdpinCd: string, cb: (err, response, mvtkGiftCardBalanceInquiryResult: MvtkGiftCardBalanceInquiryResult) => void): void {
         let method = 'MvtkGiftCardBalanceInquiry';
 
         let args = {
@@ -38,7 +38,7 @@ export default class GiftCardService extends Service {
      *
      * @param {MvtkGiftCardEntryIn} args
      */
-    public mvtkGiftCardEntry(params: Object, cb: (err, response, mvtkGiftCardEntryResults: Array<MvtkGiftCardEntryResult>) => any) {
+    public mvtkGiftCardEntry(params: Object, cb: (err, response, mvtkGiftCardEntryResults: Array<MvtkGiftCardEntryResult>) => void): void {
         let method = 'MvtkGiftCardEntry';
 
         let args = new MvtkGiftCardEntryIn(params);
