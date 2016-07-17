@@ -6,46 +6,77 @@ declare module "@motionpicture/mvtk-service" {
                 }
 
                 module constants {
+                    /** デバイス区分 */
                     export var DVC_TYP_PC: string;
+                    /** デバイス区分 */
                     export var DVC_TYP_MOBILE: string;
+                    /** デバイス区分 */
                     export var DVC_TYP_SP: string;
 
+                    /** レスポンスステータス */
                     export var RESULT_INFO_STATUS_SUCCESS: string;
+                    /** レスポンスステータス */
                     export var RESULT_INFO_STATUS_CRITICAL_ERROR: string;
+                    /** レスポンスステータス */
                     export var RESULT_INFO_STATUS_CHECK_ERROR: string;
+                    /** レスポンスステータス */
                     export var RESULT_INFO_STATUS_REPLICATION_ERROR: string;
+                    /** レスポンスステータス */
                     export var RESULT_INFO_STATUS_CLIENT_ERROR: string;
+                    /** レスポンスステータス */
                     export var RESULT_INFO_STATUS_OVERFLOW_ERROR: string;
 
+                    /** auステータス(要求登録) */
                     export var AU_RESPONSE_STATUS_REQSUCCESS: string;
+                    /** auステータス(認証中) */
                     export var AU_RESPONSE_STATUS_AUTHPROCESS: string;
+                    /** auステータス(仮売上) */
                     export var AU_RESPONSE_STATUS_AUTH: string;
+                    /** auステータス(即時売上) */
                     export var AU_RESPONSE_STATUS_CAPTURE: string;
+                    /** auステータス(決済失敗) */
                     export var AU_RESPONSE_STATUS_PAYFAIL: string;
 
+                    /** au支払方法 */
                     export var AU_PAY_METHOD_TOTALING: string;
+                    /** au支払方法 */
                     export var AU_PAY_METHOD_CREDIT_CARD: string;
+                    /** au支払方法 */
                     export var AU_PAY_METHOD_WEB_MONEY: string;
 
+                    /** docomoステータス(要求登録) */
                     export var DOCOMO_RESPONSE_STATUS_REQSUCCESS: string;
+                    /** docomoステータス(認証中) */
                     export var DOCOMO_RESPONSE_STATUS_AUTHPROCESS: string;
+                    /** docomoステータス(仮売上) */
                     export var DOCOMO_RESPONSE_STATUS_AUTH: string;
+                    /** docomoステータス(即時売上) */
                     export var DOCOMO_RESPONSE_STATUS_CAPTURE: string;
+                    /** docomoステータス(決済失敗) */
                     export var DOCOMO_RESPONSE_STATUS_PAYFAIL: string;
 
+                    /** docomo支払方法 */
                     export var DOCOMO_PAY_METHOD_TOTALING: string;
+                    /** docomo支払方法 */
                     export var DOCOMO_PAY_METHOD_CREDIT_CARD: string;
+                    /** docomo支払方法 */
                     export var DOCOMO_PAY_METHOD_WEB_MONEY: string;
 
+                    /** 都道府県リスト */
                     export var TDFKN_INFO: Array<{CD: string, NM: string}>;
 
+                    /** モバイルメールアドレスドメインリスト */
                     export var KIIN_MLADDR_MB_DOMAINS: Array<string>;
 
+                    /** メール種類区分(購入完了(PC)) */
                     export var MLTMPLT_CD_PURCHASE_COMPLETE: string;
+                    /** メール種類区分(購入完了(PC)) */
                     export var MLTMPLT_CD_KNYKNR_NO_TRANSFER: string;
+                    /** メール種類区分(購入完了(モバイル)) */
                     export var MLTMPLT_CD_PURCHASE_COMPLETE_MOBILE: string;
-                    export var MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: string;                }
-
+                    /** メール種類区分(購入完了(モバイル)) */
+                    export var MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: string;
+                }
             }
         }
 
@@ -72,192 +103,100 @@ declare module "@motionpicture/mvtk-service" {
             module Film {
                 module models {
                     export interface FilmResult {
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         skhnCd: string;
-                        /**
-                         * デバイス区分
-                         */
+                        /** デバイス区分 */
                         dvcTyp: string;
-                        /**
-                         * 作品名称
-                         */
+                        /** 作品名称 */
                         skhnNm: string;
-                        /**
-                         * 全国公開開始年月日(YYYY/MM/DD)
-                         */
+                        /** 全国公開開始年月日(YYYY/MM/DD) */
                         znkkkkikishYmd: string;
-                        /**
-                         * 全国公開時期記述
-                         */
+                        /** 全国公開時期記述 */
                         znkkkkijkDspt: string;
-                        /**
-                         * ポスター画像URL
-                         */
+                        /** ポスター画像URL */
                         pstrgzUrl: string;
-                        /**
-                         * 作品コメント本文(解説)
-                         */
+                        /** 作品コメント本文(解説) */
                         skhncmmntKistsTxt: string;
-                        /**
-                         * 作品コメント本文(物語)
-                         */
+                        /** 作品コメント本文(物語) */
                         skhncmmntMngtrTxt: string;
-                        /**
-                         * 作品コメント本文(注釈-共通)
-                         */
+                        /** 作品コメント本文(注釈-共通) */
                         skhncmmntChshkKytsu: string;
-                        /**
-                         * 作品コメント本文(注釈-作品詳細)
-                         */
+                        /** 作品コメント本文(注釈-作品詳細) */
                         skhncmmntChshkShsi: string;
-                        /**
-                         * 作品コメント本文(セールスコピー1)
-                         */
+                        /** 作品コメント本文(セールスコピー1) */
                         skhncmmntSlscpy1Txt: string;
-                        /**
-                         * 作品コメント本文(セールスコピー2)
-                         */
+                        /** 作品コメント本文(セールスコピー2) */
                         skhncmmntSlscpy2Txt: string;
-                        /**
-                         * 作品コメント本文(セールスコピー3)
-                         */
+                        /** 作品コメント本文(セールスコピー3) */
                         skhncmmntSlscpy3Txt: string;
-                        /**
-                         * キャスト情報（itemArray）
-                         */
+                        /** キャスト情報（itemArray） */
                         cstInfo: Array<FilmCastResult>;
-                        /**
-                         * スタッフ情報（itemArray）
-                         */
+                        /** スタッフ情報（itemArray） */
                         stffInfo: Array<FilmStaffResult>;
-                        /**
-                         * フォトギャラリー情報（itemArray）
-                         */
+                        /** フォトギャラリー情報（itemArray） */
                         phtgllryInfo: Array<FilmPhotoGalleryResult>;
-                        /**
-                         * 作品名オリジナル名称
-                         */
+                        /** 作品名オリジナル名称 */
                         skhmmiorgnlNm: string;
-                        /**
-                         * 制作年
-                         */
+                        /** 制作年 */
                         siskY: string;
-                        /**
-                         * 製作国名称
-                         */
+                        /** 製作国名称 */
                         siskkkNm: string;
-                        /**
-                         * 配給会社名称
-                         */
+                        /** 配給会社名称 */
                         hikygishNm: string;
-                        /**
-                         * 上映時間分
-                         */
+                        /** 上映時間分 */
                         jeiTmm: string;
-                        /**
-                         * 映倫レイティングコード
-                         */
+                        /** 映倫レイティングコード */
                         eirnrtngCd: string;
-                        /**
-                         * 公式サイトURL
-                         */
+                        /** 公式サイトURL */
                         kshkstUrl: string;
-                        /**
-                         * 作品著作権記述
-                         */
+                        /** 作品著作権記述 */
                         skhnchskknDspt: string;
-                        /**
-                         * ジャンル情報（itemArray）
-                         */
+                        /** ジャンル情報（itemArray） */
                         gnrInfo: Array<FilmGenreResult>;
-                        /**
-                         *  観たい登録者数
-                         */
-                        mtitrksyNum: string; //
-                        /**
-                         * 観たい登録済フラグ
-                         */
+                        /** 観たい登録者数 */
+                        mtitrksyNum: string;
+                        /** 観たい登録済フラグ */
                         mtitrkzmFlg: string;
-                        /**
-                         * 鑑賞券販売フラグ
-                         */
+                        /** 鑑賞券販売フラグ */
                         knshknhmbiFlg: string;
-                        /**
-                         * 鑑賞券販売開始日時
-                         */
+                        /** 鑑賞券販売開始日時 */
                         knshknhmbikishYmd: string;
-                        /**
-                         * 鑑賞券販売終了年月日
-                         */
+                        /** 鑑賞券販売終了年月日 */
                         knshknhmbishryYmd: string;
-                        /**
-                         * ECサイト販売承認済みフラグ
-                         */
+                        /** ECサイト販売承認済みフラグ */
                         ecsthmbishnnzmFlg: string;
-                        /**
-                         * 座席予約終了フラグ
-                         */
+                        /** 座席予約終了フラグ */
                         zskyykshryFlg: string;
 
                         // 以下は、作品検索APIのOUTにのみ含まれる(詳細APIには含まれない)
-                        /**
-                         * 予告編URL
-                         */
-                        ykkhnUrl: string;
-                        /**
-                         * 予告編番号
-                         */
-                        ykkhnNo: string;
-                        /**
-                         * 購入特典フラグ
-                         */
-                        knytktnFlg: string;
-                        /**
-                         * 観たいフラグ
-                         */
-                        mtiFlg: string;
-                        /**
-                         * 予告編有りフラグ
-                         */
-                        ykkhnarFlg: string;
-                        /**
-                         * 売れ筋ランキング
-                         */
-                        urszrnkngNo: string;
-                        /**
-                         * 期待度ランキング
-                         */
-                        ktidrnkngNo: string;
-                        /**
-                         * 注目度ランキング
-                         */
-                        chmkdrnkngNo: string;
-                        /**
-                         * 作品アクセスランキング順位
-                         */
-                        skhnaccssrnkngNo: string;
-                        /**
-                         * 予告編アクセスランキング順位
-                         */
-                        ykkhnaccssrnkngNo: string;
-                        /**
-                         * 話題・感想数
-                         */
-                        wdiknsNum: string;
-                        /**
-                         * 話題性ランキング順位
-                         */
-                        wdisirnkngNo: string;
-                        /**
-                         * 興行ランキング順位
-                         */
-                        kgyrnkngNo: string;
-                        /**
-                         * 鑑賞券情報(itemArray)
-                         */
-                        knshknInfo: Array<TicketInfoResult>;
+                        /** 予告編URL */
+                        ykkhnUrl?: string;
+                        /** 予告編番号 */
+                        ykkhnNo?: string;
+                        /** 購入特典フラグ */
+                        knytktnFlg?: string;
+                        /** 観たいフラグ */
+                        mtiFlg?: string;
+                        /** 予告編有りフラグ */
+                        ykkhnarFlg?: string;
+                        /** 売れ筋ランキング */
+                        urszrnkngNo?: string;
+                        /** 期待度ランキング */
+                        ktidrnkngNo?: string;
+                        /** 注目度ランキング */
+                        chmkdrnkngNo?: string;
+                        /** 作品アクセスランキング順位 */
+                        skhnaccssrnkngNo?: string;
+                        /** 予告編アクセスランキング順位 */
+                        ykkhnaccssrnkngNo?: string;
+                        /** 話題・感想数 */
+                        wdiknsNum?: string;
+                        /** 話題性ランキング順位 */
+                        wdisirnkngNo?: string;
+                        /** 興行ランキング順位 */
+                        kgyrnkngNo?: string;
+                        /** 鑑賞券情報(itemArray) */
+                        knshknInfo?: Array<TicketInfoResult>;
 
                         /**
                          * 公開状態かどうかを取得する
@@ -280,130 +219,100 @@ declare module "@motionpicture/mvtk-service" {
                          */
                         getOnlineTicket(): TicketInfoResult;
 
+                        /** キャスト名リストを取得する */
                         getCastNames(): string;
 
-                        /**
-                         * 監督名リストを取得する
-                         */
+                        /** 監督名リストを取得する */
                         getDirectors(): Array<string>;
 
-                        /**
-                         * スタッフデータを生成
-                         */
+                        /** スタッフデータを生成 */
                         getStaffs(): Array<FilmStaffResult>;
                     }
 
                     export interface FilmCastResult {
-                        cstHyjjnNo: string; // キャスト表示順番号
-                        cstJmbtsNm: string; // キャスト人物名称
-                        cstYkNm: string; // キャスト役名称
-                        cstShenFlg: string; // キャスト主演フラグ
-                        cstJmbtsCd: string; // キャスト人物コード
+                        /** キャスト表示順番号 */
+                        cstHyjjnNo: string;
+                        /** キャスト人物名称 */
+                        cstJmbtsNm: string;
+                        /** キャスト役名称 */
+                        cstYkNm: string;
+                        /** キャスト主演フラグ */
+                        cstShenFlg: string;
+                        /** キャスト人物コード */
+                        cstJmbtsCd: string;
                     }
                     export interface FilmGenreResult {
-                        gnrTyp: string; // ジャンル区分
-                        gnrKbnNm: string; // ジャンル区分名称
+                        /** ジャンル区分 */
+                        gnrTyp: string;
+                        /** ジャンル区分名称 */
+                        gnrKbnNm: string;
                     }
                     export interface FilmPhotoGalleryResult {
-                        gzNo: string; // 画像番号
-                        gzflUrl: string; // 画像ファイルURL
+                        /** 画像番号 */
+                        gzNo: string;
+                        /** 画像ファイルURL */
+                        gzflUrl: string;
 
                     }
                     export interface FilmStaffResult {
-                        stffHyjjnNo: string; // スタッフ表示順番号
-                        stffJmbtsNm: string; // スタッフ人物名称
-                        stffYkwrNm: string; // スタッフ役割名称
-                        stffJmbtsCd: string; // スタッフ人物コード
+                        /** スタッフ表示順番号 */
+                        stffHyjjnNo: string;
+                        /** スタッフ人物名称 */
+                        stffJmbtsNm: string;
+                        /** スタッフ役割名称 */
+                        stffYkwrNm: string;
+                        /** スタッフ人物コード */
+                        stffJmbtsCd: string;
                     }
 
                     export interface TicketInfoResult {
-                        /**
-                         * 鑑賞券管理番号
-                         */
+                        /** 鑑賞券管理番号 */
                         knshknknrNo: string;
-                        /**
-                         * チケット媒体区分
-                         */
+                        /** チケット媒体区分 */
                         tcktbitiTyp: string;
-                        /**
-                         * 鑑賞券オーナー区分
-                         */
+                        /** 鑑賞券オーナー区分 */
                         knshknownrTyp: string;
-                        /**
-                         * 鑑賞券オーナーコード
-                         */
+                        /** 鑑賞券オーナーコード */
                         knshknownrCd: string;
-                        /**
-                         * 鑑賞券販売開始年月日(20160523)
-                         */
+                        /** 鑑賞券販売開始年月日(20160523) */
                         knshknhmbikishYmd: string;
                         /**
                          * 鑑賞券販売開始時刻 Hi形式(sがないので注意)(0000)
                          */
                         knshknhmbikishHms: string;
-                        /**
-                         * 鑑賞券販売終了年月日(20160731)
-                         */
+                        /** 鑑賞券販売終了年月日(20160731) */
                         knshknhmbishryYmd: string;
-                        /**
-                         * チェーンマスタコード
-                         */
+                        /** チェーンマスタコード */
                         chanmstCd: string;
-                        /**
-                         * 預り金支払タイミング区分
-                         */
+                        /** 預り金支払タイミング区分 */
                         azkrknshhritmngTyp: string;
-                        /**
-                         * 預り金支払先区分
-                         */
+                        /** 預り金支払先区分 */
                         azkrknshhriskTyp: string;
-                        /**
-                         * ３Ｄメガネ代金単価(100.000)
-                         */
+                        /** ３Ｄメガネ代金単価(100.000) */
                         thredmgndiknUnip: string;
-                        /**
-                         * 販売時３Ｄメガネ代金支払先区分
-                         */
+                        /** 販売時３Ｄメガネ代金支払先区分 */
                         hmbijthredmgndiknshhriskTyp: string;
-                        /**
-                         * 未着券精算年月日
-                         */
+                        /** 未着券精算年月日 */
                         mchkknsisnYmd: string;
-                        /**
-                         * 興行ギフト券フラグ
-                         */
+                        /** 興行ギフト券フラグ */
                         kgygftknFlg: string;
-                        /**
-                         * 興行ギフト券有効期間
-                         */
+                        /** 興行ギフト券有効期間 */
                         kgygftknykTm: string;
-                        /**
-                         * 購入上限枚数
-                         */
+                        /** 購入上限枚数 */
                         knyjgmmiNum: string;
-                        /**
-                         * ECサイト販売承認済フラグ
-                         */
+                        /** ECサイト販売承認済フラグ */
                         ecsthmbishnnzmFlg: string;
-                        /**
-                         * ECサイト販売承認者コード
-                         */
+                        /** ECサイト販売承認者コード */
                         ecsthmbishnnshCd: string;
                         /**
                          * ECサイト販売承認日時(2016-05-23 21:26:33)
                          */
                         ecsthmbishnnDt: string;
-                        /**
-                         * 登録ステータス区分
-                         */
+                        /** 登録ステータス区分 */
                         trksttsTyp: string;
-                        /**
-                         * 鑑賞券明細情報(itemArray)
-                         */
+                        /** 鑑賞券明細情報(itemArray) */
                         knshkmmisiInfo: Array<TicketInfoTypeResult>;
-                        /**
-                         * 券種情報(itemArray)
-                         */
+                        /** 券種情報(itemArray) */
                         knshInfo: Array<TicketInfoTypeResult>;
 
                         /**
@@ -415,99 +324,172 @@ declare module "@motionpicture/mvtk-service" {
                     }
 
                     export interface TicketInfoTypeResult {
-                        knshknknrmisiNo: string; // 鑑賞券管理明細番号
-                        knshTyp: string; // 券種区分
-                        shhziTyp: string; // 消費税区分
-                        shhziRt: string; // 消費税率
-                        shhziUnip: string; // 消費税単価
-                        mvitckthikyftntsuryUnip: string; // ムビチケ配給負担手数料単価
-                        mvitcktkgyftntsuryUnip: string; // ムビチケ興行負担手数料単価
-                        mvitcktusrtsuryUnip: string; // ムビチケユーザ手数料単価
-                        sisnjknRmk: string; // 精算条件備考
-                        parknFlg: string; // ペア券フラグ
-                        knshknhmbiUnip: string; // 鑑賞券販売単価
-                        knshkbnNm: string; // 券種区分名称
-                        eishhshkTyp: string; // 映写方式区分
-                        knshkmmiNum: string; // 鑑賞券枚数
-                        parkntntiknshFlg: string; // ペア券単体券種フラグ
-                        kmawsskknshTyp: string; // 組合せ先券種区分
+                        /** 鑑賞券管理明細番号 */
+                        knshknknrmisiNo: string;
+                        /** 券種区分 */
+                        knshTyp: string;
+                        /** 消費税区分 */
+                        shhziTyp: string;
+                        /** 消費税率 */
+                        shhziRt: string;
+                        /** 消費税単価 */
+                        shhziUnip: string;
+                        /** ムビチケ配給負担手数料単価 */
+                        mvitckthikyftntsuryUnip: string;
+                        /** ムビチケ興行負担手数料単価 */
+                        mvitcktkgyftntsuryUnip: string;
+                        /** ムビチケユーザ手数料単価 */
+                        mvitcktusrtsuryUnip: string;
+                        /** 精算条件備考 */
+                        sisnjknRmk: string;
+                        /** ペア券フラグ */
+                        parknFlg: string;
+                        /** 鑑賞券販売単価 */
+                        knshknhmbiUnip: string;
+                        /** 券種区分名称 */
+                        knshkbnNm: string;
+                        /** 映写方式区分 */
+                        eishhshkTyp: string;
+                        /** 鑑賞券枚数 */
+                        knshkmmiNum: string;
+                        /** ペア券単体券種フラグ */
+                        parkntntiknshFlg: string;
+                        /** 組合せ先券種区分 */
+                        kmawsskknshTyp: string;
                     }
 
                     export interface BnnrInfoResult {
-                        /**
-                         * デバイス区分
-                         */
+                        /** デバイス区分 */
                         dvcTyp: string;
-                        /**
-                         * バナーコード
-                         */
+                        /** バナーコード */
                         bnnrCd: string;
-                        /**
-                         * バナー名称
-                         */
+                        /** バナー名称 */
                         bnnrNm: string;
-                        /**
-                         * バナー表示箇所区分
-                         */
+                        /** バナー表示箇所区分 */
                         bnnrhyjkshTyp: string;
-                        /**
-                         * バナー画像URL
-                         */
+                        /** バナー画像URL */
                         bnnrgzUrl: string;
-                        /**
-                         * バナーリンク先URL
-                         */
+                        /** バナーリンク先URL */
                         bnnrlnkskUrl: string;
-                        /**
-                         * バナー説明本文
-                         */
+                        /** バナー説明本文 */
                         bnnrstsmiTxt: string;
-                        /**
-                         * バナー掲載開始年月日
-                         */
+                        /** バナー掲載開始年月日 */
                         bnnrkisikishYmd: string;
-                        /**
-                         * バナー掲載終了年月日
-                         */
+                        /** バナー掲載終了年月日 */
                         bnnrkisishryYmd: string;
 
                     }
-                    export interface GetTrailerDetailResult {}
+                    export interface GetTrailerDetailResult {
+                        /** 作品コード */
+                        skhnCd: string;
+                        /** 予告編情報 */
+                        ykkhnInfo: Array<YkkhnInfo>;
+                    }
+                    interface YkkhnInfo {
+                        YKKHN_NO: string;
+                        DVC_TYP: string;
+                        YKKHN_TTL: string;
+                        YKKHN_URL: string;
+                    }
                     export interface DgtlincntvInfoResult {
-                        dvcTyp: string; // デバイス区分
-                        dgtlincntvCd: string; // デジタルインセンティブコード
-                        dgtlincntvTtl: string; // デジタルインセンティブタイトル
-                        dgtlincntvstsmiTxt: string; // デジタルインセンティブ説明本文
-                        smplqzUrl: string; // サンプル画像URL
-                        dgtlincntvknykishYmd: string; // デジタルインセンティブ購入開始年月日
-                        dgtlincntvknyshryYmd: string; // デジタルインセンティブ購入終了年月日
-                        dgtlincntvdwnlodykTm: string; // デジタルインセンティブダウンロード有効期間
-                        dgtlincntvdwnlodjgnkiNum: string; // デジタルインセンティブダウンロード上限回数
-                        skhndgtlincntvRmk: string; // 作品デジタルインセンティブ備考
+                        /** デバイス区分 */
+                        dvcTyp: string;
+                        /** デジタルインセンティブコード */
+                        dgtlincntvCd: string;
+                        /** デジタルインセンティブタイトル */
+                        dgtlincntvTtl: string;
+                        /** デジタルインセンティブ説明本文 */
+                        dgtlincntvstsmiTxt: string;
+                        /** サンプル画像URL */
+                        smplqzUrl: string;
+                        /** デジタルインセンティブ購入開始年月日 */
+                        dgtlincntvknykishYmd: string;
+                        /** デジタルインセンティブ購入終了年月日 */
+                        dgtlincntvknyshryYmd: string;
+                        /** デジタルインセンティブダウンロード有効期間 */
+                        dgtlincntvdwnlodykTm: string;
+                        /** デジタルインセンティブダウンロード上限回数 */
+                        dgtlincntvdwnlodjgnkiNum: string;
+                        /** 作品デジタルインセンティブ備考 */
+                        skhndgtlincntvRmk: string;
 
                     }
                 }
 
                 export class FilmService {
+                    /**
+                    * 作品詳細情報照会
+                    *
+                    * @param {string} skhnCd 作品コード
+                    * @param {string} dvcTyp デバイス区分
+                    */
                     getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err, response, result: any) => any): void;
+
+                    /**
+                     * トップページ作品検索
+                     *
+                     * @param {string} dvcTyp
+                     */
                     getFilmTopPage(dvcTyp: string, cb: (err, response, result: Array<any>) => any): void;
+
+                    /**
+                     * 鑑賞券情報検索
+                     *
+                     * @param {string} skhnCd 作品コード
+                     */
                     getTicketInfoList(skhnCd: string, cb: (err, response, result: Array<any>) => any): void;
+
+                    /**
+                     * バナーリスト取得
+                     *
+                     * @param {string} skhnCd 作品コード
+                     * @param {string} dvcTyp デバイス区分
+                     */
                     getBannerList(skhnCd: string, dvcTyp: string, cb: (err, response, bnnrInfoResults: Array<any>) => any): void;
+
+                    /**
+                     * 予告編取得
+                     *
+                     * @param {string} skhnCd 作品コード
+                     * @param {string} dvcTyp デバイス区分
+                     */
                     getTrailerDetail(skhnCd, dvcTyp, cb: (err, response, getTrailerDetailResult: any) => any): void;
+
+                    /**
+                     * 特典取得
+                     *
+                     * @param {string} skhnCd 作品コード
+                     * @param {string} dvcTyp デバイス区分
+                     */
                     getDigitalIncentiveList(skhnCd: string, dvcTyp: string, cb: (err, response, dgtlincntvInfoResults: Array<any>) => any): void;
                 }
 
                 module FilmUtilities {
+                    /**
+                     * チケット媒体区分 電子券（オンライン券）
+                     */
                     export var TCKTBITI_TYP_ELECTRON_TICKET: string;
+                    /**
+                     * チケット媒体区分 電子バウチャー
+                     */
                     export var TCKTBITI_TYP_ELECTRON_VOUCHAER: string;
+                    /**
+                     * チケット媒体区分 カード券
+                     */
                     export var TCKTBITI_TYP_CARD_TICKET: string;
 
+                    /** 表示箇所区分（PC） */
                     export var BNNRHYJKSH_TYP_PC_FILM_RIGHT: string;
+                    /** 表示箇所区分（PC） */
                     export var BNNRHYJKSH_TYP_PC_FILM_BOTTOM: string;
+                    /** 表示箇所区分（PC） */
                     export var BNNRHYJKSH_TYP_PC_PURCHASE: string;
 
+                    /** 表示箇所区分（SP) */
                     export var BNNRHYJKSH_TYP_SP_UNUSED: string;
+                    /** 表示箇所区分（SP) */
                     export var BNNRHYJKSH_TYP_SP_FILM: string;
+                    /** 表示箇所区分（SP) */
                     export var BNNRHYJKSH_TYP_SP_PURCHASE: string;
                 }
 
@@ -516,127 +498,98 @@ declare module "@motionpicture/mvtk-service" {
             module GiftCard {
                 module models {
                     export interface MvtkGiftCardBalanceInquiryResult {
-                        /**
-                         * 凸版サービス返却値
-                         */
+                        /** 凸版サービス返却値 */
                         tppnsrvcrspns: string;
-                        /**
-                         * ムビチケギフトカードID
-                         */
+                        /** ムビチケギフトカードID */
                         mvtkgftcrdId: string;
-                        /**
-                         * ムビチケギフトカードPINコード
-                         */
+                        /** ムビチケギフトカードPINコード */
                         mvtkgftcrdpinCd: string;
-                        /**
-                         * ムビチケギフトカード券種区分
-                         */
+                        /** ムビチケギフトカード券種区分 */
                         mvtkgftcrdknshTyp: string;
-                        /**
-                         * ムビチケギフトカード券種名称
-                         */
+                        /** ムビチケギフトカード券種名称 */
                         mvtkgftcrdknshNm: string;
-                        /**
-                         * 有効期限(2017/12/01)
-                         */
+                        /** 有効期限(2017/12/01) */
                         ykkgnYmd: string;
-                        /**
-                         * 残高
-                         */
+                        /** 残高 */
                         zndk: string;
-                        /**
-                         * 初回チャージ金額
-                         */
+                        /** 初回チャージ金額 */
                         shkichrgkngk: string;
-
-                        /**
-                         * 利用明細情報(itemArray)
-                         */
+                        /** 利用明細情報(itemArray) */
                         rymisiInfo: Array<RymisiInfo>;
-
-
                     }
 
                     interface RymisiInfo {
-                        /**
-                         * ギフトカード決済管理番号
-                         */
+                        /** ギフトカード決済管理番号 */
                         GFTCRDKSSIKNR_NO: string;
-                        /**
-                         * 代行決済ステータス区分
-                         * 41:減算（売上）/42:取消/43:障害取消
-                         */
+                        /** 代行決済ステータス区分 41:減算（売上）/42:取消/43:障害取消 */
                         DIKKSSISTTS_TYP: string;
-                        /**
-                         * 使用日付(2017/12/01)
-                         */
+                        /** 使用日付(2017/12/01) */
                         SHY_YMD: string;
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         SKHN_CD: string;
-                        /**
-                         * 作品名称
-                         */
+                        /** 作品名称 */
                         SKHN_NM: string;
-                        /**
-                         * 使用金額
-                         */
+                        /** 使用金額 */
                         SHY_MNY: string;
-                        /**
-                         * 非表示フラグ
-                         * 0：画面に表示する
-                         * 1：画面に表示しない
-                         */
+                        /** 非表示フラグ */
                         HHYJ_FLG: string;
                     }
                     export interface MvtkGiftCardEntryIn {
-                        /**
-                         * ギフトカードID情報
-                         */
+                        /** ギフトカードID情報 */
                         MVTKGFTCRD_INFO_IN: {
                             MvtkgftcrdInfoIn: Array<{
-                                /**
-                                 * ギフトカード決済管理番号
-                                 */
+                                /** ギフトカード決済管理番号 */
                                 GFTCRDKSSIKNR_NO: string;
-                                /**
-                                 * ムビチケギフトカードPINコード
-                                 */
+                                /** ムビチケギフトカードPINコード */
                                 MVTKGFTCRDPIN_CD: string;
-                                /**
-                                 * ムビチケギフトカードID
-                                 */
+                                /** ムビチケギフトカードID */
                                 MVTKGFTCRD_ID: string;
-                                /**
-                                 * 利用金額
-                                 */
+                                /** 利用金額 */
                                 RYUKNGK: string;
                             }>;
                         };
-                        /**
-                         * ご利用金額
-                         */
+                        /** ご利用金額 */
                         DVC_TYP: string;
 
                     }
                     export interface MvtkGiftCardEntryResult {
-                        tppnsrvcrspns: string; // 凸版サービス返却値
-                        mvtkgftcrdId: string; // ムビチケギフトカードID
-                        mvtkgftcrdpinCd: string; // ムビチケギフトカード認証番号
-                        gftcrdkssiknrNo: string; // ギフト決済管理番号
-                        ryukngk: string; // 利用金額
-                        ryumezndk: string; // 利用前残高
-                        zndk: string; // 残高
-                        synnNo: string; // 承認番号
-                        syrykyDt: string; // 処理要求日時
-                        giftcardstatus: string; // ギフトカードステータス
-
+                        /** 凸版サービス返却値 */
+                        tppnsrvcrspns: string;
+                        /** ムビチケギフトカードID */
+                        mvtkgftcrdId: string;
+                        /** ムビチケギフトカード認証番号 */
+                        mvtkgftcrdpinCd: string;
+                        /** ギフト決済管理番号 */
+                        gftcrdkssiknrNo: string;
+                        /** 利用金額 */
+                        ryukngk: string;
+                        /** 利用前残高 */
+                        ryumezndk: string;
+                        /** 残高 */
+                        zndk: string;
+                        /** 承認番号 */
+                        synnNo: string;
+                        /** 処理要求日時 */
+                        syrykyDt: string;
+                        /** ギフトカードステータス */
+                        giftcardstatus: string;
                     }
                 }
 
                 export class GiftCardService {
+                    /**
+                     * ムビチケギフトカード残高確認
+                     *
+                     * @param {string} mvtkgftcrdId ギフトカードID
+                     * @param {string} mvtkgftcrdpinCd ギフトカードPINコード
+                     */
                     mvtkGiftCardBalanceInquiry(mvtkgftcrdId: string, mvtkgftcrdpinCd: string, cb: (err, response, mvtkGiftCardBalanceInquiryResult: any) => any): void;
+
+                    /**
+                     * ギフトカード利用
+                     *
+                     * @param {MvtkGiftCardEntryIn} args
+                     */
                     mvtkGiftCardEntry(params: models.MvtkGiftCardEntryIn, cb: (err, response, mvtkGiftCardEntryResults: Array<any>) => any): void;
                 }
 
@@ -644,10 +597,36 @@ declare module "@motionpicture/mvtk-service" {
 
             module Inquiry {
                 module models {
-                    export interface SendInquiryMailIn {}
+                    export interface SendInquiryMailIn {
+                        /** 問合せ日時 */
+                        tiawsDt: string;
+                        /** 問合せ区分 */
+                        tiawsKbn: string;
+                        /** 問合せメール本文 */
+                        tiawsniyTxt: string;
+                        /** 問合せ者姓名称 */
+                        tiawsshsiNm: string;
+                        /** 問合せ者名名称 */
+                        tiawsshmiNm: string;
+                        /** 問合せ者市外局番号 */
+                        tiawsshshgikykNo: string;
+                        /** 問合せ者市内局番号 */
+                        tiawsshshnikykNo: string;
+                        /** 問合せ者加入者番号 */
+                        tiawsshknyshNo: string;
+                        /** 問合せ者メールアドレス */
+                        tiawsshMladdr: string;
+                        /** 会員コード */
+                        kiinCd: string;
+                    }
                 }
 
                 export class InquiryService {
+                    /**
+                     * 問合せメール送信
+                     *
+                     * @param {SendInquiryMailIn} sendInquiryMailIn
+                     */
                     sendInquiryMail(params: models.SendInquiryMailIn, cb: (err, resonse, isSuccess: boolean) => any): void;
                 }
 
@@ -659,157 +638,177 @@ declare module "@motionpicture/mvtk-service" {
             module MemberInfo {
                 module models {
                     export interface MemberInfoResult {
-                        /**
-                         * 会員コード
-                         */
+                        /** 会員コード */
                         kiinCd: string;
-                        /**
-                         * 会員メールアドレス
-                         */
+                        /** 会員メールアドレス */
                         kiinMladdr: string;
-                        /**
-                         * 会員メールアドレスデバイス区分
-                         */
+                        /** 会員メールアドレスデバイス区分 */
                         kiinmladdrssdvcTyp: string;
-                        /**
-                         * 会員サブメールアドレス
-                         */
-                        kiinsbMladdr: string;
-                        /**
-                         * 会員サブメールアドレスデバイス区分
-                         */
-                        kiinsbmladdrssdvcTyp: string;
-                        /**
-                         * 会員姓名称
-                         */
+                        /** 会員サブメールアドレス */
+                        kiinsbMladdr?: string;
+                        /** 会員サブメールアドレスデバイス区分 */
+                        kiinsbmladdrssdvcTyp?: string;
+                        /** 会員姓名称 */
                         kiinsiNm: string;
-                        /**
-                         * 会員名名称
-                         */
+                        /** 会員名名称 */
                         kiimmiNm: string;
-                        /**
-                         * 会員姓カナ名称
-                         */
+                        /** 会員姓カナ名称 */
                         kiinsiKnnm: string;
-                        /**
-                         * 会員名カナ名称
-                         */
+                        /** 会員名カナ名称 */
                         kiimmiKnnm: string;
-                        /**
-                         * 性別区分
-                         */
+                        /** 性別区分 */
                         sibtsTyp: string;
-                        /**
-                         * 会員生年月日(1999/01/01形式)
-                         */
+                        /** 会員生年月日(1999/01/01形式) */
                         kiinsiYmd: string;
-                        /**
-                         * 会員市外局番号
-                         */
+                        /** 会員市外局番号 */
                         kiinshgikykNo: string;
-                        /**
-                         * 会員市内局番号
-                         */
+                        /** 会員市内局番号 */
                         kiinshnikykNo: string;
-                        /**
-                         * 会員加入者番号
-                         */
+                        /** 会員加入者番号 */
                         kiinknyshNo: string;
-                        /**
-                         * 会員郵便番号(123-5678形式)
-                         */
+                        /** 会員郵便番号(123-5678形式) */
                         kiinybnNo: string;
-                        /**
-                         * 都道府県コード
-                         */
+                        /** 都道府県コード */
                         tdfknCd: string;
-                        /**
-                         * 会員市区町村住所
-                         */
-                        kiinshkchsnAddr: string;
-                        /**
-                         * 会員番地住所
-                         */
-                        kiimbnchAddr: string;
-                        /**
-                         * 会員建物住所
-                         */
-                        kiinttmnAddr: string;
-                        /**
-                         * 会員住所緯度
-                         */
+                        /** 会員市区町村住所 */
+                        kiinshkchsnAddr?: string;
+                        /** 会員番地住所 */
+                        kiimbnchAddr?: string;
+                        /** 会員建物住所 */
+                        kiinttmnAddr?: string;
+                        /** 会員住所緯度 */
                         kiinjshiDo: string;
-                        /**
-                         * 会員住所経度
-                         */
+                        /** 会員住所経度 */
                         kiinjshkiDo: string;
-                        /**
-                         * メルマガ希望フラグ
-                         */
+                        /** メルマガ希望フラグ */
                         mlmgznkbFlg: string;
-                        /**
-                         * ニックネーム
-                         */
-                        nckNm: string;
-                        /**
-                         * 自己紹介本文
-                         */
-                        jkshkiTxt: string;
-                        /**
-                         * プロフィール画像ＵＲＬ
-                         */
-                        prflgzUrl: string;
-                        /**
-                         * 性別公開フラグ
-                         */
-                        sibtskkiFlg: string;
-                        /**
-                         * 生年月日公開フラグ
-                         */
-                        sinngppkkiFlg: string;
+                        /** ニックネーム */
+                        nckNm?: string;
+                        /** 自己紹介本文 */
+                        jkshkiTxt?: string;
+                        /** プロフィール画像ＵＲＬ */
+                        prflgzUrl?: string;
+                        /** 性別公開フラグ */
+                        sibtskkiFlg?: string;
+                        /** 生年月日公開フラグ */
+                        sinngppkkiFlg?: string;
                     }
 
                     export interface EditMemberInfoIn {
+                        /** ニックネーム */
                         nckNm?: string;
+                        /** 会員姓名称 */
                         kiinsiNm: string;
+                        /** 会員名名称 */
                         kiimmiNm: string;
+                        /** 会員姓カナ名称 */
                         kiinsiKnnm: string;
+                        /** 会員名カナ名称 */
                         kiimmiKnnm: string;
+                        /** 性別区分 */
                         sibtsTyp: string;
+                        /** 会員生年月日(19990101形式) */
                         kiinsiYmd: string;
+                        /** 会員郵便番号(123-5678形式) */
                         kiinybnNo?: string;
+                        /** 都道府県コード */
                         tdfknCd: string;
+                        /** 会員市区町村住所 */
                         kiinshkchsnAddr?: string;
+                        /** 会員番地住所 */
                         kiimbnchAddr?: string;
+                        /** 会員建物住所 */
                         kiinttmnAddr?: string;
+                        /** 会員住所緯度 */
                         kiinjshiDo?: string;
+                        /** 会員住所経度 */
                         kiinjshkiDo?: string;
+                        /** 会員市外局番号 */
                         kiinshgikykNo: string;
+                        /** 会員市内局番号 */
                         kiinshnikykNo: string;
+                        /** 会員加入者番号 */
                         kiinknyshNo: string;
+                        /** 会員メールアドレス */
                         kiinMladdr: string;
+                        /** 会員メールアドレスデバイス区分 */
                         kiinmladdrssdvcTyp: string;
+                        /** 会員サブメールアドレス */
                         kiinsbMladdr?: string;
+                        /** 会員サブメールアドレスデバイス区分 */
                         kiinsbmladdrssdvcTyp?: string;
+                        /** メルマガ希望フラグ */
                         mlmgkbFlg: string;
                     }
                 }
 
                 export class MemberInfoService {
+                    /**
+                     * 会員認証
+                     *
+                     * @param {string} kiinMladdr
+                     * @param {string} kiinPwd
+                     */
                     getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err, resonse, kiinCd: string) => any): void;
+
+                    /**
+                     * 会員情報照会
+                     *
+                     * APIにてセッションに保存されている会員情報が取得される。
+                     */
                     getMemberInfoDetail(cb: (err, response, memberInfoResult: any) => any): void;
+
+                    /**
+                     * パスワード変更
+                     *
+                     * @param {string} kiinCd            会員コード
+                     * @param {string} kiingnziPwd       会員現在パスワード
+                     * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
+                     * @param {string} kiingnzipwdhssFlg 会員新パスワード
+                     */
                     editPassword(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * パスワード変更(svc)
+                     *
+                     * @param {string} kiinCd            会員コード
+                     * @param {string} kiingnziPwd       会員現在パスワード
+                     * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
+                     * @param {string} kiingnzipwdhssFlg 会員新パスワード
+                     */
                     editPasswordSvc(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * パスワード再設定依頼メール送信
+                     *
+                     * @param {string} kiinMladdr 会員メールアドレス
+                     */
                     sendPasswordResetRequestMail(kiinMladdr, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * パスワード再設定会員認証
+                     *
+                     * @param {string} psswrdhnkyUrl パスワード変更用ＵＲＬ
+                     * @param {string} dvcTyp        デバイス区分
+                     */
                     getPasswordResetMemberAuthorization(psswrdhnkyUrl, dvcTyp, cb: (err, response, kiinCd: string) => any): void;
+
+                    /**
+                     * 会員情報更新
+                     *
+                     * @param {EditMemberInfoIn} editMemberInfoIn
+                     */
                     editMemberInfo(params: models.EditMemberInfoIn, cb: (err, response, isSuccess: boolean) => any): void;
                 }
 
                 module MemberInfoUtilities {
+                    /** メールアドレス区分PC */
                     export var KIINMLADDRSSDVC_TYP_PC: string;
+                    /** メールアドレス区分モバイル */
                     export var KIINMLADDRSSDVC_TYP_MOBILE: string;
-
+                    /** 性別区分男性 */
                     export var SIBTS_TYP_MEN: string;
+                    /** 性別区分女性 */
                     export var SIBTS_TYP_WOMEN: string;
                 }
 
@@ -818,102 +817,219 @@ declare module "@motionpicture/mvtk-service" {
             module MovieLog {
                 module models {
                     export interface GetFavoriteFilmListResult {
-                        /**
-                         * 会員コード
-                         */
+                        /** 会員コード */
                         kiinCd: string;
-                        /**
-                         * レコード数
-                         */
+                        /** レコード数 */
                         rcdNum: string;
-                        /**
-                         * 作品詳細情報(itemArray)
-                         */
+                        /** 作品詳細情報(itemArray) */
                         skhnInfo: Array<SkhnInfo>;
 
                     }
 
                     export interface SkhnInfo {
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         skhnCd: string;
-                        /**
-                         * 作品名称
-                         */
+                        /** 作品名称 */
                         skhnNm: string;
-                        /**
-                         * ポスター画像URL
-                         */
+                        /** ポスター画像URL */
                         pstrgzUrl: string;
-                        /**
-                         * 全国公開開始年月日
-                         */
+                        /** 全国公開開始年月日 */
                         znkkkkikishYmd: string;
-                        /**
-                         * 全国公開時期記述
-                         */
+                        /** 全国公開時期記述 */
                         znkkkkijkDspt: string;
-                        /**
-                         * ＥＣサイト鑑賞券販売承認済フラグ
-                         */
+                        /** ＥＣサイト鑑賞券販売承認済フラグ */
                         ecsthmbishnnzmFlg: string;
-                        /**
-                         * 鑑賞券販売開始日時(鑑賞券販売開始年月日＋鑑賞券販売開始時刻) YYYY-MM-DD hh:mm:ss
-                         */
+                        /** 鑑賞券販売開始日時(鑑賞券販売開始年月日＋鑑賞券販売開始時刻)(YYYY-MM-DD hh:mm:ss) */
                         knshknhmbikishDt: string;
-                        /**
-                         * 鑑賞券販売終了年月日(YYYY/MM/DD)
-                         */
+                        /** 鑑賞券販売終了年月日(YYYY/MM/DD) */
                         knshknhmbishryYmd: string;
-                        /**
-                         * 観たい登録年月日(YYYY/MM/DD)
-                         */
+                        /** 観たい登録年月日(YYYY/MM/DD) */
                         trkDt: string;
-                        /**
-                         * 感想ありフラグ
-                         */
+                        /** 感想ありフラグ */
                         knsFlg: string;
-                        /**
-                         * 観たフラグ
-                         */
+                        /** 観たフラグ */
                         mtaFlg: string;
-                        /**
-                         * 観たい登録者数
-                         */
+                        /** 観たい登録者数 */
                         mtitrksyNum: string;
-                        /**
-                         * 観た登録者数
-                         */
+                        /** 観た登録者数 */
                         mtatrksyNum: string;
-                        /**
-                         * 購入ボタンフラグ
-                         */
+                        /** 購入ボタンフラグ */
                         knyFlg: string;
-                        /**
-                         * 座席予約終了フラグ
-                         */
+                        /** 座席予約終了フラグ */
                         zskyykshryFlg: string;
                     }
 
-                    export interface GetUnusedTicketListResult {}
-                    export interface ShyzmtcktInfoListResult {}
+                    export interface GetUnusedTicketListResult {
+                        /** 購入管理番号 */
+                        knyknrNo: string;
+                        /** 作品コード */
+                        skhnCd: string;
+                        /** 作品名称 */
+                        skhnNm: string;
+                        /** ポスター画像URL */
+                        pstrgzUrl: string;
+                        /** 全国公開開始年月日(YYYY/MM/DD) */
+                        znkkkkikishYmd: string;
+                        /** 全国公開時期記述 */
+                        znkkkkijkDspt: string;
+                        /** 購入日(YYYY/MM/DD) */
+                        knyYmd: string;
+                        /** 購入枚数合計 */
+                        knymiNumSum: string;
+                        /** 券種情報(itemArray) */
+                        knshInfo: Array<KnshInfo>;
+                        /** デジタルインセンティブダウンロード画面URL */
+                        dgtlincntvdwnlodgmnUrl: string;
+                        /** 座席予約可フラグ */
+                        zskyykkFlg: string;
+                        /** ??? */
+                        shknhikygishCd: string;
+                    }
+
+                    interface KnshInfo {
+                        /** 券種区分名称 */
+                        KNSHKBN_NM: string;
+                        /** 購入枚数 */
+                        KNY_NUM: string;
+                    }
+
+                    export interface ShyzmtcktInfoListResult {
+                        /** ムビログ番号 */
+                        mvilgNo: string;
+                        /** 購入日時 */
+                        knyDt: string;
+                        /** 購入管理番号 */
+                        knyknrNo: string;
+                        /** 作品コード */
+                        skhnCd: string;
+                        /** 作品名称 */
+                        skhnNm: string;
+                        /** ポスター画像URL */
+                        pstrgzUrl: string;
+                        /** 全国公開開始年月日 */
+                        znkkkkikishYmd: string;
+                        /** 全国公開時期記述 */
+                        znkkkkijkDspt: string;
+                        /** 鑑賞券合計枚数 */
+                        knshkmmisumNum: string;
+                        /** 券種情報(itemArray) */
+                        knshInfo: Array<KnshInfo>;
+                        /** デジタルインセンティブダウンロード画面URL */
+                        dgtlincntvdwnlodgmnUrl: string;
+                        /** 購入チケットステータス区分 */
+                        knytcktSttsKbn: string;
+                    }
                 }
 
                 export class MovieLogService {
+                    /**
+                     * 観たい作品検索
+                     *
+                     * @param {string} kiinCd  会員コード
+                     * @param {number} rcdNum  レコード数
+                     * @param {number} shtkNum 取得件数
+                     * @param {string} dvcTyp  デバイス区分
+                     */
                     getFavoriteFilmList(kiinCd, rcdNum, shtkNum, dvcTyp, cb: (err, response, getFavoriteFilmListResult: any) => any): void;
+
+                    /**
+                     * 未使用チケット検索
+                     *
+                     * @param {string} kiinCd 会員コード
+                     * @param {string} dvcTyp デバイス区分
+                     */
                     getUnusedTicketList(kiinCd, dvcTyp, cb: (err, response, getUnusedTicketListResult: any) => any): void;
+
+                    /**
+                     * 座席予約済チケット検索
+                     *
+                     * @param {string} kiinCd 会員コード
+                     * @param {string} dvcTyp デバイス区分
+                     */
                     getSeatReservedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: any) => any): void;
+
+                    /**
+                     * 鑑賞済チケット検索
+                     *
+                     * @param {string} kiinCd 会員コード
+                     * @param {string} dvcTyp デバイス区分
+                     */
                     getWatchedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: any) => any): void;
+
+                    /**
+                     * ギフト贈呈済チケット検索
+                     *
+                     * @param {string} kiinCd 会員コード
+                     * @param {string} dvcTyp デバイス区分
+                     */
                     getGiftTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: any) => any): void;
+
+                    /**
+                     * 有効期限切れチケット検索
+                     *
+                     * @param {string} kiinCd 会員コード
+                     * @param {string} dvcTyp デバイス区分
+                     */
                     getExpiredTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: any) => any): void;
+
+                    /**
+                     * 観たい作品登録
+                     *
+                     * @param {string} skhnCd 作品コード
+                     */
                     registerFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * 観たい作品削除
+                     *
+                     * @param {string} skhnCd 作品コード
+                     */
                     deleteFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * 作品感想検索
+                     *
+                     * @param skhnCd  作品コード
+                     * @param kiinCd  会員コード
+                     * @param rcdNum  レコード数
+                     * @param shtkNum 取得件数
+                     */
                     getFilmReviewList(skhnCd, kiinCd, rcdNum, shtkNum, cb: Function): void;
+
+                    /**
+                     * 使用済チケット履歴削除
+                     *
+                     * @param {string} mvilgNo        ムビログ番号
+                     * @param {string} knytcktSttsKbn 購入チケットステータス区分
+                     */
                     deleteUsedTicketHistory(mvilgNo, knytcktSttsKbn, cb: Function): void;
+
+                    /**
+                     * 座席予約状況
+                     *
+                     * @param {string} mvilgNo ムビログ番号
+                     */
                     getSeatReservationStatusList(mvilgNo, cb: Function): void;
+
+                    /**
+                     * 鑑賞記録リスト検索
+                     *
+                     * @param {string} mvilgNo ムビログ番号
+                     */
                     getWatchRecordList(mvilgNo, cb: Function): void;
+
+                    /**
+                     * ギフト送信状況リスト検索
+                     *
+                     * @param {string} mvilgNo ムビログ番号
+                     */
                     getSentGiftStatusList(mvilgNo, cb: Function): void;
+
+                    /**
+                     * 電子券QRコード生成 (ムビログ用)
+                     *
+                     * @param {string} knyknrNo 購入管理番号
+                     */
                     createQrCodeInMovieLog(knyknrNo, cb: (err, response, qrcdUrl: string) => any): void;
                 }
 
@@ -921,71 +1037,139 @@ declare module "@motionpicture/mvtk-service" {
 
             module Purchase {
                 module models {
-                    export interface CreditCardInfoResult {}
-                    export interface TicketInfoResult {}
+                    export interface CreditCardInfoResult {
+                        /** カード登録連番 */
+                        cardseq: string;
+                        /** クレジットカード番号 */
+                        crdtcrdNo: string;
+                        /** カード有効期限 */
+                        crdykkgn: string;
+                        /** 名義人 */
+                        mignn: string;
+                        /** セキュリティコード */
+                        scrtyCd: string;
+
+                    }
                     export interface GetGmoExecTranIn {
+                        /** 決済管理番号 */
                         kssiknrNo: string;
+                        /** 決済方法区分 */
                         kssihhTyp: string;
+                        /** 取引ID */
                         accessId: string;
+                        /** 取引パスワード */
                         accessPwd: string;
+                        /** カード情報入力区分 */
                         crdtcrdinputKbn: string;
+                        /** HTTP_ACCEPT */
                         httpAccept: string;
+                        /** HTTP_USER_AGENT */
                         httpUserAgent: string;
+                        /** デバイス区分 */
                         dvcTyp: string;
+                        /** クレジットカード番号 */
                         crdtcrdNo?: string;
+                        /** カード有効期限 */
                         crdykkgn?: string;
+                        /** セキュリティーコード */
                         scrtyCd?: string;
+                        /** 会員コード */
                         kiinCd?: string;
+                        /** カード登録連番 */
                         cardseq?: string;
+                        /** 購入者名 */
                         knyshNm?: string;
+                        /** ??? */
                         shhnTyp?: string;
                     }
                     export interface GetGmoExecTranResult {
-                        acsKbn: string; // 本人認証サービス対応区分
-                        acsurl: string; // 本人認証パスワード入力画面URL
-                        pareq: string; // 本人認証要求電文
-                        md: string; // 取引ＩＤ
-                        forwardCd: string; // 仕向先会社コード
-                        tranDt: string; // 決済日時(形式：20160518133125)
-                        approveNo: string; // 決済承認番号
-                        tranId: string; // トランザクションＩＤ(形式1605181331111111111111878508：)
-                        auaccssId: string; // au取引ID
-                        autkn: string; // auトークン
-                        austrtUrl: string; // au支払手続きインターフェイスURL
-                        docomoaccssId: string; // ドコモ取引ID
-                        docomotkn: string; // ドコモトークン
-                        docomostrtUrl: string; // ドコモ支払手続きインターフェイスURL
-                        kssierrrshriTyp: string; // 決済エラー種類区分
-                        kssierrrmssgTxt: string; // 決済エラーメッセージ本文
+                        /** 本人認証サービス対応区分 */
+                        acsKbn: string;
+                        /** 本人認証パスワード入力画面URL */
+                        acsurl: string;
+                        /** 本人認証要求電文 */
+                        pareq: string;
+                        /** 取引ID */
+                        md: string;
+                        /** 仕向先会社コード */
+                        forwardCd: string;
+                        /** 決済日時(形式：20160518133125) */
+                        tranDt: string;
+                        /** 決済承認番号 */
+                        approveNo: string;
+                        /** トランザクションID(形式1605181331111111111111878508：) */
+                        tranId: string;
+                        /** au取引ID */
+                        auaccssId: string;
+                        /** auトークン */
+                        autkn: string;
+                        /** au支払手続きインターフェイスURL */
+                        austrtUrl: string;
+                        /** ドコモ取引ID */
+                        docomoaccssId: string;
+                        /** ドコモトークン */
+                        docomotkn: string;
+                        /** ドコモ支払手続きインターフェイスURL */
+                        docomostrtUrl: string;
+                        /** 決済エラー種類区分 */
+                        kssierrrshriTyp: string;
+                        /** 決済エラーメッセージ本文 */
+                        kssierrrmssgTxt: string;
                     }
 
                     export interface RegisterIchjknrInfoIn {
-                        ACCESS_ID: string; // 取引ID
-                        ACCESS_PWD: string; // 取引パスワード
-                        TKN_ID: string; // トークンID
-                        KSSIKNR_NO: string; // 決済管理番号
-                        HYJCRD_NO?: string; // 表示カード番号
-                        CRDMIGNN_NM?: string; // カード名義人名称
-                        CRDJHHJ_FLG?: string; // カード情報保持フラグ
-                        KNYSH_CD: string; // 購入者コード
-                        KIIN_FLG: string; // 会員フラグ
-                        KNYSHSI_NM: string; // 購入者姓名称
-                        KNYSHMI_NM: string; // 購入者名名称
-                        KNYSHSI_KNNM: string; // 購入者姓カナ名称
-                        KNYSHMI_KNNM: string; // 購入者名カナ名称
-                        KNYSHPC_MLADDR: string; // 購入者PCメールアドレス
-                        KNYSHKITI_MLADDR: string; // 購入者携帯メールアドレス
-                        KNYSHSHGIKYK_NO: string; // 購入者市外局番号
-                        KNYSHSHNIKYK_NO: string; // 購入者市内局番号
-                        KNYSHKNYSH_NO: string; // 購入者加入者番号
-                        MLSF_FLG: string; // メール送付フラグ
-                        SKHN_CD: string; // 作品コード
-                        KNSHKNKNR_NO: string; // 鑑賞券管理番号
-                        AZKRKNSHHRITMNG_TYP: string; // 預り金支払タイミング区分
-                        AZKRKNSHHRISK_TYP: string; // 預り金支払先区分
-                        THREDMGNDIKN_UNIP: string; // 3Dメガネ代金単価
-                        HMBIJTHREDMGNDIKNSHHRISK_TYP: string; // 販売時3Dメガネ代金支払先区分
-                        TICKETICHJKNR_LIST: ArrayOfTicketichjknrList; // チケット一時管理リスト
+                        /** 取引ID */
+                        ACCESS_ID: string;
+                        /** 取引パスワード */
+                        ACCESS_PWD: string;
+                        /** トークンID */
+                        TKN_ID: string;
+                        /** 決済管理番号 */
+                        KSSIKNR_NO: string;
+                        /** 表示カード番号 */
+                        HYJCRD_NO?: string;
+                        /** カード名義人名称 */
+                        CRDMIGNN_NM?: string;
+                        /** カード情報保持フラグ */
+                        CRDJHHJ_FLG?: string;
+                        /** 購入者コード */
+                        KNYSH_CD: string;
+                        /** 会員フラグ */
+                        KIIN_FLG: string;
+                        /** 購入者姓名称 */
+                        KNYSHSI_NM: string;
+                        /** 購入者名名称 */
+                        KNYSHMI_NM: string;
+                        /** 購入者姓カナ名称 */
+                        KNYSHSI_KNNM: string;
+                        /** 購入者名カナ名称 */
+                        KNYSHMI_KNNM: string;
+                        /** 購入者PCメールアドレス */
+                        KNYSHPC_MLADDR: string;
+                        /** 購入者携帯メールアドレス */
+                        KNYSHKITI_MLADDR: string;
+                        /** 購入者市外局番号 */
+                        KNYSHSHGIKYK_NO: string;
+                        /** 購入者市内局番号 */
+                        KNYSHSHNIKYK_NO: string;
+                        /** 購入者加入者番号 */
+                        KNYSHKNYSH_NO: string;
+                        /** メール送付フラグ */
+                        MLSF_FLG: string;
+                        /** 作品コード */
+                        SKHN_CD: string;
+                        /** 鑑賞券管理番号 */
+                        KNSHKNKNR_NO: string;
+                        /** 預り金支払タイミング区分 */
+                        AZKRKNSHHRITMNG_TYP: string;
+                        /** 預り金支払先区分 */
+                        AZKRKNSHHRISK_TYP: string;
+                        /** 3Dメガネ代金単価 */
+                        THREDMGNDIKN_UNIP: string;
+                        /** 販売時3Dメガネ代金支払先区分 */
+                        HMBIJTHREDMGNDIKNSHHRISK_TYP: string;
+                        /** チケット一時管理リスト */
+                        TICKETICHJKNR_LIST: ArrayOfTicketichjknrList;
                     }
 
                     interface ArrayOfTicketichjknrList {
@@ -993,117 +1177,194 @@ declare module "@motionpicture/mvtk-service" {
                     }
 
                     interface Ticketichjknr {
-                        KNSHKNKNR_NO: string; // 鑑賞券管理番号
-                        KNSHKNKNRMISI_NO: string; // 鑑賞券管理明細番号
-                        KNSHKNHMBI_UNIP: string; // 鑑賞券販売単価
-                        MVITCKTHIKYFTNTSURY_UNIP: string; // ムビチケ配給負担手数料単価
-                        MVITCKTKGYFTNTSURY_UNIP: string; // ムビチケ興行負担手数料単価
-                        MVITCKTUSRTSURY_UNIP: string; // ムビチケユーザー手数料単価
-                        SHHZI_RT: string; // 消費税率
-                        SHHZI_TYP: string; // 消費税区分
-                        SHHZI_UNIP: string; // 消費税単価
-                        KNYMI_NUM: string; // 購入枚数
+                        /** 鑑賞券管理番号 */
+                        KNSHKNKNR_NO: string;
+                        /** 鑑賞券管理明細番号 */
+                        KNSHKNKNRMISI_NO: string;
+                        /** 鑑賞券販売単価 */
+                        KNSHKNHMBI_UNIP: string;
+                        /** ムビチケ配給負担手数料単価 */
+                        MVITCKTHIKYFTNTSURY_UNIP: string;
+                        /** ムビチケ興行負担手数料単価 */
+                        MVITCKTKGYFTNTSURY_UNIP: string;
+                        /** ムビチケユーザー手数料単価 */
+                        MVITCKTUSRTSURY_UNIP: string;
+                        /** 消費税率 */
+                        SHHZI_RT: string;
+                        /** 消費税区分 */
+                        SHHZI_TYP: string;
+                        /** 消費税単価 */
+                        SHHZI_UNIP: string;
+                        /** 購入枚数 */
+                        KNYMI_NUM: string;
                     }
 
-                    export interface SelectIchjknrInfoResult {}
+                    export interface SelectIchjknrInfoResult {
+                        /** 取引ID */
+                        accessId: string;
+                        /** 取引パスワード */
+                        accessPwd: string;
+                        /** トークンID */
+                        tknId: string;
+                        /** 決済管理番号 */
+                        kssiknrNo: string;
+                        /** 表示カード番号 */
+                        hyjcrdNo: string;
+                        /** カード情報保持フラグ */
+                        crdjhhjFlg: string;
+                        /** カード名義人名称 */
+                        crdmignnNm: string;
+                        /** 購入者コード */
+                        knyshCd: string;
+                        /** 会員フラグ */
+                        kiinFlg: string;
+                        /** 購入者姓名称 */
+                        knyshsiNm: string;
+                        /** 購入者名名称 */
+                        knyshmiNm: string;
+                        /** 購入者姓カナ名称 */
+                        knyshsiKnnm: string;
+                        /** 購入者名カナ名称 */
+                        knyshmiKnnm: string;
+                        /** 購入者PCメールアドレス */
+                        knyshpcMladdr: string;
+                        /** 購入者携帯メールアドレス */
+                        knyshkitiMladdr: string;
+                        /** 購入者市外局番号 */
+                        knyshshgikykNo: string;
+                        /** 購入者市内局番号 */
+                        knyshshnikykNo: string;
+                        /** 購入者加入者番号 */
+                        knyshknyshNo: string;
+                        /** メール送付フラグ */
+                        mlsfFlg: string;
+                        /** 作品コード */
+                        skhnCd: string;
+                        /** 作品名称 */
+                        skhnNm: string;
+                        /** 鑑賞券管理番号 */
+                        knshknknrNo: string;
+                        /** 預り金支払タイミング区分 */
+                        azkrknshhriskTyp: string;
+                        /** 預り金支払先区分 */
+                        azkrknshhritmngTyp: string;
+                        /** 3Dメガネ代金単価 */
+                        thredmgndiknUnip: string;
+                        /** 販売時3Dメガネ代金支払先区分 */
+                        hmbijthredmgndiknshhriskTyp: string;
+                        /** 鑑賞券管理明細番号 */
+                        knshknknrmisiNo: string;
+                        /** 購入枚数 */
+                        knymiNum: string;
+                        /** 消費税区分 */
+                        shhziTyp: string;
+                        /** 消費税率 */
+                        shhziRt: string;
+                        /** 消費税単価 */
+                        shhziUnip: string;
+                        /** ムビチケ配給負担手数料単価 */
+                        mvitckthikyftntsuryUnip: string;
+                        /** ムビチケ興行負担手数料単価 */
+                        mvitcktkgyftntsuryUnip: string;
+                        /** ムビチケユーザー手数料単価 */
+                        mvitcktusrtsuryUnip: string;
+                        /** 鑑賞券販売単価 */
+                        knshknhmbiUnip: string;
+                        /** ポスター画像URL */
+                        pstrgzUrl: string;
+                        /** 主幹配給会社コード */
+                        shknhikygishCd: string;
+                        /** 映写方式区分 */
+                        eishhshkTyp: string;
+                        /** 券種区分 */
+                        knshTyp: string;
+                        /** 券種区分名称 */
+                        knshkbnNm: string;
+                    }
                     export interface GetTsuryShhziInfoResult {
-                        knshknknrmisiNo: string; // 鑑賞券管理明細番号
-                        mvitckthikyftntsuryUnip: string; // ムビチケ配給負担手数料単価
-                        mvitcktkgyftntsuryUnip: string; // ムビチケ興行負担手数料単価
-                        mvitcktusrtsuryUnip: string; // ムビチケユーザー手数料単価
-                        shhziRt: string; // 消費税率
-                        shhziTyp: string; // 消費税区分
-                        shhziUnip: string; // 消費税単価
+                        /** 鑑賞券管理明細番号 */
+                        knshknknrmisiNo: string;
+                        /** ムビチケ配給負担手数料単価 */
+                        mvitckthikyftntsuryUnip: string;
+                        /** ムビチケ興行負担手数料単価 */
+                        mvitcktkgyftntsuryUnip: string;
+                        /** ムビチケユーザー手数料単価 */
+                        mvitcktusrtsuryUnip: string;
+                        /** 消費税率 */
+                        shhziRt: string;
+                        /** 消費税区分 */
+                        shhziTyp: string;
+                        /** 消費税単価 */
+                        shhziUnip: string;
                     }
 
                     export interface GetShhriInfoByKeyResult {
-                        azkrknshhritmngTyp: string; // 預り金支払タイミング区分
-                        azkrknshhriskTyp: string; // 預り金支払先区分
-                        hmbijthredmgndiknshhriskTyp: string; // 販売時3Dメガネ代金支払先区分
+                        /** 預り金支払タイミング区分 */
+                        azkrknshhritmngTyp: string;
+                        /** 預り金支払先区分 */
+                        azkrknshhriskTyp: string;
+                        /** 販売時3Dメガネ代金支払先区分 */
+                        hmbijthredmgndiknshhriskTyp: string;
                     }
 
                     export interface GMOCancelIn {
-                        accessId: string; // 取引ＩＤ(決済代行会社が取引を識別するために発行するＩＤ)
-                        accessPwd: string; // 取引パスワード(決済代行会社が取引を識別するために発行するパスワード)
-                        kssihhTyp: string; // 決済方法区分
-                        hiykssihhTyp: string; // 併用決済方法区分
-                        kssiknrNo: string; // 決済管理番号
-                        grykngk: string; // ご利用金額
-                        tranDt: string; // 決済日時(2016/05/18 13:31:25)
+                        /** 取引ID(決済代行会社が取引を識別するために発行するＩＤ) */
+                        accessId: string;
+                        /** 取引パスワード(決済代行会社が取引を識別するために発行するパスワード) */
+                        accessPwd: string;
+                        /** 決済方法区分 */
+                        kssihhTyp: string;
+                        /** 併用決済方法区分 */
+                        hiykssihhTyp: string;
+                        /** 決済管理番号 */
+                        kssiknrNo: string;
+                        /** ご利用金額 */
+                        grykngk: string;
+                        /** 決済日時(2016/05/18 13:31:25) */
+                        tranDt: string;
                     }
                     export interface GetQuestionnaireListIn {
-                        skhnCd: string; // 作品コード
+                        /** 作品コード */
+                        skhnCd: string;
                     }
                     export interface GetQuestionnaireListResult {
-                        /**
-                         * アンケート設問情報(itemArray)
-                         */
+                        /** アンケート設問情報(itemArray) */
                         qustinnarstsmnInfo: Array<QustinnarstsmnInfo>;
 
                     }
 
                     interface QustinnarstsmnInfo {
-                        /**
-                         * アンケート設問番号
-                         */
+                        /** アンケート設問番号 */
                         QUSTINNARSTSMN_NO: string;
-                        /**
-                         * アンケート設問本文
-                         */
+                        /** アンケート設問本文 */
                         QUSTINNARSTSMN_TXT: string;
-                        /**
-                         * 回答方式区分
-                         */
+                        /** 回答方式区分 */
                         KITHSHK_TYP: string;
-                        /**
-                         * アンケート表示形式区分
-                         */
+                        /** アンケート表示形式区分 */
                         QUSTINNARHYJKISHK_TYP: string;
-                        /**
-                         * 回答上限数
-                         */
+                        /** 回答上限数 */
                         KITJGN_NUM: string;
-                        /**
-                         * アンケート選択肢情報(itemArray)
-                         */
+                        /** アンケート選択肢情報(itemArray) */
                         QUSTINNARSNTKSH_INFO: Array<QustinnarsntkshInfo>;
                     }
 
                     interface QustinnarsntkshInfo {
-                        /**
-                         * 選択肢番号
-                         */
+                        /** 選択肢番号 */
                         SNTKSH_NO: string;
-                        /**
-                         * 選択肢名称
-                         */
+                        /** 選択肢名称 */
                         SNTKSH_NM: string;
                     }
 
                     export interface RegisterQuestionnaireIn {
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         skhnCd: string;
-
-                        /**
-                         * 購入管理番号
-                         */
+                        /** 購入管理番号 */
                         knyknrNo: string;
-
-                        /**
-                         * アンケート回答情報(Item Array)
-                         */
+                        /** アンケート回答情報(Item Array) */
                         qustinnarkitInfo: ArrayOfQustinnarkitInfo;
-
-                        /**
-                         * 購入者コード
-                         */
+                        /** 購入者コード */
                         knyshCd: string;
-
-                        /**
-                         * 期待コメント本文
-                         */
+                        /** 期待コメント本文 */
                         kticmmntTxt: string;
 
                     }
@@ -1113,21 +1374,13 @@ declare module "@motionpicture/mvtk-service" {
                     }
 
                     interface QustinnarkitInfo {
-                        /**
-                         * 回答方式区分
-                         */
+                        /** 回答方式区分 */
                         KITHSHK_TYP: string;
-                        /**
-                         * 記述回答本文
-                         */
+                        /** 記述回答本文 */
                         KJTSKIT_TXT: string;
-                        /**
-                         * アンケート設問番号
-                         */
+                        /** アンケート設問番号 */
                         QUSTINNARSTSMN_NO: string;
-                        /**
-                         * 選択式アンケート回答情報(itemArray)
-                         */
+                        /** 選択式アンケート回答情報(itemArray) */
                         SNTKSHKQUSTINNARKIT_INFO: ArrayOfSntkshkqustinnarkitInfo;
                     }
 
@@ -1136,27 +1389,119 @@ declare module "@motionpicture/mvtk-service" {
                     }
 
                     interface SntkshkqustinnarkitInfo {
-                        /**
-                         * 選択肢番号
-                         */
+                        /** 選択肢番号 */
                         SNTKSH_NO: string;
                     }
                 }
 
                 export class PurchaseService {
+                    /**
+                     * 購入日時チェック
+                     *
+                     * @param {string} skhnCd 作品コード
+                     */
                     isPurchaseDatetime(skhnCd: string, cb: (err, responnes, isOnSalse: boolean) => any): void;
+
+                    /**
+                     * 代行会社カード参照呼出
+                     *
+                     * @param {string} kiinCd
+                     */
                     getGmoSearchCard(kiinCd: string, cb: (err, response, creditCardInfoResult: any) => any): void;
+
+                    /**
+                     * 券種情報検索
+                     *
+                     * @param {string} skhnCd
+                     * @param {string} dvcTyp
+                     */
                     getTicketTypeList(skhnCd, dvcTyp, cb: (err, response, result: any) => any): void;
+
+                    /**
+                     * 決済管理番号採番
+                     *
+                     * 決済エラーの処理はしない。
+                     * 決済エラー関係のフィールドはあるが、値は返却されない。
+                     *
+                     * @return string 決済管理番号
+                     */
                     saibanKssiknrNo(cb: (err, response, kssiknrNo: string) => any): void;
+
+                    /**
+                     * 代行会社決済実行呼出
+                     *
+                     * @param {string} kssiknrNo   決済管理番号
+                     * @param {string} kssihhTyp  決済方法区分
+                     * @param {string} accessId        取引ID
+                     * @param {string} accessPwd  取引パスワード
+                     * @param Array<string>  params
+                     */
                     getGmoExecTran(params: models.GetGmoExecTranIn, cb: (err, response, GetGmoExecTranResult: any) => any): void;
+
+                    /**
+                     * 代行会社カード登録更新呼出
+                     *
+                     * @param {string} kssiknrNo       決済管理番号
+                     * @param {string} kiinCd          会員コード
+                     * @param {string} mignn  クレジットカード名義人
+                     */
                     getGmoSaveCard(kssiknrNo, kiinCd, mignn, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * 一時管理テーブル（情報）登録
+                     *
+                     * @param {RegisterIchjknrInfoIn} args
+                     */
                     registerIchjknr(params: models.RegisterIchjknrInfoIn, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * 一時管理テーブル（情報）取得
+                     *
+                     * @param {string} kssihhTyp    決済方法区分
+                     * @param {string} accessIdOrkssiknrNo 決済管理番号or取引ID。クレジットカード決済の場合のみ、取引ID
+                     */
                     selectIchjknr(kssihhTyp, accessIdOrkssiknrNo, cb: (err, response, selectIchjknrInfoResults: Array<any>) => any): void;
+
+                    /**
+                     * 一時管理テーブル（情報）削除
+                     *
+                     * @param {Array<string>} accessIds
+                     */
                     deleteIchjknr(accessIds: Array<string>, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * 手数料・消費税情報取得
+                     *
+                     * @param {string} knshknknrNo 鑑賞券管理番号
+                     */
                     getTsuryShhziInfo(knshknknrNo, cb: (err, response, getTsuryShhziInfoResults: Array<any>) => any): void;
+
+                    /**
+                     * 支払先情報取得
+                     *
+                     * @param {string} knshknknrNo 鑑賞券管理番号
+                     */
                     getShhriInfoByKey(knshknknrNo, cb: (err, respones, getShhriInfoByKeyResult: any) => any): void;
+
+                    /**
+                     * 代行会社決済取消呼出
+                     *
+                     * @param {GMOCancelIn} args
+                     */
                     gMOCancel(params: models.GMOCancelIn, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * アンケート設問検索
+                     *
+                     * @param {GetQuestionnaireListIn} args
+                     */
                     getQuestionnaireList(params: models.GetQuestionnaireListIn, cb: (err, response, getQuestionnaireListResult: any) => any): void;
+
+                    /**
+                     * アンケート設問登録
+                     *
+                     * @param {RegisterQuestionnaireIn} args
+                     */
                     registerQuestionnaire(params: models.RegisterQuestionnaireIn, cb: (err, response, isSuccess: boolean) => any): void;
                 }
 
@@ -1165,37 +1510,80 @@ declare module "@motionpicture/mvtk-service" {
             module RegisterMember {
                 module models {
                     export interface RegisterMemberTemporaryIn {
-                        nckNm?: string; // ニックネーム
-                        kiinsiNm: string; // 会員姓名称
-                        kiimmiNm: string; // 会員名名称
-                        kiinsiKnnm: string; // 会員姓カナ名称
-                        kiimmiKnnm: string; // 会員名カナ名称
-                        sibtsTyp: string; // 性別区分
-                        kiinsiYmd: string; // 会員生年月日(1999/01/01形式)
-                        kiinybnNo?: string; // 会員郵便番号(123-5678形式)
-                        tdfknCd: string; // 都道府県コード
-                        kiinshkchsnAddr?: string; // 会員市区町村住所
-                        kiimbnchAddr?: string; // 会員番地住所
-                        kiinttmnAddr?: string; // 会員建物住所
-                        kiinjshiDo: string; // 会員住所緯度
-                        kiinjshkiDo: string; // 会員住所経度
-                        kiinshgikykNo: string; // 会員市外局番号
-                        kiinshnikykNo: string; // 会員市内局番号
-                        kiinknyshNo: string; // 会員加入者番号
-                        kiinMladdr: string; // 会員メールアドレス
-                        kiinmladdrssdvcTyp: string; // 会員メールアドレスデバイス区分
-                        kiinsbMladdr?: string; // 会員サブメールアドレス
-                        kiinsbmladdrssdvcTyp?: string; // 会員サブメールアドレスデバイス区分
-                        kiinPwd: string; // 会員パスワード
-                        kiintrkmekssiknrNo?: string; // 会員登録前決済管理番号
-                        mlmgkbFlg: string; // 
-                        kiintrkdvcTyp: string; // 会員登録デバイス区分
+                        /** ニックネーム */
+                        nckNm?: string;
+                        /** 会員姓名称 */
+                        kiinsiNm: string;
+                        /** 会員名名称 */
+                        kiimmiNm: string;
+                        /** 会員姓カナ名称 */
+                        kiinsiKnnm: string;
+                        /** 会員名カナ名称 */
+                        kiimmiKnnm: string;
+                        /** 性別区分 */
+                        sibtsTyp: string;
+                        /** 会員生年月日(1999/01/01形式) */
+                        kiinsiYmd: string;
+                        /** 会員郵便番号(123-5678形式) */
+                        kiinybnNo?: string;
+                        /** 都道府県コード */
+                        tdfknCd: string;
+                        /** 会員市区町村住所 */
+                        kiinshkchsnAddr?: string;
+                        /** 会員番地住所 */
+                        kiimbnchAddr?: string;
+                        /** 会員建物住所 */
+                        kiinttmnAddr?: string;
+                        /** 会員住所緯度 */
+                        kiinjshiDo: string;
+                        /** 会員住所経度 */
+                        kiinjshkiDo: string;
+                        /** 会員市外局番号 */
+                        kiinshgikykNo: string;
+                        /** 会員市内局番号 */
+                        kiinshnikykNo: string;
+                        /** 会員加入者番号 */
+                        kiinknyshNo: string;
+                        /** 会員メールアドレス */
+                        kiinMladdr: string;
+                        /** 会員メールアドレスデバイス区分 */
+                        kiinmladdrssdvcTyp: string;
+                        /** 会員サブメールアドレス */
+                        kiinsbMladdr?: string;
+                        /** 会員サブメールアドレスデバイス区分 */
+                        kiinsbmladdrssdvcTyp?: string;
+                        /** 会員パスワード */
+                        kiinPwd: string;
+                        /** 会員登録前決済管理番号 */
+                        kiintrkmekssiknrNo?: string;
+                        /**  */
+                        mlmgkbFlg: string;
+                        /** 会員登録デバイス区分 */
+                        kiintrkdvcTyp: string;
                     }
                 }
 
                 export class RegisterMemberService {
+                    /**
+                     * 会員情報仮登録
+                     *
+                     * @param {RegisterMemberTemporaryIn} registerMemberTemporaryIn
+                     */
                     registerMemberTemporary(params: models.RegisterMemberTemporaryIn, cb: (err, resonse, kiinCd: string) => any): void;
+
+                    /**
+                     * 会員情報仮登録完了メール送信
+                     *
+                     * @param {string} kiinCd 会員コード
+                     */
                     sendMemberTemporaryCompletionMail(kiinCd: string, cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * 会員情報本登録・代行会社会員登録呼出
+                     *
+                     * @param {string} hmbntrkyUrl   本登録用パラメータ（本登録URLの末尾に付与されている）
+                     * @param {string} kiintrkdvcTyp 会員登録デバイス区分
+                     */
                     registerMemberProperly(hmbntrkyUrl: string, kiintrkdvcTyp: string, cb: (err, response, kiinCd: string) => any): void;
                 }
 
@@ -1204,38 +1592,95 @@ declare module "@motionpicture/mvtk-service" {
             module Util {
                 module models {
                     export interface EncryptDataListIn {
-                        /**
-                         * 暗号化文字列リスト
-                         */
+                        /** 暗号化文字列リスト */
                         list: Array<string>;
                     }
 
-                    export interface GetCodeNameResult {}
+                    export interface GetCodeNameResult {
+                        /** 項目区分 */
+                        kmkTyp: string;
+                        /** 項目区分名称 */
+                        kmkkbnNm: string;
+                        /** 選択区分 */
+                        slcttyp: string;
+                        /** 区分情報(itemArray) */
+                        typInfo: Array<TypInfo>;
+                    }
+
+                    interface TypInfo {
+                        TYP: string;
+                        KBN_NM: string;
+                    }
                 }
 
                 export class UtilService {
                     // getPrefectureCode(prefectureCode, addBlank = false): void;
                     // getPrefectureCodeWithMvitckttio(prefectureCode, addBlank = false): void;
+
+                    /**
+                     * 会員認証クッキー追加
+                     *
+                     * API側で会員情報がセッションに追加され、セッションクッキーが発行される。
+                     *
+                     * @param {string} kiinCd ムビチケ会員コード
+                     */
                     signIn(kiinCd: string, cb: (err, response, cookieString: string) => any): void;
+
+                    /**
+                     * サインアウト
+                     *
+                     * API側のセッション情報を破棄
+                     */
                     signOut(cb: (err, response, isSuccess: boolean) => any): void;
+
+                    /**
+                     * 電子券QRコード生成
+                     *
+                     * @param {string}  knyknrNo 購入管理番号
+                     * @param {string}  pinCd    PINコード（購入者電話番号下４桁）
+                     */
                     createQrCode(knyknrNo: string, pinCd: string, cb: (err, response, qrcdUrl: string) => any): void;
+
+                    /**
+                     * 暗号化
+                     *
+                     * @param string $value
+                     * @return string 暗号化した文字列
+                     *
+                     * @throws sfMovieticketAPIException
+                     */
                     encryptData(value: string): void;
+
+                    /**
+                     * 暗号化（配列）
+                     *
+                     * @param {Object} values
+                     */
                     encryptDataList(params: models.EncryptDataListIn, cb: (err, response, encryptedStrings: Array<string>) => any): void;
+
+                    /**
+                     * 各種コード検索
+                     * 
+                     * @param {string} kmkTyp 項目区分
+                     * @param {string} typ 区分
+                     * @param {string} blnkarFlg ブランク有フラグ
+                     */
                     getCodeName(kmkTyp: string, typ: string, blnkarFlg: string, cb: (err, response, getCodeNameResult: any) => any): void;
                 }
-
-                export class UtilUtilities {
-                }
-
             }
 
             module WebMoney {
                 module models {
                     export interface WebMoneyEntryIn {
-                        kssiknrNo: string; // 決済管理番号
-                        knshknknrNo: string; // 鑑賞券管理番号
-                        skhnNm: string; // 作品コード
-                        dvcTyp: string; // 会員フラグ
+                        /** 決済管理番号 */
+                        kssiknrNo: string;
+                        /** 鑑賞券管理番号 */
+                        knshknknrNo: string;
+                        /** 作品コード */
+                        skhnNm: string;
+                        /** 会員フラグ */
+                        dvcTyp: string;
+                        /**  */
                         knshknInfo: {
                             KnshInfoIn: Array<{
                                 KNSHKNKNRMISI_NO: string;
@@ -1247,29 +1692,48 @@ declare module "@motionpicture/mvtk-service" {
                     }
 
                     export interface WebMoneyEntryResult {
-                        rdirktUrl: string; // リダイレクトURL
+                        /** リダイレクトURL */
+                        rdirktUrl: string;
                     }
 
                     export interface DecryptWebMoneyKssiInfoResult {
-                        decryptedkssiinfo: string; // 
-                        vrsinjh: string; // 
-                        wbmnysettleCd: string; // 
-                        tranDt: string; // 形式：YYYYMMDDHHmmss
-                        wbmnymanagementNo: string; // 
-                        sinyjshkbtsFlg: string; // 
-                        shhnNum: string; // 
-                        shhnCd: string; // 
-                        hcchCd: string; // 
+                        /**  */
+                        decryptedkssiinfo: string;
+                        /**  */
+                        vrsinjh: string;
+                        /**  */
+                        wbmnysettleCd: string;
+                        /** 形式：YYYYMMDDHHmmss */
+                        tranDt: string;
+                        /**  */
+                        wbmnymanagementNo: string;
+                        /**  */
+                        sinyjshkbtsFlg: string;
+                        /**  */
+                        shhnNum: string;
+                        /**  */
+                        shhnCd: string;
+                        /**  */
+                        hcchCd: string;
                     }
                 }
 
                 export class WebMoneyService {
+                    /**
+                     * WebMoney決済実行
+                     *
+                     * @param {WebMoneyEntryIn} webMoneyEntryIn
+                     */
                     webMoneyEntry(params: models.WebMoneyEntryIn, cb: (err, response, webMoneyEntryResult: any) => any): void;
+
+                    /**
+                     * WebMoney決済情報複合化
+                     *
+                     * @param {string} encryptedKssiInfo
+                     */
                     decryptWebMoneyKssiInfo(encryptedKssiInfo, cb: (err, response, decryptWebMoneyKssiInfoResult: any) => any): void;
                 }
-
             }
-
         }
 
         module services2 {
@@ -1277,184 +1741,156 @@ declare module "@motionpicture/mvtk-service" {
             module GiftCard {
                 module models {
                     export interface GiftCardIDAuthIn {
-                        /**
-                         *  ギフトカードID情報
-                         */
+                        /** ギフトカードID情報 */
                         MVTKGFTCRD_INFO_IN: {
                             MvtkGftcrdInfo: Array<{
-                                /**
-                                 * ムビチケギフトカードID
-                                 */
+                                /** ムビチケギフトカードID */
                                 MVTKGFTCRD_ID: string;
-                                /**
-                                 * ムビチケギフトカードPINコード
-                                 */
+                                /** ムビチケギフトカードPINコード */
                                 MVTKGFTCRDPIN_CD: string;
-                                /**
-                                 * ギフトカード決済管理番号
-                                 */
+                                /** ギフトカード決済管理番号 */
                                 GFTCRDKSSIKNR_NO: string;
                             }>;
                         };
-
-                        /**
-                         * 利用金額
-                         */
+                        /** 利用金額 */
                         KSSIKNR_NO: string;
-                        /**
-                         * デバイス区分
-                         */
+                        /** デバイス区分 */
                         RYUKNGK: string;
-                        /**
-                         * ご利用金額
-                         */
+                        /** ご利用金額 */
                         DVC_TYP: string;
-                        /**
-                         * ロックフラグ
-                         */
+                        /** ロックフラグ */
                         LOCK_FLG: string;
-                        /**
-                         * 併用決済フラグ
-                         */
+                        /** 併用決済フラグ */
                         HIYKSSI_FLG: string;
-                        /**
-                         * 併用決済区分
-                         */
+                        /** 併用決済区分 */
                         HIYKSSI_TYP: string;
-                        /**
-                         * 購入者コード
-                         */
+                        /** 購入者コード */
                         KNYSH_CD: string;
-                        /**
-                         * 会員フラグ
-                         */
+                        /** 会員フラグ */
                         KIIN_FLG: string;
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         SKHN_CD: string;
                     }
 
                     export interface GiftCardIDAuthResult {
-                        /**
-                         * 凸版サービス返却値
-                         */
+                        /** 凸版サービス返却値 */
                         tppnsrvcrspns: string;
-                        /**
-                         * ムビチケギフトカードID
-                         */
+                        /** ムビチケギフトカードID */
                         mvtkgftcrdId: string;
-                        /**
-                         * 残高
-                         */
+                        /** 残高 */
                         zndk: string;
-                        /**
-                         * 利用金額
-                         */
+                        /** 利用金額 */
                         ryukngk: string;
-                        /**
-                         * ギフトカードステータス
-                         */
+                        /** ギフトカードステータス */
                         giftcardstatus: string;
-                        /**
-                         * 他決済利用金額
-                         */
+                        /** 他決済利用金額 */
                         tkssiryukngk: string;
 
                     }
                     export interface GiftCardCancelIn {
-                        /**
-                         * ギフトカードID情報
-                         */
+                        /** ギフトカードID情報 */
                         MVTKGFTCRD_INFO_IN: {
                             MvtkGftcrdCancelInfo: Array<{
-                                MVTKGFTCRD_ID: string; // ムビチケギフトカードID
-                                MVTKGFTCRDPIN_CD: string; // ムビチケギフトカードPINコード
-                                GFTCRDKSSIKNR_NO: string; // ギフトカード決済管理番号
-                                RYUKNGK: string; // ムビチケオンラインギフトカードで決済した金額
-                                SYRYKY_DT: string; // 取消を行う決済処理を要求した日時(取消区分が2の場合は必須)
+                                /** ムビチケギフトカードID */
+                                MVTKGFTCRD_ID: string;
+                                /** ムビチケギフトカードPINコード */
+                                MVTKGFTCRDPIN_CD: string;
+                                /** ギフトカード決済管理番号 */
+                                GFTCRDKSSIKNR_NO: string;
+                                /** ムビチケオンラインギフトカードで決済した金額 */
+                                RYUKNGK: string;
+                                /** 取消を行う決済処理を要求した日時(取消区分が2の場合は必須) */
+                                SYRYKY_DT: string;
                             }>;
                         };
-
                         /**
                          * 取消区分
                          * 決済取消を行う区分
                          * 0：ロック解除 1：取消 2：障害取消
                          */
                         TRKSH_TYP: string;
-
                         /**
                          * ギフトカード決済取消を行うデバイスの区分
                          * 1：PC 09：SmartPhone
                          */
                         DVC_TYP: string;
-                        /**
-                         * 取消しする作品のコード
-                         */
+                        /** 取消しする作品のコード */
                         SKHN_CD: string;
-                        /**
-                         * 取消しする決済の管理番号
-                         */
+                        /** 取消しする決済の管理番号 */
                         KSSIKNR_NO: string;
                     }
 
                     export interface GiftCardCancelResult {
-                        /**
-                         * 凸版サービス返却値
-                         */
+                        /** 凸版サービス返却値 */
                         tppnsrvcrspns: string;
-                        /**
-                         * ムビチケギフトカードID
-                         */
+                        /** ムビチケギフトカードID */
                         mvtkgftcrdId: string;
-                        /**
-                         * 利用前残高
-                         */
+                        /** 利用前残高 */
                         ryumezndk: string;
-                        /**
-                         * 残高
-                         */
+                        /** 残高 */
                         zndk: string;
-                        /**
-                         * 承認番号
-                         */
+                        /** 承認番号 */
                         synnNo: string;
-                        /**
-                         * 処理要求日時
-                         */
+                        /** 処理要求日時 */
                         syrykyDt: string;
-                        /**
-                         * ギフトカードステータス
-                         */
+                        /** ギフトカードステータス */
                         giftcardstatus: string;
 
                     }
                 }
 
                 export class GiftCardService {
+                    /**
+                     * ムビチケギフトカード認証
+                     * 
+                     * @param {GiftCardIDAuthIn} args
+                     */
                     giftCardIDAuth(params: models.GiftCardIDAuthIn, cb: (err, response, giftCardIDAuthResults: Array<any>) => any): void;
+
+                    /**
+                     * ムビチケギフトカード取消
+                     * 
+                     * @param {Array<GiftCardCancelIn>} args
+                     */
                     giftCardCancel(params: models.GiftCardCancelIn, cb: (err, response, giftCardCancelResults: Array<any>) => any): void;
                 }
 
                 module GiftCardUtilities {
+                    /** ムビチケギフトカード認証処理結果(成功) */
                     export var GIFT_CARD_ID_AUTH_RESULT_STATUS_SUCCESS: string;
+                    /** ムビチケギフトカード認証処理結果(残高不足) */
                     export var GIFT_CARD_ID_AUTH_RESULT_STATUS_W00000: string;
+                    /** ムビチケギフトカード認証処理結果(システムエラー) */
                     export var GIFT_CARD_ID_AUTH_RESULT_STATUS_ERROR0: string;
+                    /** ムビチケギフトカード認証処理結果(パラメータエラー) */
                     export var GIFT_CARD_ID_AUTH_RESULT_STATUS_ERROR1: string;
+                    /** ムビチケギフトカード認証処理結果(ロック失敗) */
                     export var GIFT_CARD_ID_AUTH_RESULT_STATUS_ERROR2: string;
+                    /** ムビチケギフトカード認証処理結果(エラー情報有り) */
                     export var GIFT_CARD_ID_AUTH_RESULT_STATUS_ERROR3: string;
 
+                    /** ギフトカードステータス(使用可能) */
                     export var GIFT_CARD_STATUS_SUCCESS: string;
+                    /** ギフトカードステータス(残高不足?他決済使用中?) */
                     export var GIFT_CARD_STATUS_W00000: string;
+                    /** ギフトカードステータス(該当カードなし) */
                     export var GIFT_CARD_STATUS_ERROR1: string;
+                    /** ギフトカードステータス(認証番号NG) */
                     export var GIFT_CARD_STATUS_ERROR2: string;
+                    /** ギフトカードステータス(有効期限切れ) */
                     export var GIFT_CARD_STATUS_ERROR3: string;
+                    /** ギフトカードステータス(未アクティベート) */
                     export var GIFT_CARD_STATUS_ERROR4: string;
+                    /** ギフトカードステータス(認証失敗) */
                     export var GIFT_CARD_STATUS_ERROR5: string;
+                    /** ギフトカードステータス(同一種類重複不可) */
                     export var GIFT_CARD_STATUS_ERROR6: string;
 
+                    /** 取消区分(ロック解除) */
                     export var TRKSH_TYP_UNLOCK: string;
+                    /** 取消区分(取消) */
                     export var TRKSH_TYP_CANCEL: string;
+                    /** 取消区分(障害取消) */
                     export var TRKSH_TYP_FAULT: string;
                 }
 
@@ -1463,38 +1899,22 @@ declare module "@motionpicture/mvtk-service" {
             module Mail {
                 module models {
                     export interface DeliveryIn {
-                        /**
-                         * 決済管理番号
-                         */
+                        /** 決済管理番号 */
                         KSSIKNR_NO: string;
-                        /**
-                         * 購入管理番号
-                         */
+                        /** 購入管理番号 */
                         KNYKNR_NO: string;
-                        /**
-                         * 宛先
-                         */
+                        /** 宛先 */
                         MAILADDRESS: string;
-                        /**
-                         * 宛名
-                         */
+                        /** 宛名 */
                         ADDRESS: string;
-                        /**
-                         * 作品名
-                         */
+                        /** 作品名 */
                         SKHN_NM: string;
-                        /**
-                         * 鑑賞券情報(ItemArray)
-                         */
+                        /** 鑑賞券情報(ItemArray) */
                         KNSHKN_INFO: {
                             KNSHKN: Array<{
-                                /**
-                                 * 券種区分名称
-                                 */
+                                /** 券種区分名称 */
                                 KNSHKBN_NM: string;
-                                /**
-                                 * 購入枚数
-                                 */
+                                /** 購入枚数 */
                                 KNYMI_NUM: string;
                             }>;
                         };
@@ -1506,27 +1926,23 @@ declare module "@motionpicture/mvtk-service" {
                          * デジタルインセンティブ URL
                          */
                         DGTLINCNTV_URL: string;
-                        /**
-                         * デバイス区分
-                         */
+                        /** デバイス区分 */
                         DVC_TYP: string;
-                        /**
-                         * メールテンプレートコード
-                         */
+                        /** メールテンプレートコード */
                         MLTMPLT_CD: string;
-                        /**
-                         * 合計金額
-                         */
+                        /** 合計金額 */
                         TOTALCOST: string;
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         SKHN_CD: string;
                     }
-
                 }
 
                 export class MailService {
+                    /**
+                     * 購入管理番号メール送信
+                     *
+                     * @param {DeliveryIn} args
+                     */
                     delivery(params: models.DeliveryIn, cb: (err, response, isSuccess: boolean) => any): void;
                 }
 
@@ -1535,87 +1951,51 @@ declare module "@motionpicture/mvtk-service" {
             module Purchase {
                 module models {
                     export interface GetGmoEntryTranIn {
-                        /**
-                         * 決済管理番号
-                         */
+                        /** 決済管理番号 */
                         KSSIKNR_NO: string;
-                        /**
-                         * 決済方法区分
-                         */
+                        /** 決済方法区分 */
                         KSSIHH_TYP: string;
-                        /**
-                         * ご利用金額
-                         */
+                        /** ご利用金額 */
                         GRYKNGK: string;
-                        /**
-                         * 購入者コード
-                         */
+                        /** 購入者コード */
                         KNYSH_CD: string;
-                        /**
-                         * 会員フラグ
-                         */
+                        /** 会員フラグ */
                         KIIN_FLG: string;
-                        /**
-                         * 併用決済フラグ
-                         */
+                        /** 併用決済フラグ */
                         HIYKSSI_FLG: string;
-                        /**
-                         * 併用決済区分
-                         */
+                        /** 併用決済区分 */
                         HIYKSSI_TYP: string;
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         SKHN_CD: string;
                     }
 
                     export interface GetGmoEntryTranResult {
-                        /**
-                         * 決済管理番号
-                         */
+                        /** 決済管理番号 */
                         kssiknrNo: string;
-                        /**
-                         * 取引ＩＤ
-                         */
+                        /** 取引ＩＤ */
                         accessId: string;
-                        /**
-                         * 取引パスワード
-                         */
+                        /** 取引パスワード */
                         accessPwd: string;
-                        /**
-                         * 決済エラー種類区分
-                         */
+                        /** 決済エラー種類区分 */
                         kssierrrshriTyp: string;
-                        /**
-                         * 決済エラーメッセージ本文
-                         */
+                        /** 決済エラーメッセージ本文 */
                         kssierrrmssgTxt: string;
                     }
 
                     export interface RegisterPurchaseInfoIn {
-                        /**
-                         * 決済管理番号
-                         */
+                        /** 決済管理番号 */
                         KSSIKNR_NO: string;
                         /**
                          * 決済代行会社が取引を識別するために発行する ID
                          */
                         ACCESS_ID: string;
-                        /**
-                         * 決済代行会社が取引を識別するために発行するパスワード
-                         */
+                        /** 決済代行会社が取引を識別するために発行するパスワード */
                         ACCESS_PWD: string;
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         SKHN_CD: string;
-                        /**
-                         * 鑑賞券管理番号
-                         */
+                        /** 鑑賞券管理番号 */
                         KNSHKNKNR_NO: string;
-                        /**
-                         * 鑑賞券情報
-                         */
+                        /** 鑑賞券情報 */
                         KNSHKN_INFO: {
                             KnshknInfo: Array<{
                                 KNSHKNKNRMISI_NO: string;
@@ -1628,67 +2008,38 @@ declare module "@motionpicture/mvtk-service" {
                          * 会員フラグ(0:非会員 1:会員)
                          */
                         KIIN_FLG: string;
-                        /**
-                         * 決済方法区分
-                         */
+                        /** 決済方法区分 */
                         KSSIHH_TYP: string;
-                        /**
-                         * 購入者姓名称
-                         */
+                        /** 購入者姓名称 */
                         KNYSHSI_NM: string;
-                        /**
-                         * 購入者名名称
-                         */
+                        /** 購入者名名称 */
                         KNYSHMI_NM: string;
-                        /**
-                         * 購入者姓カナ名称
-                         */
+                        /** 購入者姓カナ名称 */
                         KNYSHSI_KNNM: string;
-                        /**
-                         * 購入者名カナ名称
-                         */
+                        /** 購入者名カナ名称 */
                         KNYSHMI_KNNM: string;
-                        /**
-                         * 購入者ＰＣメールアドレス
-                         */
+                        /** 購入者ＰＣメールアドレス */
                         KNYSHPC_MLADDR: string;
-                        /**
-                         * 購入者携帯メールアドレス
-                         */
+                        /** 購入者携帯メールアドレス */
                         KNYSHKITI_MLADDR: string;
-                        /**
-                         * 購入者市外局番号
-                         */
+                        /** 購入者市外局番号 */
                         KNYSHSHGIKYK_NO: string;
-                        /**
-                         * 購入者市内局番号
-                         */
+                        /** 購入者市内局番号 */
                         KNYSHSHNIKYK_NO: string;
-                        /**
-                         * 購入者加入者番号
-                         */
+                        /** 購入者加入者番号 */
                         KNYSHKNYSH_NO: string;
-                        /**
-                         * 購入日時（yyyy/mm/ddThh24:mm:ss）
-                         */
+                        /** 購入日時（yyyy/mm/ddThh24:mm:ss） */
                         KNY_DT: string;
-                        /**
-                         * チケットの販売チャネル
-                         */
+                        /** チケットの販売チャネル */
                         HMBICHNNL_TYP: string;
-                        /**
-                         * チケット販売会社のコード
-                         */
+                        /** チケット販売会社のコード */
                         HMBGISH_CD: string;
-                        /**
-                         * 決済を行った日時（yyyy/mm/ddThh24:mm:ss）
-                         */
+                        /** 決済を行った日時（yyyy/mm/ddThh24:mm:ss） */
                         TRAN_DT: string;
                         /**
                          * 与信を行ったカード会社の会社コード(決済方法区分が 00 の場合は必須)
                          */
                         FORWARD_CD: string;
-
                         /**
                          * カード会社が発行した与信の承認番号
                          * 決済方法区分が 00、01、02 の場合は必須
@@ -1699,33 +2050,27 @@ declare module "@motionpicture/mvtk-service" {
                          * 決済代行会社が処理を行う毎に発行している処理番号(決済方法区分が 00 の場合は必須)
                          */
                         TRAN_ID: string;
-                        /**
-                         * 購入チケットの合計金額
-                         */
+                        /** 購入チケットの合計金額 */
                         GRYKNGK: string;
-                        /**
-                         * 購入したデバイスの区分
-                         */
+                        /** 購入したデバイスの区分 */
                         KNYDVC_TYP: string;
                         /**
                          * au 簡単決済の支払方法
                          */
                         AU_PAYMETHOD: string;
-                        /**
-                         * ギフトカード情報
-                         */
+                        /** ギフトカード情報 */
                         GFTCRD_INFO: {
                             GftcrdInfo: Array<{
-                                GFTCRDKSSIKNR_NO: string; // 
-                                GFTCRDPIN_CD: string; // 
-                                GFTCRD_ID: string; // 
-                                GFTCRD_STTS: string; // 
-                                KSSISYNN_NO: string; // 
-                                KSSI_DT: string; // 
-                                RYG_ZNDK: string; // 
-                                RYME_ZNDK: string; // 
-                                RY_MNY: string; // 
-                                TPPNSRVCRSPNS: string; // 
+                                GFTCRDKSSIKNR_NO: string;
+                                GFTCRDPIN_CD: string;
+                                GFTCRD_ID: string;
+                                GFTCRD_STTS: string;
+                                KSSISYNN_NO: string;
+                                KSSI_DT: string;
+                                RYG_ZNDK: string;
+                                RYME_ZNDK: string;
+                                RY_MNY: string;
+                                TPPNSRVCRSPNS: string;
                             }>;
                         };
                         /**
@@ -1736,20 +2081,12 @@ declare module "@motionpicture/mvtk-service" {
                          * 併用決済フラグ(0:単独決済 1:併用決済)
                          */
                         HIYKSSI_FLG: string;
-                        /**
-                         * 併用決済方法
-                         */
+                        /** 併用決済方法 */
                         HIYKSSIHH_TYP: string;
-                        /**
-                         * 併用決済で使用したムビチケオンラインギフトカードの決済金額合計
-                         */
+                        /** 併用決済で使用したムビチケオンラインギフトカードの決済金額合計 */
                         HIYKSSIRYGKI_MNY: string;
-                        /**
-                         * WebMoney決済情報
-                         */
+                        /** WebMoney決済情報 */
                         WEBMONEYKSSIINFO: WebmoneykssiInfo;
-
-
                     }
 
                     interface WebmoneykssiInfo {
@@ -1803,66 +2140,100 @@ declare module "@motionpicture/mvtk-service" {
                     }
 
                     export interface RegisterPurchaseInfoResult {
-                        /**
-                         * 購入管理番号
-                         */
+                        /** 購入管理番号 */
                         knyknrNo: string;
-                        /**
-                         * デジタルインセンティブダウンロード画面ＵＲＬ
-                         */
+                        /** デジタルインセンティブダウンロード画面ＵＲＬ */
                         dgtlincntvdwnlodgmnUrl: string;
-                        /**
-                         * 決済エラー種類区分
-                         */
+                        /** 決済エラー種類区分 */
                         kssierrrshriTyp: string;
-                        /**
-                         * 決済エラーメッセージ
-                         */
+                        /** 決済エラーメッセージ */
                         kssierrrmssgTxt: string;
                     }
-
                 }
 
                 export class PurchaseService {
+                    /**
+                     * 代行会社取引登録呼出
+                     *
+                     * @param {GetGmoEntryTranIn} args
+                     */
                     getGmoEntryTran(params: models.GetGmoEntryTranIn, cb: (err, response, result: any) => any): void;
+
+                    /**
+                     * 購入情報登録
+                     *
+                     * @params {RegisterPurchaseInfoIn} args
+                     */
                     registerPurchaseInfo(params: models.RegisterPurchaseInfoIn, cb: (err, response, registerPurchaseInfoResult: any) => any): void;
                 }
 
                 module PurchaseUtilities {
+                    /** 決済方法区分 */
                     export var KSSIHH_TYP_CREDIT_CARD: string;
+                    /** 決済方法区分 */
                     export var KSSIHH_TYP_AU: string;
+                    /** 決済方法区分 */
                     export var KSSIHH_TYP_DOCOMO: string;
+                    /** 決済方法区分(ムビチケオンラインギフトカード) */
                     export var KSSIHH_TYP_GIFT_CARD: string;
+                    /** 決済方法区分 */
                     export var KSSIHH_TYP_WEB_MONEY: string;
 
+                    /** 購入デバイス区分(PC) */
                     export var KNYDVC_TYP_PC: string;
+                    /** 購入デバイス区分(携帯電話) */
                     export var KNYDVC_TYP_MB: string;
+                    /** 購入デバイス区分(SmartPhone) */
                     export var KNYDVC_TYP_SP: string;
+                    /** 購入デバイス区分(法人券) */
                     export var KNYDVC_TYP_CT: string;
+                    /** 購入デバイス区分(カード券) */
                     export var KNYDVC_TYP_MC: string;
+                    /** 購入デバイス区分(マーケットプレイス) */
                     export var KNYDVC_TYP_AMZN: string;
 
+                    /** チケットの販売チャネル(ムビチケサイト) */
                     export var HMBICHNNL_TYP_MVTK_SITE: string;
 
+                    /** 販売会社コード(ムビチケ) */
                     export var HMBGISH_CD_MVTK: string;
 
+                    /** カード情報入力区分(入力された情報を使用) */
                     export var CRDTCRDINPUTKBN_INPUT: string;
+                    /** カード情報入力区分(登録済みの情報を使用) */
                     export var CRDTCRDINPUTKBN_REGISTERED: string;
 
+                    /** メール送付フラグ */
                     export var MLSF_FLG_PC: string;
+                    /** メール送付フラグ */
                     export var MLSF_FLG_MOBILE: string;
+                    /** メール送付フラグ */
                     export var MLSF_FLG_PC_AND_MOBILE: string;
 
+                    /** 本人認証サービス対応区分(対応している) */
                     export var AUTHENTICATION_SERVICE_SUPPORT: string;
+                    /** 本人認証サービス対応区分(対応していない) */
                     export var AUTHENTICATION_SERVICE_NOT_SUPPORT: string;
 
+                    /** 決済エラー種類区分(顧客都合によるエラー) */
                     export var CLIENT_ERROR: string;
+                    /** 決済エラー種類区分(システムエラー全般) */
                     export var SYSTEM_ERROR: string;
 
+                    /** 回答方式区分(選択式) */
                     export var KITHSHK_TYP_CHOICE: string;
+                    /** 回答方式区分(記述式) */
                     export var KITHSHK_TYP_TEXT: string;
 
+                    /**  */
                     export function getMethods(): Object;
+
+                    /**
+                     * 対応している決済区分か判定
+                     *
+                     * @param {string} kssiTyp 決済区分
+                     * @return {boolean}
+                     */
                     export function isAvailableMethod(kssiTyp: string): boolean;
                 }
 
@@ -1874,54 +2245,114 @@ declare module "@motionpicture/mvtk-service" {
 
                 export class TicketChangeService {
                 }
-
             }
 
             module Util {
                 module models {
                     export interface CreateQrCodeIn {
-                        /**
-                         * 購入管理番号
-                         */
+                        /** 購入管理番号 */
                         KNYKNR_NO: string;
-                        /**
-                         * PIN コード
-                         */
+                        /** PINコード */
                         PIN_CD: string;
-                        /**
-                         * 作品コード
-                         */
+                        /** 作品コード */
                         SKHN_CD: string;
                     }
-
                 }
 
                 export class UtilService {
+                    /**
+                     * 電子券QRコード生成
+                     *
+                     * @param {CreateQrCodeIn} args
+                     */
                     createQrCode(params: models.CreateQrCodeIn, cb: (err, response, qrcdUrl: string) => any): void;
                 }
-
             }
         }
 
-
+        /**
+         * サービスビルダー初期化
+         * 
+         * @param {string} endpoint
+         * @param {string} endpoint2
+         */
         export function initialize(endpoint: string, endpoint2: string, cb: () => any): void;
         export function getCookie(): string;
         export function setCookie(cookie: string): void;
 
+        /**
+         * デジタルインセンティブサービスを生成する
+         */
         export function createDigitalIncentiveDownloadService(): services.DigitalIncentiveDownload.DigitalIncentiveDownloadService;
+
+        /**
+         * 作品サービスを生成する
+         */
         export function createFilmService(): services.Film.FilmService;
+
+        /**
+         * ギフトカードサービスを生成する
+         */
         export function createGiftCardService(): services.GiftCard.GiftCardService;
+
+        /**
+         * 新ギフトカードサービスを生成する
+         */
         export function createGiftCardService2(): services2.GiftCard.GiftCardService;
+
+        /**
+         * 問い合わせサービスを生成する
+         */
         export function createInquiryService(): services.Inquiry.InquiryService;
+
+        /**
+         * メールサービスを生成する
+         */
         export function createMailService(): services2.Mail.MailService;
+
+        /**
+         * 会員情報サービスを生成する
+         */
         export function createMemberInfoService(): services.MemberInfo.MemberInfoService;
+
+        /**
+         * ユーザー作品履歴サービスを生成する
+         */
         export function createMovieLogService(): services.MovieLog.MovieLogService;
+
+        /**
+         * 購入サービスを生成する
+         */
         export function createPurchaseService(): services.Purchase.PurchaseService;
+
+        /**
+         * 新購入サービスを生成する
+         */
         export function createPurchaseService2(): services2.Purchase.PurchaseService;
+
+        /**
+         * 会員登録サービスを生成する
+         */
         export function createRegisterMemberService(): services.RegisterMember.RegisterMemberService;
+
+        /**
+         * お直りサービスを生成する
+         */
         export function createTicketChangeService(): services2.TicketChange.TicketChangeService;
+
+        /**
+         * ユーティリティサービスを生成する
+         */
         export function createUtilService(): services.Util.UtilService;
+
+        /**
+         * 新ユーティリティサービスを生成する
+         */
         export function createUtilService2(): services2.Util.UtilService;
+
+        /**
+         * ウェブマネーサービスを生成する
+         */
         export function createWebMoneyService(): services.WebMoney.WebMoneyService;
 
         export import Constants = common.util.constants;
@@ -1933,7 +2364,6 @@ declare module "@motionpicture/mvtk-service" {
         export import MemberInfoUtilities = services.MemberInfo.MemberInfoUtilities;
         export import GiftCardUtilities = services2.GiftCard.GiftCardUtilities;
         export import PurchaseUtilities = services2.Purchase.PurchaseUtilities;
-
     }
 
     export = mvtkservice;

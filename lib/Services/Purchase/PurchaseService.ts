@@ -106,7 +106,6 @@ export default class PurchaseService extends Service {
      * 決済エラー関係のフィールドはあるが、値は返却されない。
      *
      * @return string 決済管理番号
-     * @throws sfMovieticketAPIException
      */
     public saibanKssiknrNo(cb: (err, response, kssiknrNo: string) => any) {
         let method = 'SaibanKssiknrNo';
