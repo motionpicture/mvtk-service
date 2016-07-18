@@ -1,6 +1,6 @@
 {
   "name": "@motionpicture/mvtk-service",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "dependencies": {
     "soap": "^0.13.0",
     "soap-cookie": "^0.10.1"
@@ -13,5 +13,9 @@
   "repository": {},
   "keywords": [],
   "author": "Tetsu Yamazaki <yamazaki@motionpicture.jp>",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=6.0.0",
+    "npm" : ">=3.8.0"
+  }
 }
