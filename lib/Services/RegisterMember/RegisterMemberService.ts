@@ -8,10 +8,12 @@ export default class RegisterMemberService extends Service {
      *
      * @param {RegisterMemberTemporaryIn} registerMemberTemporaryIn
      */
-    public registerMemberTemporary(registerMemberTemporaryIn: RegisterMemberTemporaryIn, cb: (err, resonse, kiinCd: string) => void ): void {
+    public registerMemberTemporary(params: Object, cb: (err, resonse, kiinCd: string) => void ): void {
         let method = 'RegisterMemberTemporary';
 
-        this.call(method, registerMemberTemporaryIn.toXml(), (err, response, result) => {
+        let args = new RegisterMemberTemporaryIn(params);
+
+        this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
 
             let kiinCd = null;

@@ -1607,8 +1607,6 @@ declare module "@motionpicture/mvtk-service" {
             module RegisterMember {
                 module models {
                     export interface RegisterMemberTemporaryIn {
-                        /** ニックネーム */
-                        nckNm?: string;
                         /** 会員姓名称 */
                         kiinsiNm: string;
                         /** 会員名名称 */
@@ -1619,18 +1617,10 @@ declare module "@motionpicture/mvtk-service" {
                         kiimmiKnnm: string;
                         /** 性別区分 */
                         sibtsTyp: string;
-                        /** 会員生年月日(1999/01/01形式) */
+                        /** 会員生年月日(19990101形式) */
                         kiinsiYmd: string;
-                        /** 会員郵便番号(123-5678形式) */
-                        kiinybnNo?: string;
                         /** 都道府県コード */
                         tdfknCd: string;
-                        /** 会員市区町村住所 */
-                        kiinshkchsnAddr?: string;
-                        /** 会員番地住所 */
-                        kiimbnchAddr?: string;
-                        /** 会員建物住所 */
-                        kiinttmnAddr?: string;
                         /** 会員住所緯度 */
                         kiinjshiDo: string;
                         /** 会員住所経度 */
@@ -1645,14 +1635,8 @@ declare module "@motionpicture/mvtk-service" {
                         kiinMladdr: string;
                         /** 会員メールアドレスデバイス区分 */
                         kiinmladdrssdvcTyp: string;
-                        /** 会員サブメールアドレス */
-                        kiinsbMladdr?: string;
-                        /** 会員サブメールアドレスデバイス区分 */
-                        kiinsbmladdrssdvcTyp?: string;
                         /** 会員パスワード */
                         kiinPwd: string;
-                        /** 会員登録前決済管理番号 */
-                        kiintrkmekssiknrNo?: string;
                         /**  */
                         mlmgkbFlg: string;
                         /** 会員登録デバイス区分 */
