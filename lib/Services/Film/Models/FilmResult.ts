@@ -325,7 +325,7 @@ export default class FilmResult {
         return null;
     }
 
-    public getCastNames(): string {
+    public getCastNames(leadingFilter: boolean = false): string {
         // 表示順でソート
         let compare = (a: FilmCastResult, b: FilmCastResult) => {
             let aHyjjnNo = (a.cstHyjjnNo) ? parseInt(a.cstHyjjnNo) : 0;
@@ -342,15 +342,19 @@ export default class FilmResult {
 
         this.cstInfo.sort(compare);
 
-        // if ($leadingFilter) {
-        //     $casts = array_filter($casts, function($cast){
-        //     /* @var $cast MovieticketCast */
-        //     return intval($cast->getShuenFlg()) === 1;
-        //     });
-        // }
+        //主役フィルター
+        if (leadingFilter) {
+            let cast: string[] = []; 
+            for (let info of this.cstInfo) {
+                if (info.cstShenFlg === '1') {
+                    cast.push(info.cstJmbtsNm);
+                }
+            }
+            return cast.join('、');
+        }
 
         return this.cstInfo.map((info) => {
-            return info.cstJmbtsNm
+            return info.cstJmbtsNm;
         }).join('、');
     }
 
