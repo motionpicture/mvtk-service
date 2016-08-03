@@ -3,6 +3,9 @@ import Constants from '../../common/util/Constants';
 import GetFavoriteFilmListResult from './Models/GetFavoriteFilmListResult';
 import GetUnusedTicketListResult from './Models/GetUnusedTicketListResult';
 import ShyzmtcktInfoListResult from './Models/ShyzmtcktInfoListResult';
+import WatchRecordResult from './Models/WatchRecordResult';
+
+
 
 export default class MovieLogService extends Service {
     /**
@@ -265,6 +268,20 @@ export default class MovieLogService extends Service {
             mvilgNo: mvilgNo,
             knytcktSttsKbn: knytcktSttsKbn
         };
+
+        let isSuccess = false;
+
+        this.call(method, args, (err, response, result) => {
+            if (err) return cb(err, response, isSuccess);
+
+            // 作品コード指定の上でSTATUS_CHECK_ERROR(L001)は対象なしとしてエラーにはしない
+            if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
+             || result.RESULT_INFO.STATUS === 'L001') {
+                isSuccess = true;
+            }
+
+            cb(err, response, isSuccess);
+        });
     }
 
     /**
@@ -291,6 +308,26 @@ export default class MovieLogService extends Service {
         let args = {
             mvilgNo: mvilgNo
         };
+
+        let watchRecordResults: Array<WatchRecordResult>;
+
+        this.call(method, args, (err, response, result) => {
+            if (err) return cb(err, response, watchRecordResults);
+
+            if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                watchRecordResults = [];
+
+                if (Array.isArray(result.KNSHKRK_INFO.KnshkrkInfo)) {
+                    for (let knshkrkInfo of result.KNSHKRK_INFO.KnshkrkInfo) {
+                        watchRecordResults.push(WatchRecordResult.parse(knshkrkInfo));
+                    }
+                } else {
+                    watchRecordResults.push(WatchRecordResult.parse(result.KNSHKRK_INFO.KnshkrkInfo));
+                }
+            }
+
+            cb(err, response, watchRecordResults);
+        });
     }
 
     /**

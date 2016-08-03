@@ -1,4 +1,5 @@
-﻿var mvtkService = require('../../lib/mvtk-service');
+﻿
+var mvtkService = require('../../lib/mvtk-service');
 
 mvtkService.initialize(
     'https://ssl.movieticket.jp',
@@ -6,7 +7,7 @@ mvtkService.initialize(
 );
 
 var utilService = mvtkService.createUtilService();
-utilService.signIn('00000737', (err, response, cookieString) => {
+utilService.signIn('00000539', (err, response, cookieString) => {
     if (err) {
         console.log('signIn processed. err:', err);
     } else {
@@ -22,6 +23,10 @@ utilService.signIn('00000737', (err, response, cookieString) => {
             } else {
                 console.log('getMemberInfoDetail processed. memberInfoResult:', memberInfoResult);
             }
+            var movieLogService = mvtkService.createMovieLogService();
+            movieLogService.getWatchRecordList('2013120700000006', function(err, response, watchRecordResults){
+                console.log(err, response, watchRecordResults)
+            })
         });
     }
 });
