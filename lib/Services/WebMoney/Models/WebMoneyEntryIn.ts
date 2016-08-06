@@ -4,7 +4,7 @@ export default class WebMoneyEntryIn extends BaseIn {
     public kssiknrNo: string; // 決済管理番号
     public knshknknrNo: string; // 鑑賞券管理番号
     public skhnNm: string; // 作品コード
-    public dvcTyp: string = '0'; // 会員フラグ
+    public dvcTyp: string; // 購入デバイス区分
     public knshknInfo: {
         KnshInfoIn: Array<{
             KNSHKNKNRMISI_NO: string;

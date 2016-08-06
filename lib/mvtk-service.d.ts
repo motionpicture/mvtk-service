@@ -1759,7 +1759,7 @@ declare module "@motionpicture/mvtk-service" {
                         knshknknrNo: string;
                         /** 作品コード */
                         skhnNm: string;
-                        /** 会員フラグ */
+                        /** 購入デバイス区分 */
                         dvcTyp: string;
                         /**  */
                         knshknInfo: {
