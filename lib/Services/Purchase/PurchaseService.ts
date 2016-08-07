@@ -13,6 +13,7 @@ import TicketInfoResult from '../Film/Models/TicketInfoResult';
 import RegisterQuestionnaireIn from './Models/RegisterQuestionnaireIn';
 import GetQuestionnaireListIn from './Models/GetQuestionnaireListIn';
 import GetQuestionnaireListResult from './Models/GetQuestionnaireListResult';
+import ForwardPurchaseInfoMailIn from './Models/ForwardPurchaseInfoMailIn';
 
 export default class PurchaseService extends Service {
     /**
@@ -390,6 +391,29 @@ export default class PurchaseService extends Service {
         let isSuccess = false;
 
         this.call(method, message, (err, response, result) => {
+            if (err) return cb(err, response, isSuccess);
+
+            if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                isSuccess = true;
+            }
+
+            cb(err, response, isSuccess);
+        });
+    }
+
+    /**
+     * 購入管理番号メール転送
+     *
+     * @param {Object} params
+     */
+    public forwardPurchaseInfoMail(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
+        let method = 'ForwardPurchaseInfoMail';
+
+        let args = new ForwardPurchaseInfoMailIn(params);
+
+        let isSuccess = false;
+
+        this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, isSuccess);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {

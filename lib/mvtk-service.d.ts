@@ -1489,6 +1489,17 @@ declare module "@motionpicture/mvtk-service" {
                         /** 選択肢番号 */
                         SNTKSH_NO: string;
                     }
+
+                    export interface ForwardPurchaseInfoMailIn {
+                        /** 購入管理番号 */
+                        knyknrNo: string;
+                        /** 宛先 */
+                        mailaddress: string;
+                        /** デバイス区分 */
+                        dvcTyp?: string;
+                        /** QRコードURL */
+                        qrcdUrl?: string;
+                    }
                 }
 
                 export class PurchaseService extends common.Service {
@@ -1600,6 +1611,13 @@ declare module "@motionpicture/mvtk-service" {
                      * @param {RegisterQuestionnaireIn} args
                      */
                     registerQuestionnaire(params: models.RegisterQuestionnaireIn, cb: (err, response, isSuccess: boolean) => void): void;
+
+                    /**
+                     * 購入管理番号メール転送
+                     *
+                     * @param {ForwardPurchaseInfoMailIn} args
+                     */
+                    forwardPurchaseInfoMail(params: models.ForwardPurchaseInfoMailIn, cb: (err, response, isSuccess: boolean) => void): void;
                 }
 
             }
