@@ -24,9 +24,7 @@ utilService.signIn('00000539', (err, response, cookieString) => {
                 console.log('getMemberInfoDetail processed. memberInfoResult:', memberInfoResult);
             }
             var movieLogService = mvtkService.createMovieLogService();
-            movieLogService.getWatchRecordList('2013120700000006', function(err, response, watchRecordResults){
-                console.log(err, response, watchRecordResults)
-            })
+            
         });
     }
 });

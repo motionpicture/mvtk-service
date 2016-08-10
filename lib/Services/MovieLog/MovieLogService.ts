@@ -4,6 +4,8 @@ import GetFavoriteFilmListResult from './Models/GetFavoriteFilmListResult';
 import GetUnusedTicketListResult from './Models/GetUnusedTicketListResult';
 import ShyzmtcktInfoListResult from './Models/ShyzmtcktInfoListResult';
 import WatchRecordResult from './Models/WatchRecordResult';
+import SeatReservationStatusListResult from './Models/SeatReservationStatusListResult';
+import SentGiftStatusListResult from './Models/SentGiftStatusListResult';
 
 
 
@@ -295,6 +297,27 @@ export default class MovieLogService extends Service {
         let args = {
             mvilgNo: mvilgNo
         };
+        //TODO
+        
+        let seatReservationStatusListResults: Array<SeatReservationStatusListResult>;
+
+        this.call(method, args, (err, response, result) => {
+            if (err) return cb(err, response, seatReservationStatusListResults);
+
+            if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                seatReservationStatusListResults = [];
+
+                if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
+                    for (let zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
+                        seatReservationStatusListResults.push(SeatReservationStatusListResult.parse(zskyykjykyInfo));
+                    }
+                } else {
+                    seatReservationStatusListResults.push(SeatReservationStatusListResult.parse(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
+                }
+            }
+
+            cb(err, response, seatReservationStatusListResults);
+        });
     }
 
     /**
@@ -341,6 +364,27 @@ export default class MovieLogService extends Service {
         let args = {
             mvilgNo: mvilgNo
         };
+
+        //TODO
+        let sentGiftStatusListResults: Array<SentGiftStatusListResult>;
+
+        this.call(method, args, (err, response, result) => {
+            if (err) return cb(err, response, sentGiftStatusListResults);
+
+            if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                sentGiftStatusListResults = [];
+
+                if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
+                    for (let zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
+                        sentGiftStatusListResults.push(SentGiftStatusListResult.parse(zskyykjykyInfo));
+                    }
+                } else {
+                    sentGiftStatusListResults.push(SentGiftStatusListResult.parse(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
+                }
+            }
+
+            cb(err, response, sentGiftStatusListResults);
+        });
     }
 
     /**
