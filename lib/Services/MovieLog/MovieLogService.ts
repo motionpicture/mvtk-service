@@ -297,7 +297,6 @@ export default class MovieLogService extends Service {
         let args = {
             mvilgNo: mvilgNo
         };
-        //TODO
         
         let seatReservationStatusListResults: Array<SeatReservationStatusListResult>;
 
@@ -365,7 +364,6 @@ export default class MovieLogService extends Service {
             mvilgNo: mvilgNo
         };
 
-        //TODO
         let sentGiftStatusListResults: Array<SentGiftStatusListResult>;
 
         this.call(method, args, (err, response, result) => {

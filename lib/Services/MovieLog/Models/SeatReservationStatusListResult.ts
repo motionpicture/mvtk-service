@@ -52,7 +52,7 @@ export default class SeatReservationStatusListResult {
             if (normalizedName === 'knshbtskiinknyyykInfo') {
                 let infos: Array<KnshbtskiinknyyykInfo> = [];
                 if (property !== null && property.hasOwnProperty('KnshbtskiinknyyykInfo')) {
-                    if (Array.isArray(property.knshbtskiinknygftInfo)) {
+                    if (Array.isArray(property.KnshbtskiinknyyykInfo)) {
                         for (let info of property.KnshbtskiinknyyykInfo) {
                             infos.push(info);
                         }
