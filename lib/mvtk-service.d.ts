@@ -1,6 +1,6 @@
 declare module "@motionpicture/mvtk-service" {
     import soap = require('soap');
-    
+
     module mvtkservice {
         module common {
             module util {
@@ -2369,6 +2369,7 @@ declare module "@motionpicture/mvtk-service" {
             }
         }
 
+
         /**
          * サービスビルダー初期化
          * 
@@ -2376,6 +2377,7 @@ declare module "@motionpicture/mvtk-service" {
          * @param {string} endpoint2
          */
         export function initialize(endpoint: string, endpoint2: string): void;
+        export function createInstance(): typeof mvtkservice;
         export function getCookie(): string;
         export function setCookie(cookie: string): void;
 

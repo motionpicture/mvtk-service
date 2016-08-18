@@ -62,7 +62,7 @@ class ServicesBuilder
      */
     private cookie: string;
 
-    public static getInstance() {
+    public static getInstance(): ServicesBuilder {
         if (!ServicesBuilder.instance) {
             ServicesBuilder.instance = new ServicesBuilder()
         }
@@ -79,6 +79,16 @@ class ServicesBuilder
     public initialize(endpoint: string, endpoint2: string): void {
         this.endpoint = endpoint;
         this.endpoint2 = endpoint2;
+    }
+
+    /**
+     * 新しいインスタンスを複製する
+     */
+    public createInstance(): ServicesBuilder {
+        let instance = new ServicesBuilder();
+        instance.initialize(this.endpoint, this.endpoint2);
+
+        return instance;
     }
 
     public getCookie() {
