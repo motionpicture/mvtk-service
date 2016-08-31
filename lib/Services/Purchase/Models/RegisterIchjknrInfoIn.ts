@@ -24,7 +24,7 @@ export default class RegisterIchjknrInfoIn extends BaseIn {
     public KNSHKNKNR_NO: string; // 鑑賞券管理番号
     public AZKRKNSHHRITMNG_TYP: string; // 預り金支払タイミング区分
     public AZKRKNSHHRISK_TYP: string; // 預り金支払先区分
-    public THREDMGNDIKN_UNIP: string; // 3Dメガネ代金単価
+    public THREDMGNDIKN_UNIP: number; // 3Dメガネ代金単価(type="xs:decimal"なので空を送信する際は、xmlの書き方に注意)
     public HMBIJTHREDMGNDIKNSHHRISK_TYP: string; // 販売時3Dメガネ代金支払先区分
     public TICKETICHJKNR_LIST: ArrayOfTicketichjknrList; // チケット一時管理リスト
 
@@ -56,7 +56,7 @@ export default class RegisterIchjknrInfoIn extends BaseIn {
             <q23:KSSIKNR_NO>${this.KSSIKNR_NO}</q23:KSSIKNR_NO>
             <q23:MLSF_FLG>${this.MLSF_FLG}</q23:MLSF_FLG>
             <q23:SKHN_CD>${this.SKHN_CD}</q23:SKHN_CD>
-            ${(this.THREDMGNDIKN_UNIP) ? `<q23:THREDMGNDIKN_UNIP>${this.THREDMGNDIKN_UNIP}</q23:THREDMGNDIKN_UNIP>` : '<q23:THREDMGNDIKN_UNIP/>'}
+            <q23:THREDMGNDIKN_UNIP xsi:nil="true">${(this.THREDMGNDIKN_UNIP) ? this.THREDMGNDIKN_UNIP: ''}</q23:THREDMGNDIKN_UNIP>
             <q23:TICKETICHJKNR_LIST>
 `;
 

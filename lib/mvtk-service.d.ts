@@ -1262,7 +1262,7 @@ declare module "@motionpicture/mvtk-service" {
                         /** 預り金支払先区分 */
                         AZKRKNSHHRISK_TYP: string;
                         /** 3Dメガネ代金単価 */
-                        THREDMGNDIKN_UNIP: string;
+                        THREDMGNDIKN_UNIP: number;
                         /** 販売時3Dメガネ代金支払先区分 */
                         HMBIJTHREDMGNDIKNSHHRISK_TYP: string;
                         /** チケット一時管理リスト */
