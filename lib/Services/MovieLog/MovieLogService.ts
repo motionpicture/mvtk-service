@@ -232,9 +232,7 @@ export default class MovieLogService extends Service {
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, isSuccess);
 
-            // 作品コード指定の上でSTATUS_CHECK_ERROR(L001)は対象なしとしてエラーにはしない
-            if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L001') {
+            if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 isSuccess = true;
             }
 
