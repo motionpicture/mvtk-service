@@ -48,6 +48,7 @@ export default class Service
             // }
 
             let options = {
+                timeout: 60000 // 60 * 1000
             };
 
             let extraHeaders = {};
@@ -64,8 +65,14 @@ export default class Service
                 // logger.debug('MvtkService response coming...lastRequest:', client.lastRequest);
                 // logger.debug('MvtkService response coming...', method, err, response, raw);
 
+
+                let result = null;
                 // プロパティ名`${method}Result`に結果が入っている
-                let result = response[`${method}Result`];
+                if (response && response.hasOwnProperty(`${method}Result`)) {
+                    result = response[`${method}Result`];
+                }
+                
+                
 
                 cb(err, response, result, client['lastResponseHeaders']);
             }, options, extraHeaders);

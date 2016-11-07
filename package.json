@@ -1,9 +1,9 @@
 {
   "name": "@motionpicture/mvtk-service",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "dependencies": {
-    "soap": "^0.13.0",
-    "soap-cookie": "^0.10.1"
+    "soap": "0.13.0",
+    "soap-cookie": "0.10.1"
   },
   "description": "Mvtk Client Library for Node.js",
   "main": "./lib/mvtk-service.js",

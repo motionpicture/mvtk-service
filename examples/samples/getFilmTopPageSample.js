@@ -10,8 +10,8 @@ mvtkService.initialize(
 var filmService = mvtkService.createFilmService();
 filmService.getFilmTopPage(mvtkService.Constants.DVC_TYP_PC, (err, response, results) => {
     if (err) {
-        console.log('getFilmTopPage processed. err:', err);
+        //console.log('getFilmTopPage processed. err:', err);
     } else {
-        console.log('getFilmTopPage processed. err:', err, response, results);
+        //console.log('getFilmTopPage processed. err:', err, response, results);
     }
 });
