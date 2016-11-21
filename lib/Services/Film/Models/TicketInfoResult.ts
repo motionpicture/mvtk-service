@@ -137,7 +137,14 @@ export default class TicketInfoResult {
      * @return {boolean}
      */
     public isOnSale(): boolean {
-        let startStr = `${this.knshknhmbikishYmd.substring(0, 4)}/${this.knshknhmbikishYmd.substring(4, 6)}/${this.knshknhmbikishYmd.substring(6)} 00:00:00`;
+        //開始時間まで取得
+        let startTimeStr: string;
+        if (this.knshknhmbikishHms) {
+            startTimeStr = `${this.knshknhmbikishHms.substring(0, 2)}:${this.knshknhmbikishHms.substring(2, 4)}:00`;
+        } else {
+            startTimeStr = '00:00:00';
+        }
+        let startStr = `${this.knshknhmbikishYmd.substring(0, 4)}/${this.knshknhmbikishYmd.substring(4, 6)}/${this.knshknhmbikishYmd.substring(6)} ${startTimeStr}`;
         let startTimestamp = Date.parse(startStr);
 
         // 終日なので23時59分59秒
