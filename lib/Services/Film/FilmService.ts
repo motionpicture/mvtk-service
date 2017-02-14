@@ -50,7 +50,7 @@ export default class FilmService extends Service {
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, filmResults);
-
+            console.log('result', result.SKHN_INFO.SkhnInfo[0])
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 filmResults = [];
 
@@ -62,7 +62,7 @@ export default class FilmService extends Service {
                     filmResults.push(FilmResult.parse(result.SKHN_INFO.SkhnInfo));
                 }
             }
-
+            console.log('filmResults', filmResults[0])
             cb(err, response, filmResults);
         });
     }

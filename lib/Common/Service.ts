@@ -9,7 +9,7 @@ export default class Service
     /**
      * soapクライアント
      */
-    private client: soap.Client = null;
+    private client: soap.Client | null = null;
 
     /**
      * クッキー文字列
@@ -19,7 +19,7 @@ export default class Service
     constructor(protected wsdl: string) {
     }
 
-    public setCookie(cookie) {
+    public setCookie(cookie: any) {
         this.cookie = cookie;
     }
 
@@ -51,7 +51,7 @@ export default class Service
                 timeout: 60000 // 60 * 1000
             };
 
-            let extraHeaders = {};
+            let extraHeaders: any = {};
             // クッキー文字列がある場合はヘッダーで送信(サービス側でログイン状態が判別される)
             if (this.cookie) {
                 extraHeaders['Cookie'] = this.cookie;
@@ -71,8 +71,8 @@ export default class Service
                 if (response && response.hasOwnProperty(`${method}Result`)) {
                     result = response[`${method}Result`];
                 }
-                
-                
+
+
 
                 cb(err, response, result, client['lastResponseHeaders']);
             }, options, extraHeaders);
@@ -82,7 +82,7 @@ export default class Service
     /**
      * sopaクライアントを生成する
      */
-    private createClient(cb: (err: Error, client: soap.Client) => void) {
+    private createClient(cb: (err: Error | null, client: soap.Client) => void) {
         // 一度生成済みであれば新たに生成しない
         if (this.client !== null) {
             return cb(null, this.client);

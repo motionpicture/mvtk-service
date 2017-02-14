@@ -1,14 +1,16 @@
 {
   "name": "@motionpicture/mvtk-service",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "dependencies": {
-    "soap": "0.13.0",
-    "soap-cookie": "0.10.1"
+    "@types/soap": "0.0.31",
+    "soap": "^0.18.0",
+    "soap-cookie": "^0.10.1"
   },
   "description": "Mvtk Client Library for Node.js",
   "main": "./lib/mvtk-service.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --no-timeouts --recursive",
+    "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts --project tsconfig.json"
   },
   "repository": {},
   "keywords": [],
@@ -16,6 +18,13 @@
   "license": "UNLICENSED",
   "engines": {
     "node": ">=6.0.0",
-    "npm" : ">=3.8.0"
+    "npm": ">=3.8.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.39",
+    "mocha": "^3.2.0",
+    "tslint": "^4.4.2",
+    "tslint-microsoft-contrib": "^4.0.0",
+    "typescript": "^2.1.6"
   }
 }

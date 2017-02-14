@@ -1,14 +1,49 @@
 {
     "compilerOptions": {
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "charset": "utf8",
+        "declaration": true,
+        "declarationDir": "./types",
+        "diagnostics": false,
+        "disableSizeLimit": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators":true,
+        "forceConsistentCasingInFileNames": true,
+        "inlineSourceMap": false,
+        "inlineSources": false,
+        "isolatedModules": false,
+        "listEmittedFiles": false,
+        "listFiles": false,
+        "locale": "en-us",
         "module": "commonjs",
-        "target": "es5",
-        "noImplicitAny": false,
+        "newLine": "CRLF",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitUseStrict": false,
+        "noLib": false,
+        "noResolve": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "preserveConstEnums": false,
+        "pretty": false,
+        "removeComments": false,
         "sourceMap": false,
-        "watch": true
+        "strictNullChecks": true,
+        "stripInternal": false,
+        "suppressExcessPropertyErrors": false,
+        "suppressImplicitAnyIndexErrors": false,
+        "target": "es6",
+        "watch": false
     },
     "exclude": [
+        "docs",
         "node_modules",
+        "types",
         "typings",
-        "definitions"
+        "definitions",
+        "lib/Services",
+        "lib/Services2"
     ]
 }
