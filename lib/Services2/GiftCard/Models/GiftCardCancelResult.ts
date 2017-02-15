@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class GiftCardCancelResult {
     /**
@@ -30,7 +30,7 @@ export default class GiftCardCancelResult {
      */
     public giftcardstatus: string = '';
 
-    public static parse (resultObject): GiftCardCancelResult {
+    public static PARSE (resultObject): GiftCardCancelResult {
         let result = new GiftCardCancelResult();
 
         for (let propertyName in resultObject) {

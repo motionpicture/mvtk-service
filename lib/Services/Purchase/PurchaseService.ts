@@ -62,9 +62,9 @@ export default class PurchaseService extends Service {
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 if (result.CRDJHUM_FLG !== '0') {
                     if (Array.isArray(result.CRDTCRD_INFO.CrdtcrdInfo)) {
-                        creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo[0]);
+                        creditCardInfoResult = CreditCardInfoResult.PARSE(result.CRDTCRD_INFO.CrdtcrdInfo[0]);
                     } else {
-                        creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo);
+                        creditCardInfoResult = CreditCardInfoResult.PARSE(result.CRDTCRD_INFO.CrdtcrdInfo);
                     }
                 }
             }
@@ -93,7 +93,7 @@ export default class PurchaseService extends Service {
             let ticketInfoResult: TicketInfoResult = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                ticketInfoResult = TicketInfoResult.parse(result);
+                ticketInfoResult = TicketInfoResult.PARSE(result);
             }
 
             cb(err, response, ticketInfoResult);
@@ -149,7 +149,7 @@ export default class PurchaseService extends Service {
             let getGmoExecTranResult: GetGmoExecTranResult = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getGmoExecTranResult = GetGmoExecTranResult.parse(result);
+                getGmoExecTranResult = GetGmoExecTranResult.PARSE(result);
             }
 
             cb(err, response, getGmoExecTranResult);
@@ -233,10 +233,10 @@ export default class PurchaseService extends Service {
             if (result !== null && result.hasOwnProperty('SelectIchjknrInfoOut')) {
                 if (Array.isArray(result.SelectIchjknrInfoOut)) {
                     for (let info of result.SelectIchjknrInfoOut) {
-                        selectIchjknrInfoResults.push(SelectIchjknrInfoResult.parse(info));
+                        selectIchjknrInfoResults.push(SelectIchjknrInfoResult.PARSE(info));
                     }
                 } else {
-                    selectIchjknrInfoResults.push(SelectIchjknrInfoResult.parse(result.SelectIchjknrInfoOut));
+                    selectIchjknrInfoResults.push(SelectIchjknrInfoResult.PARSE(result.SelectIchjknrInfoOut));
                 }
             }
 
@@ -291,12 +291,12 @@ export default class PurchaseService extends Service {
                 let infos = result.GetTsuryShhziInfoOut.KeyValueOfstringGetTsuryShhziInfoOutPz9MKw_Pl;
                 if (Array.isArray(infos)) {
                     for (let info of infos) {
-                        let getTsuryShhziInfoResult = GetTsuryShhziInfoResult.parse(info.Value);
+                        let getTsuryShhziInfoResult = GetTsuryShhziInfoResult.PARSE(info.Value);
                         getTsuryShhziInfoResult.knshknknrmisiNo = info.Key;
                         getTsuryShhziInfoResults.push(getTsuryShhziInfoResult);
                     }
                 } else {
-                    let getTsuryShhziInfoResult = GetTsuryShhziInfoResult.parse(infos.Value);
+                    let getTsuryShhziInfoResult = GetTsuryShhziInfoResult.PARSE(infos.Value);
                     getTsuryShhziInfoResult.knshknknrmisiNo = infos.Key;
                     getTsuryShhziInfoResults.push(getTsuryShhziInfoResult);
                 }
@@ -324,7 +324,7 @@ export default class PurchaseService extends Service {
             let getShhriInfoByKeyResult: GetShhriInfoByKeyResult = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getShhriInfoByKeyResult = GetShhriInfoByKeyResult.parse(result);
+                getShhriInfoByKeyResult = GetShhriInfoByKeyResult.PARSE(result);
             }
 
             cb(err, response, getShhriInfoByKeyResult);
@@ -370,7 +370,7 @@ export default class PurchaseService extends Service {
             if (err) return cb(err, response, getQuestionnaireListResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getQuestionnaireListResult = GetQuestionnaireListResult.parse(result);
+                getQuestionnaireListResult = GetQuestionnaireListResult.PARSE(result);
             }
 
             cb(err, response, getQuestionnaireListResult);

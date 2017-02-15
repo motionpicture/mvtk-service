@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 interface KnshInfo {
     KNSHKBN_NM: string; // 券種区分名称
@@ -19,7 +19,7 @@ class ShyzmtcktInfo {
     public dgtlincntvdwnlodgmnUrl: string; // デジタルインセンティブダウンロード画面ＵＲＬ
     public knytcktSttsKbn: string; // 購入チケットステータス区分
 
-    public static parse (resultObject): ShyzmtcktInfo {
+    public static PARSE (resultObject): ShyzmtcktInfo {
         let result = new ShyzmtcktInfo();
 
         for (let propertyName in resultObject) {
@@ -52,7 +52,7 @@ export default class ShyzmtcktInfoListResult {
     public kiinCd: string = ''; // 会員コード
     public shyzmtcktInfo: Array<ShyzmtcktInfo> = null; // 作品詳細情報(itemArray)
 
-    public static parse (resultObject): ShyzmtcktInfoListResult {
+    public static PARSE (resultObject): ShyzmtcktInfoListResult {
         let result = new ShyzmtcktInfoListResult();
 
         for (let propertyName in resultObject) {
@@ -65,10 +65,10 @@ export default class ShyzmtcktInfoListResult {
                 if (property !== null && property.hasOwnProperty('ShyzmtcktInfo')) {
                     if (Array.isArray(property.ShyzmtcktInfo)) {
                         for (let info of property.ShyzmtcktInfo) {
-                            infos.push(ShyzmtcktInfo.parse(info));
+                            infos.push(ShyzmtcktInfo.PARSE(info));
                         }
                     } else {
-                        infos.push(ShyzmtcktInfo.parse(property.ShyzmtcktInfo));
+                        infos.push(ShyzmtcktInfo.PARSE(property.ShyzmtcktInfo));
                     }
                 }
 

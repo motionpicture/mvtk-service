@@ -1,4 +1,4 @@
-import BaseIn from '../../../common/models/BaseIn';
+import BaseIn from '../../../Common/models/BaseIn';
 
 export default class DeleteIchjknrInfoIn extends BaseIn {
     public accessIdList: Array<string> = null; // 取引ＩＤリスト

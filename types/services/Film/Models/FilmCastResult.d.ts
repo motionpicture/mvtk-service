@@ -4,5 +4,5 @@ export default class FilmCastResult {
     cstYkNm: string;
     cstShenFlg: string;
     cstJmbtsCd: string;
-    static parse(resultObject: any): FilmCastResult;
+    static PARSE(resultObject: any): FilmCastResult;
 }

@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 interface TypInfo {
     TYP: string;
@@ -24,7 +24,7 @@ export default class GetCodeNameResult {
     public typInfo: Array<TypInfo>;
 
 
-    public static parse (resultObject): GetCodeNameResult {
+    public static PARSE (resultObject): GetCodeNameResult {
         let result = new GetCodeNameResult();
 
         for (let propertyName in resultObject) {

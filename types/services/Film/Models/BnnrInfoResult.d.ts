@@ -35,5 +35,5 @@ export default class BnnrInfoResult {
      * バナー掲載終了年月日
      */
     bnnrkisishryYmd: string;
-    static parse(resultObject: any): BnnrInfoResult;
+    static PARSE(resultObject: any): BnnrInfoResult;
 }

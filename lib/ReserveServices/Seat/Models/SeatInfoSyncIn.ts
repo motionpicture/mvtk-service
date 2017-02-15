@@ -99,6 +99,7 @@ export interface ISeatInfoSyncIn {
 /**
  * 座席指定情報連携Inクラス
  * @class
+ * @extends {BaseIn}
  */
 export class SeatInfoSyncIn extends BaseIn {
     /**
@@ -161,7 +162,7 @@ export class SeatInfoSyncIn extends BaseIn {
             <tns:kijYmd>${this.kijYmd}</tns:kijYmd>
             <tns:stCd>${this.stCd}</tns:stCd>
             <tns:screnCd>${this.screnCd}</tns:screnCd>
-            <q1:knyknrNoInfo>`;
+            <tns:knyknrNoInfo>`;
         if (this.knyknrNoInfo.length > 0) {
             for (const info of this.knyknrNoInfo) {
                 messege += `<q1: KnyknrNoInfo>
@@ -171,8 +172,8 @@ export class SeatInfoSyncIn extends BaseIn {
                 </q1: KnyknrNoInfo>`;
             }
         }
-        messege += '</q1:knyknrNoInfo>';
-        messege += '<q2:zskInfo>';
+        messege += '</tns:knyknrNoInfo>';
+        messege += '<tns:zskInfo>';
         if (this.zskInfo.length > 0) {
             for (const info of this.zskInfo) {
                 messege += `<q2: ZskInfo>
@@ -180,7 +181,7 @@ export class SeatInfoSyncIn extends BaseIn {
                 </q2: ZskInfo>`;
             }
         }
-        messege += `</q2:zskInfo>
+        messege += `</tns:zskInfo>
             <tns:skhnCd>${this.skhnCd}</tns:skhnCd>
         <tns:SeatInfoSync>`;
         return messege;

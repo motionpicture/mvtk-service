@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class DecryptWebMoneyKssiInfoResult {
     public decryptedkssiinfo: string; // 
@@ -11,7 +11,7 @@ export default class DecryptWebMoneyKssiInfoResult {
     public shhnCd: string; // 
     public hcchCd: string; // 
 
-    public static parse (resultObject): DecryptWebMoneyKssiInfoResult {
+    public static PARSE (resultObject): DecryptWebMoneyKssiInfoResult {
         let result = new DecryptWebMoneyKssiInfoResult();
 
         for (let propertyName in resultObject) {

@@ -10,7 +10,7 @@
   "main": "./lib/mvtk-service.js",
   "scripts": {
     "test": "mocha --no-timeouts --recursive",
-    "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts --project tsconfig.json"
+    "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json"
   },
   "repository": {},
   "keywords": [],

@@ -1,4 +1,4 @@
-import BaseIn from '../../../common/models/BaseIn';
+import BaseIn from '../../../Common/models/BaseIn';
 
 export default class RegisterMemberTemporaryIn extends BaseIn {
     public kiinsiNm: string; // 会員姓名称

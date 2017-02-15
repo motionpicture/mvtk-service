@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
  * MkknInfo
@@ -48,8 +48,7 @@ export default class MkknInfoResult {
      */
     public static PARSE(resultObject: any): MkknInfoResult {
         const result: any = new MkknInfoResult();
-        Object.keys(resultObject).forEach((value) => {
-            const propertyName = value;
+        Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
             result[normalizedName] = property;

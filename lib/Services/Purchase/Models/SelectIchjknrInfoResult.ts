@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class SelectIchjknrInfoResult {
     public accessId: string = ''; // 取引ID
@@ -42,7 +42,7 @@ export default class SelectIchjknrInfoResult {
     public knshTyp: string = ''; // 券種区分
     public knshkbnNm: string = ''; // 券種区分名称
 
-    public static parse (resultObject): SelectIchjknrInfoResult {
+    public static PARSE (resultObject): SelectIchjknrInfoResult {
         let result = new SelectIchjknrInfoResult();
 
         for (let propertyName in resultObject) {

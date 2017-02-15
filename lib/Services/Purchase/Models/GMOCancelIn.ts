@@ -1,4 +1,4 @@
-import BaseIn from '../../../common/models/BaseIn';
+import BaseIn from '../../../Common/models/BaseIn';
 
 export default class GMOCancelIn extends BaseIn {
     public accessId: string; // 取引ＩＤ(決済代行会社が取引を識別するために発行するＩＤ)

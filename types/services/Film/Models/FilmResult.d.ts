@@ -188,7 +188,7 @@ export default class FilmResult {
      * 鑑賞券情報(itemArray)
      */
     knshknInfo: Array<TicketInfoResult>;
-    static parse(resultObject: any): FilmResult;
+    static PARSE(resultObject: any): FilmResult;
     /**
      * 公開状態かどうかを取得する
      *

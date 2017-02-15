@@ -1,4 +1,4 @@
-import BaseIn from '../../../common/models/BaseIn';
+import BaseIn from '../../../Common/models/BaseIn';
 
 export default class ForwardPurchaseInfoMailIn extends BaseIn {
     /** 購入管理番号 */

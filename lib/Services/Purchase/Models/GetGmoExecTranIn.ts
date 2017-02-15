@@ -1,4 +1,4 @@
-import BaseIn from '../../../common/models/BaseIn';
+import BaseIn from '../../../Common/models/BaseIn';
 
 export default class GetGmoExecTranIn extends BaseIn {
     public kssiknrNo: string; // 決済管理番号

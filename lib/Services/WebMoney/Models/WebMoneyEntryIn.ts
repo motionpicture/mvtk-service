@@ -1,4 +1,4 @@
-import BaseIn from '../../../common/models/BaseIn';
+import BaseIn from '../../../Common/models/BaseIn';
 
 export default class WebMoneyEntryIn extends BaseIn {
     public kssiknrNo: string; // 決済管理番号
@@ -28,7 +28,7 @@ export default class WebMoneyEntryIn extends BaseIn {
             message += `
         <q1:KnshInfoIn>
             <q1:KNSHKBN_NM>${info.KNSHKBN_NM}</q1:KNSHKBN_NM>
-            <q1:KNSHKNHMBI_UNIP>${Math.floor(parseInt(info.KNSHKNHMBI_UNIP)).toString()}</q1:KNSHKNHMBI_UNIP>
+            <q1:KNSHKNHMBI_UNIP>${Math.floor(PARSEInt(info.KNSHKNHMBI_UNIP)).toString()}</q1:KNSHKNHMBI_UNIP>
             <q1:KNSHKNKNRMISI_NO>${info.KNSHKNKNRMISI_NO}</q1:KNSHKNKNRMISI_NO>
             <q1:KNYMI_NUM>${info.KNYMI_NUM}</q1:KNYMI_NUM>
         </q1:KnshInfoIn>

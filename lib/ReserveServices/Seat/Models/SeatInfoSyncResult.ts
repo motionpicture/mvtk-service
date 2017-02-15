@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 import InvalidNoteTypeResult from './InvalidNoteTypeResult';
 import InvalidTicketDetailedResult from './InvalidTicketDetailedResult';
 
@@ -34,8 +34,7 @@ export default class SeatInfoSyncResult {
      */
     public static PARSE(resultObject: any): SeatInfoSyncResult {
         const seatInfoSyncServiceResult: any = new SeatInfoSyncResult();
-        Object.keys(resultObject).forEach((value) => {
-            const propertyName = value;
+        Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 

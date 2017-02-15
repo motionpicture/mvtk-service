@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 
 interface KnshbtskiinknyknshInfo {
@@ -38,7 +38,7 @@ export default class watchRecordResult {
      */
     public knshbtskiinknyknshInfo: Array<KnshbtskiinknyknshInfo>;
 
-    public static parse (resultObject): watchRecordResult {
+    public static PARSE (resultObject): watchRecordResult {
         let result = new watchRecordResult();
 
         for (let propertyName in resultObject) {

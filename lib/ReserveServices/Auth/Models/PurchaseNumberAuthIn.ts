@@ -7,7 +7,7 @@ export interface KnyknrNoInfoIn {
     /**
      * 購入管理番号（ムビチケ購入番号）
      */
-    KnyKNR_NO: string;
+    KNYKNR_NO: string;
     /**
      * PINコード（ムビチケ暗証番号）
      */
@@ -47,6 +47,7 @@ export interface IPurchaseNumberAuthIn {
 /**
  * 購入管理番号認証Inクラス
  * @class
+ * @extends {BaseIn}
  */
 export class PurchaseNumberAuthIn extends BaseIn {
     /**
@@ -75,23 +76,27 @@ export class PurchaseNumberAuthIn extends BaseIn {
     public jeiYmd: string;
 
     public toXml(): string {
-        let messege = `<tns:PurchaseNumberAuth>
+        let messege = `
+        <tns:PurchaseNumberAuth>
             <tns:kgygishCd>${this.kgygishCd}</tns:kgygishCd>
             <tns:jhshbtsCd>${this.jhshbtsCd}</tns:jhshbtsCd>
-            <q1:knyknrNoInfoIn>`;
+            <tns:knyknrNoInfoIn>
+                `;
         if (this.knyknrNoInfoIn.length > 0) {
             for (const info of this.knyknrNoInfoIn) {
-                messege += `<q1: KnyknrNoInfoIn>
-                    <tns:KnyKNR_NO>${info.KnyKNR_NO}</tns:KnyKNR_NO>
-                    <tns:PIN_CD>${info.PIN_CD}</tns:PIN_CD>
-                </q1: KnyknrNoInfoIn>`;
+                messege += `<q1:KnyknrNoInfoIn>
+                    <q1:KNYKNR_NO>${info.KNYKNR_NO}</q1:KNYKNR_NO>
+                    <q1:PIN_CD>${info.PIN_CD}</q1:PIN_CD>
+                </q1:KnyknrNoInfoIn>
+            `;
             }
         }
-        messege += `</q1:knyknrNoInfoIn>
+        messege += `</tns:knyknrNoInfoIn>
             <tns:skhnCd>${this.skhnCd}</tns:skhnCd>
             <tns:stCd>${this.stCd}</tns:stCd>
             <tns:jeiYmd>${this.jeiYmd}</tns:jeiYmd>
-        <tns:PurchaseNumberAuth>`;
+        </tns:PurchaseNumberAuth>`;
+
         return messege;
     }
 }

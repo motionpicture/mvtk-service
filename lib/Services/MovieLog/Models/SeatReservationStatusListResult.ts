@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 interface KnshbtskiinknyyykInfo {
     /**
@@ -42,7 +42,7 @@ export default class SeatReservationStatusListResult {
      */
     public knshbtskiinknyyykInfo: Array<KnshbtskiinknyyykInfo>;
 
-    public static parse (resultObject): SeatReservationStatusListResult {
+    public static PARSE (resultObject): SeatReservationStatusListResult {
         let result = new SeatReservationStatusListResult();
 
         for (let propertyName in resultObject) {

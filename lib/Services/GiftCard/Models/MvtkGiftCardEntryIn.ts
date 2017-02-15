@@ -1,28 +1,16 @@
-import BaseIn from '../../../common/models/BaseIn';
+import BaseIn from '../../../Common/models/BaseIn';
 
+/**
+ * ギフトカード利用in
+ * @class
+ * @extends {BaseIn}
+ */
 export default class MvtkGiftCardEntryIn extends BaseIn {
     /**
      * ギフトカードID情報
      */
     public MVTKGFTCRD_INFO_IN: {
-        MvtkgftcrdInfoIn: Array<{
-            /**
-             * ギフトカード決済管理番号
-             */
-            GFTCRDKSSIKNR_NO: string;
-            /**
-             * ムビチケギフトカードPINコード
-             */
-            MVTKGFTCRDPIN_CD: string;
-            /**
-             * ムビチケギフトカードID
-             */
-            MVTKGFTCRD_ID: string;
-            /**
-             * 利用金額
-             */
-            RYUKNGK: string;
-        }>;
+        MvtkgftcrdInfoIn: MvtkgftcrdInfoIn[];
     };
     /**
      * ご利用金額
@@ -31,11 +19,12 @@ export default class MvtkGiftCardEntryIn extends BaseIn {
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
+        // tslint:disable-next-line:no-multiline-string
         let message = `
 <tns:MvtkGiftCardEntry>
     <tns:MVTKGFTCRD_INFO_IN>
 `;
-        for (let info of this.MVTKGFTCRD_INFO_IN.MvtkgftcrdInfoIn) {
+        for (const info of this.MVTKGFTCRD_INFO_IN.MvtkgftcrdInfoIn) {
             message += `
         <q4:MvtkgftcrdInfoIn>
             <q4:GFTCRDKSSIKNR_NO>${info.GFTCRDKSSIKNR_NO}</q4:GFTCRDKSSIKNR_NO>
@@ -46,7 +35,7 @@ export default class MvtkGiftCardEntryIn extends BaseIn {
 `;
         }
 
-        message +=`
+        message += `
     </tns:MVTKGFTCRD_INFO_IN>
     <tns:DVC_TYP>${this.DVC_TYP}</tns:DVC_TYP>
 </tns:MvtkGiftCardEntry>
@@ -54,4 +43,27 @@ export default class MvtkGiftCardEntryIn extends BaseIn {
 
         return message;
     }
+}
+
+/**
+ * ギフトカードID情報
+ * @interface
+ */
+export interface MvtkgftcrdInfoIn {
+    /**
+     * ギフトカード決済管理番号
+     */
+    GFTCRDKSSIKNR_NO: string;
+    /**
+     * ムビチケギフトカードPINコード
+     */
+    MVTKGFTCRDPIN_CD: string;
+    /**
+     * ムビチケギフトカードID
+     */
+    MVTKGFTCRD_ID: string;
+    /**
+     * 利用金額
+     */
+    RYUKNGK: string;
 }

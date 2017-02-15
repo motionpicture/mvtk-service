@@ -6,7 +6,7 @@ import SeatInfoSyncResult from './Models/SeatInfoSyncResult';
 /**
  *
  * @class 座席指定情報連携クラス
- * @extends Service
+ * @extends {Service}
  *
  */
 export default class SeatInfoSyncService extends Service {
@@ -29,9 +29,10 @@ export default class SeatInfoSyncService extends Service {
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     seatInfoSyncResult = SeatInfoSyncResult.PARSE(result);
+                    return resolve(seatInfoSyncResult);
+                } else {
+                    return reject(new Error(result.RESULT_INFO.MESSAGE));
                 }
-
-                return resolve(seatInfoSyncResult);
             });
         });
     }

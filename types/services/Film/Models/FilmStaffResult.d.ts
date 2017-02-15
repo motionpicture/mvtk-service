@@ -3,5 +3,5 @@ export default class FilmStaffResult {
     stffJmbtsNm: string;
     stffYkwrNm: string;
     stffJmbtsCd: string;
-    static parse(resultObject: any): FilmStaffResult;
+    static PARSE(resultObject: any): FilmStaffResult;
 }

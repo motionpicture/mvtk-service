@@ -1,5 +1,9 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * ギフトカード利用out
+ * @class
+ */
 export default class MvtkGiftCardEntryResult {
     public tppnsrvcrspns: string = ''; // 凸版サービス返却値
     public mvtkgftcrdId: string = ''; // ムビチケギフトカードID
@@ -12,15 +16,14 @@ export default class MvtkGiftCardEntryResult {
     public syrykyDt: string = ''; // 処理要求日時
     public giftcardstatus: string = ''; // ギフトカードステータス
 
-    public static parse (resultObject): MvtkGiftCardEntryResult {
-        let result = new MvtkGiftCardEntryResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): MvtkGiftCardEntryResult {
+        const result: any = new MvtkGiftCardEntryResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             result[normalizedName] = property;
-        }
+        });
 
         return result;
     }

@@ -1,50 +1,10 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
-export default class GetDigitalIncentiveDownloadLinkListResult {
-    /**
-     * デバイス区分
-     */
-    public dvcTyp: string;
-    /**
-     * 購入管理番号
-     */
-    public knyknrNo: string;
-    /**
-     * デジタルインセンティブ情報（itemArray）
-     */
-    public dgtlincntvInfo: Array<DgtlincntvInfo>
-
-    public static parse(resultObject): GetDigitalIncentiveDownloadLinkListResult {
-        let result = new GetDigitalIncentiveDownloadLinkListResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            if (normalizedName === 'dgtlincntvInfo') {
-                let dgtlincntvInfos: Array<DgtlincntvInfo> = [];
-
-                if (property !== null && property.hasOwnProperty('DgtlincntvInfo')) {
-                    if (Array.isArray(property.DgtlincntvInfo)) {
-                        for (let info of property.DgtlincntvInfo) {
-                            dgtlincntvInfos.push(info);
-                        }
-                    } else {
-                        dgtlincntvInfos.push(property.DgtlincntvInfo);
-                    }
-                }
-
-                result[normalizedName] = dgtlincntvInfos;
-            } else {
-                result[normalizedName] = property;
-            }
-        }
-
-        return result;
-    };
-}
-
-interface DgtlincntvInfo {
+/**
+ * デジタルインセンティブ情報
+ * @interface
+ */
+export interface DgtlincntvInfo {
     /**
      * デジタルインセンティブコード
      */
@@ -89,15 +49,67 @@ interface DgtlincntvInfo {
      * デジタルインセンティブ詳細情報 （itemArray）
      */
     DGTLINCNTVSHSI_INFO: {
-        DgtlincntvshsiInfo: Array<{
-            /**
-             * デジタルインセンティブ枝番号
-             */
-            DGTLINCNTVED_NO: string;
-            /**
-             * デジタルインセンティブ詳細タイトル
-             */
-            DGTLINCNTVSHSI_TTL: string;
-        }>
+        DgtlincntvshsiInfo: DgtlincntvshsiInfo[]
+    };
+}
+
+/**
+ * DgtlincntvshsiInfo
+ * @interface
+ */
+export interface DgtlincntvshsiInfo {
+    /**
+     * デジタルインセンティブ枝番号
+     */
+    DGTLINCNTVED_NO: string;
+    /**
+     * デジタルインセンティブ詳細タイトル
+     */
+    DGTLINCNTVSHSI_TTL: string;
+}
+
+/**
+ * デジタルインセンティブダウンロード情報検索out
+ */
+export default class GetDigitalIncentiveDownloadLinkListResult {
+    /**
+     * デバイス区分
+     */
+    public dvcTyp: string;
+    /**
+     * 購入管理番号
+     */
+    public knyknrNo: string;
+    /**
+     * デジタルインセンティブ情報（itemArray）
+     */
+    public dgtlincntvInfo: DgtlincntvInfo[];
+
+    public static PARSE(resultObject: any): GetDigitalIncentiveDownloadLinkListResult {
+        const result: any = new GetDigitalIncentiveDownloadLinkListResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
+
+            if (normalizedName === 'dgtlincntvInfo') {
+                const dgtlincntvInfos: DgtlincntvInfo[] = [];
+
+                if (property !== null && property.hasOwnProperty('DgtlincntvInfo')) {
+                    if (Array.isArray(property.DgtlincntvInfo)) {
+                        for (const info of property.DgtlincntvInfo) {
+                            dgtlincntvInfos.push(info);
+                        }
+                    } else {
+                        dgtlincntvInfos.push(property.DgtlincntvInfo);
+                    }
+                }
+
+                result[normalizedName] = dgtlincntvInfos;
+            } else {
+                result[normalizedName] = property;
+            }
+        });
+
+        return result;
     };
 }

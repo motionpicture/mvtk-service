@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 //TODO
 //メンバ名入力
 
@@ -36,7 +36,7 @@ export default class SentGiftStatusListResult {
      */
     public knshbtskiinknygftInfo: Array<KnshbtskiinknygftInfo>;
 
-    public static parse (resultObject): SentGiftStatusListResult {
+    public static PARSE (resultObject): SentGiftStatusListResult {
         let result = new SentGiftStatusListResult();
 
         for (let propertyName in resultObject) {

@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
  * 無効券種情報
@@ -28,8 +28,7 @@ export default class InvalidNoteTypeResult {
      */
     public static PARSE(resultObject: any): InvalidNoteTypeResult {
         const result: any = new InvalidNoteTypeResult();
-        Object.keys(resultObject).forEach((value) => {
-            const propertyName = value;
+        Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
             result[normalizedName] = property;

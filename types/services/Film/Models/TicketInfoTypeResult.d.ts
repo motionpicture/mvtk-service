@@ -15,5 +15,5 @@ export default class TicketInfoTypeResult {
     knshkmmiNum: string;
     parkntntiknshFlg: string;
     kmawsskknshTyp: string;
-    static parse(resultObject: any): TicketInfoTypeResult;
+    static PARSE(resultObject: any): TicketInfoTypeResult;
 }

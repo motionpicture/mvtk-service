@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class MemberInfoResult {
     /**
@@ -111,7 +111,7 @@ export default class MemberInfoResult {
     public sinngppkkiFlg: string;
 
 
-    public static parse (resultObject): MemberInfoResult {
+    public static PARSE (resultObject): MemberInfoResult {
         let memberInfoResult = new MemberInfoResult();
 
         for (let propertyName in resultObject) {

@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
  * 無効券詳細情報
@@ -48,8 +48,7 @@ export default class InvalidTicketDetailedResult {
      */
     public static PARSE(resultObject: any): InvalidTicketDetailedResult {
         const result: any = new InvalidTicketDetailedResult();
-        Object.keys(resultObject).forEach((value) => {
-            const propertyName = value;
+        Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
             result[normalizedName] = property;

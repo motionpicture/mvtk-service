@@ -237,7 +237,7 @@ export default class UtilService extends Service {
             if (err) return cb(err, response, result);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getCodeNameResult = GetCodeNameResult.parse(result);
+                getCodeNameResult = GetCodeNameResult.PARSE(result);
             }
 
             cb(err, response, getCodeNameResult);

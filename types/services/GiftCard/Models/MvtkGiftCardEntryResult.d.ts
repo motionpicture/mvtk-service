@@ -9,5 +9,5 @@ export default class MvtkGiftCardEntryResult {
     synnNo: string;
     syrykyDt: string;
     giftcardstatus: string;
-    static parse(resultObject: any): MvtkGiftCardEntryResult;
+    static PARSE(resultObject: any): MvtkGiftCardEntryResult;
 }

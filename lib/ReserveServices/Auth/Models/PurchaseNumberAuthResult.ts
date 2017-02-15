@@ -1,4 +1,4 @@
-import CommonUtil from '../../../Common/Util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 import MkknInfoResult from './MkknInfoResult';
 import YkknInfoResult from './YkknInfoResult';
 
@@ -54,8 +54,7 @@ export default class PurchaseNumberAuthResult {
      */
     public static PARSE(resultObject: any): PurchaseNumberAuthResult {
         const purchaseNumberAuthResult: any = new PurchaseNumberAuthResult();
-        Object.keys(resultObject).forEach((value) => {
-            const propertyName = value;
+        Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 

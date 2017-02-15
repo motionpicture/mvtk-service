@@ -1,5 +1,8 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * バナーリスト取得out
+ */
 export default class BnnrInfoResult {
     /**
      * デバイス区分
@@ -38,15 +41,14 @@ export default class BnnrInfoResult {
      */
     public bnnrkisishryYmd: string;
 
-    public static parse (resultObject): BnnrInfoResult {
-        let result = new BnnrInfoResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): BnnrInfoResult {
+        const result: any = new BnnrInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             result[normalizedName] = property;
-        }
+        });
 
         return result;
     };

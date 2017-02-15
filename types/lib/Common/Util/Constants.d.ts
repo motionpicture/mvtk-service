@@ -1,7 +1,7 @@
 /**
  * ムビチケサービス共通の定数
  */
-declare const Constants: {
+declare const constants: {
     DVC_TYP_PC: string;
     DVC_TYP_MOBILE: string;
     DVC_TYP_SP: string;
@@ -37,4 +37,4 @@ declare const Constants: {
     MLTMPLT_CD_PURCHASE_COMPLETE_MOBILE: string;
     MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: string;
 };
-export default Constants;
+export default constants;

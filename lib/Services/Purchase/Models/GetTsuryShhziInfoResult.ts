@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class GetTsuryShhziInfoResult {
     public knshknknrmisiNo: string; // 鑑賞券管理明細番号
@@ -9,7 +9,7 @@ export default class GetTsuryShhziInfoResult {
     public shhziTyp: string; // 消費税区分
     public shhziUnip: string; // 消費税単価
 
-    public static parse (resultObject): GetTsuryShhziInfoResult {
+    public static PARSE (resultObject): GetTsuryShhziInfoResult {
         let result = new GetTsuryShhziInfoResult();
 
         for (let propertyName in resultObject) {

@@ -6,7 +6,7 @@ import PurchaseNumberAuthResult from './Models/PurchaseNumberAuthResult';
 /**
  *
  * @class 購入管理番号認証クラス
- * @extends Service
+ * @extends {Service}
  *
  */
 export default class PurchaseNumberAuthService extends Service {
@@ -26,12 +26,12 @@ export default class PurchaseNumberAuthService extends Service {
 
             this.call(method, args, (err, response, result) => {
                 if (err || !response) return reject(err);
-
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     purchaseNumberAuthResult = PurchaseNumberAuthResult.PARSE(result);
+                    return resolve(purchaseNumberAuthResult);
+                } else {
+                    return reject(new Error(result.RESULT_INFO.MESSAGE));
                 }
-
-                return resolve(purchaseNumberAuthResult);
             });
         });
     }

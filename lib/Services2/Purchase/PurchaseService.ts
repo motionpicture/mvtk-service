@@ -22,7 +22,7 @@ export default class PurchaseService extends Service {
             let getGmoEntryTranResult: GetGmoEntryTranResult = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getGmoEntryTranResult = GetGmoEntryTranResult.parse(result);
+                getGmoEntryTranResult = GetGmoEntryTranResult.PARSE(result);
             }
 
             cb(err, response, getGmoEntryTranResult);
@@ -47,7 +47,7 @@ export default class PurchaseService extends Service {
             let registerPurchaseInfoResult: RegisterPurchaseInfoResult = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                registerPurchaseInfoResult = RegisterPurchaseInfoResult.parse(result);
+                registerPurchaseInfoResult = RegisterPurchaseInfoResult.PARSE(result);
             }
 
             cb(err, response, registerPurchaseInfoResult);

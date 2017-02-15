@@ -34,7 +34,7 @@ export default class MovieLogService extends Service {
             if (err) return cb(err, response, getFavoriteFilmListResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getFavoriteFilmListResult = GetFavoriteFilmListResult.parse(result);
+                getFavoriteFilmListResult = GetFavoriteFilmListResult.PARSE(result);
             }
 
             cb(err, response, getFavoriteFilmListResult);
@@ -61,7 +61,7 @@ export default class MovieLogService extends Service {
             if (err) return cb(err, response, getUnusedTicketListResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getUnusedTicketListResult = GetUnusedTicketListResult.parse(result);
+                getUnusedTicketListResult = GetUnusedTicketListResult.PARSE(result);
             }
 
             cb(err, response, getUnusedTicketListResult);
@@ -91,7 +91,7 @@ export default class MovieLogService extends Service {
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
              || result.RESULT_INFO.STATUS === 'L001')
             {
-                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
+                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
             }
 
             cb(err, response, shyzmtcktInfoListResult);
@@ -121,7 +121,7 @@ export default class MovieLogService extends Service {
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
              || result.RESULT_INFO.STATUS === 'L001')
             {
-                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
+                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
             }
 
             cb(err, response, shyzmtcktInfoListResult);
@@ -151,7 +151,7 @@ export default class MovieLogService extends Service {
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
              || result.RESULT_INFO.STATUS === 'L001')
             {
-                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
+                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
             }
 
             cb(err, response, shyzmtcktInfoListResult);
@@ -181,7 +181,7 @@ export default class MovieLogService extends Service {
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
              || result.RESULT_INFO.STATUS === 'L001')
             {
-                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
+                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
             }
 
             cb(err, response, shyzmtcktInfoListResult);
@@ -306,10 +306,10 @@ export default class MovieLogService extends Service {
 
                 if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
                     for (let zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
-                        seatReservationStatusListResults.push(SeatReservationStatusListResult.parse(zskyykjykyInfo));
+                        seatReservationStatusListResults.push(SeatReservationStatusListResult.PARSE(zskyykjykyInfo));
                     }
                 } else {
-                    seatReservationStatusListResults.push(SeatReservationStatusListResult.parse(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
+                    seatReservationStatusListResults.push(SeatReservationStatusListResult.PARSE(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
                 }
             }
 
@@ -339,10 +339,10 @@ export default class MovieLogService extends Service {
 
                 if (Array.isArray(result.KNSHKRK_INFO.KnshkrkInfo)) {
                     for (let knshkrkInfo of result.KNSHKRK_INFO.KnshkrkInfo) {
-                        watchRecordResults.push(WatchRecordResult.parse(knshkrkInfo));
+                        watchRecordResults.push(WatchRecordResult.PARSE(knshkrkInfo));
                     }
                 } else {
-                    watchRecordResults.push(WatchRecordResult.parse(result.KNSHKRK_INFO.KnshkrkInfo));
+                    watchRecordResults.push(WatchRecordResult.PARSE(result.KNSHKRK_INFO.KnshkrkInfo));
                 }
             }
 
@@ -372,10 +372,10 @@ export default class MovieLogService extends Service {
 
                 if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
                     for (let zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
-                        sentGiftStatusListResults.push(SentGiftStatusListResult.parse(zskyykjykyInfo));
+                        sentGiftStatusListResults.push(SentGiftStatusListResult.PARSE(zskyykjykyInfo));
                     }
                 } else {
-                    sentGiftStatusListResults.push(SentGiftStatusListResult.parse(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
+                    sentGiftStatusListResults.push(SentGiftStatusListResult.PARSE(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
                 }
             }
 

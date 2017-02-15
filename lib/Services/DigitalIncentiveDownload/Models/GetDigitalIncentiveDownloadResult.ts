@@ -1,5 +1,8 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * デジタルインセンティブダウンロードout
+ */
 export default class GetDigitalIncentiveDownloadResult {
     /**
      * ダウンロードファイル名
@@ -10,15 +13,14 @@ export default class GetDigitalIncentiveDownloadResult {
      */
     public dwnlodflDt: string;
 
-    public static parse(resultObject): GetDigitalIncentiveDownloadResult {
-        let result = new GetDigitalIncentiveDownloadResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): GetDigitalIncentiveDownloadResult {
+        const result: any = new GetDigitalIncentiveDownloadResult();
+        Object.keys(resultObject).forEach((propertyName)=>{
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             result[normalizedName] = property;
-        }
+        });
 
         return result;
     };

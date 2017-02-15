@@ -4,7 +4,7 @@ import PurchaseNumberAuthResult from './Models/PurchaseNumberAuthResult';
 /**
  *
  * @class 購入管理番号認証クラス
- * @extends Service
+ * @extends {Service}
  *
  */
 export default class PurchaseNumberAuthService extends Service {

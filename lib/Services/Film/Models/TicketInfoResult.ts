@@ -1,6 +1,9 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 import TicketInfoTypeResult from './TicketInfoTypeResult';
 
+/**
+ * 鑑賞券情報検索out
+ */
 export default class TicketInfoResult {
     /**
      * 鑑賞券管理番号
@@ -85,40 +88,39 @@ export default class TicketInfoResult {
     /**
      * 鑑賞券明細情報(itemArray)
      */
-    public knshkmmisiInfo: Array<TicketInfoTypeResult> = [];
+    public knshkmmisiInfo: TicketInfoTypeResult[] = [];
     /**
      * 券種情報(itemArray)
      */
-    public knshInfo: Array<TicketInfoTypeResult> = [];
+    public knshInfo: TicketInfoTypeResult[] = [];
 
-    public static parse (resultObject): TicketInfoResult {
-        let result = new TicketInfoResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): TicketInfoResult {
+        const result: any = new TicketInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'knshkmmisiInfo') {
-                let types = [];
+                const types = [];
                 if (Array.isArray(property.KnshkmmisiInfo)) {
-                    for (let info of property.KnshkmmisiInfo) {
-                        types.push(TicketInfoTypeResult.parse(info));
+                    for (const info of property.KnshkmmisiInfo) {
+                        types.push(TicketInfoTypeResult.PARSE(info));
                     }
                 } else {
-                    types.push(TicketInfoTypeResult.parse(property.KnshkmmisiInfo));
+                    types.push(TicketInfoTypeResult.PARSE(property.KnshkmmisiInfo));
                 }
 
                 result[normalizedName] = types;
             } else if (normalizedName === 'knshInfo') {
-                let types: Array<TicketInfoTypeResult> = [];
+                const types: TicketInfoTypeResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('KnshInfo')) {
                     if (Array.isArray(property.KnshInfo)) {
-                        for (let info of property.KnshInfo) {
-                            types.push(TicketInfoTypeResult.parse(info));
+                        for (const info of property.KnshInfo) {
+                            types.push(TicketInfoTypeResult.PARSE(info));
                         }
                     } else {
-                        types.push(TicketInfoTypeResult.parse(property.KnshInfo));
+                        types.push(TicketInfoTypeResult.PARSE(property.KnshInfo));
                     }
                 }
 
@@ -126,7 +128,7 @@ export default class TicketInfoResult {
             } else {
                 result[normalizedName] = property;
             }
-        }
+        });
 
         return result;
     };
@@ -144,14 +146,16 @@ export default class TicketInfoResult {
         } else {
             startTimeStr = '00:00:00';
         }
-        let startStr = `${this.knshknhmbikishYmd.substring(0, 4)}/${this.knshknhmbikishYmd.substring(4, 6)}/${this.knshknhmbikishYmd.substring(6)} ${startTimeStr}`;
-        let startTimestamp = Date.parse(startStr);
+        // tslint:disable-next-line:max-line-length
+        const startStr = `${this.knshknhmbikishYmd.substring(0, 4)}/${this.knshknhmbikishYmd.substring(4, 6)}/${this.knshknhmbikishYmd.substring(6)} ${startTimeStr}`;
+        const startTimestamp = Date.parse(startStr);
 
         // 終日なので23時59分59秒
-        let endStr = `${this.knshknhmbishryYmd.substring(0, 4)}/${this.knshknhmbishryYmd.substring(4, 6)}/${this.knshknhmbishryYmd.substring(6)} 23:59:59`;
-        let endTimestamp = Date.parse(endStr);
+        // tslint:disable-next-line:max-line-length
+        const endStr = `${this.knshknhmbishryYmd.substring(0, 4)}/${this.knshknhmbishryYmd.substring(4, 6)}/${this.knshknhmbishryYmd.substring(6)} 23:59:59`;
+        const endTimestamp = Date.parse(endStr);
 
-        let nowTimestamp = Date.now();
+        const nowTimestamp = Date.now();
 
         return (startTimestamp <= nowTimestamp && nowTimestamp <= endTimestamp);
     }

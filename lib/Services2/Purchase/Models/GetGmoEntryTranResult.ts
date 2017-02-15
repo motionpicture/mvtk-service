@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class GetGmoEntryTranResult {
     /**
@@ -22,7 +22,7 @@ export default class GetGmoEntryTranResult {
      */
     public kssierrrmssgTxt: string;
 
-    public static parse (resultObject): GetGmoEntryTranResult {
+    public static PARSE (resultObject): GetGmoEntryTranResult {
         let result = new GetGmoEntryTranResult();
 
         for (let propertyName in resultObject) {

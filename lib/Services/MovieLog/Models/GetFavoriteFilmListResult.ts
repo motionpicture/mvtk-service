@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 class SkhnInfo {
     /**
@@ -62,7 +62,7 @@ class SkhnInfo {
      */
     public zskyykshryFlg: string;
 
-    public static parse (resultObject): SkhnInfo {
+    public static PARSE (resultObject): SkhnInfo {
         let result = new SkhnInfo();
 
         for (let propertyName in resultObject) {
@@ -90,7 +90,7 @@ export default class GetFavoriteFilmListResult {
      */
     public skhnInfo: Array<SkhnInfo>;
 
-    public static parse (resultObject): GetFavoriteFilmListResult {
+    public static PARSE (resultObject): GetFavoriteFilmListResult {
         let result = new GetFavoriteFilmListResult();
 
         for (let propertyName in resultObject) {
@@ -103,10 +103,10 @@ export default class GetFavoriteFilmListResult {
                 if (property !== null && property.hasOwnProperty('SkhnInfo')) {
                     if (Array.isArray(property.SkhnInfo)) {
                         for (let info of property.SkhnInfo) {
-                            skhnInfos.push(SkhnInfo.parse(info));
+                            skhnInfos.push(SkhnInfo.PARSE(info));
                         }
                     } else {
-                        skhnInfos.push(SkhnInfo.parse(property.SkhnInfo));
+                        skhnInfos.push(SkhnInfo.PARSE(property.SkhnInfo));
                     }
                 }
 

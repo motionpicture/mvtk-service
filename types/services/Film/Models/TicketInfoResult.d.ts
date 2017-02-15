@@ -88,7 +88,7 @@ export default class TicketInfoResult {
      * 券種情報(itemArray)
      */
     knshInfo: Array<TicketInfoTypeResult>;
-    static parse(resultObject: any): TicketInfoResult;
+    static PARSE(resultObject: any): TicketInfoResult;
     /**
      * 販売状態かどうかを取得する
      *

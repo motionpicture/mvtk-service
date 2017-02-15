@@ -1,7 +1,7 @@
 ﻿/**
  * ムビチケサービス共通の定数
  */
-const Constants = {
+const constants = {
     /**
      * デバイス区分
      */
@@ -101,7 +101,7 @@ const Constants = {
         {CD: '44', NM: '大分県'},
         {CD: '45', NM: '宮崎県'},
         {CD: '46', NM: '鹿児島県'},
-        {CD: '47', NM: '沖縄県'},
+        {CD: '47', NM: '沖縄県'}
     ],
 
     /**
@@ -139,7 +139,7 @@ const Constants = {
         'wcm.ne.jp',
         'vertuclub.ne.jp',
         'dwmail.jp',
-        'docomo-camera.ne.jp',
+        'docomo-camera.ne.jp'
     ],
 
     /**
@@ -148,7 +148,7 @@ const Constants = {
     MLTMPLT_CD_PURCHASE_COMPLETE: 'U0001', // 購入完了(PC)
     MLTMPLT_CD_KNYKNR_NO_TRANSFER: 'U0004', // 購入完了(PC)
     MLTMPLT_CD_PURCHASE_COMPLETE_MOBILE: 'M0001', // 購入完了(モバイル)
-    MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: 'M0004', // 購入完了(モバイル)
-}
+    MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: 'M0004' // 購入完了(モバイル)
+};
 
-export default Constants;
+export default constants;

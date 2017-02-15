@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class GetGmoExecTranResult {
     public acsKbn: string = ''; // 本人認証サービス対応区分
@@ -18,7 +18,7 @@ export default class GetGmoExecTranResult {
     public kssierrrshriTyp: string = ''; // 決済エラー種類区分
     public kssierrrmssgTxt: string = ''; // 決済エラーメッセージ本文
 
-    public static parse (resultObject): GetGmoExecTranResult {
+    public static PARSE (resultObject): GetGmoExecTranResult {
         let result = new GetGmoExecTranResult();
 
         for (let propertyName in resultObject) {

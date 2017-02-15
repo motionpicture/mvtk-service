@@ -1,22 +1,25 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
 import FilmResult from './Models/FilmResult';
 import TicketInfoResult from './Models/TicketInfoResult';
 import BnnrInfoResult from './Models/BnnrInfoResult';
 import DgtlincntvInfoResult from './Models/DgtlincntvInfoResult';
 import GetTrailerDetailResult from './Models/GetTrailerDetailResult';
 
+/**
+ * 作品サービス
+ * @class
+ */
 export default class FilmService extends Service {
     /**
-    * 作品詳細情報照会
-    *
-    * @param {string} skhnCd 作品コード
-    * @param {string} dvcTyp デバイス区分
-    */
-    public getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err, response, result: FilmResult) => void ): void {
-        let method = 'GetFilmDetail';
+     * 作品詳細情報照会
+     * @param {string} skhnCd 作品コード
+     * @param {string} dvcTyp デバイス区分
+     */
+    public getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err: any, response: any, result: FilmResult) => void ): void {
+        const method = 'GetFilmDetail';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd,
             dvcTyp: dvcTyp
         };
@@ -27,7 +30,7 @@ export default class FilmService extends Service {
             if (err) return cb(err, response, filmResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                filmResult = FilmResult.parse(result);
+                filmResult = FilmResult.PARSE(result);
             }
 
             cb(err, response, filmResult);
@@ -39,30 +42,30 @@ export default class FilmService extends Service {
      *
      * @param {string} dvcTyp
      */
-    public getFilmTopPage(dvcTyp: string, cb: (err, response, result: Array<FilmResult>) => void ): void {
-        let method = 'GetFilmTopPage';
+    public getFilmTopPage(dvcTyp: string, cb: (err: any, response: any, result: FilmResult[]) => void ): void {
+        const method = 'GetFilmTopPage';
 
-        let args = {
+        const args = {
             dvcTyp: dvcTyp
         };
 
-        let filmResults: Array<FilmResult>;
+        let filmResults: FilmResult[];
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, filmResults);
-            console.log('result', result.SKHN_INFO.SkhnInfo[0])
+            // console.log('result', result.SKHN_INFO.SkhnInfo[0])
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 filmResults = [];
 
                 if (Array.isArray(result.SKHN_INFO.SkhnInfo)) {
-                    for (let skhnInfo of result.SKHN_INFO.SkhnInfo) {
-                        filmResults.push(FilmResult.parse(skhnInfo));
+                    for (const skhnInfo of result.SKHN_INFO.SkhnInfo) {
+                        filmResults.push(FilmResult.PARSE(skhnInfo));
                     }
                 } else {
-                    filmResults.push(FilmResult.parse(result.SKHN_INFO.SkhnInfo));
+                    filmResults.push(FilmResult.PARSE(result.SKHN_INFO.SkhnInfo));
                 }
             }
-            console.log('filmResults', filmResults[0])
+            // console.log('filmResults', filmResults[0])
             cb(err, response, filmResults);
         });
     }
@@ -72,14 +75,14 @@ export default class FilmService extends Service {
      *
      * @param {string} skhnCd 作品コード
      */
-    public getTicketInfoList(skhnCd: string, cb: (err, response, result: Array<TicketInfoResult>) => void ): void {
-        let method = 'GetTicketInfoList';
+    public getTicketInfoList(skhnCd: string, cb: (err: any, response: any, result: TicketInfoResult[]) => void ): void {
+        const method = 'GetTicketInfoList';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd
         };
 
-        let ticketInfoResult: Array<TicketInfoResult>;
+        let ticketInfoResult: TicketInfoResult[];
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, ticketInfoResult);
@@ -88,11 +91,11 @@ export default class FilmService extends Service {
                 ticketInfoResult = [];
 
                 if (Array.isArray(result.KNSHKN_INFO.KnshknInfo)) {
-                    for (let knshknInfo of result.KNSHKN_INFO.KnshknInfo) {
-                        ticketInfoResult.push(TicketInfoResult.parse(knshknInfo));
+                    for (const knshknInfo of result.KNSHKN_INFO.KnshknInfo) {
+                        ticketInfoResult.push(TicketInfoResult.PARSE(knshknInfo));
                     }
                 } else {
-                    ticketInfoResult.push(TicketInfoResult.parse(result.KNSHKN_INFO.KnshknInfo));
+                    ticketInfoResult.push(TicketInfoResult.PARSE(result.KNSHKN_INFO.KnshknInfo));
                 }
             }
 
@@ -106,15 +109,15 @@ export default class FilmService extends Service {
      * @param {string} skhnCd 作品コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getBannerList(skhnCd: string, dvcTyp: string, cb: (err, response, bnnrInfoResults: Array<BnnrInfoResult>) => void ): void {
-        let method = 'GetBannerList';
+    public getBannerList(skhnCd: string, dvcTyp: string, cb: (err: any, response: any, bnnrInfoResults: BnnrInfoResult[]) => void ): void {
+        const method = 'GetBannerList';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd,
             dvcTyp: dvcTyp
         };
 
-        let bnnrInfoResults: Array<BnnrInfoResult>;
+        let bnnrInfoResults: BnnrInfoResult[];
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, bnnrInfoResults);
@@ -127,11 +130,11 @@ export default class FilmService extends Service {
 
                 if (result.BNNR_INFO !== null && result.BNNR_INFO.hasOwnProperty('BnnrInfo')) {
                     if (Array.isArray(result.BNNR_INFO.BnnrInfo)) {
-                        for (let info of result.BNNR_INFO.BnnrInfo) {
-                            bnnrInfoResults.push(BnnrInfoResult.parse(info));
+                        for (const info of result.BNNR_INFO.BnnrInfo) {
+                            bnnrInfoResults.push(BnnrInfoResult.PARSE(info));
                         }
                     } else {
-                        bnnrInfoResults.push(BnnrInfoResult.parse(result.BNNR_INFO.BnnrInfo));
+                        bnnrInfoResults.push(BnnrInfoResult.PARSE(result.BNNR_INFO.BnnrInfo));
                     }
                 }
             }
@@ -146,10 +149,14 @@ export default class FilmService extends Service {
      * @param {string} skhnCd 作品コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getTrailerDetail(skhnCd, dvcTyp, cb: (err, response, getTrailerDetailResult: GetTrailerDetailResult) => void ): void {
-        let method = 'GetTrailerDetail';
+    public getTrailerDetail(
+        skhnCd: string,
+        dvcTyp: string,
+        cb: (err: any, response: any, getTrailerDetailResult: GetTrailerDetailResult) => void
+    ): void {
+        const method = 'GetTrailerDetail';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd,
             dvcTyp: dvcTyp
         };
@@ -160,7 +167,7 @@ export default class FilmService extends Service {
             if (err) return cb(err, response, getTrailerDetailResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getTrailerDetailResult = GetTrailerDetailResult.parse(result);
+                getTrailerDetailResult = GetTrailerDetailResult.PARSE(result);
             }
 
             cb(err, response, getTrailerDetailResult);
@@ -173,15 +180,19 @@ export default class FilmService extends Service {
      * @param {string} skhnCd 作品コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getDigitalIncentiveList(skhnCd: string, dvcTyp: string, cb: (err, response, dgtlincntvInfoResults: Array<DgtlincntvInfoResult>) => void ): void {
-        let method = 'GetDigitalIncentiveList';
+    public getDigitalIncentiveList(
+        skhnCd: string, 
+        dvcTyp: string, 
+        cb: (err: any, response: any, dgtlincntvInfoResults: DgtlincntvInfoResult[]) => void 
+    ): void {
+        const method = 'GetDigitalIncentiveList';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd,
             dvcTyp: dvcTyp
         };
 
-        let dgtlincntvInfoResults: Array<DgtlincntvInfoResult>;
+        let dgtlincntvInfoResults: DgtlincntvInfoResult[];
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, dgtlincntvInfoResults);
@@ -194,11 +205,11 @@ export default class FilmService extends Service {
 
                 if (result.DGTLINCNTV_INFO !== null && result.DGTLINCNTV_INFO.hasOwnProperty('DgtlincntvInfo')) {
                     if (Array.isArray(result.DGTLINCNTV_INFO.DgtlincntvInfo)) {
-                        for (let info of result.DGTLINCNTV_INFO.DgtlincntvInfo) {
-                            dgtlincntvInfoResults.push(DgtlincntvInfoResult.parse(info));
+                        for (const info of result.DGTLINCNTV_INFO.DgtlincntvInfo) {
+                            dgtlincntvInfoResults.push(DgtlincntvInfoResult.PARSE(info));
                         }
                     } else {
-                        dgtlincntvInfoResults.push(DgtlincntvInfoResult.parse(result.DGTLINCNTV_INFO.DgtlincntvInfo));
+                        dgtlincntvInfoResults.push(DgtlincntvInfoResult.PARSE(result.DGTLINCNTV_INFO.DgtlincntvInfo));
                     }
                 }
             }

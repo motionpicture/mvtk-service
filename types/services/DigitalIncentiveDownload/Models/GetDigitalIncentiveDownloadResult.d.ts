@@ -7,5 +7,5 @@ export default class GetDigitalIncentiveDownloadResult {
      * ダウンロードファイルバイナリデータ
      */
     dwnlodflDt: string;
-    static parse(resultObject: any): GetDigitalIncentiveDownloadResult;
+    static PARSE(resultObject: any): GetDigitalIncentiveDownloadResult;
 }

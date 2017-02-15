@@ -1,11 +1,10 @@
-import soap = require('soap');
+import * as soap from 'soap';
 // import log4js = require('log4js');
 
 /**
  * ムビチケサービスベースクラス
  */
-export default class Service
-{
+export default class Service {
     /**
      * soapクライアント
      */
@@ -25,11 +24,11 @@ export default class Service
 
     /**
      * サービスメソッドを呼び出す
-     * 
+     *
      * @param {string} method メソッド名
      * @param {Object|string} args INパラメーター(オブジェクト、あるいは、xml文字列を想定している)
      */
-    protected call(method: string, args: Object|string, cb: (err: Error, response: any, result: any, lastResponseHeaders: any) => void) {
+    protected call(method: string, args: Object | string, cb: (err: Error, response: any, result: any, lastResponseHeaders: any) => void) {
         // let logger = log4js.getLogger('system');
 
         // logger.debug('MvtkService calling...', method, args);
@@ -47,35 +46,39 @@ export default class Service
             //     return this.createClient(options, sessionCookie, false);
             // }
 
-            let options = {
+            const options = {
                 timeout: 60000 // 60 * 1000
             };
 
-            let extraHeaders: any = {};
+            const extraHeaders: any = {};
             // クッキー文字列がある場合はヘッダーで送信(サービス側でログイン状態が判別される)
             if (this.cookie) {
+                // tslint:disable-next-line:no-string-literal
                 extraHeaders['Cookie'] = this.cookie;
             }
 
-            client[method](args, (err, response) => {
-                // response is a javascript object
-                // raw is the raw response
-                // header is the response soap header as a javascript object
+            client[method](
+                args,
+                (err2, response) => {
+                    // response is a javascript object
+                    // raw is the raw response
+                    // header is the response soap header as a javascript object
 
-                // logger.debug('MvtkService response coming...lastRequest:', client.lastRequest);
-                // logger.debug('MvtkService response coming...', method, err, response, raw);
+                    // logger.debug('MvtkService response coming...lastRequest:', client.lastRequest);
+                    // logger.debug('MvtkService response coming...', method, err, response, raw);
 
+                    let result = null;
+                    // プロパティ名`${method}Result`に結果が入っている
+                    if (response && response.hasOwnProperty(`${method}Result`)) {
+                        result = response[`${method}Result`];
+                    }
 
-                let result = null;
-                // プロパティ名`${method}Result`に結果が入っている
-                if (response && response.hasOwnProperty(`${method}Result`)) {
-                    result = response[`${method}Result`];
-                }
-
-
-
-                cb(err, response, result, client['lastResponseHeaders']);
-            }, options, extraHeaders);
+                    // tslint:disable-next-line:no-string-literal
+                    cb(err2, response, result, client['lastResponseHeaders']);
+                },
+                options,
+                extraHeaders
+            );
         });
     }
 
@@ -88,7 +91,7 @@ export default class Service
             return cb(null, this.client);
         }
 
-        let options = {
+        const options = {
         };
         soap.createClient(this.wsdl, options, (err, client) => {
             this.client = client;

@@ -24,10 +24,10 @@ export default class GiftCardService extends Service {
             if (result.MVTKGFTCRD_INFO_OUT && result.MVTKGFTCRD_INFO_OUT.hasOwnProperty('MvtkgftcrdInfo')) {
                 if (Array.isArray(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo)) {
                     for (let info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo) {
-                        giftCardIDAuthResults.push(GiftCardIDAuthResult.parse(info));
+                        giftCardIDAuthResults.push(GiftCardIDAuthResult.PARSE(info));
                     }
                 } else {
-                    giftCardIDAuthResults.push(GiftCardIDAuthResult.parse(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo));
+                    giftCardIDAuthResults.push(GiftCardIDAuthResult.PARSE(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo));
                 }
             }
 
@@ -55,10 +55,10 @@ export default class GiftCardService extends Service {
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 if (Array.isArray(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo)) {
                     for (let info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo) {
-                        giftCardCancelResults.push(GiftCardCancelResult.parse(info));
+                        giftCardCancelResults.push(GiftCardCancelResult.PARSE(info));
                     }
                 } else {
-                    giftCardCancelResults.push(GiftCardCancelResult.parse(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo));
+                    giftCardCancelResults.push(GiftCardCancelResult.PARSE(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo));
                 }
             }
 

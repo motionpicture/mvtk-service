@@ -5,24 +5,30 @@ import GetDigitalIncentiveDownloadResult from './Models/GetDigitalIncentiveDownl
 import GetDigitalIncentiveDownloadLinkListIn from './Models/GetDigitalIncentiveDownloadLinkListIn';
 import GetDigitalIncentiveDownloadLinkListResult from './Models/GetDigitalIncentiveDownloadLinkListResult';
 
+/**
+ * デジタルインセンティブダウンロード
+ * @class
+ */
 export default class DigitalIncentiveDownloadService extends Service {
     /**
-    * デジタルインセンティブダウンロード
-    *
-    * @param {GetDigitalIncentiveDownloadIn} args
-    */
-    public getDigitalIncentiveDownload(params: Object, cb: (err, response, getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult) => void ): void {
-        let method = 'GetDigitalIncentiveDownload';
+     * デジタルインセンティブダウンロード
+     * @param {GetDigitalIncentiveDownloadIn} args
+     */
+    public getDigitalIncentiveDownload(
+        params: Object,
+        cb: (err: any, response: any, getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult | null) => void
+    ): void {
+        const method = 'GetDigitalIncentiveDownload';
 
-        let args = new GetDigitalIncentiveDownloadIn(params);
+        const args = new GetDigitalIncentiveDownloadIn(params);
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult = null;
+            let getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getDigitalIncentiveDownloadResult = GetDigitalIncentiveDownloadResult.parse(result);
+                getDigitalIncentiveDownloadResult = GetDigitalIncentiveDownloadResult.PARSE(result);
             }
 
             cb(err, response, getDigitalIncentiveDownloadResult);
@@ -34,18 +40,21 @@ export default class DigitalIncentiveDownloadService extends Service {
      *
      * @param {GetDigitalIncentiveDownloadLinkListIn} args
      */
-    public getDigitalIncentiveDownloadLinkList(params: Object, cb: (err, response, getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult) => void ): void {
-        let method = 'GetDigitalIncentiveDownloadLinkList';
+    public getDigitalIncentiveDownloadLinkList(
+        params: Object,
+        cb: (err: any, response: any, getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult | null) => void
+    ): void {
+        const method = 'GetDigitalIncentiveDownloadLinkList';
 
-        let args = new GetDigitalIncentiveDownloadLinkListIn(params);
+        const args = new GetDigitalIncentiveDownloadLinkListIn(params);
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult = null;
+            let getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getDigitalIncentiveDownloadLinkListResult = GetDigitalIncentiveDownloadLinkListResult.parse(result);
+                getDigitalIncentiveDownloadLinkListResult = GetDigitalIncentiveDownloadLinkListResult.PARSE(result);
             }
 
             cb(err, response, getDigitalIncentiveDownloadLinkListResult);

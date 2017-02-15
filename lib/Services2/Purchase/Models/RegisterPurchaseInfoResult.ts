@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class RegisterPurchaseInfoResult {
     /**
@@ -18,7 +18,7 @@ export default class RegisterPurchaseInfoResult {
      */
     public kssierrrmssgTxt: string;
 
-    public static parse (resultObject): RegisterPurchaseInfoResult {
+    public static PARSE (resultObject): RegisterPurchaseInfoResult {
         let result = new RegisterPurchaseInfoResult();
 
         for (let propertyName in resultObject) {

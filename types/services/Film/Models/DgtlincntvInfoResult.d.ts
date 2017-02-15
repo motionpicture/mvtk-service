@@ -9,5 +9,5 @@ export default class DgtlincntvInfoResult {
     dgtlincntvdwnlodykTm: string;
     dgtlincntvdwnlodjgnkiNum: string;
     skhndgtlincntvRmk: string;
-    static parse(resultObject: any): DgtlincntvInfoResult;
+    static PARSE(resultObject: any): DgtlincntvInfoResult;
 }

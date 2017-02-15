@@ -1,18 +1,21 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * 作品ジャンルout
+ * @class
+ */
 export default class FilmGenreResult {
     public gnrTyp: string; // ジャンル区分
     public gnrKbnNm: string; // ジャンル区分名称
 
-    public static parse (resultObject): FilmGenreResult {
-        let result = new FilmGenreResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): FilmGenreResult {
+        const result: any = new FilmGenreResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             result[normalizedName] = property;
-        }
+        });
 
         return result;
     }

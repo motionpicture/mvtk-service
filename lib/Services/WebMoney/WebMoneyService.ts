@@ -21,7 +21,7 @@ export default class WebMoneyService extends Service {
             let webMoneyEntryResult: WebMoneyEntryResult = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                webMoneyEntryResult = WebMoneyEntryResult.parse(result);
+                webMoneyEntryResult = WebMoneyEntryResult.PARSE(result);
             }
 
             cb(err, response, webMoneyEntryResult);
@@ -46,7 +46,7 @@ export default class WebMoneyService extends Service {
             let decryptWebMoneyKssiInfoResult: DecryptWebMoneyKssiInfoResult = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                decryptWebMoneyKssiInfoResult = DecryptWebMoneyKssiInfoResult.parse(result);
+                decryptWebMoneyKssiInfoResult = DecryptWebMoneyKssiInfoResult.PARSE(result);
             }
 
             cb(err, response, decryptWebMoneyKssiInfoResult);

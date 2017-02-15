@@ -1,5 +1,9 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * 作品キャストout
+ * @class
+ */
 export default class FilmCastResult {
     public cstHyjjnNo: string; // キャスト表示順番号
     public cstJmbtsNm: string; // キャスト人物名称
@@ -7,15 +11,14 @@ export default class FilmCastResult {
     public cstShenFlg: string; // キャスト主演フラグ
     public cstJmbtsCd: string; // キャスト人物コード
 
-    public static parse (resultObject): FilmCastResult {
-        let result = new FilmCastResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): FilmCastResult {
+        const result: any = new FilmCastResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             result[normalizedName] = property;
-        }
+        });
 
         return result;
     }

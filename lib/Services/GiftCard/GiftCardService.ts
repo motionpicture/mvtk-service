@@ -4,6 +4,11 @@ import MvtkGiftCardEntryIn from './Models/MvtkGiftCardEntryIn';
 import MvtkGiftCardBalanceInquiryResult from './Models/MvtkGiftCardBalanceInquiryResult';
 import MvtkGiftCardEntryResult from './Models/MvtkGiftCardEntryResult';
 
+/**
+ * ムビチケギフトサービス
+ * @class
+ * @extends {Service}
+ */
 export default class GiftCardService extends Service {
     /**
      * ムビチケギフトカード残高確認
@@ -11,10 +16,14 @@ export default class GiftCardService extends Service {
      * @param {string} mvtkgftcrdId ギフトカードID
      * @param {string} mvtkgftcrdpinCd ギフトカードPINコード
      */
-    public mvtkGiftCardBalanceInquiry(mvtkgftcrdId: string, mvtkgftcrdpinCd: string, cb: (err, response, mvtkGiftCardBalanceInquiryResult: MvtkGiftCardBalanceInquiryResult) => void): void {
-        let method = 'MvtkGiftCardBalanceInquiry';
+    public mvtkGiftCardBalanceInquiry(
+        mvtkgftcrdId: string,
+        mvtkgftcrdpinCd: string,
+        cb: (err: any, response: any, mvtkGiftCardBalanceInquiryResult: MvtkGiftCardBalanceInquiryResult | null) => void
+    ): void {
+        const method = 'MvtkGiftCardBalanceInquiry';
 
-        let args = {
+        const args = {
             MVTKGFTCRD_ID: mvtkgftcrdId,
             MVTKGFTCRDPIN_CD: mvtkgftcrdpinCd,
             DVC_TYP: Constants.DVC_TYP_PC
@@ -23,10 +32,10 @@ export default class GiftCardService extends Service {
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let mvtkGiftCardBalanceInquiryResult: MvtkGiftCardBalanceInquiryResult = null;
+            let mvtkGiftCardBalanceInquiryResult: MvtkGiftCardBalanceInquiryResult | null = null;
 
             if (result.RESULT_INFO.STATUS === 'N00000') {
-                mvtkGiftCardBalanceInquiryResult = MvtkGiftCardBalanceInquiryResult.parse(result);
+                mvtkGiftCardBalanceInquiryResult = MvtkGiftCardBalanceInquiryResult.PARSE(result);
             }
 
             cb(err, response, mvtkGiftCardBalanceInquiryResult);
@@ -38,23 +47,26 @@ export default class GiftCardService extends Service {
      *
      * @param {MvtkGiftCardEntryIn} args
      */
-    public mvtkGiftCardEntry(params: Object, cb: (err, response, mvtkGiftCardEntryResults: Array<MvtkGiftCardEntryResult>) => void): void {
-        let method = 'MvtkGiftCardEntry';
+    public mvtkGiftCardEntry(
+        params: Object,
+        cb: (err: any, response: any, mvtkGiftCardEntryResults: MvtkGiftCardEntryResult[] | null) => void
+    ): void {
+        const method = 'MvtkGiftCardEntry';
 
-        let args = new MvtkGiftCardEntryIn(params);
+        const args = new MvtkGiftCardEntryIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let mvtkGiftCardEntryResults: Array<MvtkGiftCardEntryResult> = [];
+            const mvtkGiftCardEntryResults: MvtkGiftCardEntryResult[] = [];
 
             if (result.RESULT_INFO.STATUS === 'N00000') {
                 if (Array.isArray(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut)) {
-                    for (let info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut) {
-                        mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult.parse(info));
+                    for (const info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut) {
+                        mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult.PARSE(info));
                     }
                 } else {
-                    mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult.parse(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut));
+                    mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult.PARSE(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut));
                 }
             }
 

@@ -1,9 +1,9 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class WebMoneyEntryResult {
     public rdirktUrl: string; // リダイレクトURL
 
-    public static parse (resultObject): WebMoneyEntryResult {
+    public static PARSE (resultObject): WebMoneyEntryResult {
         let result = new WebMoneyEntryResult();
 
         for (let propertyName in resultObject) {

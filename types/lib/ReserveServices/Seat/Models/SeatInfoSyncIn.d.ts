@@ -94,6 +94,7 @@ export interface ISeatInfoSyncIn {
 /**
  * 座席指定情報連携Inクラス
  * @class
+ * @extends {BaseIn}
  */
 export declare class SeatInfoSyncIn extends BaseIn {
     /**

@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class CreditCardInfoResult {
     public cardseq: string; // カード登録連番
@@ -7,7 +7,7 @@ export default class CreditCardInfoResult {
     public mignn: string; // 名義人
     public scrtyCd: string; // セキュリティコード
 
-    public static parse (resultObject): CreditCardInfoResult {
+    public static PARSE (resultObject): CreditCardInfoResult {
         let result = new CreditCardInfoResult();
 
         for (let propertyName in resultObject) {

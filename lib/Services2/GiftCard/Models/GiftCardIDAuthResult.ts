@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class GiftCardIDAuthResult {
     /**
@@ -26,7 +26,7 @@ export default class GiftCardIDAuthResult {
      */
     public tkssiryukngk: string = '';
 
-    public static parse (resultObject): GiftCardIDAuthResult {
+    public static PARSE (resultObject): GiftCardIDAuthResult {
         let result = new GiftCardIDAuthResult();
 
         for (let propertyName in resultObject) {

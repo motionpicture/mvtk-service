@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 interface KnshInfo {
     KNSHKBN_NM: string; // 券種区分名称
@@ -19,7 +19,7 @@ class MshyticktInfo {
     public zskyykkFlg: string; // 座席予約可フラグ
     public shknhikygishCd: string; // ???
 
-    public static parse (resultObject): MshyticktInfo {
+    public static PARSE (resultObject): MshyticktInfo {
         let result = new MshyticktInfo();
 
         for (let propertyName in resultObject) {
@@ -52,7 +52,7 @@ export default class GetUnusedTicketListResult {
     public kiinCd: string; // 会員コード
     public mshyticktInfo: Array<MshyticktInfo>; // 作品詳細情報(itemArray)
 
-    public static parse (resultObject): GetUnusedTicketListResult {
+    public static PARSE (resultObject): GetUnusedTicketListResult {
         let result = new GetUnusedTicketListResult();
 
         for (let propertyName in resultObject) {
@@ -65,10 +65,10 @@ export default class GetUnusedTicketListResult {
                 if (property !== null && property.hasOwnProperty('MshyticktInfo')) {
                     if (Array.isArray(property.MshyticktInfo)) {
                         for (let info of property.MshyticktInfo) {
-                            infos.push(MshyticktInfo.parse(info));
+                            infos.push(MshyticktInfo.PARSE(info));
                         }
                     } else {
-                        infos.push(MshyticktInfo.parse(property.MshyticktInfo));
+                        infos.push(MshyticktInfo.PARSE(property.MshyticktInfo));
                     }
                 }
 

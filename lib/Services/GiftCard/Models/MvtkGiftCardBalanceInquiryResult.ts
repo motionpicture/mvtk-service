@@ -1,6 +1,9 @@
-import CommonUtil from '../../../common/util/Util';
-
-interface RymisiInfo {
+import * as CommonUtil from '../../../Common/Util/Util';
+/**
+ * 利用明細情報
+ * @interface
+ */
+export interface RymisiInfo {
     /**
      * ギフトカード決済管理番号
      */
@@ -34,6 +37,10 @@ interface RymisiInfo {
     HHYJ_FLG: string;
 }
 
+/**
+ * ムビチケギフトカード残高確認
+ * @class
+ */
 export default class MvtkGiftCardBalanceInquiryResult {
     /**
      * 凸版サービス返却値
@@ -71,17 +78,16 @@ export default class MvtkGiftCardBalanceInquiryResult {
     /**
      * 利用明細情報(itemArray)
      */
-    public rymisiInfo: Array<RymisiInfo>;
+    public rymisiInfo: RymisiInfo[];
 
-    public static parse (resultObject): MvtkGiftCardBalanceInquiryResult {
-        let result = new MvtkGiftCardBalanceInquiryResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): MvtkGiftCardBalanceInquiryResult {
+        const result: any = new MvtkGiftCardBalanceInquiryResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'rymisiInfo') {
-                let rymisiInfos: Array<RymisiInfo> = [];
+                const rymisiInfos: RymisiInfo[] = [];
 
                 if (property !== null && property.hasOwnProperty('RymisiInfo')) {
                     if (Array.isArray(property.RymisiInfo)) {
@@ -97,7 +103,7 @@ export default class MvtkGiftCardBalanceInquiryResult {
             } else {
                 result[normalizedName] = property;
             }
-        }
+        });
 
         return result;
     }

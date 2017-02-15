@@ -1,5 +1,5 @@
 export default class FilmGenreResult {
     gnrTyp: string;
     gnrKbnNm: string;
-    static parse(resultObject: any): FilmGenreResult;
+    static PARSE(resultObject: any): FilmGenreResult;
 }

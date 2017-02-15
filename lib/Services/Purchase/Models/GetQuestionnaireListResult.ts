@@ -1,4 +1,4 @@
-import CommonUtil from '../../../common/util/Util';
+import * as CommonUtil from '../../../Common/Util/Util';
 
 export default class GetQuestionnaireListResult {
     /**
@@ -6,7 +6,7 @@ export default class GetQuestionnaireListResult {
      */
     public qustinnarstsmnInfo: Array<QustinnarstsmnInfo>;
 
-    public static parse (resultObject): GetQuestionnaireListResult {
+    public static PARSE (resultObject): GetQuestionnaireListResult {
         let result = new GetQuestionnaireListResult();
 
         for (let propertyName in resultObject) {
