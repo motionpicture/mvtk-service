@@ -10,7 +10,8 @@
   "main": "./lib/mvtk-service.js",
   "scripts": {
     "test": "mocha --no-timeouts --recursive",
-    "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json"
+    "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json",
+    "jsdoc": "grunt jsdoc"
   },
   "repository": {},
   "keywords": [],
@@ -22,6 +23,9 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.39",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jsdoc": "^2.1.0",
     "ink-docstrap": "^1.3.0",
     "mocha": "^3.2.0",
     "tslint": "^4.4.2",

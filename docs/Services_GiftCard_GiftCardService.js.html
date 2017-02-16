@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Mvtk service library for node.js Source: Services/GiftCard/GiftCardService.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Mvtk service library for node.js</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="BaseIn.html">BaseIn</a></li><li><a href="BnnrInfoResult.html">BnnrInfoResult</a></li><li><a href="CreateQrCodeIn.html">CreateQrCodeIn</a></li><li><a href="CreditCardInfoResult.html">CreditCardInfoResult</a></li><li><a href="DecryptWebMoneyKssiInfoResult.html">DecryptWebMoneyKssiInfoResult</a></li><li><a href="DeleteIchjknrInfoIn.html">DeleteIchjknrInfoIn</a></li><li><a href="DeliveryIn.html">DeliveryIn</a></li><li><a href="DgtlincntvInfoResult.html">DgtlincntvInfoResult</a></li><li><a href="DigitalIncentiveDownloadService.html">DigitalIncentiveDownloadService</a></li><li><a href="EditMemberInfoIn.html">EditMemberInfoIn</a></li><li><a href="EncryptDataListIn.html">EncryptDataListIn</a></li><li><a href="FilmCastResult.html">FilmCastResult</a></li><li><a href="FilmGenreResult.html">FilmGenreResult</a></li><li><a href="FilmPhotoGalleryResult.html">FilmPhotoGalleryResult</a></li><li><a href="FilmResult.html">FilmResult</a></li><li><a href="FilmService.html">FilmService</a></li><li><a href="FilmStaffResult.html">FilmStaffResult</a></li><li><a href="ForwardPurchaseInfoMailIn.html">ForwardPurchaseInfoMailIn</a></li><li><a href="GetCodeNameResult.html">GetCodeNameResult</a></li><li><a href="GetDigitalIncentiveDownloadIn.html">GetDigitalIncentiveDownloadIn</a></li><li><a href="GetDigitalIncentiveDownloadLinkListIn.html">GetDigitalIncentiveDownloadLinkListIn</a></li><li><a href="GetDigitalIncentiveDownloadLinkListResult.html">GetDigitalIncentiveDownloadLinkListResult</a></li><li><a href="GetDigitalIncentiveDownloadResult.html">GetDigitalIncentiveDownloadResult</a></li><li><a href="GetFavoriteFilmListResult.html">GetFavoriteFilmListResult</a></li><li><a href="GetGmoEntryTranIn.html">GetGmoEntryTranIn</a></li><li><a href="GetGmoEntryTranResult.html">GetGmoEntryTranResult</a></li><li><a href="GetGmoExecTranIn.html">GetGmoExecTranIn</a></li><li><a href="GetGmoExecTranResult.html">GetGmoExecTranResult</a></li><li><a href="GetQuestionnaireListIn.html">GetQuestionnaireListIn</a></li><li><a href="GetQuestionnaireListResult.html">GetQuestionnaireListResult</a></li><li><a href="GetShhriInfoByKeyResult.html">GetShhriInfoByKeyResult</a></li><li><a href="GetTrailerDetailResult.html">GetTrailerDetailResult</a></li><li><a href="GetTsuryShhziInfoResult.html">GetTsuryShhziInfoResult</a></li><li><a href="GetUnusedTicketListResult.html">GetUnusedTicketListResult</a></li><li><a href="GiftCardCancelIn.html">GiftCardCancelIn</a></li><li><a href="GiftCardCancelResult.html">GiftCardCancelResult</a></li><li><a href="GiftCardIDAuthIn.html">GiftCardIDAuthIn</a></li><li><a href="GiftCardIDAuthResult.html">GiftCardIDAuthResult</a></li><li><a href="GiftCardService.html">GiftCardService</a></li><li><a href="GiftCardUtilities.html">GiftCardUtilities</a></li><li><a href="GMOCancelIn.html">GMOCancelIn</a></li><li><a href="InquiryService.html">InquiryService</a></li><li><a href="InvalidNoteTypeResult.html">InvalidNoteTypeResult</a></li><li><a href="InvalidTicketDetailedResult.html">InvalidTicketDetailedResult</a></li><li><a href="MailService.html">MailService</a></li><li><a href="MemberInfoResult.html">MemberInfoResult</a></li><li><a href="MemberInfoService.html">MemberInfoService</a></li><li><a href="MkknInfoResult.html">MkknInfoResult</a></li><li><a href="MovieLogService.html">MovieLogService</a></li><li><a href="MvtkGiftCardBalanceInquiryResult.html">MvtkGiftCardBalanceInquiryResult</a></li><li><a href="MvtkGiftCardEntryIn.html">MvtkGiftCardEntryIn</a></li><li><a href="MvtkGiftCardEntryResult.html">MvtkGiftCardEntryResult</a></li><li><a href="PurchaseNumberAuthIn.html">PurchaseNumberAuthIn</a></li><li><a href="PurchaseNumberAuthResult.html">PurchaseNumberAuthResult</a></li><li><a href="PurchaseService.html">PurchaseService</a></li><li><a href="RegisterIchjknrInfoIn.html">RegisterIchjknrInfoIn</a></li><li><a href="RegisterMemberService.html">RegisterMemberService</a></li><li><a href="RegisterMemberTemporaryIn.html">RegisterMemberTemporaryIn</a></li><li><a href="RegisterPurchaseInfoIn.html">RegisterPurchaseInfoIn</a></li><li><a href="RegisterPurchaseInfoResult.html">RegisterPurchaseInfoResult</a></li><li><a href="RegisterQuestionnaireIn.html">RegisterQuestionnaireIn</a></li><li><a href="SeatInfoSyncIn.html">SeatInfoSyncIn</a></li><li><a href="SeatInfoSyncResult.html">SeatInfoSyncResult</a></li><li><a href="SeatReservationStatusListResult.html">SeatReservationStatusListResult</a></li><li><a href="SelectIchjknrInfoResult.html">SelectIchjknrInfoResult</a></li><li><a href="SendInquiryMailIn.html">SendInquiryMailIn</a></li><li><a href="SentGiftStatusListResult.html">SentGiftStatusListResult</a></li><li><a href="Service.html">Service</a></li><li><a href="ShyzmtcktInfoListResult.html">ShyzmtcktInfoListResult</a></li><li><a href="ShyzmtcktInfoResult.html">ShyzmtcktInfoResult</a></li><li><a href="TicketInfoResult.html">TicketInfoResult</a></li><li><a href="TicketInfoTypeResult.html">TicketInfoTypeResult</a></li><li><a href="UtilService.html">UtilService</a></li><li><a href="WatchRecordResult.html">WatchRecordResult</a></li><li><a href="WebMoneyEntryIn.html">WebMoneyEntryIn</a></li><li><a href="WebMoneyEntryResult.html">WebMoneyEntryResult</a></li><li><a href="WebMoneyService.html">WebMoneyService</a></li><li><a href="YkknInfoResult.html">YkknInfoResult</a></li><li><a href="%25E5%25BA%25A7%25E5%25B8%25AD%25E6%258C%2587%25E5%25AE%259A%25E6%2583%2585%25E5%25A0%25B1%25E9%2580%25A3%25E6%2590%25BA%25E3%2582%25AF%25E3%2583%25A9%25E3%2582%25B9.html">座席指定情報連携クラス</a></li><li><a href="%25E8%25B3%25BC%25E5%2585%25A5%25E7%25AE%25A1%25E7%2590%2586%25E7%2595%25AA%25E5%258F%25B7%25E8%25AA%258D%25E8%25A8%25BC%25E3%2582%25AF%25E3%2583%25A9%25E3%2582%25B9.html">購入管理番号認証クラス</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#AUTHENTICATION_SERVICE_SUPPORT">AUTHENTICATION_SERVICE_SUPPORT</a></li><li><a href="global.html#BNNRHYJKSH_TYP_PC_FILM_RIGHT">BNNRHYJKSH_TYP_PC_FILM_RIGHT</a></li><li><a href="global.html#BNNRHYJKSH_TYP_SP_UNUSED">BNNRHYJKSH_TYP_SP_UNUSED</a></li><li><a href="global.html#CLIENT_ERROR">CLIENT_ERROR</a></li><li><a href="global.html#constants">constants</a></li><li><a href="global.html#cookie">cookie</a></li><li><a href="global.html#CRDTCRDINPUTKBN_INPUT">CRDTCRDINPUTKBN_INPUT</a></li><li><a href="global.html#createDigitalIncentiveDownloadService">createDigitalIncentiveDownloadService</a></li><li><a href="global.html#createFilmService">createFilmService</a></li><li><a href="global.html#createGiftCardService">createGiftCardService</a></li><li><a href="global.html#createGiftCardService2">createGiftCardService2</a></li><li><a href="global.html#createInquiryService">createInquiryService</a></li><li><a href="global.html#createMailService">createMailService</a></li><li><a href="global.html#createMemberInfoService">createMemberInfoService</a></li><li><a href="global.html#createMovieLogService">createMovieLogService</a></li><li><a href="global.html#createPurchaseNumberAuthService">createPurchaseNumberAuthService</a></li><li><a href="global.html#createPurchaseService">createPurchaseService</a></li><li><a href="global.html#createPurchaseService2">createPurchaseService2</a></li><li><a href="global.html#createRegisterMemberService">createRegisterMemberService</a></li><li><a href="global.html#createSeatInfoSyncService">createSeatInfoSyncService</a></li><li><a href="global.html#createUtilService">createUtilService</a></li><li><a href="global.html#createUtilService2">createUtilService2</a></li><li><a href="global.html#createWebMoneyService">createWebMoneyService</a></li><li><a href="global.html#endpoint">endpoint</a></li><li><a href="global.html#endpoint2">endpoint2</a></li><li><a href="global.html#endpointReserve">endpointReserve</a></li><li><a href="global.html#getMethods">getMethods</a></li><li><a href="global.html#HMBICHNNL_TYP_MVTK_SITE">HMBICHNNL_TYP_MVTK_SITE</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#isAvailableMethod">isAvailableMethod</a></li><li><a href="global.html#KIINMLADDRSSDVC_TYP_PC">KIINMLADDRSSDVC_TYP_PC</a></li><li><a href="global.html#KITHSHK_TYP_CHOICE">KITHSHK_TYP_CHOICE</a></li><li><a href="global.html#KNYDVC_TYP_PC">KNYDVC_TYP_PC</a></li><li><a href="global.html#KSSIHH_TYP_CREDIT_CARD">KSSIHH_TYP_CREDIT_CARD</a></li><li><a href="global.html#MLSF_FLG_PC">MLSF_FLG_PC</a></li><li><a href="global.html#normalizePropertyName">normalizePropertyName</a></li><li><a href="global.html#SIBTS_TYP_MEN">SIBTS_TYP_MEN</a></li><li><a href="global.html#TCKTBITI_TYP_ELECTRON_TICKET">TCKTBITI_TYP_ELECTRON_TICKET</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: Services/GiftCard/GiftCardService.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">"use strict";
+const Service_1 = require("../../Common/Service");
+const Constants_1 = require("../../Common/Util/Constants");
+const MvtkGiftCardBalanceInquiryResult_1 = require("./Models/MvtkGiftCardBalanceInquiryResult");
+const MvtkGiftCardEntryIn_1 = require("./Models/MvtkGiftCardEntryIn");
+const MvtkGiftCardEntryResult_1 = require("./Models/MvtkGiftCardEntryResult");
+/**
+ * GiftCardService
+ * @class
+ * @extends {Service}
+ */
+class GiftCardService extends Service_1.default {
+    /**
+     * ムビチケギフトカード残高確認
+     *
+     * @param {string} mvtkgftcrdId ギフトカードID
+     * @param {string} mvtkgftcrdpinCd ギフトカードPINコード
+     */
+    mvtkGiftCardBalanceInquiry(mvtkgftcrdId, mvtkgftcrdpinCd, cb) {
+        const method = 'MvtkGiftCardBalanceInquiry';
+        const args = {
+            MVTKGFTCRD_ID: mvtkgftcrdId,
+            MVTKGFTCRDPIN_CD: mvtkgftcrdpinCd,
+            DVC_TYP: Constants_1.default.DVC_TYP_PC
+        };
+        this.call(method, args, (err, response, result) => {
+            if (err)
+                return cb(err, response, null);
+            let mvtkGiftCardBalanceInquiryResult = null;
+            if (result.RESULT_INFO.STATUS === 'N00000') {
+                mvtkGiftCardBalanceInquiryResult = MvtkGiftCardBalanceInquiryResult_1.default.PARSE(result);
+            }
+            cb(err, response, mvtkGiftCardBalanceInquiryResult);
+        });
+    }
+    /**
+     * ギフトカード利用
+     *
+     * @param {IMvtkGiftCardEntryIn} args
+     */
+    mvtkGiftCardEntry(params, cb) {
+        const method = 'MvtkGiftCardEntry';
+        const args = new MvtkGiftCardEntryIn_1.MvtkGiftCardEntryIn(params);
+        this.call(method, args.toXml(), (err, response, result) => {
+            if (err)
+                return cb(err, response, null);
+            const mvtkGiftCardEntryResults = [];
+            if (result.RESULT_INFO.STATUS === 'N00000') {
+                if (Array.isArray(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut)) {
+                    for (const info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut) {
+                        mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult_1.default.PARSE(info));
+                    }
+                }
+                else {
+                    mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult_1.default.PARSE(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut));
+                }
+            }
+            cb(err, response, mvtkGiftCardEntryResults);
+        });
+    }
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = GiftCardService;
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on Thu Feb 16th 2017
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
