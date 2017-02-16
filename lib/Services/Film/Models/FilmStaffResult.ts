@@ -11,12 +11,12 @@ export default class FilmStaffResult {
     public stffJmbtsCd: string; // スタッフ人物コード
 
     public static PARSE(resultObject: any): FilmStaffResult {
-        const result: any = new FilmStaffResult();
+        const result = new FilmStaffResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

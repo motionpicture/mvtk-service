@@ -1,20 +1,23 @@
-import Service from '../../common/Service';
-import GetDigitalIncentiveDownloadResult from './Models/GetDigitalIncentiveDownloadResult';
+import Service from '../../Common/Service';
+import { IGetDigitalIncentiveDownloadIn } from './Models/GetDigitalIncentiveDownloadIn';
+import { IGetDigitalIncentiveDownloadLinkListIn } from './Models/GetDigitalIncentiveDownloadLinkListIn';
 import GetDigitalIncentiveDownloadLinkListResult from './Models/GetDigitalIncentiveDownloadLinkListResult';
+import GetDigitalIncentiveDownloadResult from './Models/GetDigitalIncentiveDownloadResult';
 /**
- * デジタルインセンティブダウンロード
+ * DigitalIncentiveDownloadService
  * @class
  */
 export default class DigitalIncentiveDownloadService extends Service {
     /**
      * デジタルインセンティブダウンロード
-     * @param {GetDigitalIncentiveDownloadIn} args
+     * @method
+     * @param {IGetDigitalIncentiveDownloadIn} args
      */
-    getDigitalIncentiveDownload(params: Object, cb: (err: any, response: any, getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult | null) => void): void;
+    getDigitalIncentiveDownload(params: IGetDigitalIncentiveDownloadIn, cb: (err: any, response: any, getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult | null) => void): void;
     /**
      * デジタルインセンティブダウンロード情報検索
-     *
-     * @param {GetDigitalIncentiveDownloadLinkListIn} args
+     * @method
+     * @param {IGetDigitalIncentiveDownloadLinkListIn} args
      */
-    getDigitalIncentiveDownloadLinkList(params: Object, cb: (err: any, response: any, getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult | null) => void): void;
+    getDigitalIncentiveDownloadLinkList(params: IGetDigitalIncentiveDownloadLinkListIn, cb: (err: any, response: any, getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult | null) => void): void;
 }

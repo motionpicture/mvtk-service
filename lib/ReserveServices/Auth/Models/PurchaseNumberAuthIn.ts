@@ -96,7 +96,6 @@ export class PurchaseNumberAuthIn extends BaseIn {
             <tns:stCd>${this.stCd}</tns:stCd>
             <tns:jeiYmd>${this.jeiYmd}</tns:jeiYmd>
         </tns:PurchaseNumberAuth>`;
-
         return messege;
     }
 }

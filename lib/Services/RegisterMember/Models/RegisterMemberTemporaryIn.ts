@@ -1,6 +1,11 @@
 import BaseIn from '../../../Common/models/BaseIn';
 
-export default class RegisterMemberTemporaryIn extends BaseIn {
+/**
+ * 会員情報仮登録inクラス
+ * @class
+ * @extends {BaseIn}
+ */
+export class RegisterMemberTemporaryIn extends BaseIn {
     public kiinsiNm: string; // 会員姓名称
     public kiimmiNm: string; // 会員名名称
     public kiinsiKnnm: string; // 会員姓カナ名称
@@ -16,11 +21,11 @@ export default class RegisterMemberTemporaryIn extends BaseIn {
     public kiinMladdr: string; // 会員メールアドレス
     public kiinmladdrssdvcTyp: string; // 会員メールアドレスデバイス区分
     public kiinPwd: string; // 会員パスワード
-    public mlmgkbFlg: string; // 
+    public mlmgkbFlg: string; //
     public kiintrkdvcTyp: string; // 会員登録デバイス区分
 
     public toXml(): string {
-        let message = `
+        return `
 <tns:RegisterMemberTemporary>
     <tns:kiinsiNm>${this.kiinsiNm}</tns:kiinsiNm>
     <tns:kiimmiNm>${this.kiimmiNm}</tns:kiimmiNm>
@@ -41,6 +46,80 @@ export default class RegisterMemberTemporaryIn extends BaseIn {
     <tns:kiintrkdvcTyp>${this.kiintrkdvcTyp}</tns:kiintrkdvcTyp>
 </tns:RegisterMemberTemporary>
 `;
+    }
+}
 
-        return message;
-    }}
+/**
+ * 会員情報仮登録in
+ * @interface
+ */
+export interface IRegisterMemberTemporaryIn {
+    /**
+     * 会員姓名称
+     */
+    kiinsiNm: string;
+    /**
+     * 会員名名称
+     */
+    kiimmiNm: string;
+    /**
+     * 会員姓カナ名称
+     */
+    kiinsiKnnm: string;
+    /**
+     * 会員名カナ名称
+     */
+    kiimmiKnnm: string;
+    /**
+     * 性別区分
+     */
+    sibtsTyp: string;
+    /**
+     * 会員生年月日(19990101形式)
+     */
+    kiinsiYmd: string;
+    /**
+     * 都道府県コード
+     */
+    tdfknCd: string;
+    /**
+     * 会員住所緯度
+     */
+    kiinjshiDo: string;
+    /**
+     * 会員住所経度
+     */
+    kiinjshkiDo: string;
+    /**
+     * 会員市外局番号
+     */
+    kiinshgikykNo: string;
+    /**
+     * 会員市内局番号
+     */
+    kiinshnikykNo: string;
+    /**
+     * 会員加入者番号
+     */
+    kiinknyshNo: string;
+    /**
+     * 会員メールアドレス
+     */
+    kiinMladdr: string;
+    /**
+     * 会員メールアドレスデバイス区分
+     */
+    kiinmladdrssdvcTyp: string;
+    /**
+     * 会員パスワード
+     */
+    kiinPwd: string;
+    /**
+     * ???
+     */
+    mlmgkbFlg: string;
+    /**
+     * 会員登録デバイス区分
+     */
+    kiintrkdvcTyp: string;
+}

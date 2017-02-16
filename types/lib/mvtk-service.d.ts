@@ -1,28 +1,27 @@
 /// <reference path="../../definitions/main.d.ts" />
 import Constants from './Common/Util/Constants';
-import DigitalIncentiveDownloadService from './services/DigitalIncentiveDownload/DigitalIncentiveDownloadService';
-import * as GiftCardUtilities from './services2/GiftCard/GiftCardUtilities';
-import FilmService from './services/Film/FilmService';
-import * as FilmUtilities from './services/Film/FilmUtilities';
-import GiftCardService from './services/GiftCard/GiftCardService';
-import GiftCardServiceNew from './services2/GiftCard/GiftCardService';
-import InquiryService from './services/Inquiry/InquiryService';
-import MailService from './services2/Mail/MailService';
-import MemberInfoService from './services/MemberInfo/MemberInfoService';
-import * as MemberInfoUtilities from './services/MemberInfo/MemberInfoUtilities';
-import MovieLogService from './services/MovieLog/MovieLogService';
-import PurchaseService from './services/Purchase/PurchaseService';
-import PurchaseServiceNew from './services2/Purchase/PurchaseService';
-import * as PurchaseUtilities from './services2/Purchase/PurchaseUtilities';
-import RegisterMemberService from './services/RegisterMember/RegisterMemberService';
-import TicketChangeService from './services2/TicketChange/TicketChangeService';
-import Util from './Common/Util/Util';
-import UtilService from './services/util/UtilService';
-import UtilServiceNew from './services2/util/UtilService';
-import WebMoneyService from './services/WebMoney/WebMoneyService';
+import * as Util from './Common/Util/Util';
 import PurchaseNumberAuthService from './ReserveServices/Auth/PurchaseNumberAuthService';
 import SeatInfoSyncService from './ReserveServices/Seat/SeatInfoSyncService';
-export { Constants, Util, FilmUtilities, InquiryUtilities, MemberInfoUtilities, GiftCardUtilities, PurchaseUtilities };
+import DigitalIncentiveDownloadService from './Services/DigitalIncentiveDownload/DigitalIncentiveDownloadService';
+import FilmService from './Services/Film/FilmService';
+import * as FilmUtilities from './Services/Film/FilmUtilities';
+import GiftCardService from './Services/GiftCard/GiftCardService';
+import InquiryService from './Services/Inquiry/InquiryService';
+import MemberInfoService from './Services/MemberInfo/MemberInfoService';
+import * as MemberInfoUtilities from './Services/MemberInfo/MemberInfoUtilities';
+import MovieLogService from './Services/MovieLog/MovieLogService';
+import PurchaseService from './Services/Purchase/PurchaseService';
+import RegisterMemberService from './Services/RegisterMember/RegisterMemberService';
+import UtilService from './Services/Util/UtilService';
+import WebMoneyService from './Services/WebMoney/WebMoneyService';
+import GiftCardServiceNew from './Services2/GiftCard/GiftCardService';
+import * as GiftCardUtilities from './Services2/GiftCard/GiftCardUtilities';
+import MailService from './Services2/Mail/MailService';
+import PurchaseServiceNew from './Services2/Purchase/PurchaseService';
+import * as PurchaseUtilities from './Services2/Purchase/PurchaseUtilities';
+import UtilServiceNew from './Services2/Util/UtilService';
+export { Constants, Util, FilmUtilities, MemberInfoUtilities, GiftCardUtilities, PurchaseUtilities };
 /**
  * サービスビルダー初期化
  *
@@ -79,7 +78,6 @@ export declare function createRegisterMemberService(): RegisterMemberService;
 /**
  * お直りサービスを生成する
  */
-export declare function createTicketChangeService(): TicketChangeService;
 /**
  * ユーティリティサービスを生成する
  */

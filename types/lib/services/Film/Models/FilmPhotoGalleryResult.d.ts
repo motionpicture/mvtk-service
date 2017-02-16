@@ -1,5 +1,5 @@
 /**
- * 作品画像
+ * 作品画像out
  * @class
  */
 export default class FilmPhotoGalleryResult {

@@ -1,14 +1,17 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
 import GetFavoriteFilmListResult from './Models/GetFavoriteFilmListResult';
 import GetUnusedTicketListResult from './Models/GetUnusedTicketListResult';
-import ShyzmtcktInfoListResult from './Models/ShyzmtcktInfoListResult';
-import WatchRecordResult from './Models/WatchRecordResult';
 import SeatReservationStatusListResult from './Models/SeatReservationStatusListResult';
 import SentGiftStatusListResult from './Models/SentGiftStatusListResult';
+import ShyzmtcktInfoListResult from './Models/ShyzmtcktInfoListResult';
+import WatchRecordResult from './Models/WatchRecordResult';
 
-
-
+/**
+ * MovieLogService
+ * @class
+ * @extends {Service}
+ */
 export default class MovieLogService extends Service {
     /**
      * 観たい作品検索
@@ -18,14 +21,20 @@ export default class MovieLogService extends Service {
      * @param {number} shtkNum 取得件数
      * @param {string} dvcTyp  デバイス区分
      */
-    public getFavoriteFilmList(kiinCd, rcdNum, shtkNum, dvcTyp, cb: (err, response, getFavoriteFilmListResult: GetFavoriteFilmListResult) => void): void {
-        let method = 'GetFavoriteFilmList';
+    public getFavoriteFilmList(
+        kiinCd: string,
+        rcdNum: number,
+        shtkNum: number,
+        dvcTyp: string,
+        cb: (err: any, resonse: any, getFavoriteFilmListResult: GetFavoriteFilmListResult) => void
+    ): void {
+        const method = 'GetFavoriteFilmList';
 
-        let args = {
-            'kiinCd': kiinCd,
-            'rcdNum': rcdNum,
-            'shtkNum': shtkNum,
-            'dvcTyp': dvcTyp
+        const args = {
+            kiinCd: kiinCd,
+            rcdNum: rcdNum,
+            shtkNum: shtkNum,
+            dvcTyp: dvcTyp
         };
 
         let getFavoriteFilmListResult: GetFavoriteFilmListResult;
@@ -47,10 +56,14 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getUnusedTicketList(kiinCd, dvcTyp, cb: (err, response, getUnusedTicketListResult: GetUnusedTicketListResult) => void): void {
-        let method = 'GetUnusedTicketList';
+    public getUnusedTicketList(
+        kiinCd: string,
+        dvcTyp: string,
+        cb: (err: any, resonse: any, getUnusedTicketListResult: GetUnusedTicketListResult) => void
+    ): void {
+        const method = 'GetUnusedTicketList';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd,
             dvcTyp: dvcTyp
         };
@@ -74,10 +87,14 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getSeatReservedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void): void {
-        let method = 'GetSeatReservedTicketList';
+    public getSeatReservedTicketList(
+        kiinCd: string,
+        dvcTyp: string,
+        cb: (err: any, resonse: any, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void
+    ): void {
+        const method = 'GetSeatReservedTicketList';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd,
             dvcTyp: dvcTyp
         };
@@ -89,8 +106,7 @@ export default class MovieLogService extends Service {
 
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L001')
-            {
+                || result.RESULT_INFO.STATUS === 'L001') {
                 shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
             }
 
@@ -104,10 +120,14 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getWatchedTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void): void {
-        let method = 'GetWatchedTicketList';
+    public getWatchedTicketList(
+        kiinCd: string,
+        dvcTyp: string,
+        cb: (err: any, resonse: any, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void
+    ): void {
+        const method = 'GetWatchedTicketList';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd,
             dvcTyp: dvcTyp
         };
@@ -119,8 +139,7 @@ export default class MovieLogService extends Service {
 
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L001')
-            {
+                || result.RESULT_INFO.STATUS === 'L001') {
                 shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
             }
 
@@ -134,10 +153,14 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getGiftTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void): void {
-        let method = 'GetGiftTicketList';
+    public getGiftTicketList(
+        kiinCd: string,
+        dvcTyp: string,
+        cb: (err: any, resonse: any, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void
+    ): void {
+        const method = 'GetGiftTicketList';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd,
             dvcTyp: dvcTyp
         };
@@ -149,8 +172,7 @@ export default class MovieLogService extends Service {
 
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L001')
-            {
+                || result.RESULT_INFO.STATUS === 'L001') {
                 shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
             }
 
@@ -164,10 +186,14 @@ export default class MovieLogService extends Service {
      * @param {string} kiinCd 会員コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getExpiredTicketList(kiinCd, dvcTyp, cb: (err, response, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void): void {
-        let method = 'GetExpiredTicketList';
+    public getExpiredTicketList(
+        kiinCd: string,
+        dvcTyp: string,
+        cb: (err: any, resonse: any, shyzmtcktInfoListResult: ShyzmtcktInfoListResult) => void
+    ): void {
+        const method = 'GetExpiredTicketList';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd,
             dvcTyp: dvcTyp
         };
@@ -179,8 +205,7 @@ export default class MovieLogService extends Service {
 
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L001')
-            {
+                || result.RESULT_INFO.STATUS === 'L001') {
                 shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
             }
 
@@ -193,10 +218,10 @@ export default class MovieLogService extends Service {
      *
      * @param {string} skhnCd 作品コード
      */
-    public registerFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'RegisterFavoriteFilm';
+    public registerFavoriteFilm(skhnCd: string, cb: (err: any, resonse: any, isSuccess: boolean) => void): void {
+        const method = 'RegisterFavoriteFilm';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd
         };
 
@@ -207,7 +232,7 @@ export default class MovieLogService extends Service {
 
             // L002は登録済みとしてエラーにはしない
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L002') {
+                || result.RESULT_INFO.STATUS === 'L002') {
                 isSuccess = true;
             }
 
@@ -220,10 +245,10 @@ export default class MovieLogService extends Service {
      *
      * @param {string} skhnCd 作品コード
      */
-    public deleteFavoriteFilm(skhnCd: string, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'DeleteFavoriteFilm';
+    public deleteFavoriteFilm(skhnCd: string, cb: (err: any, resonse: any, isSuccess: boolean) => void): void {
+        const method = 'DeleteFavoriteFilm';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd
         };
 
@@ -240,31 +265,32 @@ export default class MovieLogService extends Service {
         });
     }
 
-    /**
-     * 作品感想検索
-     *
-     * @param skhnCd  作品コード
-     * @param kiinCd  会員コード
-     * @param rcdNum  レコード数
-     * @param shtkNum 取得件数
-     */
-    public getFilmReviewList(skhnCd, kiinCd, rcdNum, shtkNum, cb: Function) {
-        let method = 'GetFilmReviewList';
+    // /**
+    //  * 作品感想検索
+    //  *
+    //  * @param {string} skhnCd  作品コード
+    //  * @param {string} kiinCd  会員コード
+    //  * @param {number} rcdNum  レコード数
+    //  * @param {number} shtkNum 取得件数
+    //  */
+    // public getFilmReviewList(skhnCd: string, kiinCd: string, rcdNum: number, shtkNum: number, cb: Function) {
+    //     const method = 'GetFilmReviewList';
 
-        let args = {
-        };
-    }
+    //     const args = {
+    //     };
+    // }
 
     /**
      * 使用済チケット履歴削除
      *
      * @param {string} mvilgNo        ムビログ番号
      * @param {string} knytcktSttsKbn 購入チケットステータス区分
+     * @param {Function} cb
      */
-    public deleteUsedTicketHistory(mvilgNo, knytcktSttsKbn, cb: Function) {
-        let method = 'DeleteUsedTicketHistory';
+    public deleteUsedTicketHistory(mvilgNo: string, knytcktSttsKbn: string, cb: Function) {
+        const method = 'DeleteUsedTicketHistory';
 
-        let args = {
+        const args = {
             mvilgNo: mvilgNo,
             knytcktSttsKbn: knytcktSttsKbn
         };
@@ -276,7 +302,7 @@ export default class MovieLogService extends Service {
 
             // 作品コード指定の上でSTATUS_CHECK_ERROR(L001)は対象なしとしてエラーにはしない
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L001') {
+                || result.RESULT_INFO.STATUS === 'L001') {
                 isSuccess = true;
             }
 
@@ -288,15 +314,16 @@ export default class MovieLogService extends Service {
      * 座席予約状況
      *
      * @param {string} mvilgNo ムビログ番号
+     * @param {Function} cb
      */
-    public getSeatReservationStatusList(mvilgNo, cb: Function) {
-        let method = 'GetSeatReservationStatusList';
+    public getSeatReservationStatusList(mvilgNo: string, cb: Function) {
+        const method = 'GetSeatReservationStatusList';
 
-        let args = {
+        const args = {
             mvilgNo: mvilgNo
         };
-        
-        let seatReservationStatusListResults: Array<SeatReservationStatusListResult>;
+
+        let seatReservationStatusListResults: SeatReservationStatusListResult[];
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, seatReservationStatusListResults);
@@ -305,7 +332,7 @@ export default class MovieLogService extends Service {
                 seatReservationStatusListResults = [];
 
                 if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
-                    for (let zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
+                    for (const zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
                         seatReservationStatusListResults.push(SeatReservationStatusListResult.PARSE(zskyykjykyInfo));
                     }
                 } else {
@@ -321,15 +348,16 @@ export default class MovieLogService extends Service {
      * 鑑賞記録リスト検索
      *
      * @param {string} mvilgNo ムビログ番号
+     * @param {Function} cb
      */
-    public getWatchRecordList(mvilgNo, cb: Function) {
-        let method = 'GetWatchRecordList';
+    public getWatchRecordList(mvilgNo: string, cb: Function) {
+        const method = 'GetWatchRecordList';
 
-        let args = {
+        const args = {
             mvilgNo: mvilgNo
         };
 
-        let watchRecordResults: Array<WatchRecordResult>;
+        let watchRecordResults: WatchRecordResult[];
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, watchRecordResults);
@@ -338,7 +366,7 @@ export default class MovieLogService extends Service {
                 watchRecordResults = [];
 
                 if (Array.isArray(result.KNSHKRK_INFO.KnshkrkInfo)) {
-                    for (let knshkrkInfo of result.KNSHKRK_INFO.KnshkrkInfo) {
+                    for (const knshkrkInfo of result.KNSHKRK_INFO.KnshkrkInfo) {
                         watchRecordResults.push(WatchRecordResult.PARSE(knshkrkInfo));
                     }
                 } else {
@@ -354,15 +382,16 @@ export default class MovieLogService extends Service {
      * ギフト送信状況リスト検索
      *
      * @param {string} mvilgNo ムビログ番号
+     * @param {Function} cb
      */
-    public getSentGiftStatusList(mvilgNo, cb: Function) {
-        let method = 'GetSentGiftStatusList';
+    public getSentGiftStatusList(mvilgNo: string, cb: Function) {
+        const method = 'GetSentGiftStatusList';
 
-        let args = {
+        const args = {
             mvilgNo: mvilgNo
         };
 
-        let sentGiftStatusListResults: Array<SentGiftStatusListResult>;
+        let sentGiftStatusListResults: SentGiftStatusListResult[];
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, sentGiftStatusListResults);
@@ -371,7 +400,7 @@ export default class MovieLogService extends Service {
                 sentGiftStatusListResults = [];
 
                 if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
-                    for (let zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
+                    for (const zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
                         sentGiftStatusListResults.push(SentGiftStatusListResult.PARSE(zskyykjykyInfo));
                     }
                 } else {
@@ -388,10 +417,10 @@ export default class MovieLogService extends Service {
      *
      * @param {string} knyknrNo 購入管理番号
      */
-    public createQrCodeInMovieLog(knyknrNo, cb: (err, response, qrcdUrl: string) => void): void {
-        let method = 'CreateQrCodeInMovieLog';
+    public createQrCodeInMovieLog(knyknrNo: string, cb: (err: any, resonse: any, qrcdUrl: string) => void): void {
+        const method = 'CreateQrCodeInMovieLog';
 
-        let args = {
+        const args = {
             knyknrNo: knyknrNo
         };
 

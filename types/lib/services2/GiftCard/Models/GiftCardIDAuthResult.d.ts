@@ -1,3 +1,7 @@
+/**
+ * ムビチケギフトカード認証out
+ * @class
+ */
 export default class GiftCardIDAuthResult {
     /**
      * 凸版サービス返却値

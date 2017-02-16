@@ -17,12 +17,12 @@ export default class DgtlincntvInfoResult {
     public skhndgtlincntvRmk: string; // 作品デジタルインセンティブ備考
 
     public static PARSE(resultObject: any): DgtlincntvInfoResult {
-        const result: any = new DgtlincntvInfoResult();
-        Object.keys(resultObject).forEach((propertyName)=>{
+        const result = new DgtlincntvInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

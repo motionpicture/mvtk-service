@@ -1,10 +1,10 @@
 import BaseIn from '../../../Common/models/BaseIn';
 /**
- * ギフトカード利用in
+ * ギフトカード利用inクラス
  * @class
  * @extends {BaseIn}
  */
-export default class MvtkGiftCardEntryIn extends BaseIn {
+export declare class MvtkGiftCardEntryIn extends BaseIn {
     /**
      * ギフトカードID情報
      */
@@ -16,6 +16,21 @@ export default class MvtkGiftCardEntryIn extends BaseIn {
      */
     DVC_TYP: string;
     toXml(): string;
+}
+/**
+ * ギフトカード利用in
+ */
+export interface IMvtkGiftCardEntryIn {
+    /**
+     * ギフトカードID情報
+     */
+    MVTKGFTCRD_INFO_IN: {
+        MvtkgftcrdInfoIn: MvtkgftcrdInfoIn[];
+    };
+    /**
+     * ご利用金額
+     */
+    DVC_TYP: string;
 }
 /**
  * ギフトカードID情報

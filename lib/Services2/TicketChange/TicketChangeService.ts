@@ -1,16 +1,21 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
+// import Service from '../../Common/Service';
+// import Constants from '../../Common/Util/Constants';
 
-export default class TicketChangeService extends Service {
-    public getChangeableTicketList() {
-    }
+/**
+ * TicketChangeService
+ * @class
+ * @extends {Service}
+ */
+// export default class TicketChangeService extends Service {
+//     public getChangeableTicketList() {
+//     }
 
-    public getKkdiChangeableTicketList() {
-    }
+//     public getKkdiChangeableTicketList() {
+//     }
 
-    public getTicketChangeGmoEntryTran() {
-    }
+//     public getTicketChangeGmoEntryTran() {
+//     }
 
-    public registerTicketChangeInfo() {
-    }
-}
+//     public registerTicketChangeInfo() {
+//     }
+// }

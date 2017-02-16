@@ -1,88 +1,92 @@
+import * as Cookie from 'soap-cookie';
 import Service from '../../Common/Service';
-import Constants from '../../Common/util/Constants';
-import Cookie = require('soap-cookie');
+import Constants from '../../Common/Util/Constants';
+import EncryptDataListIn from './Models/EncryptDataListIn';
 import GetCodeNameResult from './Models/GetCodeNameResult';
 
-import EncryptDataListIn from './Models/EncryptDataListIn';
-
+/**
+ * UtilService
+ * @class
+ * @extends {Service}
+ */
 export default class UtilService extends Service {
-    /**
-     * 都道府県コード検索
-     *
-     * @param string  $prefectureCode 都道府県コード
-     * @param boolean $addBlank       trueにすると一覧にブランク用が追加される
-     * @return array
-     *
-     * @throws sfMovieticketAPIException
-     */
-    public getPrefectureCode(prefectureCode = '', addBlank = false): void {
-        // $methodName = 'GetPrefectureCode';
+    // /**
+    //  * 都道府県コード検索
+    //  *
+    //  * @param {string}  $prefectureCode 都道府県コード
+    //  * @param {boolean} $addBlank       trueにすると一覧にブランク用が追加される
+    //  * @return {array}
+    //  *
+    //  * @throws sfMovieticketAPIException
+    //  */
+    // public getPrefectureCode(prefectureCode = '', addBlank = false): void {
+    //     // $methodName = 'GetPrefectureCode';
 
-        // $params = array(
-        //     'tdfknCd'   => $prefectureCode,
-        //     'blnkarFlg' => $addBlank ? '1' : '0',
-        // );
+    //     // $params = array(
+    //     //     'tdfknCd'   => $prefectureCode,
+    //     //     'blnkarFlg' => $addBlank ? '1' : '0',
+    //     // );
 
-        // $response = $this->callMethod($methodName, $params);
+    //     // $response = $this->callMethod($methodName, $params);
 
-        // if ($response->isError()) {
-        //     $message = sprintf('Method:%s.%s Status:%s Message:%s',
-        //     $this->serviceName, $methodName, $response->getStatus(), $response->getMessage());
+    //     // if ($response->isError()) {
+    //     //     $message = sprintf('Method:%s.%s Status:%s Message:%s',
+    //     //     $this->serviceName, $methodName, $response->getStatus(), $response->getMessage());
 
-        //     throw new sfMovieticketAPIException($message, $response->getStatus());
-        // }
+    //     //     throw new sfMovieticketAPIException($message, $response->getStatus());
+    //     // }
 
-        // $result = $response->getResponseResultField();
-        // $prefectures = array();
+    //     // $result = $response->getResponseResultField();
+    //     // $prefectures = array();
 
-        // foreach ($result->TDFKN_INFO->TdfknInfo as $value)
-        // {
-        //     $prefecture = new MovieticketPrefecture();
-        //     $prefecture->fromResponse($value);
+    //     // foreach ($result->TDFKN_INFO->TdfknInfo as $value)
+    //     // {
+    //     //     $prefecture = new MovieticketPrefecture();
+    //     //     $prefecture->fromResponse($value);
 
-        //     $prefectures[] = $prefecture;
-        // }
+    //     //     $prefectures[] = $prefecture;
+    //     // }
 
-        // return $prefectures;
-    }
+    //     // return $prefectures;
+    // }
 
-    /**
-     * ムビチケ対応劇場都道府県コード検索
-     *
-     * @param string  $prefectureCode 都道府県コード。現状は指定しても都道府県一覧に影響しない
-     * @param boolean $addBlank       trueにすると一覧にブランク用が追加される
-     * @return array
-     *
-     * @throws sfMovieticketAPIException
-     */
-    public getPrefectureCodeWithMvitckttio(prefectureCode = '', addBlank = false): void {
-        // $methodName = 'GetPrefectureCodeWithMvitckttio';
-        // $params = array(
-        //     'tdfknCd'   => $prefectureCode,
-        //     'blnkarFlg' => $addBlank ? '1' : '0',
-        // );
+    // /**
+    //  * ムビチケ対応劇場都道府県コード検索
+    //  *
+    //  * @param {string}  $prefectureCode 都道府県コード。現状は指定しても都道府県一覧に影響しない
+    //  * @param {boolean} $addBlank       trueにすると一覧にブランク用が追加される
+    //  * @return {array}
+    //  *
+    //  * @throws sfMovieticketAPIException
+    //  */
+    // public getPrefectureCodeWithMvitckttio(prefectureCode = '', addBlank = false): void {
+    //     // $methodName = 'GetPrefectureCodeWithMvitckttio';
+    //     // $params = array(
+    //     //     'tdfknCd'   => $prefectureCode,
+    //     //     'blnkarFlg' => $addBlank ? '1' : '0',
+    //     // );
 
-        // $response = $this->callMethod($methodName, $params);
+    //     // $response = $this->callMethod($methodName, $params);
 
-        // if ($response->isError()) {
-        //     $message = sprintf('Method:%s.%s Status:%s Message:%s',
-        //     $this->serviceName, $methodName, $response->getStatus(), $response->getMessage());
-        //     throw new sfMovieticketAPIException($message, $response->getStatus());
-        // }
+    //     // if ($response->isError()) {
+    //     //     $message = sprintf('Method:%s.%s Status:%s Message:%s',
+    //     //     $this->serviceName, $methodName, $response->getStatus(), $response->getMessage());
+    //     //     throw new sfMovieticketAPIException($message, $response->getStatus());
+    //     // }
 
-        // $result = $response->getResponseResultField();
-        // $prefectures = array();
+    //     // $result = $response->getResponseResultField();
+    //     // $prefectures = array();
 
-        // foreach ($result->TDFKN_INFO->TdfknInfo as $value)
-        // {
-        //     $prefecture = new MovieticketPrefecture();
-        //     $prefecture->fromResponse($value);
+    //     // foreach ($result->TDFKN_INFO->TdfknInfo as $value)
+    //     // {
+    //     //     $prefecture = new MovieticketPrefecture();
+    //     //     $prefecture->fromResponse($value);
 
-        //     $prefectures[] = $prefecture;
-        // }
+    //     //     $prefectures[] = $prefecture;
+    //     // }
 
-        // return $prefectures;
-    }
+    //     // return $prefectures;
+    // }
 
     /**
      * 会員認証クッキー追加
@@ -91,10 +95,10 @@ export default class UtilService extends Service {
      *
      * @param {string} kiinCd ムビチケ会員コード
      */
-    public signIn(kiinCd: string, cb: (err, response, cookieString: string) => void ): void {
-        let method = 'SignIn';
+    public signIn(kiinCd: string, cb: (err: any, response: any, cookieString: string | null) => void): void {
+        const method = 'SignIn';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd
         };
 
@@ -104,7 +108,7 @@ export default class UtilService extends Service {
             let cookieString = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                let cookie = new Cookie(lastResponseHeaders);
+                const cookie = new (<any>Cookie)(lastResponseHeaders);
                 cookieString = cookie.cookies;
             }
 
@@ -117,15 +121,16 @@ export default class UtilService extends Service {
      *
      * API側のセッション情報を破棄
      */
-    public signOut(cb: (err, response, isSuccess: boolean) => void ): void {
-        let method = 'SignOut';
+    public signOut(cb: (err: any, response: any, isSuccess: boolean) => void): void {
+        const method = 'SignOut';
 
-        let args = {
+        const args = {
         };
 
         let isSuccess = false;
 
-        this.call(method, args, (err, response, result, lastResponseHeaders) => {
+        // tslint:disable-next-line:variable-name
+        this.call(method, args, (err, response, result, _lastResponseHeaders) => {
             if (err) return cb(err, response, isSuccess);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
@@ -142,10 +147,10 @@ export default class UtilService extends Service {
      * @param {string}  knyknrNo 購入管理番号
      * @param {string}  pinCd    PINコード（購入者電話番号下４桁）
      */
-    public createQrCode(knyknrNo, pinCd, cb: (err, response, qrcdUrl: string) => void): void {
-        let method = 'CreateQrCode';
+    public createQrCode(knyknrNo: string, pinCd: string, cb: (err: any, response: any, qrcdUrl: string | null) => void): void {
+        const method = 'CreateQrCode';
 
-        let args = {
+        const args = {
             knyknrNo: knyknrNo,
             pinCd: pinCd
         };
@@ -153,7 +158,7 @@ export default class UtilService extends Service {
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let qrcdUrl: string = null;
+            let qrcdUrl: string | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 qrcdUrl = result.QRCD_URL;
@@ -163,49 +168,49 @@ export default class UtilService extends Service {
         });
     }
 
-    /**
-     * 暗号化
-     *
-     * @param string $value
-     * @return string 暗号化した文字列
-     *
-     * @throws sfMovieticketAPIException
-     */
-    public encryptData(value): void {
-        // $methodName = 'EncryptData';
+    // /**
+    //  * 暗号化
+    //  *
+    //  * @param string $value
+    //  * @return string 暗号化した文字列
+    //  *
+    //  * @throws sfMovieticketAPIException
+    //  */
+    // public encryptData(value): void {
+    //     // $methodName = 'EncryptData';
 
-        // $params = array(
-        //     'data' => $value,
-        // );
+    //     // $params = array(
+    //     //     'data' => $value,
+    //     // );
 
-        // $response = $this->callMethod($methodName, $params);
+    //     // $response = $this->callMethod($methodName, $params);
 
-        // if ($response->isError()) {
-        //     $message = sprintf('Method:%s.%s Status:%s Message:%s',
-        //     $this->serviceName, $methodName, $response->getStatus(), $response->getMessage());
+    //     // if ($response->isError()) {
+    //     //     $message = sprintf('Method:%s.%s Status:%s Message:%s',
+    //     //     $this->serviceName, $methodName, $response->getStatus(), $response->getMessage());
 
-        //     throw new sfMovieticketAPIException($message, $response->getStatus());
-        // }
+    //     //     throw new sfMovieticketAPIException($message, $response->getStatus());
+    //     // }
 
-        // $result = $response->getResponseResultField();
+    //     // $result = $response->getResponseResultField();
 
-        // return $result->ENCRYPTED_DATA;
-    }
+    //     // return $result->ENCRYPTED_DATA;
+    // }
 
     /**
      * 暗号化（配列）
      *
      * @param {Object} values
      */
-    public encryptDataList(params: Object, cb: (err, response, encryptedStrings: Array<string>) => void ): void {
-        let method = 'EncryptDataList';
+    public encryptDataList(params: Object, cb: (err: any, response: any, encryptedStrings: string[] | null) => void): void {
+        const method = 'EncryptDataList';
 
-        let args = new EncryptDataListIn(params);
+        const args = new EncryptDataListIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let encryptedStrings: Array<string> = null;
+            let encryptedStrings: string[] | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 encryptedStrings = result.ENCRYPTED_DATALIST.string;
@@ -217,15 +222,20 @@ export default class UtilService extends Service {
 
     /**
      * 各種コード検索
-     * 
+     *
      * @param {string} kmkTyp 項目区分
      * @param {string} typ 区分
      * @param {string} blnkarFlg ブランク有フラグ
      */
-    public getCodeName(kmkTyp: string, typ: string, blnkarFlg: string, cb: (err, response, getCodeNameResult: GetCodeNameResult) => void ): void {
-        let method = 'GetCodeName';
+    public getCodeName(
+        kmkTyp: string,
+        typ: string,
+        blnkarFlg: string,
+        cb: (err: any, response: any, getCodeNameResult: GetCodeNameResult) => void
+    ): void {
+        const method = 'GetCodeName';
 
-        let args = {
+        const args = {
             kmkTyp: kmkTyp,
             typ: typ,
             blnkarFlg: blnkarFlg

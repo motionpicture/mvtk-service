@@ -1,6 +1,11 @@
 import BaseIn from '../../../Common/models/BaseIn';
 
-export default class CreateQrCodeIn extends BaseIn {
+/**
+ * 電子券QRコード生成inクラス
+ * @class
+ * @extends {BaseIn}
+ */
+export class CreateQrCodeIn extends BaseIn {
     /**
      * 購入管理番号
      */
@@ -16,7 +21,7 @@ export default class CreateQrCodeIn extends BaseIn {
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
-        let message = `
+        return `
 <tns:CreateQrCode>
     <tns:IN_PARAMETER>
         <q1:KNYKNR_NO>${this.KNYKNR_NO}</q1:KNYKNR_NO>
@@ -26,6 +31,24 @@ export default class CreateQrCodeIn extends BaseIn {
 </tns:CreateQrCode>
 `;
 
-        return message;
     }
+}
+
+/**
+ * 電子券QRコード生成in
+ * @interface
+ */
+export interface ICreateQrCodeIn {
+    /**
+     * 購入管理番号
+     */
+    KNYKNR_NO: string;
+    /**
+     * PIN コード
+     */
+    PIN_CD: string;
+    /**
+     * 作品コード
+     */
+    SKHN_CD: string;
 }

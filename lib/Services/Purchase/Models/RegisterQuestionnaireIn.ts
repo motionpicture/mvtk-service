@@ -1,6 +1,11 @@
 import BaseIn from '../../../Common/models/BaseIn';
 
-export default class RegisterQuestionnaireIn extends BaseIn {
+/**
+ * アンケート設問登録inクラス
+ * @class
+ * @extends {BaseIn}
+ */
+export class RegisterQuestionnaireIn extends BaseIn {
     /**
      * 作品コード
      */
@@ -35,16 +40,14 @@ export default class RegisterQuestionnaireIn extends BaseIn {
 `;
 
         if (this.qustinnarkitInfo === undefined) {
-            message += `
-        <q19:QustinnarkitInfo/>
-`;
+            message += '<q19:QustinnarkitInfo/>';
 
         } else {
             // 回答情報があれば追加
-            let qustinnarkitInfos = this.qustinnarkitInfo.QustinnarkitInfo;
+            const qustinnarkitInfos = this.qustinnarkitInfo.QustinnarkitInfo;
 
             if (Array.isArray(qustinnarkitInfos) && qustinnarkitInfos.length > 0) {
-                for (let qustinnarkitInfo of qustinnarkitInfos) {
+                for (const qustinnarkitInfo of qustinnarkitInfos) {
                     message += `
         <q19:QustinnarkitInfo>
             <q19:KITHSHK_TYP>${qustinnarkitInfo.KITHSHK_TYP}</q19:KITHSHK_TYP>
@@ -53,10 +56,10 @@ export default class RegisterQuestionnaireIn extends BaseIn {
 `;
 
                     // 選択肢情報があれば追加
-                    let sntkshkqustinnarkitInfos = qustinnarkitInfo.SNTKSHKQUSTINNARKIT_INFO.SntkshkqustinnarkitInfo;
+                    const sntkshkqustinnarkitInfos = qustinnarkitInfo.SNTKSHKQUSTINNARKIT_INFO.SntkshkqustinnarkitInfo;
 
                     if (Array.isArray(sntkshkqustinnarkitInfos) && sntkshkqustinnarkitInfos.length > 0) {
-                        for (let sntkshkqustinnarkitInfo of sntkshkqustinnarkitInfos) {
+                        for (const sntkshkqustinnarkitInfo of sntkshkqustinnarkitInfos) {
                             message += `
                 <q19:SntkshkqustinnarkitInfo>
                     <q19:SNTKSH_NO>${sntkshkqustinnarkitInfo.SNTKSH_NO}</q19:SNTKSH_NO>
@@ -64,12 +67,10 @@ export default class RegisterQuestionnaireIn extends BaseIn {
 `;
                         }
                     } else {
-                            message += `
-                <q19:SntkshkqustinnarkitInfo/>
-`;
+                        message += '<q19:SntkshkqustinnarkitInfo/>';
                     }
 
-                message += `
+                    message += `
             </q19:SNTKSHKQUSTINNARKIT_INFO>
             <q19:QUSTINNARSTSMN_NO>${qustinnarkitInfo.QUSTINNARSTSMN_NO}</q19:QUSTINNARSTSMN_NO>
         </q19:QustinnarkitInfo>
@@ -77,9 +78,7 @@ export default class RegisterQuestionnaireIn extends BaseIn {
                 }
 
             } else {
-                message += `
-        <q19:QustinnarkitInfo/>
-`;
+                message += '<q19:QustinnarkitInfo/>';
 
             }
         }
@@ -90,25 +89,30 @@ export default class RegisterQuestionnaireIn extends BaseIn {
 `;
 
         if (this.kticmmntTxt) {
-        message += `
+            message += `
     <tns:kticmmntTxt>${this.kticmmntTxt}</tns:kticmmntTxt>
 `;
         }
 
-
-        message += `
-</tns:RegisterQuestionnaire>
-`;
+        message += '</tns:RegisterQuestionnaire>';
 
         return message;
     }
 }
 
-interface ArrayOfQustinnarkitInfo {
-    QustinnarkitInfo: Array<QustinnarkitInfo>;
+/**
+ * アンケート回答情報リスト
+ * @interface
+ */
+export interface ArrayOfQustinnarkitInfo {
+    QustinnarkitInfo: QustinnarkitInfo[];
 }
 
-interface QustinnarkitInfo {
+/**
+ * アンケート回答情報
+ * @interface
+ */
+export interface QustinnarkitInfo {
     /**
      * 回答方式区分
      */
@@ -127,13 +131,48 @@ interface QustinnarkitInfo {
     SNTKSHKQUSTINNARKIT_INFO: ArrayOfSntkshkqustinnarkitInfo;
 }
 
-interface ArrayOfSntkshkqustinnarkitInfo {
-    SntkshkqustinnarkitInfo: Array<SntkshkqustinnarkitInfo>;
+/**
+ * 選択式アンケート回答情報リスト
+ * @interface
+ */
+export interface ArrayOfSntkshkqustinnarkitInfo {
+    SntkshkqustinnarkitInfo: SntkshkqustinnarkitInfo[];
 }
 
-interface SntkshkqustinnarkitInfo {
+/**
+ * 選択式アンケート回答情報
+ * @interface
+ */
+export interface SntkshkqustinnarkitInfo {
     /**
      * 選択肢番号
      */
     SNTKSH_NO: string;
+}
+
+/**
+ * アンケート設問登録in
+ * @interface
+ */
+export interface IRegisterQuestionnaireIn {
+    /**
+     * 作品コード
+     */
+    skhnCd: string;
+    /**
+     * 購入管理番号
+     */
+    knyknrNo: string;
+    /**
+     * アンケート回答情報(Item Array)
+     */
+    qustinnarkitInfo: ArrayOfQustinnarkitInfo;
+    /**
+     * 購入者コード
+     */
+    knyshCd: string;
+    /**
+     * 期待コメント本文
+     */
+    kticmmntTxt: string;
 }

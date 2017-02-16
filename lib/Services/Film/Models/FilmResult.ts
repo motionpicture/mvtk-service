@@ -1,10 +1,10 @@
 import * as CommonUtil from '../../../Common/Util/Util';
-import FilmUtilities from '../FilmUtilities';
-import TicketInfoResult from './TicketInfoResult';
+import * as FilmUtilities from '../FilmUtilities';
 import FilmCastResult from './FilmCastResult';
 import FilmGenreResult from './FilmGenreResult';
 import FilmPhotoGalleryResult from './FilmPhotoGalleryResult';
 import FilmStaffResult from './FilmStaffResult';
+import TicketInfoResult from './TicketInfoResult';
 
 /**
  * 作品
@@ -199,7 +199,7 @@ export default class FilmResult {
     public knshknInfo: TicketInfoResult[];
 
     public static PARSE(resultObject: any): FilmResult {
-        const filmResult: any = new FilmResult();
+        const filmResult = new FilmResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
@@ -275,7 +275,7 @@ export default class FilmResult {
 
                 filmResult[normalizedName] = staffs;
             } else {
-                filmResult[normalizedName] = property;
+                (<any>filmResult)[normalizedName] = property;
             }
         });
 
@@ -342,7 +342,7 @@ export default class FilmResult {
             } else {
                 return 0;
             }
-        }
+        };
 
         this.cstInfo.sort(compare);
 
@@ -394,7 +394,7 @@ export default class FilmResult {
             } else {
                 return 0;
             }
-        }
+        };
 
         this.stffInfo.sort(compare);
 

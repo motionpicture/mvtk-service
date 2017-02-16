@@ -9,7 +9,7 @@ export default class GetTrailerDetailResult {
     public ykkhnInfo: YkkhnInfo[]; // 予告編情報
 
     public static PARSE(resultObject: any): GetTrailerDetailResult {
-        const result: any = new GetTrailerDetailResult();
+        const result = new GetTrailerDetailResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
@@ -29,7 +29,7 @@ export default class GetTrailerDetailResult {
 
                 result[normalizedName] = ykkhnInfos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
         });
 

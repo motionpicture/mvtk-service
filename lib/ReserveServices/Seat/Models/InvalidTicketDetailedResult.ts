@@ -47,11 +47,11 @@ export default class InvalidTicketDetailedResult {
      * @method
      */
     public static PARSE(resultObject: any): InvalidTicketDetailedResult {
-        const result: any = new InvalidTicketDetailedResult();
+        const result = new InvalidTicketDetailedResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

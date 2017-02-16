@@ -1,7 +1,10 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
-
-interface KnshbtskiinknyknshInfo {
+/**
+ * 券種別会員購入鑑賞情報
+ * @interface
+ */
+export interface KnshbtskiinknyknshInfo {
     /**
      * 券種区分名称
      */
@@ -9,10 +12,13 @@ interface KnshbtskiinknyknshInfo {
     /**
      * 鑑賞券枚数
      */
-    knshkmmiNum : string;
+    knshkmmiNum: string;
 }
 
-export default class watchRecordResult {
+/**
+ * 鑑賞記録リスト検索out
+ */
+export default class WatchRecordResult {
     /**
      * 座席予約番号
      */
@@ -20,7 +26,7 @@ export default class watchRecordResult {
     /**
      * 鑑賞年月日
      */
-    public knshYmd : string;
+    public knshYmd: string;
     /**
      * 鑑賞時刻
      */
@@ -34,22 +40,21 @@ export default class watchRecordResult {
      */
     public knshstNm: string;
     /**
-     * 券種別会員購入鑑賞情報(itemArray)	
+     * 券種別会員購入鑑賞情報(itemArray)
      */
-    public knshbtskiinknyknshInfo: Array<KnshbtskiinknyknshInfo>;
+    public knshbtskiinknyknshInfo: KnshbtskiinknyknshInfo[];
 
-    public static PARSE (resultObject): watchRecordResult {
-        let result = new watchRecordResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): WatchRecordResult {
+        const result = new WatchRecordResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'knshbtskiinknyknshInfo') {
-                let infos: Array<KnshbtskiinknyknshInfo> = [];
+                const infos: KnshbtskiinknyknshInfo[] = [];
                 if (property !== null && property.hasOwnProperty('KnshbtskiinknyknshInfo')) {
                     if (Array.isArray(property.KnshbtskiinknyknshInfo)) {
-                        for (let info of property.KnshbtskiinknyknshInfo) {
+                        for (const info of property.KnshbtskiinknyknshInfo) {
                             infos.push(info);
                         }
                     } else {
@@ -59,9 +64,9 @@ export default class watchRecordResult {
 
                 result[normalizedName] = infos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
-        }
+        });
 
         return result;
     };

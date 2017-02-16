@@ -1,13 +1,13 @@
 import Service from '../../Common/Service';
 import Constants from '../../Common/Util/Constants';
-import FilmResult from './Models/FilmResult';
-import TicketInfoResult from './Models/TicketInfoResult';
 import BnnrInfoResult from './Models/BnnrInfoResult';
 import DgtlincntvInfoResult from './Models/DgtlincntvInfoResult';
+import FilmResult from './Models/FilmResult';
 import GetTrailerDetailResult from './Models/GetTrailerDetailResult';
+import TicketInfoResult from './Models/TicketInfoResult';
 
 /**
- * 作品サービス
+ * FilmService
  * @class
  */
 export default class FilmService extends Service {
@@ -16,7 +16,7 @@ export default class FilmService extends Service {
      * @param {string} skhnCd 作品コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err: any, response: any, result: FilmResult) => void ): void {
+    public getFilmDetail(skhnCd: string, dvcTyp: string, cb: (err: any, response: any, result: FilmResult) => void): void {
         const method = 'GetFilmDetail';
 
         const args = {
@@ -42,7 +42,7 @@ export default class FilmService extends Service {
      *
      * @param {string} dvcTyp
      */
-    public getFilmTopPage(dvcTyp: string, cb: (err: any, response: any, result: FilmResult[]) => void ): void {
+    public getFilmTopPage(dvcTyp: string, cb: (err: any, response: any, result: FilmResult[]) => void): void {
         const method = 'GetFilmTopPage';
 
         const args = {
@@ -75,7 +75,7 @@ export default class FilmService extends Service {
      *
      * @param {string} skhnCd 作品コード
      */
-    public getTicketInfoList(skhnCd: string, cb: (err: any, response: any, result: TicketInfoResult[]) => void ): void {
+    public getTicketInfoList(skhnCd: string, cb: (err: any, response: any, result: TicketInfoResult[]) => void): void {
         const method = 'GetTicketInfoList';
 
         const args = {
@@ -109,7 +109,7 @@ export default class FilmService extends Service {
      * @param {string} skhnCd 作品コード
      * @param {string} dvcTyp デバイス区分
      */
-    public getBannerList(skhnCd: string, dvcTyp: string, cb: (err: any, response: any, bnnrInfoResults: BnnrInfoResult[]) => void ): void {
+    public getBannerList(skhnCd: string, dvcTyp: string, cb: (err: any, response: any, bnnrInfoResults: BnnrInfoResult[]) => void): void {
         const method = 'GetBannerList';
 
         const args = {
@@ -124,8 +124,7 @@ export default class FilmService extends Service {
 
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L001')
-            {
+                || result.RESULT_INFO.STATUS === 'L001') {
                 bnnrInfoResults = [];
 
                 if (result.BNNR_INFO !== null && result.BNNR_INFO.hasOwnProperty('BnnrInfo')) {
@@ -181,9 +180,9 @@ export default class FilmService extends Service {
      * @param {string} dvcTyp デバイス区分
      */
     public getDigitalIncentiveList(
-        skhnCd: string, 
-        dvcTyp: string, 
-        cb: (err: any, response: any, dgtlincntvInfoResults: DgtlincntvInfoResult[]) => void 
+        skhnCd: string,
+        dvcTyp: string,
+        cb: (err: any, response: any, dgtlincntvInfoResults: DgtlincntvInfoResult[]) => void
     ): void {
         const method = 'GetDigitalIncentiveList';
 
@@ -199,8 +198,7 @@ export default class FilmService extends Service {
 
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === 'L001')
-            {
+                || result.RESULT_INFO.STATUS === 'L001') {
                 dgtlincntvInfoResults = [];
 
                 if (result.DGTLINCNTV_INFO !== null && result.DGTLINCNTV_INFO.hasOwnProperty('DgtlincntvInfo')) {

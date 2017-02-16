@@ -33,7 +33,7 @@ export default class SeatInfoSyncResult {
      * @method
      */
     public static PARSE(resultObject: any): SeatInfoSyncResult {
-        const seatInfoSyncServiceResult: any = new SeatInfoSyncResult();
+        const seatInfoSyncServiceResult = new SeatInfoSyncResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
@@ -67,7 +67,7 @@ export default class SeatInfoSyncResult {
 
                 seatInfoSyncServiceResult[normalizedName] = mkknShsiInfos;
             } else {
-                seatInfoSyncServiceResult[normalizedName] = property;
+                (<any>seatInfoSyncServiceResult)[normalizedName] = property;
             }
         });
 

@@ -1,3 +1,7 @@
+/**
+ * 手数料・消費税情報取得out
+ * @class
+ */
 export default class GetTsuryShhziInfoResult {
     knshknknrmisiNo: string;
     mvitckthikyftntsuryUnip: string;

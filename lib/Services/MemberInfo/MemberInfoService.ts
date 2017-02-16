@@ -1,8 +1,13 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
-import EditMemberInfoIn from './Models/EditMemberInfoIn';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
+import { EditMemberInfoIn, IEditMemberInfoIn } from './Models/EditMemberInfoIn';
 import MemberInfoResult from './Models/MemberInfoResult';
 
+/**
+ * MemberInfoService
+ * @class
+ * @extends {Service}
+ */
 export default class MemberInfoService extends Service {
     /**
      * 会員認証
@@ -10,10 +15,10 @@ export default class MemberInfoService extends Service {
      * @param {string} kiinMladdr
      * @param {string} kiinPwd
      */
-    public getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err, resonse, kiinCd: string) => void ): void {
-        let method = 'GetMemberAuthorization';
+    public getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err: any, resonse: any, kiinCd: string | null) => void): void {
+        const method = 'GetMemberAuthorization';
 
-        let args = {
+        const args = {
             kiinMladdr: kiinMladdr,
             kiinPwd: kiinPwd
         };
@@ -36,16 +41,15 @@ export default class MemberInfoService extends Service {
      *
      * APIにてセッションに保存されている会員情報が取得される。
      */
-    public getMemberInfoDetail(cb: (err, response, memberInfoResult: MemberInfoResult) => void ): void {
-        let method = 'GetMemberInfoDetail';
+    public getMemberInfoDetail(cb: (err: any, resonse: any, memberInfoResult: MemberInfoResult | null) => void): void {
+        const method = 'GetMemberInfoDetail';
 
-        let args = {
-        };
+        const args = {};
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let memberInfoResult: MemberInfoResult = null;
+            let memberInfoResult: MemberInfoResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 memberInfoResult = MemberInfoResult.PARSE(result);
@@ -63,10 +67,16 @@ export default class MemberInfoService extends Service {
      * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
      * @param {string} kiingnzipwdhssFlg 会員新パスワード
      */
-    public editPassword(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => void ): void {
-        let method = 'EditPassword';
+    public editPassword(
+        kiinCd: string,
+        kiingnziPwd: string,
+        kiingnzipwdhssFlg: string,
+        kiinsnPwd: string,
+        cb: (err: any, resonse: any, isSuccess: boolean | null) => void
+    ): void {
+        const method = 'EditPassword';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd,
             kiingnziPwd: kiingnziPwd,
             kiingnzipwdhssFlg: kiingnzipwdhssFlg,
@@ -94,10 +104,16 @@ export default class MemberInfoService extends Service {
      * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
      * @param {string} kiingnzipwdhssFlg 会員新パスワード
      */
-    public editPasswordSvc(kiinCd, kiingnziPwd, kiingnzipwdhssFlg, kiinsnPwd, cb: (err, response, isSuccess: boolean) => void ): void {
-        let method = 'EditPasswordSvc';
+    public editPasswordSvc(
+        kiinCd: string,
+        kiingnziPwd: string,
+        kiingnzipwdhssFlg: string,
+        kiinsnPwd: string,
+        cb: (err: any, resonse: any, isSuccess: boolean | null) => void
+    ): void {
+        const method = 'EditPasswordSvc';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd,
             kiingnziPwd: kiingnziPwd,
             kiingnzipwdhssFlg: kiingnzipwdhssFlg,
@@ -122,10 +138,10 @@ export default class MemberInfoService extends Service {
      *
      * @param {string} kiinMladdr 会員メールアドレス
      */
-    public sendPasswordResetRequestMail(kiinMladdr, cb: (err, response, isSuccess: boolean) => void ): void {
-        let method = 'SendPasswordResetRequestMail';
+    public sendPasswordResetRequestMail(kiinMladdr: string, cb: (err: any, resonse: any, isSuccess: boolean | null) => void): void {
+        const method = 'SendPasswordResetRequestMail';
 
-        let args = {
+        const args = {
             kiinMladdr: kiinMladdr
         };
 
@@ -148,10 +164,14 @@ export default class MemberInfoService extends Service {
      * @param {string} psswrdhnkyUrl パスワード変更用ＵＲＬ
      * @param {string} dvcTyp        デバイス区分
      */
-    public getPasswordResetMemberAuthorization(psswrdhnkyUrl, dvcTyp, cb: (err, response, kiinCd: string) => void ): void {
-        let method = 'GetPasswordResetMemberAuthorization';
+    public getPasswordResetMemberAuthorization(
+        psswrdhnkyUrl: string,
+        dvcTyp: string,
+        cb: (err: any, resonse: any, kiinCd: string | null) => void
+    ): void {
+        const method = 'GetPasswordResetMemberAuthorization';
 
-        let args = {
+        const args = {
             psswrdhnkyUrl: psswrdhnkyUrl,
             dvcTyp: dvcTyp,
         };
@@ -172,12 +192,12 @@ export default class MemberInfoService extends Service {
     /**
      * 会員情報更新
      *
-     * @param {EditMemberInfoIn} editMemberInfoIn
+     * @param {IEditMemberInfoIn} editMemberInfoIn
      */
-    public editMemberInfo(params: Object, cb: (err, response, isSuccess: boolean) => void ): void {
-        let method = 'EditMemberInfo';
+    public editMemberInfo(params: IEditMemberInfoIn, cb: (err: any, resonse: any, isSuccess: boolean | null) => void): void {
+        const method = 'EditMemberInfo';
 
-        let args = new EditMemberInfoIn(params);
+        const args = new EditMemberInfoIn(params);
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);

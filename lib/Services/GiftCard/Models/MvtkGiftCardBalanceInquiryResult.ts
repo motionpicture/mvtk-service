@@ -81,7 +81,7 @@ export default class MvtkGiftCardBalanceInquiryResult {
     public rymisiInfo: RymisiInfo[];
 
     public static PARSE(resultObject: any): MvtkGiftCardBalanceInquiryResult {
-        const result: any = new MvtkGiftCardBalanceInquiryResult();
+        const result = new MvtkGiftCardBalanceInquiryResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
@@ -91,7 +91,7 @@ export default class MvtkGiftCardBalanceInquiryResult {
 
                 if (property !== null && property.hasOwnProperty('RymisiInfo')) {
                     if (Array.isArray(property.RymisiInfo)) {
-                        for (let info of property.RymisiInfo) {
+                        for (const info of property.RymisiInfo) {
                             rymisiInfos.push(info);
                         }
                     } else {
@@ -101,7 +101,7 @@ export default class MvtkGiftCardBalanceInquiryResult {
 
                 result[normalizedName] = rymisiInfos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
         });
 

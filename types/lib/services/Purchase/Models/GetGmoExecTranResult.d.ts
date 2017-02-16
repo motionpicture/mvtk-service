@@ -1,3 +1,7 @@
+/**
+ * 代行会社決済実行呼出out
+ * @class
+ */
 export default class GetGmoExecTranResult {
     acsKbn: string;
     acsurl: string;

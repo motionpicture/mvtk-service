@@ -1,5 +1,9 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * ムビチケギフトカード取消out
+ * @class
+ */
 export default class GiftCardCancelResult {
     /**
      * 凸版サービス返却値
@@ -30,16 +34,14 @@ export default class GiftCardCancelResult {
      */
     public giftcardstatus: string = '';
 
-    public static PARSE (resultObject): GiftCardCancelResult {
-        let result = new GiftCardCancelResult();
+    public static PARSE(resultObject: any): GiftCardCancelResult {
+        const result = new GiftCardCancelResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
-
+            (<any>result)[normalizedName] = property;
+        });
         return result;
     }
 }

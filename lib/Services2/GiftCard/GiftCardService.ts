@@ -1,29 +1,37 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
-import GiftCardIDAuthIn from './Models/GiftCardIDAuthIn';
-import GiftCardIDAuthResult from './Models/GiftCardIDAuthResult';
-import GiftCardCancelIn from './Models/GiftCardCancelIn';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
+import { GiftCardCancelIn, IGiftCardCancelIn } from './Models/GiftCardCancelIn';
 import GiftCardCancelResult from './Models/GiftCardCancelResult';
+import { GiftCardIDAuthIn, IGiftCardIDAuthIn } from './Models/GiftCardIDAuthIn';
+import GiftCardIDAuthResult from './Models/GiftCardIDAuthResult';
 
+/**
+ * GiftCardService
+ * @class
+ * @extends {Service}
+ */
 export default class GiftCardService extends Service {
     /**
      * ムビチケギフトカード認証
-     * 
-     * @param {GiftCardIDAuthIn} args
+     *
+     * @param {IGiftCardIDAuthIn} args
      */
-    public giftCardIDAuth(params: Object, cb: (err, response, giftCardIDAuthResults: Array<GiftCardIDAuthResult>) => void): void {
-        let method = 'GiftCardIDAuth';
+    public giftCardIDAuth(
+        params: IGiftCardIDAuthIn,
+        cb: (err: any, response: any, giftCardIDAuthResults: GiftCardIDAuthResult[] | null) => void
+    ): void {
+        const method = 'GiftCardIDAuth';
 
-        let args = new GiftCardIDAuthIn(params);
+        const args = new GiftCardIDAuthIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let giftCardIDAuthResults: Array<GiftCardIDAuthResult> = [];
+            const giftCardIDAuthResults: GiftCardIDAuthResult[] = [];
 
             if (result.MVTKGFTCRD_INFO_OUT && result.MVTKGFTCRD_INFO_OUT.hasOwnProperty('MvtkgftcrdInfo')) {
                 if (Array.isArray(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo)) {
-                    for (let info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo) {
+                    for (const info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo) {
                         giftCardIDAuthResults.push(GiftCardIDAuthResult.PARSE(info));
                     }
                 } else {
@@ -37,24 +45,27 @@ export default class GiftCardService extends Service {
 
     /**
      * ムビチケギフトカード取消
-     * 
-     * @param {Array<GiftCardCancelIn>} args
+     *
+     * @param {Array<IGiftCardCancelIn>} args
      */
-    public giftCardCancel(params: Object, cb: (err, response, giftCardCancelResults: Array<GiftCardCancelResult>) => void): void {
-        let method = 'GiftCardCancel';
+    public giftCardCancel(
+        params: IGiftCardCancelIn,
+        cb: (err: any, response: any, giftCardCancelResults: GiftCardCancelResult[] | null) => void
+        ): void {
+        const method = 'GiftCardCancel';
 
-        let args = new GiftCardCancelIn(params);
+        const args = new GiftCardCancelIn(params);
 
-        let message = args.toXml();
+        const message = args.toXml();
 
         this.call(method, message, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let giftCardCancelResults: Array<GiftCardCancelResult> = [];
+            const giftCardCancelResults: GiftCardCancelResult[] = [];
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 if (Array.isArray(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo)) {
-                    for (let info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo) {
+                    for (const info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfo) {
                         giftCardCancelResults.push(GiftCardCancelResult.PARSE(info));
                     }
                 } else {

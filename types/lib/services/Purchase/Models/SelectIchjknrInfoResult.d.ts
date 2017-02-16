@@ -1,3 +1,7 @@
+/**
+ * 一時管理テーブル（情報）取得out
+ * @class
+ */
 export default class SelectIchjknrInfoResult {
     accessId: string;
     accessPwd: string;

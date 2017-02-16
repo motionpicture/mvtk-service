@@ -1,6 +1,10 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
-interface KnshbtskiinknyyykInfo {
+/**
+ * 券種別会員購入鑑賞情報
+ * @interface
+ */
+export interface KnshbtskiinknyyykInfo {
     /**
      * 券種区分名称
      */
@@ -8,11 +12,14 @@ interface KnshbtskiinknyyykInfo {
     /**
      * 鑑賞券枚数
      */
-    knshkmmiNum : string;
+    knshkmmiNum: string;
 }
 
+/**
+ * 座席予約状況out
+ * @class
+ */
 export default class SeatReservationStatusListResult {
-    
     /**
      * 座席予約番号
      */
@@ -38,22 +45,21 @@ export default class SeatReservationStatusListResult {
      */
     public stNm: string;
     /**
-     * 券種別会員購入鑑賞情報(itemArray)	
+     * 券種別会員購入鑑賞情報(itemArray)
      */
-    public knshbtskiinknyyykInfo: Array<KnshbtskiinknyyykInfo>;
+    public knshbtskiinknyyykInfo: KnshbtskiinknyyykInfo[];
 
-    public static PARSE (resultObject): SeatReservationStatusListResult {
-        let result = new SeatReservationStatusListResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): SeatReservationStatusListResult {
+        const result = new SeatReservationStatusListResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'knshbtskiinknyyykInfo') {
-                let infos: Array<KnshbtskiinknyyykInfo> = [];
+                const infos: KnshbtskiinknyyykInfo[] = [];
                 if (property !== null && property.hasOwnProperty('KnshbtskiinknyyykInfo')) {
                     if (Array.isArray(property.KnshbtskiinknyyykInfo)) {
-                        for (let info of property.KnshbtskiinknyyykInfo) {
+                        for (const info of property.KnshbtskiinknyyykInfo) {
                             infos.push(info);
                         }
                     } else {
@@ -63,9 +69,9 @@ export default class SeatReservationStatusListResult {
 
                 result[normalizedName] = infos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
-        }
+        });
 
         return result;
     };

@@ -17,12 +17,12 @@ export default class MvtkGiftCardEntryResult {
     public giftcardstatus: string = ''; // ギフトカードステータス
 
     public static PARSE(resultObject: any): MvtkGiftCardEntryResult {
-        const result: any = new MvtkGiftCardEntryResult();
+        const result = new MvtkGiftCardEntryResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

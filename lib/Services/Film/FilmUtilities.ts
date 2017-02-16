@@ -22,4 +22,3 @@ export const BNNRHYJKSH_TYP_PC_PURCHASE = '03';
 export const BNNRHYJKSH_TYP_SP_UNUSED = '01';
 export const BNNRHYJKSH_TYP_SP_FILM = '02';
 export const BNNRHYJKSH_TYP_SP_PURCHASE = '03';
-

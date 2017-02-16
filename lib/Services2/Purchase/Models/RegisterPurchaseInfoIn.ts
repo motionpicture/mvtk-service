@@ -1,6 +1,11 @@
 import BaseIn from '../../../Common/models/BaseIn';
 
-export default class RegisterPurchaseInfoIn extends BaseIn {
+/**
+ * 購入情報登録inクラス
+ * @class
+ * @extends {BaseIn}
+ */
+export class RegisterPurchaseInfoIn extends BaseIn {
     /**
      * 決済管理番号
      */
@@ -25,12 +30,7 @@ export default class RegisterPurchaseInfoIn extends BaseIn {
      * 鑑賞券情報
      */
     public KNSHKN_INFO: {
-        KnshknInfo: Array<{
-            KNSHKNKNRMISI_NO: string;
-            KNSH_TYP: string;
-            KNYMI_NUM: string;
-            KNSHKNHMBI_UNIP: string;
-        }>;
+        KnshknInfo: KnshknInfo[];
     };
     /**
      * 会員フラグ(0:非会員 1:会員)
@@ -123,21 +123,10 @@ export default class RegisterPurchaseInfoIn extends BaseIn {
      * ギフトカード情報
      */
     public GFTCRD_INFO: {
-        GftcrdInfo: Array<{
-            GFTCRDKSSIKNR_NO: string; // 
-            GFTCRDPIN_CD: string; // 
-            GFTCRD_ID: string; // 
-            GFTCRD_STTS: string; // 
-            KSSISYNN_NO: string; // 
-            KSSI_DT: string; // 
-            RYG_ZNDK: string; // 
-            RYME_ZNDK: string; // 
-            RY_MNY: string; // 
-            TPPNSRVCRSPNS: string; // 
-        }>;
+        GftcrdInfo: GftcrdInfo[];
     };
     /**
-     * デバイス区分 
+     * デバイス区分
      */
     public DVC_TYP: string;
     /**
@@ -157,6 +146,7 @@ export default class RegisterPurchaseInfoIn extends BaseIn {
      */
     public WEBMONEYKSSIINFO: WebmoneykssiInfo;
 
+    // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
         let message = `
@@ -170,7 +160,7 @@ export default class RegisterPurchaseInfoIn extends BaseIn {
         <q5:KNSHKN_INFO>
 `;
 
-        for (let info of this.KNSHKN_INFO.KnshknInfo) {
+        for (const info of this.KNSHKN_INFO.KnshknInfo) {
             message += `
             <q5:KnshknInfo>
                 <q5:KNSHKNKNRMISI_NO>${info.KNSHKNKNRMISI_NO}</q5:KNSHKNKNRMISI_NO>
@@ -212,11 +202,12 @@ export default class RegisterPurchaseInfoIn extends BaseIn {
         }
 
         if (this.GFTCRD_INFO !== null && this.GFTCRD_INFO.GftcrdInfo.length > 0) {
+            // tslint:disable-next-line:no-multiline-string
             message += `
         <q5:GFTCRD_INFO>
 `;
 
-            for (let info of this.GFTCRD_INFO.GftcrdInfo) {
+            for (const info of this.GFTCRD_INFO.GftcrdInfo) {
                 message += `
             <q5:GftCrdInfo>
                 <q5:GFTCRD_ID>${info.GFTCRD_ID}</q5:GFTCRD_ID>
@@ -232,6 +223,7 @@ export default class RegisterPurchaseInfoIn extends BaseIn {
             </q5:GftCrdInfo>
 `;
             }
+            // tslint:disable-next-line:no-multiline-string
             message += `
         </q5:GFTCRD_INFO>
 `;
@@ -264,11 +256,12 @@ export default class RegisterPurchaseInfoIn extends BaseIn {
         </q5:WEBMONEYKSSIINFO>
 `;
         } else {
-//             format += `
-//         <q5:WEBMONEYKSSIINFO/>
-// `;
+            //             format += `
+            //         <q5:WEBMONEYKSSIINFO/>
+            // `;
         }
 
+        // tslint:disable-next-line:no-multiline-string
         message += `
     </tns:IN_PARAMETER>
 </tns:RegisterPurchaseInfo>
@@ -278,8 +271,11 @@ export default class RegisterPurchaseInfoIn extends BaseIn {
     }
 }
 
-
-interface WebmoneykssiInfo {
+/**
+ * WebMoney決済情報
+ * @interface
+ */
+export interface WebmoneykssiInfo {
     /**
      * 復号化済み決済情報
      * WebMoney 決済の結果情報
@@ -327,4 +323,178 @@ interface WebmoneykssiInfo {
      * WebMoney の発注コード
      */
     HCCH_CD: string;
+}
+
+/**
+ * 鑑賞券情報
+ * @interface
+ */
+export interface KnshknInfo {
+    KNSHKNKNRMISI_NO: string;
+    KNSH_TYP: string;
+    KNYMI_NUM: string;
+    KNSHKNHMBI_UNIP: string;
+}
+
+/**
+ * ギフトカード情報
+ * @interface
+ */
+export interface GftcrdInfo {
+    GFTCRDKSSIKNR_NO: string;
+    GFTCRDPIN_CD: string;
+    GFTCRD_ID: string;
+    GFTCRD_STTS: string;
+    KSSISYNN_NO: string;
+    KSSI_DT: string;
+    RYG_ZNDK: string;
+    RYME_ZNDK: string;
+    RY_MNY: string;
+    TPPNSRVCRSPNS: string;
+}
+
+/**
+ * 購入情報登録in
+ * @interface
+ */
+export interface IRegisterPurchaseInfoIn {
+    /**
+     * 決済管理番号
+     */
+    KSSIKNR_NO: string;
+    /**
+     * 決済代行会社が取引を識別するために発行する ID
+     */
+    ACCESS_ID: string;
+    /**
+     * 決済代行会社が取引を識別するために発行するパスワード
+     */
+    ACCESS_PWD: string;
+    /**
+     * 作品コード
+     */
+    SKHN_CD: string;
+    /**
+     * 鑑賞券管理番号
+     */
+    KNSHKNKNR_NO: string;
+    /**
+     * 鑑賞券情報
+     */
+    KNSHKN_INFO: {
+        KnshknInfo: KnshknInfo[];
+    };
+    /**
+     * 会員フラグ(0:非会員 1:会員)
+     */
+    KIIN_FLG: string;
+    /**
+     * 決済方法区分
+     */
+    KSSIHH_TYP: string;
+    /**
+     * 購入者姓名称
+     */
+    KNYSHSI_NM: string;
+    /**
+     * 購入者名名称
+     */
+    KNYSHMI_NM: string;
+    /**
+     * 購入者姓カナ名称
+     */
+    KNYSHSI_KNNM: string;
+    /**
+     * 購入者名カナ名称
+     */
+    KNYSHMI_KNNM: string;
+    /**
+     * 購入者ＰＣメールアドレス
+     */
+    KNYSHPC_MLADDR: string;
+    /**
+     * 購入者携帯メールアドレス
+     */
+    KNYSHKITI_MLADDR: string;
+    /**
+     * 購入者市外局番号
+     */
+    KNYSHSHGIKYK_NO: string;
+    /**
+     * 購入者市内局番号
+     */
+    KNYSHSHNIKYK_NO: string;
+    /**
+     * 購入者加入者番号
+     */
+    KNYSHKNYSH_NO: string;
+    /**
+     * 購入日時（yyyy/mm/ddThh24:mm:ss）
+     */
+    KNY_DT: string;
+    /**
+     * チケットの販売チャネル
+     */
+    HMBICHNNL_TYP: string;
+    /**
+     * チケット販売会社のコード
+     */
+    HMBGISH_CD: string;
+    /**
+     * 決済を行った日時（yyyy/mm/ddThh24:mm:ss）
+     */
+    TRAN_DT: string;
+    /**
+     * 与信を行ったカード会社の会社コード(決済方法区分が 00 の場合は必須)
+     */
+    FORWARD_CD: string;
+
+    /**
+     * カード会社が発行した与信の承認番号
+     * 決済方法区分が 00、01、02 の場合は必須
+     * maximum length of 7
+     */
+    APPROVE_NO: string;
+    /**
+     * 決済代行会社が処理を行う毎に発行している処理番号(決済方法区分が 00 の場合は必須)
+     */
+    TRAN_ID: string;
+    /**
+     * 購入チケットの合計金額
+     */
+    GRYKNGK: string;
+    /**
+     * 購入したデバイスの区分
+     */
+    KNYDVC_TYP: string;
+    /**
+     * au 簡単決済の支払方法
+     */
+    AU_PAYMETHOD: string;
+    /**
+     * ギフトカード情報
+     */
+    GFTCRD_INFO: {
+        GftcrdInfo: GftcrdInfo[];
+    };
+    /**
+     * デバイス区分
+     */
+    DVC_TYP: string;
+    /**
+     * 併用決済フラグ(0:単独決済 1:併用決済)
+     */
+    HIYKSSI_FLG: string;
+    /**
+     * 併用決済方法
+     */
+    HIYKSSIHH_TYP: string;
+    /**
+     * 併用決済で使用したムビチケオンラインギフトカードの決済金額合計
+     */
+    HIYKSSIRYGKI_MNY: string;
+    /**
+     * WebMoney決済情報
+     */
+    WEBMONEYKSSIINFO: WebmoneykssiInfo;
 }

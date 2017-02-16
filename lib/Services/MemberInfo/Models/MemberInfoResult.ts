@@ -1,5 +1,9 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * 会員情報照会out
+ * @class
+ */
 export default class MemberInfoResult {
     /**
      * 会員コード
@@ -110,16 +114,14 @@ export default class MemberInfoResult {
      */
     public sinngppkkiFlg: string;
 
+    public static PARSE(resultObject: any): MemberInfoResult {
+        const memberInfoResult = new MemberInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-    public static PARSE (resultObject): MemberInfoResult {
-        let memberInfoResult = new MemberInfoResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            memberInfoResult[normalizedName] = property;
-        }
+            (<any>memberInfoResult)[normalizedName] = property;
+        });
 
         return memberInfoResult;
     };

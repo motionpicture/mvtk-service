@@ -1,22 +1,27 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
-import CreateQrCodeIn from './Models/CreateQrCodeIn';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
+import {CreateQrCodeIn, ICreateQrCodeIn} from './Models/CreateQrCodeIn';
 
+/**
+ * UtilService
+ * @class
+ * @extends {Service}
+ */
 export default class UtilService extends Service {
     /**
      * 電子券QRコード生成
      *
-     * @param {CreateQrCodeIn} args
+     * @param {ICreateQrCodeIn} args
      */
-    public createQrCode(params: Object, cb: (err, response, qrcdUrl: string) => void): void {
-        let method = 'CreateQrCode';
+    public createQrCode(params: ICreateQrCodeIn, cb: (err: any, response: any, qrcdUrl: string | null) => void): void {
+        const method = 'CreateQrCode';
 
-        let args = new CreateQrCodeIn(params);
+        const args = new CreateQrCodeIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let qrcdUrl: string = null;
+            let qrcdUrl: string | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 qrcdUrl = result.QRCD_URL;

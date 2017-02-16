@@ -1,5 +1,9 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * 代行会社カード参照呼出out
+ * @class
+ */
 export default class CreditCardInfoResult {
     public cardseq: string; // カード登録連番
     public crdtcrdNo: string; // クレジットカード番号
@@ -7,15 +11,14 @@ export default class CreditCardInfoResult {
     public mignn: string; // 名義人
     public scrtyCd: string; // セキュリティコード
 
-    public static PARSE (resultObject): CreditCardInfoResult {
-        let result = new CreditCardInfoResult();
+    public static PARSE(resultObject: any): CreditCardInfoResult {
+        const result = new CreditCardInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     }

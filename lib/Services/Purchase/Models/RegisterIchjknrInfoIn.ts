@@ -1,6 +1,11 @@
 import BaseIn from '../../../Common/models/BaseIn';
 
-export default class RegisterIchjknrInfoIn extends BaseIn {
+/**
+ * 一時管理テーブル（情報）登録inクラス
+ * @class
+ * @extends {BaseIn}
+ */
+export class RegisterIchjknrInfoIn extends BaseIn {
     public ACCESS_ID: string; // 取引ID
     public ACCESS_PWD: string; // 取引パスワード
     public TKN_ID: string; // トークンID
@@ -24,7 +29,7 @@ export default class RegisterIchjknrInfoIn extends BaseIn {
     public KNSHKNKNR_NO: string; // 鑑賞券管理番号
     public AZKRKNSHHRITMNG_TYP: string; // 預り金支払タイミング区分
     public AZKRKNSHHRISK_TYP: string; // 預り金支払先区分
-    public THREDMGNDIKN_UNIP: number; // 3Dメガネ代金単価(type="xs:decimal"なので空を送信する際は、xmlの書き方に注意)
+    public THREDMGNDIKN_UNIP: number | string; // 3Dメガネ代金単価(type="xs:decimal"なので空を送信する際は、xmlの書き方に注意)
     public HMBIJTHREDMGNDIKNSHHRISK_TYP: string; // 販売時3Dメガネ代金支払先区分
     public TICKETICHJKNR_LIST: ArrayOfTicketichjknrList; // チケット一時管理リスト
 
@@ -56,11 +61,11 @@ export default class RegisterIchjknrInfoIn extends BaseIn {
             <q23:KSSIKNR_NO>${this.KSSIKNR_NO}</q23:KSSIKNR_NO>
             <q23:MLSF_FLG>${this.MLSF_FLG}</q23:MLSF_FLG>
             <q23:SKHN_CD>${this.SKHN_CD}</q23:SKHN_CD>
-            <q23:THREDMGNDIKN_UNIP xsi:nil="true">${(this.THREDMGNDIKN_UNIP) ? this.THREDMGNDIKN_UNIP: ''}</q23:THREDMGNDIKN_UNIP>
+            <q23:THREDMGNDIKN_UNIP xsi:nil="true">${(this.THREDMGNDIKN_UNIP) ? this.THREDMGNDIKN_UNIP : ''}</q23:THREDMGNDIKN_UNIP>
             <q23:TICKETICHJKNR_LIST>
 `;
 
-        for (let info of this.TICKETICHJKNR_LIST.TicketichjknrList) {
+        for (const info of this.TICKETICHJKNR_LIST.TicketichjknrList) {
             message += `
                 <q23:TicketichjknrList>
                     <q23:KNSHKNHMBI_UNIP>${info.KNSHKNHMBI_UNIP}</q23:KNSHKNHMBI_UNIP>
@@ -89,19 +94,168 @@ export default class RegisterIchjknrInfoIn extends BaseIn {
     }
 }
 
-interface ArrayOfTicketichjknrList {
-    TicketichjknrList: Array<Ticketichjknr>;
+/**
+ * チケット一時管理リスト
+ * @interface
+ */
+export interface ArrayOfTicketichjknrList {
+    TicketichjknrList: Ticketichjknr[];
 }
 
-interface Ticketichjknr {
-    KNSHKNKNR_NO: string; // 鑑賞券管理番号
-    KNSHKNKNRMISI_NO: string; // 鑑賞券管理明細番号
-    KNSHKNHMBI_UNIP: string; // 鑑賞券販売単価
-    MVITCKTHIKYFTNTSURY_UNIP: string; // ムビチケ配給負担手数料単価
-    MVITCKTKGYFTNTSURY_UNIP: string; // ムビチケ興行負担手数料単価
-    MVITCKTUSRTSURY_UNIP: string; // ムビチケユーザー手数料単価
-    SHHZI_RT: string; // 消費税率
-    SHHZI_TYP: string; // 消費税区分
-    SHHZI_UNIP: string; // 消費税単価
-    KNYMI_NUM: string; // 購入枚数
+/**
+ * チケット一時管理リスト詳細
+ * @interface
+ */
+export interface Ticketichjknr {
+    /**
+     * 鑑賞券管理番号
+     */
+    KNSHKNKNR_NO: string;
+    /**
+     * 鑑賞券管理明細番号
+     */
+    KNSHKNKNRMISI_NO: string;
+    /**
+     * 鑑賞券販売単価
+     */
+    KNSHKNHMBI_UNIP: string;
+    /**
+     * ムビチケ配給負担手数料単価
+     */
+    MVITCKTHIKYFTNTSURY_UNIP: string;
+    /**
+     * ムビチケ興行負担手数料単価
+     */
+    MVITCKTKGYFTNTSURY_UNIP: string;
+    /**
+     * ムビチケユーザー手数料単価
+     */
+    MVITCKTUSRTSURY_UNIP: string;
+    /**
+     * 消費税率
+     */
+    SHHZI_RT: string;
+    /**
+     * 消費税区分
+     */
+    SHHZI_TYP: string;
+    /**
+     * 消費税単価
+     */
+    SHHZI_UNIP: string;
+    /**
+     * 購入枚数
+     */
+    KNYMI_NUM: string;
+}
+
+/**
+ * 一時管理テーブル（情報）登録in
+ * @interface
+ */
+export interface IRegisterIchjknrInfoIn {
+    /**
+     * 取引ID
+     */
+    ACCESS_ID: string;
+    /**
+     * 取引パスワード
+     */
+    ACCESS_PWD: string;
+    /**
+     * トークンID
+     */
+    TKN_ID: string;
+    /**
+     * 決済管理番号
+     */
+    KSSIKNR_NO: string;
+    /**
+     * 表示カード番号
+     */
+    HYJCRD_NO: string;
+    /**
+     * カード名義人名称
+     */
+    CRDMIGNN_NM: string;
+    /**
+     * カード情報保持フラグ
+     */
+    CRDJHHJ_FLG: string;
+    /**
+     * 購入者コード
+     */
+    KNYSH_CD: string;
+    /**
+     * 会員フラグ
+     */
+    KIIN_FLG: string;
+    /**
+     * 購入者姓名称
+     */
+    KNYSHSI_NM: string;
+    /**
+     * 購入者名名称
+     */
+    KNYSHMI_NM: string;
+    /**
+     * 購入者姓カナ名称
+     */
+    KNYSHSI_KNNM: string;
+    /**
+     * 購入者名カナ名称
+     */
+    KNYSHMI_KNNM: string;
+    /**
+     * 購入者PCメールアドレス
+     */
+    KNYSHPC_MLADDR: string;
+    /**
+     * 購入者携帯メールアドレス
+     */
+    KNYSHKITI_MLADDR: string;
+    /**
+     * 購入者市外局番号
+     */
+    KNYSHSHGIKYK_NO: string;
+    /**
+     * 購入者市内局番号
+     */
+    KNYSHSHNIKYK_NO: string;
+    /**
+     * 購入者加入者番号
+     */
+    KNYSHKNYSH_NO: string;
+    /**
+     * メール送付フラグ
+     */
+    MLSF_FLG: string;
+    /**
+     * 作品コード
+     */
+    SKHN_CD: string;
+    /**
+     * 鑑賞券管理番号
+     */
+    KNSHKNKNR_NO: string;
+    /**
+     * 預り金支払タイミング区分
+     */
+    AZKRKNSHHRITMNG_TYP: string;
+    /**
+     * 預り金支払先区分
+     */
+    AZKRKNSHHRISK_TYP: string;
+    /**
+     * 3Dメガネ代金単価(type="xs:decimal"なので空を送信する際は、xmlの書き方に注意)
+     */
+    THREDMGNDIKN_UNIP: number;
+    /**
+     * 販売時3Dメガネ代金支払先区分
+     */
+    HMBIJTHREDMGNDIKNSHHRISK_TYP: string;
+    /**
+     * チケット一時管理リスト
+     */
+    TICKETICHJKNR_LIST: ArrayOfTicketichjknrList;
 }

@@ -1,19 +1,24 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
-import DeliveryIn from './Models/DeliveryIn';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
+import {DeliveryIn, IDeliveryIn} from './Models/DeliveryIn';
 
+/**
+ * MailService
+ * @class
+ * @extends {Service}
+ */
 export default class MailService extends Service {
     /**
      * 購入管理番号メール送信
      *
-     * @param {DeliveryIn} args
+     * @param {IDeliveryIn} args
      */
-    public delivery(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'Delivery';
+    public delivery(params: IDeliveryIn, cb: (err: any, response: any, isSuccess: boolean) => void): void {
+        const method = 'Delivery';
 
-        let args = new DeliveryIn(params);
+        const args = new DeliveryIn(params);
 
-        let message = args.toXml();
+        const message = args.toXml();
 
         this.call(method, message, (err, response, result) => {
             if (err) return cb(err, response, false);

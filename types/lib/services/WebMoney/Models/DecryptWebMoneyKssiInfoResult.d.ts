@@ -1,3 +1,7 @@
+/**
+ * WebMoney決済情報複合化out
+ * @class
+ */
 export default class DecryptWebMoneyKssiInfoResult {
     decryptedkssiinfo: string;
     vrsinjh: string;

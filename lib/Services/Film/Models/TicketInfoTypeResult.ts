@@ -23,12 +23,12 @@ export default class TicketInfoTypeResult {
     public kmawsskknshTyp: string; // 組合せ先券種区分
 
     public static PARSE(resultObject: any): TicketInfoTypeResult {
-        const result: any = new TicketInfoTypeResult();
+        const result = new TicketInfoTypeResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

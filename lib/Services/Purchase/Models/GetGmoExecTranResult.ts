@@ -1,5 +1,9 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * 代行会社決済実行呼出out
+ * @class
+ */
 export default class GetGmoExecTranResult {
     public acsKbn: string = ''; // 本人認証サービス対応区分
     public acsurl: string = ''; // 本人認証パスワード入力画面URL
@@ -18,15 +22,15 @@ export default class GetGmoExecTranResult {
     public kssierrrshriTyp: string = ''; // 決済エラー種類区分
     public kssierrrmssgTxt: string = ''; // 決済エラーメッセージ本文
 
-    public static PARSE (resultObject): GetGmoExecTranResult {
-        let result = new GetGmoExecTranResult();
+    public static PARSE(resultObject: any): GetGmoExecTranResult {
+        const result = new GetGmoExecTranResult();
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     }

@@ -1,20 +1,22 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * 支払先情報取得out
+ * @class
+ */
 export default class GetShhriInfoByKeyResult {
     public azkrknshhritmngTyp: string; // 預り金支払タイミング区分
     public azkrknshhriskTyp: string; // 預り金支払先区分
     public hmbijthredmgndiknshhriskTyp: string; // 販売時3Dメガネ代金支払先区分
 
-    public static PARSE (resultObject): GetShhriInfoByKeyResult {
-        let result = new GetShhriInfoByKeyResult();
+    public static PARSE(resultObject: any): GetShhriInfoByKeyResult {
+        const result = new GetShhriInfoByKeyResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
-
+            (<any>result)[normalizedName] = property;
+        });
         return result;
     }
 }

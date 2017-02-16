@@ -1,30 +1,34 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * アンケート設問検索out
+ * @class
+ */
 export default class GetQuestionnaireListResult {
     /**
      * アンケート設問情報(itemArray)
      */
-    public qustinnarstsmnInfo: Array<QustinnarstsmnInfo>;
+    public qustinnarstsmnInfo: QustinnarstsmnInfo[];
 
-    public static PARSE (resultObject): GetQuestionnaireListResult {
-        let result = new GetQuestionnaireListResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): GetQuestionnaireListResult {
+        const result = new GetQuestionnaireListResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'qustinnarstsmnInfo') {
-                let qustinnarstsmnInfos: Array<QustinnarstsmnInfo> = [];
+                const qustinnarstsmnInfos: QustinnarstsmnInfo[] = [];
 
                 if (property !== null && property.hasOwnProperty('QustinnarstsmnInfo')) {
                     if (Array.isArray(property.QustinnarstsmnInfo)) {
-                        for (let qustinnarstsmnInfo of property.QustinnarstsmnInfo) {
+                        for (const qustinnarstsmnInfo of property.QustinnarstsmnInfo) {
 
-                            let qustinnarsntkshInfos: Array<QustinnarsntkshInfo> = [];
+                            const qustinnarsntkshInfos: QustinnarsntkshInfo[] = [];
 
-                            if (qustinnarstsmnInfo.QUSTINNARSNTKSH_INFO !== null && qustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.hasOwnProperty('QustinnarsntkshInfo')) {
+                            if (qustinnarstsmnInfo.QUSTINNARSNTKSH_INFO !== null
+                                && qustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.hasOwnProperty('QustinnarsntkshInfo')) {
                                 if (Array.isArray(qustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.QustinnarsntkshInfo)) {
-                                    for (let qustinnarsntkshInfo of qustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.QustinnarsntkshInfo) {
+                                    for (const qustinnarsntkshInfo of qustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.QustinnarsntkshInfo) {
                                         qustinnarsntkshInfos.push(qustinnarsntkshInfo);
                                     }
                                 } else {
@@ -36,11 +40,12 @@ export default class GetQuestionnaireListResult {
                             qustinnarstsmnInfos.push(qustinnarstsmnInfo);
                         }
                     } else {
-                        let qustinnarsntkshInfos: Array<QustinnarsntkshInfo> = [];
+                        const qustinnarsntkshInfos: QustinnarsntkshInfo[] = [];
 
-                        if (property.QustinnarstsmnInfo.QUSTINNARSNTKSH_INFO !== null && property.QustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.hasOwnProperty('QustinnarsntkshInfo')) {
+                        if (property.QustinnarstsmnInfo.QUSTINNARSNTKSH_INFO !== null
+                            && property.QustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.hasOwnProperty('QustinnarsntkshInfo')) {
                             if (Array.isArray(property.QustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.QustinnarsntkshInfo)) {
-                                for (let qustinnarsntkshInfo of property.QustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.QustinnarsntkshInfo) {
+                                for (const qustinnarsntkshInfo of property.QustinnarstsmnInfo.QUSTINNARSNTKSH_INFO.QustinnarsntkshInfo) {
                                     qustinnarsntkshInfos.push(qustinnarsntkshInfo);
                                 }
                             } else {
@@ -55,15 +60,19 @@ export default class GetQuestionnaireListResult {
 
                 result[normalizedName] = qustinnarstsmnInfos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
-        }
+        });
 
         return result;
     }
 }
 
-interface QustinnarstsmnInfo {
+/**
+ * アンケート設問情報
+ * @interface
+ */
+export interface QustinnarstsmnInfo {
     /**
      * アンケート設問番号
      */
@@ -87,10 +96,14 @@ interface QustinnarstsmnInfo {
     /**
      * アンケート選択肢情報(itemArray)
      */
-    QUSTINNARSNTKSH_INFO: Array<QustinnarsntkshInfo>;
+    QUSTINNARSNTKSH_INFO: QustinnarsntkshInfo[];
 }
 
-interface QustinnarsntkshInfo {
+/**
+ * アンケート選択肢情報
+ * @interface
+ */
+export interface QustinnarsntkshInfo {
     /**
      * 選択肢番号
      */

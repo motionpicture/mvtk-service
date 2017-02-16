@@ -1,5 +1,11 @@
-import Service from '../../common/Service';
+import Service from '../../Common/Service';
+import { IEditMemberInfoIn } from './Models/EditMemberInfoIn';
 import MemberInfoResult from './Models/MemberInfoResult';
+/**
+ * MemberInfoService
+ * @class
+ * @extends {Service}
+ */
 export default class MemberInfoService extends Service {
     /**
      * 会員認証
@@ -7,13 +13,13 @@ export default class MemberInfoService extends Service {
      * @param {string} kiinMladdr
      * @param {string} kiinPwd
      */
-    getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err, resonse, kiinCd: string) => void): void;
+    getMemberAuthorization(kiinMladdr: string, kiinPwd: string, cb: (err: any, resonse: any, kiinCd: string | null) => void): void;
     /**
      * 会員情報照会
      *
      * APIにてセッションに保存されている会員情報が取得される。
      */
-    getMemberInfoDetail(cb: (err, response, memberInfoResult: MemberInfoResult) => void): void;
+    getMemberInfoDetail(cb: (err: any, resonse: any, memberInfoResult: MemberInfoResult | null) => void): void;
     /**
      * パスワード変更
      *
@@ -22,7 +28,7 @@ export default class MemberInfoService extends Service {
      * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
      * @param {string} kiingnzipwdhssFlg 会員新パスワード
      */
-    editPassword(kiinCd: any, kiingnziPwd: any, kiingnzipwdhssFlg: any, kiinsnPwd: any, cb: (err, response, isSuccess: boolean) => void): void;
+    editPassword(kiinCd: string, kiingnziPwd: string, kiingnzipwdhssFlg: string, kiinsnPwd: string, cb: (err: any, resonse: any, isSuccess: boolean | null) => void): void;
     /**
      * パスワード変更(svc)
      *
@@ -31,24 +37,24 @@ export default class MemberInfoService extends Service {
      * @param {string} kiingnzipwdhssFlg 会員現在パスワード必須フラグ
      * @param {string} kiingnzipwdhssFlg 会員新パスワード
      */
-    editPasswordSvc(kiinCd: any, kiingnziPwd: any, kiingnzipwdhssFlg: any, kiinsnPwd: any, cb: (err, response, isSuccess: boolean) => void): void;
+    editPasswordSvc(kiinCd: string, kiingnziPwd: string, kiingnzipwdhssFlg: string, kiinsnPwd: string, cb: (err: any, resonse: any, isSuccess: boolean | null) => void): void;
     /**
      * パスワード再設定依頼メール送信
      *
      * @param {string} kiinMladdr 会員メールアドレス
      */
-    sendPasswordResetRequestMail(kiinMladdr: any, cb: (err, response, isSuccess: boolean) => void): void;
+    sendPasswordResetRequestMail(kiinMladdr: string, cb: (err: any, resonse: any, isSuccess: boolean | null) => void): void;
     /**
      * パスワード再設定会員認証
      *
      * @param {string} psswrdhnkyUrl パスワード変更用ＵＲＬ
      * @param {string} dvcTyp        デバイス区分
      */
-    getPasswordResetMemberAuthorization(psswrdhnkyUrl: any, dvcTyp: any, cb: (err, response, kiinCd: string) => void): void;
+    getPasswordResetMemberAuthorization(psswrdhnkyUrl: string, dvcTyp: string, cb: (err: any, resonse: any, kiinCd: string | null) => void): void;
     /**
      * 会員情報更新
      *
-     * @param {EditMemberInfoIn} editMemberInfoIn
+     * @param {IEditMemberInfoIn} editMemberInfoIn
      */
-    editMemberInfo(params: Object, cb: (err, response, isSuccess: boolean) => void): void;
+    editMemberInfo(params: IEditMemberInfoIn, cb: (err: any, resonse: any, isSuccess: boolean | null) => void): void;
 }

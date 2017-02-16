@@ -1,5 +1,9 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * 購入情報登録out
+ * @class
+ */
 export default class RegisterPurchaseInfoResult {
     /**
      * 購入管理番号
@@ -18,15 +22,14 @@ export default class RegisterPurchaseInfoResult {
      */
     public kssierrrmssgTxt: string;
 
-    public static PARSE (resultObject): RegisterPurchaseInfoResult {
-        let result = new RegisterPurchaseInfoResult();
+    public static PARSE(resultObject: any): RegisterPurchaseInfoResult {
+        const result = new RegisterPurchaseInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     }

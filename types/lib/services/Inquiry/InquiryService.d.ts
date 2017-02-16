@@ -1,9 +1,15 @@
-import Service from '../../common/Service';
+import Service from '../../Common/Service';
+import { ISendInquiryMailIn } from './Models/SendInquiryMailIn';
+/**
+ * InquiryService
+ * @class
+ * @extends {Service}
+ */
 export default class InquiryService extends Service {
     /**
      * 問合せメール送信
      *
-     * @param {SendInquiryMailIn} sendInquiryMailIn
+     * @param {ISendInquiryMailIn} sendInquiryMailIn
      */
-    sendInquiryMail(params: Object, cb: (err, resonse, isSuccess: boolean) => void): void;
+    sendInquiryMail(params: ISendInquiryMailIn, cb: (err: any, resonse: any, isSuccess: boolean) => void): void;
 }

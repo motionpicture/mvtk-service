@@ -1,8 +1,8 @@
-import TicketInfoResult from './TicketInfoResult';
 import FilmCastResult from './FilmCastResult';
 import FilmGenreResult from './FilmGenreResult';
 import FilmPhotoGalleryResult from './FilmPhotoGalleryResult';
 import FilmStaffResult from './FilmStaffResult';
+import TicketInfoResult from './TicketInfoResult';
 /**
  * 作品
  * @class

@@ -1,5 +1,9 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * 一時管理テーブル（情報）取得out
+ * @class
+ */
 export default class SelectIchjknrInfoResult {
     public accessId: string = ''; // 取引ID
     public accessPwd: string = ''; // 取引パスワード
@@ -42,15 +46,14 @@ export default class SelectIchjknrInfoResult {
     public knshTyp: string = ''; // 券種区分
     public knshkbnNm: string = ''; // 券種区分名称
 
-    public static PARSE (resultObject): SelectIchjknrInfoResult {
-        let result = new SelectIchjknrInfoResult();
+    public static PARSE(resultObject: any): SelectIchjknrInfoResult {
+        const result = new SelectIchjknrInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     }

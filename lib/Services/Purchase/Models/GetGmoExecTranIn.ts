@@ -1,6 +1,11 @@
 import BaseIn from '../../../Common/models/BaseIn';
 
-export default class GetGmoExecTranIn extends BaseIn {
+/**
+ * 代行会社決済実行呼出inクラス
+ * @class
+ * @extends {BaseIn}
+ */
+export class GetGmoExecTranIn extends BaseIn {
     public kssiknrNo: string; // 決済管理番号
     public kssihhTyp: string; // 決済方法区分
     public accessId: string; // 取引ID
@@ -32,40 +37,105 @@ export default class GetGmoExecTranIn extends BaseIn {
     <tns:dvcTyp>${this.dvcTyp}</tns:dvcTyp>
 `;
         if (this.crdtcrdNo) {
-            message +=`
+            message += `
     <tns:crdtcrdNo>${this.crdtcrdNo}</tns:crdtcrdNo>
 `;
         }
         if (this.crdykkgn) {
-            message +=`
+            message += `
     <tns:crdykkgn>${this.crdykkgn}</tns:crdykkgn>
 `;
         }
         if (this.scrtyCd) {
-            message +=`
+            message += `
     <tns:scrtyCd>${this.scrtyCd}</tns:scrtyCd>
 `;
         }
         if (this.kiinCd) {
-            message +=`
+            message += `
     <tns:kiinCd>${this.kiinCd}</tns:kiinCd>
 `;
         }
         if (this.cardseq) {
-            message +=`
+            message += `
     <tns:cardseq>${this.cardseq}</tns:cardseq>
 `;
         }
         if (this.knyshNm) {
-            message +=`
+            message += `
     <tns:knyshNm>${this.knyshNm}</tns:knyshNm>
 `;
         }
 
-            message +=`
-</tns:GetGmoExecTran>
-`;
+        message += '</tns:GetGmoExecTran>';
 
         return message;
     }
+}
+
+/**
+ * 代行会社決済実行呼出in
+ * @interface
+ */
+export interface IGetGmoExecTranIn {
+    /**
+     * 決済管理番号
+     */
+    kssiknrNo: string;
+    /**
+     * 決済方法区分
+     */
+    kssihhTyp: string;
+    /**
+     * 取引ID
+     */
+    accessId: string;
+    /**
+     * 取引パスワード
+     */
+    accessPwd: string;
+    /**
+     * カード情報入力区分
+     */
+    crdtcrdinputKbn: string;
+    /**
+     * HTTP_ACCEPT
+     */
+    httpAccept: string;
+    /**
+     * HTTP_USER_AGENT
+     */
+    httpUserAgent: string;
+    /**
+     * デバイス区分
+     */
+    dvcTyp: string;
+    /**
+     * クレジットカード番号
+     */
+    crdtcrdNo: string;
+    /**
+     * カード有効期限
+     */
+    crdykkgn: string;
+    /**
+     * セキュリティーコード
+     */
+    scrtyCd: string;
+    /**
+     * 会員コード
+     */
+    kiinCd: string;
+    /**
+     * カード登録連番
+     */
+    cardseq: string;
+    /**
+     * 購入者名
+     */
+    knyshNm: string;
+    /**
+     * ???
+     */
+    shhnTyp: string;
 }

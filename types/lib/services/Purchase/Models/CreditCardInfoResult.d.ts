@@ -1,3 +1,7 @@
+/**
+ * 代行会社カード参照呼出out
+ * @class
+ */
 export default class CreditCardInfoResult {
     cardseq: string;
     crdtcrdNo: string;

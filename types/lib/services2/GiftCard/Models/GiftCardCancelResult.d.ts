@@ -1,3 +1,7 @@
+/**
+ * ムビチケギフトカード取消out
+ * @class
+ */
 export default class GiftCardCancelResult {
     /**
      * 凸版サービス返却値

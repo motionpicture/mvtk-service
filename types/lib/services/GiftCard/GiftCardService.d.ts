@@ -1,8 +1,9 @@
 import Service from '../../Common/Service';
 import MvtkGiftCardBalanceInquiryResult from './Models/MvtkGiftCardBalanceInquiryResult';
+import { IMvtkGiftCardEntryIn } from './Models/MvtkGiftCardEntryIn';
 import MvtkGiftCardEntryResult from './Models/MvtkGiftCardEntryResult';
 /**
- * ムビチケギフトサービス
+ * GiftCardService
  * @class
  * @extends {Service}
  */
@@ -17,7 +18,7 @@ export default class GiftCardService extends Service {
     /**
      * ギフトカード利用
      *
-     * @param {MvtkGiftCardEntryIn} args
+     * @param {IMvtkGiftCardEntryIn} args
      */
-    mvtkGiftCardEntry(params: Object, cb: (err: any, response: any, mvtkGiftCardEntryResults: MvtkGiftCardEntryResult[] | null) => void): void;
+    mvtkGiftCardEntry(params: IMvtkGiftCardEntryIn, cb: (err: any, response: any, mvtkGiftCardEntryResults: MvtkGiftCardEntryResult[] | null) => void): void;
 }

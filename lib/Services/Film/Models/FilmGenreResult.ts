@@ -9,12 +9,12 @@ export default class FilmGenreResult {
     public gnrKbnNm: string; // ジャンル区分名称
 
     public static PARSE(resultObject: any): FilmGenreResult {
-        const result: any = new FilmGenreResult();
+        const result = new FilmGenreResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

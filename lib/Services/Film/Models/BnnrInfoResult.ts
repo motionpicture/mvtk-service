@@ -42,12 +42,12 @@ export default class BnnrInfoResult {
     public bnnrkisishryYmd: string;
 
     public static PARSE(resultObject: any): BnnrInfoResult {
-        const result: any = new BnnrInfoResult();
+        const result = new BnnrInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

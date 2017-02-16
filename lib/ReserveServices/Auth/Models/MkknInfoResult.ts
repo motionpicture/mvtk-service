@@ -47,11 +47,11 @@ export default class MkknInfoResult {
      * @method
      */
     public static PARSE(resultObject: any): MkknInfoResult {
-        const result: any = new MkknInfoResult();
+        const result = new MkknInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

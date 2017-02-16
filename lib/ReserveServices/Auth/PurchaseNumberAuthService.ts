@@ -14,7 +14,7 @@ export default class PurchaseNumberAuthService extends Service {
     /**
      * 購入管理番号認証
      *
-     * @param {PurchaseNumberAuthIn} params
+     * @param {IPurchaseNumberAuthIn} params
      * @return {Promise<PurchaseNumberAuthResult>}
      */
     public purchaseNumberAuth(params: IPurchaseNumberAuthIn): Promise<PurchaseNumberAuthResult> {
@@ -24,7 +24,7 @@ export default class PurchaseNumberAuthService extends Service {
 
             let purchaseNumberAuthResult: PurchaseNumberAuthResult;
 
-            this.call(method, args, (err, response, result) => {
+            this.call(method, args.toXml(), (err, response, result) => {
                 if (err || !response) return reject(err);
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     purchaseNumberAuthResult = PurchaseNumberAuthResult.PARSE(result);

@@ -1,81 +1,10 @@
 import * as CommonUtil from '../../../Common/Util/Util';
+import FilmResult from './FilmResult';
 
-class SkhnInfo {
-    /**
-     * 作品コード
-     */
-    public skhnCd: string;
-    /**
-     * 作品名称
-     */
-    public skhnNm: string;
-    /**
-     * ポスター画像URL
-     */
-    public pstrgzUrl: string;
-    /**
-     * 全国公開開始年月日
-     */
-    public znkkkkikishYmd: string;
-    /**
-     * 全国公開時期記述
-     */
-    public znkkkkijkDspt: string;
-    /**
-     * ＥＣサイト鑑賞券販売承認済フラグ
-     */
-    public ecsthmbishnnzmFlg: string;
-    /**
-     * 鑑賞券販売開始日時(鑑賞券販売開始年月日＋鑑賞券販売開始時刻) YYYY-MM-DD hh:mm:ss
-     */
-    public knshknhmbikishDt: string;
-    /**
-     * 鑑賞券販売終了年月日(YYYY/MM/DD)
-     */
-    public knshknhmbishryYmd: string;
-    /**
-     * 観たい登録年月日(YYYY/MM/DD)
-     */
-    public trkDt: string;
-    /**
-     * 感想ありフラグ
-     */
-    public knsFlg: string;
-    /**
-     * 観たフラグ
-     */
-    public mtaFlg: string;
-    /**
-     * 観たい登録者数
-     */
-    public mtitrksyNum: string;
-    /**
-     * 観た登録者数
-     */
-    public mtatrksyNum: string;
-    /**
-     * 購入ボタンフラグ
-     */
-    public knyFlg: string;
-    /**
-     * 座席予約終了フラグ
-     */
-    public zskyykshryFlg: string;
-
-    public static PARSE (resultObject): SkhnInfo {
-        let result = new SkhnInfo();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
-
-        return result;
-    };
-}
-
+/**
+ * 観たい作品検索out
+ * @class
+ */
 export default class GetFavoriteFilmListResult {
     /**
      * 会員コード
@@ -88,33 +17,32 @@ export default class GetFavoriteFilmListResult {
     /**
      * 作品詳細情報(itemArray)
      */
-    public skhnInfo: Array<SkhnInfo>;
+    public skhnInfo: FilmResult[];
 
-    public static PARSE (resultObject): GetFavoriteFilmListResult {
-        let result = new GetFavoriteFilmListResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): GetFavoriteFilmListResult {
+        const result = new GetFavoriteFilmListResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'skhnInfo') {
-                let skhnInfos: Array<SkhnInfo> = [];
+                const skhnInfos: FilmResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('SkhnInfo')) {
                     if (Array.isArray(property.SkhnInfo)) {
-                        for (let info of property.SkhnInfo) {
-                            skhnInfos.push(SkhnInfo.PARSE(info));
+                        for (const info of property.SkhnInfo) {
+                            skhnInfos.push(FilmResult.PARSE(info));
                         }
                     } else {
-                        skhnInfos.push(SkhnInfo.PARSE(property.SkhnInfo));
+                        skhnInfos.push(FilmResult.PARSE(property.SkhnInfo));
                     }
                 }
 
                 result[normalizedName] = skhnInfos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
-        }
+        });
 
         return result;
     };

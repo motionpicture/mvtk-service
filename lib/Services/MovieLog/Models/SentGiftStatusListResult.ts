@@ -1,8 +1,10 @@
 import * as CommonUtil from '../../../Common/Util/Util';
-//TODO
-//メンバ名入力
 
-interface KnshbtskiinknygftInfo {
+/**
+ * 券種別会員購入鑑賞情報
+ * @interface
+ */
+export interface KnshbtskiinknygftInfo {
     /**
      * 券種区分名称
      */
@@ -10,11 +12,13 @@ interface KnshbtskiinknygftInfo {
     /**
      * 鑑賞券枚数
      */
-    knshkmmiNum : string;
+    knshkmmiNum: string;
 }
 
+/**
+ * ギフト送信状況リスト検索out
+ */
 export default class SentGiftStatusListResult {
-    
     /**
      * ギフト管理番号
      */
@@ -22,7 +26,7 @@ export default class SentGiftStatusListResult {
     /**
      * ギフト送信日時
      */
-    public gftsfDt : string;
+    public gftsfDt: string;
     /**
      * 宛先名称
      */
@@ -32,22 +36,21 @@ export default class SentGiftStatusListResult {
      */
     public gftsttsTyp: string;
     /**
-     * 券種別会員購入鑑賞情報(itemArray)	
+     * 券種別会員購入鑑賞情報(itemArray)
      */
-    public knshbtskiinknygftInfo: Array<KnshbtskiinknygftInfo>;
+    public knshbtskiinknygftInfo: KnshbtskiinknygftInfo[];
 
-    public static PARSE (resultObject): SentGiftStatusListResult {
-        let result = new SentGiftStatusListResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): SentGiftStatusListResult {
+        const result = new SentGiftStatusListResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'knshbtskiinknygftInfo') {
-                let infos: Array<KnshbtskiinknygftInfo> = [];
+                const infos: KnshbtskiinknygftInfo[] = [];
                 if (property !== null && property.hasOwnProperty('KnshbtskiinknygftInfo')) {
                     if (Array.isArray(property.KnshbtskiinknygftInfo)) {
-                        for (let info of property.KnshbtskiinknygftInfo) {
+                        for (const info of property.KnshbtskiinknygftInfo) {
                             infos.push(info);
                         }
                     } else {
@@ -57,9 +60,9 @@ export default class SentGiftStatusListResult {
 
                 result[normalizedName] = infos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
-        }
+        });
 
         return result;
     };

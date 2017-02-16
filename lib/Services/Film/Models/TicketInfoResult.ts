@@ -95,7 +95,7 @@ export default class TicketInfoResult {
     public knshInfo: TicketInfoTypeResult[] = [];
 
     public static PARSE(resultObject: any): TicketInfoResult {
-        const result: any = new TicketInfoResult();
+        const result = new TicketInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
@@ -126,7 +126,7 @@ export default class TicketInfoResult {
 
                 result[normalizedName] = types;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
         });
 

@@ -86,7 +86,7 @@ export default class GetDigitalIncentiveDownloadLinkListResult {
     public dgtlincntvInfo: DgtlincntvInfo[];
 
     public static PARSE(resultObject: any): GetDigitalIncentiveDownloadLinkListResult {
-        const result: any = new GetDigitalIncentiveDownloadLinkListResult();
+        const result = new GetDigitalIncentiveDownloadLinkListResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
@@ -106,7 +106,7 @@ export default class GetDigitalIncentiveDownloadLinkListResult {
 
                 result[normalizedName] = dgtlincntvInfos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
         });
 

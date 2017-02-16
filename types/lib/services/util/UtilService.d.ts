@@ -1,26 +1,11 @@
 import Service from '../../Common/Service';
 import GetCodeNameResult from './Models/GetCodeNameResult';
+/**
+ * UtilService
+ * @class
+ * @extends {Service}
+ */
 export default class UtilService extends Service {
-    /**
-     * 都道府県コード検索
-     *
-     * @param string  $prefectureCode 都道府県コード
-     * @param boolean $addBlank       trueにすると一覧にブランク用が追加される
-     * @return array
-     *
-     * @throws sfMovieticketAPIException
-     */
-    getPrefectureCode(prefectureCode?: string, addBlank?: boolean): void;
-    /**
-     * ムビチケ対応劇場都道府県コード検索
-     *
-     * @param string  $prefectureCode 都道府県コード。現状は指定しても都道府県一覧に影響しない
-     * @param boolean $addBlank       trueにすると一覧にブランク用が追加される
-     * @return array
-     *
-     * @throws sfMovieticketAPIException
-     */
-    getPrefectureCodeWithMvitckttio(prefectureCode?: string, addBlank?: boolean): void;
     /**
      * 会員認証クッキー追加
      *
@@ -28,35 +13,26 @@ export default class UtilService extends Service {
      *
      * @param {string} kiinCd ムビチケ会員コード
      */
-    signIn(kiinCd: string, cb: (err, response, cookieString: string) => void): void;
+    signIn(kiinCd: string, cb: (err: any, response: any, cookieString: string | null) => void): void;
     /**
      * サインアウト
      *
      * API側のセッション情報を破棄
      */
-    signOut(cb: (err, response, isSuccess: boolean) => void): void;
+    signOut(cb: (err: any, response: any, isSuccess: boolean) => void): void;
     /**
      * 電子券QRコード生成
      *
      * @param {string}  knyknrNo 購入管理番号
      * @param {string}  pinCd    PINコード（購入者電話番号下４桁）
      */
-    createQrCode(knyknrNo: any, pinCd: any, cb: (err, response, qrcdUrl: string) => void): void;
-    /**
-     * 暗号化
-     *
-     * @param string $value
-     * @return string 暗号化した文字列
-     *
-     * @throws sfMovieticketAPIException
-     */
-    encryptData(value: any): void;
+    createQrCode(knyknrNo: string, pinCd: string, cb: (err: any, response: any, qrcdUrl: string | null) => void): void;
     /**
      * 暗号化（配列）
      *
      * @param {Object} values
      */
-    encryptDataList(params: Object, cb: (err, response, encryptedStrings: Array<string>) => void): void;
+    encryptDataList(params: Object, cb: (err: any, response: any, encryptedStrings: string[] | null) => void): void;
     /**
      * 各種コード検索
      *
@@ -64,5 +40,5 @@ export default class UtilService extends Service {
      * @param {string} typ 区分
      * @param {string} blnkarFlg ブランク有フラグ
      */
-    getCodeName(kmkTyp: string, typ: string, blnkarFlg: string, cb: (err, response, getCodeNameResult: GetCodeNameResult) => void): void;
+    getCodeName(kmkTyp: string, typ: string, blnkarFlg: string, cb: (err: any, response: any, getCodeNameResult: GetCodeNameResult) => void): void;
 }

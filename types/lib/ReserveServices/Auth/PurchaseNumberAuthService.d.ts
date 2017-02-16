@@ -11,7 +11,7 @@ export default class PurchaseNumberAuthService extends Service {
     /**
      * 購入管理番号認証
      *
-     * @param {PurchaseNumberAuthIn} params
+     * @param {IPurchaseNumberAuthIn} params
      * @return {Promise<PurchaseNumberAuthResult>}
      */
     purchaseNumberAuth(params: IPurchaseNumberAuthIn): Promise<PurchaseNumberAuthResult>;

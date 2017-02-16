@@ -27,11 +27,11 @@ export default class InvalidNoteTypeResult {
      * @method
      */
     public static PARSE(resultObject: any): InvalidNoteTypeResult {
-        const result: any = new InvalidNoteTypeResult();
+        const result = new InvalidNoteTypeResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

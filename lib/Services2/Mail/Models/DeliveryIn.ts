@@ -1,6 +1,9 @@
 import BaseIn from '../../../Common/models/BaseIn';
 
-export default class DeliveryIn extends BaseIn {
+/**
+ * 購入管理番号メール送信inクラス
+ */
+export class DeliveryIn extends BaseIn {
     /**
      * 決済管理番号
      */
@@ -25,16 +28,7 @@ export default class DeliveryIn extends BaseIn {
      * 鑑賞券情報(ItemArray)
      */
     public KNSHKN_INFO: {
-        KNSHKN: Array<{
-            /**
-             * 券種区分名称
-             */
-            KNSHKBN_NM: string;
-            /**
-             * 購入枚数
-             */
-            KNYMI_NUM: string;
-        }>;
+        KNSHKN: KNSHKN[];
     };
     /**
      * QR コード URL
@@ -74,10 +68,11 @@ export default class DeliveryIn extends BaseIn {
 `;
 
         if (this.KNSHKN_INFO !== null) {
+            // tslint:disable-next-line:no-multiline-string
             message += `
         <q1:KNSHKN_INFO>
 `;
-            for (let info of this.KNSHKN_INFO.KNSHKN) {
+            for (const info of this.KNSHKN_INFO.KNSHKN) {
                 message += `
             <q2:KNSHKN>
                 <q2:KNSHKBN_NM>${info.KNSHKBN_NM}</q2:KNSHKBN_NM>
@@ -86,10 +81,10 @@ export default class DeliveryIn extends BaseIn {
 `;
             }
 
+            // tslint:disable-next-line:no-multiline-string
             message += `
         </q1:KNSHKN_INFO>
 `;
-        } else {
         }
 
         message += `
@@ -105,4 +100,76 @@ export default class DeliveryIn extends BaseIn {
 
         return message;
     }
+}
+
+/**
+ * 鑑賞券情報
+ * @interface
+ */
+export interface KNSHKN {
+    /**
+     * 券種区分名称
+     */
+    KNSHKBN_NM: string;
+    /**
+     * 購入枚数
+     */
+    KNYMI_NUM: string;
+}
+
+/**
+ * 購入管理番号メール送信inクラス
+ * @interface
+ */
+export interface IDeliveryIn {
+    /**
+     * 決済管理番号
+     */
+    KSSIKNR_NO: string;
+    /**
+     * 購入管理番号
+     */
+    KNYKNR_NO: string;
+    /**
+     * 宛先
+     */
+    MAILADDRESS: string;
+    /**
+     * 宛名
+     */
+    ADDRESS: string;
+    /**
+     * 作品名
+     */
+    SKHN_NM: string;
+    /**
+     * 鑑賞券情報(ItemArray)
+     */
+    KNSHKN_INFO: {
+        KNSHKN: KNSHKN[];
+    };
+    /**
+     * QR コード URL
+     */
+    QRCD_URL: string;
+    /**
+     * デジタルインセンティブ URL
+     */
+    DGTLINCNTV_URL: string;
+    /**
+     * デバイス区分
+     */
+    DVC_TYP: string;
+    /**
+     * メールテンプレートコード
+     */
+    MLTMPLT_CD: string;
+    /**
+     * 合計金額
+     */
+    TOTALCOST: string;
+    /**
+     * 作品コード
+     */
+    SKHN_CD: string;
 }

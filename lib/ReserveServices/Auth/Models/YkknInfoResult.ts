@@ -31,12 +31,12 @@ export default class YkknInfoResult {
      * @method
      */
     public static PARSE(resultObject: any): YkknInfoResult {
-        const result: any = new YkknInfoResult();
+        const result = new YkknInfoResult();
         Object.keys(resultObject).forEach((value) => {
             const propertyName = value;
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

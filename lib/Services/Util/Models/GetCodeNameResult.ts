@@ -1,10 +1,18 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
-interface TypInfo {
+/**
+ * 区分情報
+ * @interface
+ */
+export interface TypInfo {
     TYP: string;
     KBN_NM: string;
 }
 
+/**
+ * 各種コード検索out
+ * @class
+ */
 export default class GetCodeNameResult {
     /**
      * 項目区分
@@ -21,22 +29,20 @@ export default class GetCodeNameResult {
     /**
      * 区分情報(itemArray)
      */
-    public typInfo: Array<TypInfo>;
+    public typInfo: TypInfo[];
 
-
-    public static PARSE (resultObject): GetCodeNameResult {
-        let result = new GetCodeNameResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public static PARSE(resultObject: any): GetCodeNameResult {
+        const result = new GetCodeNameResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'typInfo') {
-                let typInfos: Array<TypInfo> = [];
+                const typInfos: TypInfo[] = [];
 
                 if (property !== null && property.hasOwnProperty('TypInfo')) {
                     if (Array.isArray(property.TypInfo)) {
-                        for (let info of property.TypInfo) {
+                        for (const info of property.TypInfo) {
                             typInfos.push(info);
                         }
                     } else {
@@ -46,9 +52,9 @@ export default class GetCodeNameResult {
 
                 result[normalizedName] = typInfos;
             } else {
-                result[normalizedName] = property;
+                (<any>result)[normalizedName] = property;
             }
-        }
+        });
 
         return result;
     }

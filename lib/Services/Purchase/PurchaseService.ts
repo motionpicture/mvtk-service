@@ -1,30 +1,35 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
+import TicketInfoResult from '../Film/Models/TicketInfoResult';
 import CreditCardInfoResult from './Models/CreditCardInfoResult';
-import GetGmoExecTranIn from './Models/GetGmoExecTranIn';
+import { DeleteIchjknrInfoIn } from './Models/DeleteIchjknrInfoIn';
+import { ForwardPurchaseInfoMailIn, IForwardPurchaseInfoMailIn } from './Models/ForwardPurchaseInfoMailIn';
+import { GetGmoExecTranIn, IGetGmoExecTranIn } from './Models/GetGmoExecTranIn';
 import GetGmoExecTranResult from './Models/GetGmoExecTranResult';
-import RegisterIchjknrInfoIn from './Models/RegisterIchjknrInfoIn';
-import DeleteIchjknrInfoIn from './Models/DeleteIchjknrInfoIn';
-import SelectIchjknrInfoResult from './Models/SelectIchjknrInfoResult';
+import { GetQuestionnaireListIn, IGetQuestionnaireListIn } from './Models/GetQuestionnaireListIn';
+import GetQuestionnaireListResult from './Models/GetQuestionnaireListResult';
 import GetShhriInfoByKeyResult from './Models/GetShhriInfoByKeyResult';
 import GetTsuryShhziInfoResult from './Models/GetTsuryShhziInfoResult';
-import GMOCancelIn from './Models/GMOCancelIn';
-import TicketInfoResult from '../Film/Models/TicketInfoResult';
-import RegisterQuestionnaireIn from './Models/RegisterQuestionnaireIn';
-import GetQuestionnaireListIn from './Models/GetQuestionnaireListIn';
-import GetQuestionnaireListResult from './Models/GetQuestionnaireListResult';
-import ForwardPurchaseInfoMailIn from './Models/ForwardPurchaseInfoMailIn';
+import { GMOCancelIn, IGMOCancelIn } from './Models/GMOCancelIn';
+import { IRegisterIchjknrInfoIn, RegisterIchjknrInfoIn } from './Models/RegisterIchjknrInfoIn';
+import { IRegisterQuestionnaireIn, RegisterQuestionnaireIn } from './Models/RegisterQuestionnaireIn';
+import SelectIchjknrInfoResult from './Models/SelectIchjknrInfoResult';
 
+/**
+ * PurchaseService
+ * @class
+ * @extends {Service}
+ */
 export default class PurchaseService extends Service {
     /**
      * 購入日時チェック
      *
      * @param {string} skhnCd 作品コード
      */
-    public isPurchaseDatetime(skhnCd: string, cb: (err, responnes, isOnSalse: boolean) => void): void {
-        let method = 'IsPurchaseDatetime';
+    public isPurchaseDatetime(skhnCd: string, cb: (err: any, responnes: any, isOnSalse: boolean) => void): void {
+        const method = 'IsPurchaseDatetime';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd
         };
 
@@ -47,17 +52,20 @@ export default class PurchaseService extends Service {
      *
      * @param {string} kiinCd
      */
-    public getGmoSearchCard(kiinCd: string, cb: (err, response, creditCardInfoResult: CreditCardInfoResult) => void): void {
-        let method = 'GetGmoSearchCard';
+    public getGmoSearchCard(
+        kiinCd: string,
+        cb: (err: any, responnes: any, creditCardInfoResult: CreditCardInfoResult | null) => void
+    ): void {
+        const method = 'GetGmoSearchCard';
 
-        let args = {
+        const args = {
             kiinCd: kiinCd
         };
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let creditCardInfoResult: CreditCardInfoResult = null;
+            let creditCardInfoResult: CreditCardInfoResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 if (result.CRDJHUM_FLG !== '0') {
@@ -79,10 +87,14 @@ export default class PurchaseService extends Service {
      * @param {string} skhnCd
      * @param {string} dvcTyp
      */
-    public getTicketTypeList(skhnCd, dvcTyp, cb: (err, response, result: TicketInfoResult) => void): void {
-        let method = 'GetTicketTypeList';
+    public getTicketTypeList(
+        skhnCd: string,
+        dvcTyp: string,
+        cb: (err: any, responnes: any, result: TicketInfoResult | null) => void
+    ): void {
+        const method = 'GetTicketTypeList';
 
-        let args = {
+        const args = {
             skhnCd: skhnCd,
             dvcTyp: dvcTyp
         };
@@ -90,7 +102,7 @@ export default class PurchaseService extends Service {
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let ticketInfoResult: TicketInfoResult = null;
+            let ticketInfoResult: TicketInfoResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 ticketInfoResult = TicketInfoResult.PARSE(result);
@@ -108,16 +120,16 @@ export default class PurchaseService extends Service {
      *
      * @return string 決済管理番号
      */
-    public saibanKssiknrNo(cb: (err, response, kssiknrNo: string) => void): void {
-        let method = 'SaibanKssiknrNo';
+    public saibanKssiknrNo(cb: (err: any, responnes: any, kssiknrNo: string | null) => void): void {
+        const method = 'SaibanKssiknrNo';
 
-        let args = {
+        const args = {
         };
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let kssiknrNo: string = null;
+            let kssiknrNo: string | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 // 取引ID（ACCESS_ID）、取引パスワード（ACCESS_PWD）は使用しない。値も返却されない。
@@ -131,22 +143,20 @@ export default class PurchaseService extends Service {
     /**
      * 代行会社決済実行呼出
      *
-     * @param {string} kssiknrNo   決済管理番号
-     * @param {string} kssihhTyp  決済方法区分
-     * @param {string} accessId        取引ID
-     * @param {string} accessPwd  取引パスワード
-     * @param Array<string>  params
+     * @param {IGetGmoExecTranIn}  params
      */
-    public getGmoExecTran(params: Object, cb: (err, response, GetGmoExecTranResult: GetGmoExecTranResult) => any)
-    {
-        let method = 'GetGmoExecTran';
+    public getGmoExecTran(
+        params: IGetGmoExecTranIn,
+        cb: (err: any, responnes: any, getGmoExecTranResult: GetGmoExecTranResult | null) => any
+    ) {
+        const method = 'GetGmoExecTran';
 
-        let args = new GetGmoExecTranIn(params);
+        const args = new GetGmoExecTranIn(params);
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let getGmoExecTranResult: GetGmoExecTranResult = null;
+            let getGmoExecTranResult: GetGmoExecTranResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 getGmoExecTranResult = GetGmoExecTranResult.PARSE(result);
@@ -163,13 +173,18 @@ export default class PurchaseService extends Service {
      * @param {string} kiinCd          会員コード
      * @param {string} mignn  クレジットカード名義人
      */
-    public getGmoSaveCard(kssiknrNo, kiinCd, mignn, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'GetGmoSaveCard';
+    public getGmoSaveCard(
+        kssiknrNo: string,
+        kiinCd: string,
+        mignn: string,
+        cb: (err: any, responnes: any, isSuccess: boolean) => void
+    ): void {
+        const method = 'GetGmoSaveCard';
 
-        let args = {
+        const args = {
             kssiknrNo: kssiknrNo,
             kiinCd: kiinCd,
-            mignn: mignn,
+            mignn: mignn
         };
 
         this.call(method, args, (err, response, result) => {
@@ -188,14 +203,14 @@ export default class PurchaseService extends Service {
     /**
      * 一時管理テーブル（情報）登録
      *
-     * @param {RegisterIchjknrInfoIn} args
+     * @param {IRegisterIchjknrInfoIn} args
      */
-    public registerIchjknr(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'RegisterIchjknr';
+    public registerIchjknr(params: IRegisterIchjknrInfoIn, cb: (err: any, responnes: any, isSuccess: boolean) => void): void {
+        const method = 'RegisterIchjknr';
 
-        let args = new RegisterIchjknrInfoIn(params);
+        const args = new RegisterIchjknrInfoIn(params);
 
-        let message = args.toXml();
+        const message = args.toXml();
 
         this.call(method, message, (err, response, result) => {
             if (err) return cb(err, response, false);
@@ -216,10 +231,14 @@ export default class PurchaseService extends Service {
      * @param {string} kssihhTyp    決済方法区分
      * @param {string} accessIdOrkssiknrNo 決済管理番号or取引ID。クレジットカード決済の場合のみ、取引ID
      */
-    public selectIchjknr(kssihhTyp, accessIdOrkssiknrNo, cb: (err, response, selectIchjknrInfoResults: Array<SelectIchjknrInfoResult>) => void): void {
-        let method = 'SelectIchjknr';
+    public selectIchjknr(
+        kssihhTyp: string,
+        accessIdOrkssiknrNo: string,
+        cb: (err: any, responnes: any, selectIchjknrInfoResults: SelectIchjknrInfoResult[]) => void
+    ): void {
+        const method = 'SelectIchjknr';
 
-        let args = {
+        const args = {
             accessIdOrkssiknrNo: accessIdOrkssiknrNo,
             kssihhTyp: kssihhTyp
         };
@@ -227,12 +246,12 @@ export default class PurchaseService extends Service {
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, []);
 
-            let selectIchjknrInfoResults: Array<SelectIchjknrInfoResult> = [];
+            const selectIchjknrInfoResults: SelectIchjknrInfoResult[] = [];
 
             // // 処理結果情報がないのでRESULT_INFO.STATUSによるエラー判定不可
             if (result !== null && result.hasOwnProperty('SelectIchjknrInfoOut')) {
                 if (Array.isArray(result.SelectIchjknrInfoOut)) {
-                    for (let info of result.SelectIchjknrInfoOut) {
+                    for (const info of result.SelectIchjknrInfoOut) {
                         selectIchjknrInfoResults.push(SelectIchjknrInfoResult.PARSE(info));
                     }
                 } else {
@@ -247,15 +266,15 @@ export default class PurchaseService extends Service {
     /**
      * 一時管理テーブル（情報）削除
      *
-     * @param {Array<string>} accessIds
+     * @param {string[]} accessIds
      */
-    public deleteIchjknr(accessIds: Array<string>, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'DeleteIchjknr';
+    public deleteIchjknr(accessIds: string[], cb: (err: any, responnes: any, isSuccess: boolean) => void): void {
+        const method = 'DeleteIchjknr';
 
-        let deleteIchjknrInfoIn = new DeleteIchjknrInfoIn();
+        const deleteIchjknrInfoIn = new DeleteIchjknrInfoIn();
         deleteIchjknrInfoIn.accessIdList = accessIds;
 
-        let message = deleteIchjknrInfoIn.toXml();
+        const message = deleteIchjknrInfoIn.toXml();
 
         this.call(method, message, (err, response, result) => {
             if (err) return cb(err, response, false);
@@ -275,28 +294,31 @@ export default class PurchaseService extends Service {
      *
      * @param {string} knshknknrNo 鑑賞券管理番号
      */
-    public getTsuryShhziInfo(knshknknrNo, cb: (err, response, getTsuryShhziInfoResults: Array<GetTsuryShhziInfoResult>) => void): void {
-        let method = 'GetTsuryShhziInfo';
+    public getTsuryShhziInfo(
+        knshknknrNo: string,
+        cb: (err: any, responnes: any, getTsuryShhziInfoResults: GetTsuryShhziInfoResult[] | null) => void
+    ): void {
+        const method = 'GetTsuryShhziInfo';
 
-        let args = {
+        const args = {
             knshknknrNo: knshknknrNo
         };
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let getTsuryShhziInfoResults: Array<GetTsuryShhziInfoResult> = [];
+            const getTsuryShhziInfoResults: GetTsuryShhziInfoResult[] = [];
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                let infos = result.GetTsuryShhziInfoOut.KeyValueOfstringGetTsuryShhziInfoOutPz9MKw_Pl;
+                const infos = result.GetTsuryShhziInfoOut.KeyValueOfstringGetTsuryShhziInfoOutPz9MKw_Pl;
                 if (Array.isArray(infos)) {
-                    for (let info of infos) {
-                        let getTsuryShhziInfoResult = GetTsuryShhziInfoResult.PARSE(info.Value);
+                    for (const info of infos) {
+                        const getTsuryShhziInfoResult = GetTsuryShhziInfoResult.PARSE(info.Value);
                         getTsuryShhziInfoResult.knshknknrmisiNo = info.Key;
                         getTsuryShhziInfoResults.push(getTsuryShhziInfoResult);
                     }
                 } else {
-                    let getTsuryShhziInfoResult = GetTsuryShhziInfoResult.PARSE(infos.Value);
+                    const getTsuryShhziInfoResult = GetTsuryShhziInfoResult.PARSE(infos.Value);
                     getTsuryShhziInfoResult.knshknknrmisiNo = infos.Key;
                     getTsuryShhziInfoResults.push(getTsuryShhziInfoResult);
                 }
@@ -311,17 +333,20 @@ export default class PurchaseService extends Service {
      *
      * @param {string} knshknknrNo 鑑賞券管理番号
      */
-    public getShhriInfoByKey(knshknknrNo, cb: (err, respones, getShhriInfoByKeyResult: GetShhriInfoByKeyResult) => void): void {
-        let method = 'GetShhriInfoByKey';
+    public getShhriInfoByKey(
+        knshknknrNo: string,
+        cb: (err: any, respones: any, getShhriInfoByKeyResult: GetShhriInfoByKeyResult | null) => void
+    ): void {
+        const method = 'GetShhriInfoByKey';
 
-        let args = {
+        const args = {
             knshknknrNo: knshknknrNo
         };
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let getShhriInfoByKeyResult: GetShhriInfoByKeyResult = null;
+            let getShhriInfoByKeyResult: GetShhriInfoByKeyResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 getShhriInfoByKeyResult = GetShhriInfoByKeyResult.PARSE(result);
@@ -334,12 +359,12 @@ export default class PurchaseService extends Service {
     /**
      * 代行会社決済取消呼出
      *
-     * @param {GMOCancelIn} args
+     * @param {IGMOCancelIn} args
      */
-    public gMOCancel(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'GMOCancel';
+    public gMOCancel(params: IGMOCancelIn, cb: (err: any, responnes: any, isSuccess: boolean | null) => void): void {
+        const method = 'GMOCancel';
 
-        let args = new GMOCancelIn(params);
+        const args = new GMOCancelIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
@@ -357,12 +382,15 @@ export default class PurchaseService extends Service {
     /**
      * アンケート設問検索
      *
-     * @param {GetQuestionnaireListIn} args
+     * @param {IGetQuestionnaireListIn} args
      */
-    public getQuestionnaireList(params: Object, cb: (err, response, getQuestionnaireListResult: GetQuestionnaireListResult) => void): void {
-        let method = 'GetQuestionnaireList';
+    public getQuestionnaireList(
+        params: IGetQuestionnaireListIn,
+        cb: (err: any, responnes: any, getQuestionnaireListResult: GetQuestionnaireListResult) => void
+    ): void {
+        const method = 'GetQuestionnaireList';
 
-        let args = new GetQuestionnaireListIn(params);
+        const args = new GetQuestionnaireListIn(params);
 
         let getQuestionnaireListResult: GetQuestionnaireListResult;
 
@@ -380,14 +408,14 @@ export default class PurchaseService extends Service {
     /**
      * アンケート設問登録
      *
-     * @param {RegisterQuestionnaireIn} args
+     * @param {IRegisterQuestionnaireIn} args
      */
-    public registerQuestionnaire(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'RegisterQuestionnaire';
+    public registerQuestionnaire(params: IRegisterQuestionnaireIn, cb: (err: any, responnes: any, isSuccess: boolean) => void): void {
+        const method = 'RegisterQuestionnaire';
 
-        let args = new RegisterQuestionnaireIn(params);
+        const args = new RegisterQuestionnaireIn(params);
 
-        let message = args.toXml();
+        const message = args.toXml();
         let isSuccess = false;
 
         this.call(method, message, (err, response, result) => {
@@ -404,12 +432,12 @@ export default class PurchaseService extends Service {
     /**
      * 購入管理番号メール転送
      *
-     * @param {Object} params
+     * @param {IForwardPurchaseInfoMailIn} params
      */
-    public forwardPurchaseInfoMail(params: Object, cb: (err, response, isSuccess: boolean) => void): void {
-        let method = 'ForwardPurchaseInfoMail';
+    public forwardPurchaseInfoMail(params: IForwardPurchaseInfoMailIn, cb: (err: any, responnes: any, isSuccess: boolean) => void): void {
+        const method = 'ForwardPurchaseInfoMail';
 
-        let args = new ForwardPurchaseInfoMailIn(params);
+        const args = new ForwardPurchaseInfoMailIn(params);
 
         let isSuccess = false;
 

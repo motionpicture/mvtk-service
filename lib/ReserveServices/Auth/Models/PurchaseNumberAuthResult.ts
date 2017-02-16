@@ -53,7 +53,7 @@ export default class PurchaseNumberAuthResult {
      * @method
      */
     public static PARSE(resultObject: any): PurchaseNumberAuthResult {
-        const purchaseNumberAuthResult: any = new PurchaseNumberAuthResult();
+        const purchaseNumberAuthResult = new PurchaseNumberAuthResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
@@ -87,7 +87,7 @@ export default class PurchaseNumberAuthResult {
 
                 purchaseNumberAuthResult[normalizedName] = mkknInfos;
             } else {
-                purchaseNumberAuthResult[normalizedName] = property;
+                (<any>purchaseNumberAuthResult)[normalizedName] = property;
             }
         });
 

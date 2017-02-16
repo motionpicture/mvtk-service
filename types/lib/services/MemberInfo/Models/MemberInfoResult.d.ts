@@ -1,3 +1,7 @@
+/**
+ * 会員情報照会out
+ * @class
+ */
 export default class MemberInfoResult {
     /**
      * 会員コード

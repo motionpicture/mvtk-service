@@ -1,5 +1,9 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * ムビチケギフトカード認証out
+ * @class
+ */
 export default class GiftCardIDAuthResult {
     /**
      * 凸版サービス返却値
@@ -26,15 +30,14 @@ export default class GiftCardIDAuthResult {
      */
     public tkssiryukngk: string = '';
 
-    public static PARSE (resultObject): GiftCardIDAuthResult {
-        let result = new GiftCardIDAuthResult();
+    public static PARSE(resultObject: any): GiftCardIDAuthResult {
+        const result = new GiftCardIDAuthResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     }

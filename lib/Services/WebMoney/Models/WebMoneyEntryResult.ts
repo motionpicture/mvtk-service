@@ -1,18 +1,20 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
+/**
+ * WebMoney決済実行out
+ * @class
+ */
 export default class WebMoneyEntryResult {
     public rdirktUrl: string; // リダイレクトURL
 
-    public static PARSE (resultObject): WebMoneyEntryResult {
-        let result = new WebMoneyEntryResult();
+    public static PARSE(resultObject: any): WebMoneyEntryResult {
+        const result = new WebMoneyEntryResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
-
+            (<any>result)[normalizedName] = property;
+        });
         return result;
     }
 }

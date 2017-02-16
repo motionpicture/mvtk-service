@@ -1,24 +1,32 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
-import WebMoneyEntryIn from './Models/WebMoneyEntryIn';
-import WebMoneyEntryResult from './Models/WebMoneyEntryResult';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
 import DecryptWebMoneyKssiInfoResult from './Models/DecryptWebMoneyKssiInfoResult';
+import { IWebMoneyEntryIn, WebMoneyEntryIn } from './Models/WebMoneyEntryIn';
+import WebMoneyEntryResult from './Models/WebMoneyEntryResult';
 
+/**
+ * WebMoneyService
+ * @class
+ * @extends {Service}
+ */
 export default class WebMoneyService extends Service {
     /**
      * WebMoney決済実行
      *
-     * @param {WebMoneyEntryIn} webMoneyEntryIn
+     * @param {IWebMoneyEntryIn} webMoneyEntryIn
      */
-    public webMoneyEntry(params: Object, cb: (err, response, webMoneyEntryResult: WebMoneyEntryResult) => void): void {
-        let method = 'WebMoneyEntry';
+    public webMoneyEntry(
+        params: IWebMoneyEntryIn,
+        cb: (err: any, response: any, webMoneyEntryResult: WebMoneyEntryResult | null) => void
+    ): void {
+        const method = 'WebMoneyEntry';
 
-        let args = new WebMoneyEntryIn(params);
+        const args = new WebMoneyEntryIn(params);
 
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let webMoneyEntryResult: WebMoneyEntryResult = null;
+            let webMoneyEntryResult: WebMoneyEntryResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 webMoneyEntryResult = WebMoneyEntryResult.PARSE(result);
@@ -33,17 +41,20 @@ export default class WebMoneyService extends Service {
      *
      * @param {string} encryptedKssiInfo
      */
-    public decryptWebMoneyKssiInfo(encryptedKssiInfo, cb: (err, response, decryptWebMoneyKssiInfoResult: DecryptWebMoneyKssiInfoResult) => void): void {
-        let method = 'DecryptWebMoneyKssiInfo';
+    public decryptWebMoneyKssiInfo(
+        encryptedKssiInfo: string,
+        cb: (err: any, response: any, decryptWebMoneyKssiInfoResult: DecryptWebMoneyKssiInfoResult | null) => void
+    ): void {
+        const method = 'DecryptWebMoneyKssiInfo';
 
-        let args = {
+        const args = {
             encryptedKssiInfo: encryptedKssiInfo
         };
 
         this.call(method, args, (err, response, result) => {
             if (err) return cb(err, response, null);
 
-            let decryptWebMoneyKssiInfoResult: DecryptWebMoneyKssiInfoResult = null;
+            let decryptWebMoneyKssiInfoResult: DecryptWebMoneyKssiInfoResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 decryptWebMoneyKssiInfoResult = DecryptWebMoneyKssiInfoResult.PARSE(result);

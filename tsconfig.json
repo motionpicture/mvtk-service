@@ -43,7 +43,6 @@
         "types",
         "typings",
         "definitions",
-        "lib/Services",
-        "lib/Services2"
+        "**/*.d.ts"
     ]
 }

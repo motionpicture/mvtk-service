@@ -14,12 +14,12 @@ export default class GetDigitalIncentiveDownloadResult {
     public dwnlodflDt: string;
 
     public static PARSE(resultObject: any): GetDigitalIncentiveDownloadResult {
-        const result: any = new GetDigitalIncentiveDownloadResult();
-        Object.keys(resultObject).forEach((propertyName)=>{
+        const result = new GetDigitalIncentiveDownloadResult();
+        Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];
 
-            result[normalizedName] = property;
+            (<any>result)[normalizedName] = property;
         });
 
         return result;

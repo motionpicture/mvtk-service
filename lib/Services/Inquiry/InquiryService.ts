@@ -1,17 +1,22 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
-import SendInquiryMailIn from './Models/SendInquiryMailIn';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
+import {ISendInquiryMailIn, SendInquiryMailIn} from './Models/SendInquiryMailIn';
 
+/**
+ * InquiryService
+ * @class
+ * @extends {Service}
+ */
 export default class InquiryService extends Service {
     /**
      * 問合せメール送信
      *
-     * @param {SendInquiryMailIn} sendInquiryMailIn
+     * @param {ISendInquiryMailIn} sendInquiryMailIn
      */
-    public sendInquiryMail(params: Object, cb: (err, resonse, isSuccess: boolean) => void ): void {
-        let method = 'SendInquiryMail';
+    public sendInquiryMail(params: ISendInquiryMailIn, cb: (err: any, resonse: any, isSuccess: boolean) => void ): void {
+        const method = 'SendInquiryMail';
 
-        let args = new SendInquiryMailIn(params);
+        const args = new SendInquiryMailIn(params);
 
         let isSuccess = false;
 

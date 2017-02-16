@@ -1,21 +1,25 @@
-import Service from '../../common/Service';
-import Constants from '../../common/util/Constants';
-import GetDigitalIncentiveDownloadIn from './Models/GetDigitalIncentiveDownloadIn';
-import GetDigitalIncentiveDownloadResult from './Models/GetDigitalIncentiveDownloadResult';
-import GetDigitalIncentiveDownloadLinkListIn from './Models/GetDigitalIncentiveDownloadLinkListIn';
+import Service from '../../Common/Service';
+import Constants from '../../Common/Util/Constants';
+import {GetDigitalIncentiveDownloadIn, IGetDigitalIncentiveDownloadIn} from './Models/GetDigitalIncentiveDownloadIn';
+import {
+    GetDigitalIncentiveDownloadLinkListIn,
+    IGetDigitalIncentiveDownloadLinkListIn
+} from './Models/GetDigitalIncentiveDownloadLinkListIn';
 import GetDigitalIncentiveDownloadLinkListResult from './Models/GetDigitalIncentiveDownloadLinkListResult';
+import GetDigitalIncentiveDownloadResult from './Models/GetDigitalIncentiveDownloadResult';
 
 /**
- * デジタルインセンティブダウンロード
+ * DigitalIncentiveDownloadService
  * @class
  */
 export default class DigitalIncentiveDownloadService extends Service {
     /**
      * デジタルインセンティブダウンロード
-     * @param {GetDigitalIncentiveDownloadIn} args
+     * @method
+     * @param {IGetDigitalIncentiveDownloadIn} args
      */
     public getDigitalIncentiveDownload(
-        params: Object,
+        params: IGetDigitalIncentiveDownloadIn,
         cb: (err: any, response: any, getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult | null) => void
     ): void {
         const method = 'GetDigitalIncentiveDownload';
@@ -37,11 +41,11 @@ export default class DigitalIncentiveDownloadService extends Service {
 
     /**
      * デジタルインセンティブダウンロード情報検索
-     *
-     * @param {GetDigitalIncentiveDownloadLinkListIn} args
+     * @method
+     * @param {IGetDigitalIncentiveDownloadLinkListIn} args
      */
     public getDigitalIncentiveDownloadLinkList(
-        params: Object,
+        params: IGetDigitalIncentiveDownloadLinkListIn,
         cb: (err: any, response: any, getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult | null) => void
     ): void {
         const method = 'GetDigitalIncentiveDownloadLinkList';

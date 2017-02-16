@@ -1,9 +1,15 @@
-import Service from '../../common/Service';
+import Service from '../../Common/Service';
+import { ICreateQrCodeIn } from './Models/CreateQrCodeIn';
+/**
+ * UtilService
+ * @class
+ * @extends {Service}
+ */
 export default class UtilService extends Service {
     /**
      * 電子券QRコード生成
      *
-     * @param {CreateQrCodeIn} args
+     * @param {ICreateQrCodeIn} args
      */
-    createQrCode(params: Object, cb: (err, response, qrcdUrl: string) => void): void;
+    createQrCode(params: ICreateQrCodeIn, cb: (err: any, response: any, qrcdUrl: string | null) => void): void;
 }

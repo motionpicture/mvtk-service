@@ -1,11 +1,11 @@
 import Service from '../../Common/Service';
-import FilmResult from './Models/FilmResult';
-import TicketInfoResult from './Models/TicketInfoResult';
 import BnnrInfoResult from './Models/BnnrInfoResult';
 import DgtlincntvInfoResult from './Models/DgtlincntvInfoResult';
+import FilmResult from './Models/FilmResult';
 import GetTrailerDetailResult from './Models/GetTrailerDetailResult';
+import TicketInfoResult from './Models/TicketInfoResult';
 /**
- * 作品サービス
+ * FilmService
  * @class
  */
 export default class FilmService extends Service {

@@ -1,17 +1,16 @@
 import BaseIn from '../../../Common/models/BaseIn';
 
-export default class GiftCardCancelIn extends BaseIn {
+/**
+ * ムビチケギフトカード取消inクラス
+ * @class
+ * @extends {BaseIn}
+ */
+export class GiftCardCancelIn extends BaseIn {
     /**
      * ギフトカードID情報
      */
     public MVTKGFTCRD_INFO_IN: {
-        MvtkGftcrdCancelInfo: Array<{
-            MVTKGFTCRD_ID: string; // ムビチケギフトカードID
-            MVTKGFTCRDPIN_CD: string; // ムビチケギフトカードPINコード
-            GFTCRDKSSIKNR_NO: string; // ギフトカード決済管理番号
-            RYUKNGK: string; // ムビチケオンラインギフトカードで決済した金額
-            SYRYKY_DT: string; // 取消を行う決済処理を要求した日時(取消区分が2の場合は必須)
-        }>;
+        MvtkGftcrdCancelInfo: MvtkGftcrdCancelInfo[];
     };
 
     /**
@@ -37,13 +36,14 @@ export default class GiftCardCancelIn extends BaseIn {
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
+        // tslint:disable-next-line:no-multiline-string
         let message = `
 <tns:GiftCardCancel>
     <tns:IN_PARAMETER>
         <q3:MVTKGFTCRD_INFO_IN>
 `;
 
-        for (let info of this.MVTKGFTCRD_INFO_IN.MvtkGftcrdCancelInfo) {
+        for (const info of this.MVTKGFTCRD_INFO_IN.MvtkGftcrdCancelInfo) {
             message += `
             <q3:MvtkGftcrdCancelInfo>
                 <q3:MVTKGFTCRD_ID>${info.MVTKGFTCRD_ID}</q3:MVTKGFTCRD_ID>
@@ -57,16 +57,12 @@ export default class GiftCardCancelIn extends BaseIn {
 `;
             }
 
-            message += `
-            </q3:MvtkGftcrdCancelInfo>
-`;
+            message += '</q3:MvtkGftcrdCancelInfo>';
         }
 
-        message +=`
-        </q3:MVTKGFTCRD_INFO_IN>
-`;
+        message += '</q3:MVTKGFTCRD_INFO_IN>';
 
-        message +=`
+        message += `
         <q3:TRKSH_TYP>${this.TRKSH_TYP}</q3:TRKSH_TYP>
         <q3:DVC_TYP>${this.DVC_TYP}</q3:DVC_TYP>
         <q3:SKHN_CD>${this.SKHN_CD}</q3:SKHN_CD>
@@ -77,4 +73,63 @@ export default class GiftCardCancelIn extends BaseIn {
 
         return message;
     }
+}
+
+/**
+ * ギフトカードID情報
+ * @interface
+ */
+export interface MvtkGftcrdCancelInfo {
+    /**
+     * ムビチケギフトカードID
+     */
+    MVTKGFTCRD_ID: string;
+    /**
+     * ムビチケギフトカードPINコード
+     */
+    MVTKGFTCRDPIN_CD: string;
+    /**
+     * ギフトカード決済管理番号
+     */
+    GFTCRDKSSIKNR_NO: string;
+    /**
+     * ムビチケオンラインギフトカードで決済した金額
+     */
+    RYUKNGK: string;
+    /**
+     * 取消を行う決済処理を要求した日時(取消区分が2の場合は必須)
+     */
+    SYRYKY_DT: string;
+}
+
+/**
+ * ムビチケギフトカード取消inクラス
+ * @interface
+ */
+export interface IGiftCardCancelIn {
+    /**
+     * ギフトカードID情報
+     */
+    MVTKGFTCRD_INFO_IN: {
+        MvtkGftcrdCancelInfo: MvtkGftcrdCancelInfo[];
+    };
+    /**
+     * 取消区分
+     * 決済取消を行う区分
+     * 0：ロック解除 1：取消 2：障害取消
+     */
+    TRKSH_TYP: string;
+    /**
+     * ギフトカード決済取消を行うデバイスの区分
+     * 1：PC 09：SmartPhone
+     */
+    DVC_TYP: string;
+    /**
+     * 取消しする作品のコード
+     */
+    SKHN_CD: string;
+    /**
+     * 取消しする決済の管理番号
+     */
+    KSSIKNR_NO: string;
 }
