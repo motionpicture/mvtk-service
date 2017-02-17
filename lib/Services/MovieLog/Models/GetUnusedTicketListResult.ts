@@ -26,10 +26,10 @@ export default class GetUnusedTicketListResult {
                 if (property !== null && property.hasOwnProperty('MshyticktInfo')) {
                     if (Array.isArray(property.MshyticktInfo)) {
                         for (const info of property.MshyticktInfo) {
-                            infos.push(TicktResult.PARSE(info));
+                            infos.push(TicktResult.parse(info));
                         }
                     } else {
-                        infos.push(TicktResult.PARSE(property.MshyticktInfo));
+                        infos.push(TicktResult.parse(property.MshyticktInfo));
                     }
                 }
 

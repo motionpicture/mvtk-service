@@ -215,10 +215,10 @@ export default class FilmResult {
                 if (property !== null && property.hasOwnProperty('KnshknInfo')) {
                     if (Array.isArray(property.KnshknInfo)) {
                         for (const info of property.KnshknInfo) {
-                            ticketInfos.push(TicketInfoResult.PARSE(info));
+                            ticketInfos.push(TicketInfoResult.parse(info));
                         }
                     } else {
-                        ticketInfos.push(TicketInfoResult.PARSE(property.KnshknInfo));
+                        ticketInfos.push(TicketInfoResult.parse(property.KnshknInfo));
                     }
                 }
 
@@ -229,10 +229,10 @@ export default class FilmResult {
                 if (property !== null && property.hasOwnProperty('CstInfo')) {
                     if (Array.isArray(property.CstInfo)) {
                         for (const info of property.CstInfo) {
-                            casts.push(FilmCastResult.PARSE(info));
+                            casts.push(FilmCastResult.parse(info));
                         }
                     } else {
-                        casts.push(FilmCastResult.PARSE(property.CstInfo));
+                        casts.push(FilmCastResult.parse(property.CstInfo));
                     }
                 }
 
@@ -243,10 +243,10 @@ export default class FilmResult {
                 if (property !== null && property.hasOwnProperty('GnrInfo')) {
                     if (Array.isArray(property.GnrInfo)) {
                         for (const info of property.GnrInfo) {
-                            genres.push(FilmGenreResult.PARSE(info));
+                            genres.push(FilmGenreResult.parse(info));
                         }
                     } else {
-                        genres.push(FilmGenreResult.PARSE(property.GnrInfo));
+                        genres.push(FilmGenreResult.parse(property.GnrInfo));
                     }
                 }
 
@@ -257,10 +257,10 @@ export default class FilmResult {
                 if (property !== null && property.hasOwnProperty('PhtgllryInfo')) {
                     if (Array.isArray(property.PhtgllryInfo)) {
                         for (const info of property.PhtgllryInfo) {
-                            galleries.push(FilmPhotoGalleryResult.PARSE(info));
+                            galleries.push(FilmPhotoGalleryResult.parse(info));
                         }
                     } else {
-                        galleries.push(FilmPhotoGalleryResult.PARSE(property.PhtgllryInfo));
+                        galleries.push(FilmPhotoGalleryResult.parse(property.PhtgllryInfo));
                     }
                 }
 
@@ -271,10 +271,10 @@ export default class FilmResult {
                 if (property !== null && property.hasOwnProperty('StffInfo')) {
                     if (Array.isArray(property.StffInfo)) {
                         for (const info of property.StffInfo) {
-                            staffs.push(FilmStaffResult.PARSE(info));
+                            staffs.push(FilmStaffResult.parse(info));
                         }
                     } else {
-                        staffs.push(FilmStaffResult.PARSE(property.StffInfo));
+                        staffs.push(FilmStaffResult.parse(property.StffInfo));
                     }
                 }
 

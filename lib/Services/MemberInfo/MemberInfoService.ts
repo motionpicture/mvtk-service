@@ -52,7 +52,7 @@ export default class MemberInfoService extends Service {
             let memberInfoResult: MemberInfoResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                memberInfoResult = MemberInfoResult.PARSE(result);
+                memberInfoResult = MemberInfoResult.parse(result);
             }
 
             cb(err, response, memberInfoResult);

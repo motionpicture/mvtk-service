@@ -47,10 +47,10 @@ export default class SeatInfoSyncResult {
                 if (property !== null && property.hasOwnProperty('MkknshInfo')) {
                     if (Array.isArray(property.MkknshInfo)) {
                         for (const info of property.MkknshInfo) {
-                            mkknshInfos.push(InvalidNoteTypeResult.PARSE(info));
+                            mkknshInfos.push(InvalidNoteTypeResult.parse(info));
                         }
                     } else {
-                        mkknshInfos.push(InvalidNoteTypeResult.PARSE(property.MkknshInfo));
+                        mkknshInfos.push(InvalidNoteTypeResult.parse(property.MkknshInfo));
                     }
                 }
 
@@ -61,10 +61,10 @@ export default class SeatInfoSyncResult {
                 if (property !== null && property.hasOwnProperty('MkknShsiInfo')) {
                     if (Array.isArray(property.MkknShsiInfo)) {
                         for (const info of property.MkknShsiInfo) {
-                            mkknShsiInfos.push(InvalidTicketDetailedResult.PARSE(info));
+                            mkknShsiInfos.push(InvalidTicketDetailedResult.parse(info));
                         }
                     } else {
-                        mkknShsiInfos.push(InvalidTicketDetailedResult.PARSE(property.MkknShsiInfo));
+                        mkknShsiInfos.push(InvalidTicketDetailedResult.parse(property.MkknShsiInfo));
                     }
                 }
 

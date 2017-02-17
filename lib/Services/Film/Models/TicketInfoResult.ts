@@ -109,10 +109,10 @@ export default class TicketInfoResult {
                 const types = [];
                 if (Array.isArray(property.KnshkmmisiInfo)) {
                     for (const info of property.KnshkmmisiInfo) {
-                        types.push(TicketInfoTypeResult.PARSE(info));
+                        types.push(TicketInfoTypeResult.parse(info));
                     }
                 } else {
-                    types.push(TicketInfoTypeResult.PARSE(property.KnshkmmisiInfo));
+                    types.push(TicketInfoTypeResult.parse(property.KnshkmmisiInfo));
                 }
 
                 result[normalizedName] = types;
@@ -122,10 +122,10 @@ export default class TicketInfoResult {
                 if (property !== null && property.hasOwnProperty('KnshInfo')) {
                     if (Array.isArray(property.KnshInfo)) {
                         for (const info of property.KnshInfo) {
-                            types.push(TicketInfoTypeResult.PARSE(info));
+                            types.push(TicketInfoTypeResult.parse(info));
                         }
                     } else {
-                        types.push(TicketInfoTypeResult.PARSE(property.KnshInfo));
+                        types.push(TicketInfoTypeResult.parse(property.KnshInfo));
                     }
                 }
 

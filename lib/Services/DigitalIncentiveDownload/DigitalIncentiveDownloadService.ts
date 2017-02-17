@@ -32,7 +32,7 @@ export default class DigitalIncentiveDownloadService extends Service {
             let getDigitalIncentiveDownloadResult: GetDigitalIncentiveDownloadResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getDigitalIncentiveDownloadResult = GetDigitalIncentiveDownloadResult.PARSE(result);
+                getDigitalIncentiveDownloadResult = GetDigitalIncentiveDownloadResult.parse(result);
             }
 
             cb(err, response, getDigitalIncentiveDownloadResult);
@@ -58,7 +58,7 @@ export default class DigitalIncentiveDownloadService extends Service {
             let getDigitalIncentiveDownloadLinkListResult: GetDigitalIncentiveDownloadLinkListResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getDigitalIncentiveDownloadLinkListResult = GetDigitalIncentiveDownloadLinkListResult.PARSE(result);
+                getDigitalIncentiveDownloadLinkListResult = GetDigitalIncentiveDownloadLinkListResult.parse(result);
             }
 
             cb(err, response, getDigitalIncentiveDownloadLinkListResult);

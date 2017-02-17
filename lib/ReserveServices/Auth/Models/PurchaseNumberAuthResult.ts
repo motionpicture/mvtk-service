@@ -67,10 +67,10 @@ export default class PurchaseNumberAuthResult {
                 if (property !== null && property.hasOwnProperty('YkknInfo')) {
                     if (Array.isArray(property.YkknInfo)) {
                         for (const info of property.YkknInfo) {
-                            ykknInfos.push(YkknInfoResult.PARSE(info));
+                            ykknInfos.push(YkknInfoResult.parse(info));
                         }
                     } else {
-                        ykknInfos.push(YkknInfoResult.PARSE(property.YkknInfo));
+                        ykknInfos.push(YkknInfoResult.parse(property.YkknInfo));
                     }
                 }
 
@@ -81,10 +81,10 @@ export default class PurchaseNumberAuthResult {
                 if (property !== null && property.hasOwnProperty('MkknInfo')) {
                     if (Array.isArray(property.MkknInfo)) {
                         for (const info of property.MkknInfo) {
-                            mkknInfos.push(MkknInfoResult.PARSE(info));
+                            mkknInfos.push(MkknInfoResult.parse(info));
                         }
                     } else {
-                        mkknInfos.push(MkknInfoResult.PARSE(property.MkknInfo));
+                        mkknInfos.push(MkknInfoResult.parse(property.MkknInfo));
                     }
                 }
 

@@ -26,10 +26,10 @@ export default class ShyzmtcktInfoListResult {
                 if (property !== null && property.hasOwnProperty('ShyzmtcktInfo')) {
                     if (Array.isArray(property.ShyzmtcktInfo)) {
                         for (const info of property.ShyzmtcktInfo) {
-                            infos.push(ShyzmtcktInfoResult.PARSE(info));
+                            infos.push(ShyzmtcktInfoResult.parse(info));
                         }
                     } else {
-                        infos.push(ShyzmtcktInfoResult.PARSE(property.ShyzmtcktInfo));
+                        infos.push(ShyzmtcktInfoResult.parse(property.ShyzmtcktInfo));
                     }
                 }
 

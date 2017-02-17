@@ -35,7 +35,7 @@ export default class GiftCardService extends Service {
             let mvtkGiftCardBalanceInquiryResult: MvtkGiftCardBalanceInquiryResult | null = null;
 
             if (result.RESULT_INFO.STATUS === 'N00000') {
-                mvtkGiftCardBalanceInquiryResult = MvtkGiftCardBalanceInquiryResult.PARSE(result);
+                mvtkGiftCardBalanceInquiryResult = MvtkGiftCardBalanceInquiryResult.parse(result);
             }
 
             cb(err, response, mvtkGiftCardBalanceInquiryResult);
@@ -63,10 +63,10 @@ export default class GiftCardService extends Service {
             if (result.RESULT_INFO.STATUS === 'N00000') {
                 if (Array.isArray(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut)) {
                     for (const info of result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut) {
-                        mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult.PARSE(info));
+                        mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult.parse(info));
                     }
                 } else {
-                    mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult.PARSE(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut));
+                    mvtkGiftCardEntryResults.push(MvtkGiftCardEntryResult.parse(result.MVTKGFTCRD_INFO_OUT.MvtkgftcrdInfoOut));
                 }
             }
 

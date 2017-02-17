@@ -1,5 +1,6 @@
 /**
  * ムビチケサービス共通の定数
+ * @namespace Common.Util.Constants
  */
 declare const constants: {
     DVC_TYP_PC: string;

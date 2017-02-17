@@ -43,7 +43,7 @@ export default class MovieLogService extends Service {
             if (err) return cb(err, response, getFavoriteFilmListResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getFavoriteFilmListResult = GetFavoriteFilmListResult.PARSE(result);
+                getFavoriteFilmListResult = GetFavoriteFilmListResult.parse(result);
             }
 
             cb(err, response, getFavoriteFilmListResult);
@@ -74,7 +74,7 @@ export default class MovieLogService extends Service {
             if (err) return cb(err, response, getUnusedTicketListResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getUnusedTicketListResult = GetUnusedTicketListResult.PARSE(result);
+                getUnusedTicketListResult = GetUnusedTicketListResult.parse(result);
             }
 
             cb(err, response, getUnusedTicketListResult);
@@ -107,7 +107,7 @@ export default class MovieLogService extends Service {
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
                 || result.RESULT_INFO.STATUS === 'L001') {
-                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
+                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
             }
 
             cb(err, response, shyzmtcktInfoListResult);
@@ -140,7 +140,7 @@ export default class MovieLogService extends Service {
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
                 || result.RESULT_INFO.STATUS === 'L001') {
-                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
+                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
             }
 
             cb(err, response, shyzmtcktInfoListResult);
@@ -173,7 +173,7 @@ export default class MovieLogService extends Service {
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
                 || result.RESULT_INFO.STATUS === 'L001') {
-                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
+                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
             }
 
             cb(err, response, shyzmtcktInfoListResult);
@@ -206,7 +206,7 @@ export default class MovieLogService extends Service {
             // リスト無しの時はSTATUS_CHECK_ERROR(L001)が返る
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
                 || result.RESULT_INFO.STATUS === 'L001') {
-                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.PARSE(result);
+                shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
             }
 
             cb(err, response, shyzmtcktInfoListResult);
@@ -333,10 +333,10 @@ export default class MovieLogService extends Service {
 
                 if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
                     for (const zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
-                        seatReservationStatusListResults.push(SeatReservationStatusListResult.PARSE(zskyykjykyInfo));
+                        seatReservationStatusListResults.push(SeatReservationStatusListResult.parse(zskyykjykyInfo));
                     }
                 } else {
-                    seatReservationStatusListResults.push(SeatReservationStatusListResult.PARSE(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
+                    seatReservationStatusListResults.push(SeatReservationStatusListResult.parse(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
                 }
             }
 
@@ -367,10 +367,10 @@ export default class MovieLogService extends Service {
 
                 if (Array.isArray(result.KNSHKRK_INFO.KnshkrkInfo)) {
                     for (const knshkrkInfo of result.KNSHKRK_INFO.KnshkrkInfo) {
-                        watchRecordResults.push(WatchRecordResult.PARSE(knshkrkInfo));
+                        watchRecordResults.push(WatchRecordResult.parse(knshkrkInfo));
                     }
                 } else {
-                    watchRecordResults.push(WatchRecordResult.PARSE(result.KNSHKRK_INFO.KnshkrkInfo));
+                    watchRecordResults.push(WatchRecordResult.parse(result.KNSHKRK_INFO.KnshkrkInfo));
                 }
             }
 
@@ -401,10 +401,10 @@ export default class MovieLogService extends Service {
 
                 if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
                     for (const zskyykjykyInfo of result.ZSKYYKJYKY_INFO.ZskyykjykyInfo) {
-                        sentGiftStatusListResults.push(SentGiftStatusListResult.PARSE(zskyykjykyInfo));
+                        sentGiftStatusListResults.push(SentGiftStatusListResult.parse(zskyykjykyInfo));
                     }
                 } else {
-                    sentGiftStatusListResults.push(SentGiftStatusListResult.PARSE(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
+                    sentGiftStatusListResults.push(SentGiftStatusListResult.parse(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo));
                 }
             }
 

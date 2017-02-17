@@ -36,10 +36,10 @@ export default class GetFavoriteFilmListResult {
                 if (property !== null && property.hasOwnProperty('SkhnInfo')) {
                     if (Array.isArray(property.SkhnInfo)) {
                         for (const info of property.SkhnInfo) {
-                            skhnInfos.push(FilmResult.PARSE(info));
+                            skhnInfos.push(FilmResult.parse(info));
                         }
                     } else {
-                        skhnInfos.push(FilmResult.PARSE(property.SkhnInfo));
+                        skhnInfos.push(FilmResult.parse(property.SkhnInfo));
                     }
                 }
 

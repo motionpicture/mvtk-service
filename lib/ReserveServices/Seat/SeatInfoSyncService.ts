@@ -28,7 +28,7 @@ export default class SeatInfoSyncService extends Service {
                 if (err || !response) return reject(err);
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                    seatInfoSyncResult = SeatInfoSyncResult.PARSE(result);
+                    seatInfoSyncResult = SeatInfoSyncResult.parse(result);
                     return resolve(seatInfoSyncResult);
                 } else {
                     return reject(new Error(result.RESULT_INFO.MESSAGE));

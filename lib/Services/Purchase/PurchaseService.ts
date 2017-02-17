@@ -70,9 +70,9 @@ export default class PurchaseService extends Service {
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                 if (result.CRDJHUM_FLG !== '0') {
                     if (Array.isArray(result.CRDTCRD_INFO.CrdtcrdInfo)) {
-                        creditCardInfoResult = CreditCardInfoResult.PARSE(result.CRDTCRD_INFO.CrdtcrdInfo[0]);
+                        creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo[0]);
                     } else {
-                        creditCardInfoResult = CreditCardInfoResult.PARSE(result.CRDTCRD_INFO.CrdtcrdInfo);
+                        creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo);
                     }
                 }
             }
@@ -105,7 +105,7 @@ export default class PurchaseService extends Service {
             let ticketInfoResult: TicketInfoResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                ticketInfoResult = TicketInfoResult.PARSE(result);
+                ticketInfoResult = TicketInfoResult.parse(result);
             }
 
             cb(err, response, ticketInfoResult);
@@ -159,7 +159,7 @@ export default class PurchaseService extends Service {
             let getGmoExecTranResult: GetGmoExecTranResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getGmoExecTranResult = GetGmoExecTranResult.PARSE(result);
+                getGmoExecTranResult = GetGmoExecTranResult.parse(result);
             }
 
             cb(err, response, getGmoExecTranResult);
@@ -252,10 +252,10 @@ export default class PurchaseService extends Service {
             if (result !== null && result.hasOwnProperty('SelectIchjknrInfoOut')) {
                 if (Array.isArray(result.SelectIchjknrInfoOut)) {
                     for (const info of result.SelectIchjknrInfoOut) {
-                        selectIchjknrInfoResults.push(SelectIchjknrInfoResult.PARSE(info));
+                        selectIchjknrInfoResults.push(SelectIchjknrInfoResult.parse(info));
                     }
                 } else {
-                    selectIchjknrInfoResults.push(SelectIchjknrInfoResult.PARSE(result.SelectIchjknrInfoOut));
+                    selectIchjknrInfoResults.push(SelectIchjknrInfoResult.parse(result.SelectIchjknrInfoOut));
                 }
             }
 
@@ -313,12 +313,12 @@ export default class PurchaseService extends Service {
                 const infos = result.GetTsuryShhziInfoOut.KeyValueOfstringGetTsuryShhziInfoOutPz9MKw_Pl;
                 if (Array.isArray(infos)) {
                     for (const info of infos) {
-                        const getTsuryShhziInfoResult = GetTsuryShhziInfoResult.PARSE(info.Value);
+                        const getTsuryShhziInfoResult = GetTsuryShhziInfoResult.parse(info.Value);
                         getTsuryShhziInfoResult.knshknknrmisiNo = info.Key;
                         getTsuryShhziInfoResults.push(getTsuryShhziInfoResult);
                     }
                 } else {
-                    const getTsuryShhziInfoResult = GetTsuryShhziInfoResult.PARSE(infos.Value);
+                    const getTsuryShhziInfoResult = GetTsuryShhziInfoResult.parse(infos.Value);
                     getTsuryShhziInfoResult.knshknknrmisiNo = infos.Key;
                     getTsuryShhziInfoResults.push(getTsuryShhziInfoResult);
                 }
@@ -349,7 +349,7 @@ export default class PurchaseService extends Service {
             let getShhriInfoByKeyResult: GetShhriInfoByKeyResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getShhriInfoByKeyResult = GetShhriInfoByKeyResult.PARSE(result);
+                getShhriInfoByKeyResult = GetShhriInfoByKeyResult.parse(result);
             }
 
             cb(err, response, getShhriInfoByKeyResult);
@@ -398,7 +398,7 @@ export default class PurchaseService extends Service {
             if (err) return cb(err, response, getQuestionnaireListResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getQuestionnaireListResult = GetQuestionnaireListResult.PARSE(result);
+                getQuestionnaireListResult = GetQuestionnaireListResult.parse(result);
             }
 
             cb(err, response, getQuestionnaireListResult);

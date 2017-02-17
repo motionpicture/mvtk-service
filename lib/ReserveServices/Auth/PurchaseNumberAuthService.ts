@@ -27,7 +27,7 @@ export default class PurchaseNumberAuthService extends Service {
             this.call(method, args.toXml(), (err, response, result) => {
                 if (err || !response) return reject(err);
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                    purchaseNumberAuthResult = PurchaseNumberAuthResult.PARSE(result);
+                    purchaseNumberAuthResult = PurchaseNumberAuthResult.parse(result);
                     return resolve(purchaseNumberAuthResult);
                 } else {
                     return reject(new Error(result.RESULT_INFO.MESSAGE));

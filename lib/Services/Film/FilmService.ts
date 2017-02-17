@@ -30,7 +30,7 @@ export default class FilmService extends Service {
             if (err) return cb(err, response, filmResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                filmResult = FilmResult.PARSE(result);
+                filmResult = FilmResult.parse(result);
             }
 
             cb(err, response, filmResult);
@@ -59,10 +59,10 @@ export default class FilmService extends Service {
 
                 if (Array.isArray(result.SKHN_INFO.SkhnInfo)) {
                     for (const skhnInfo of result.SKHN_INFO.SkhnInfo) {
-                        filmResults.push(FilmResult.PARSE(skhnInfo));
+                        filmResults.push(FilmResult.parse(skhnInfo));
                     }
                 } else {
-                    filmResults.push(FilmResult.PARSE(result.SKHN_INFO.SkhnInfo));
+                    filmResults.push(FilmResult.parse(result.SKHN_INFO.SkhnInfo));
                 }
             }
             // console.log('filmResults', filmResults[0])
@@ -92,10 +92,10 @@ export default class FilmService extends Service {
 
                 if (Array.isArray(result.KNSHKN_INFO.KnshknInfo)) {
                     for (const knshknInfo of result.KNSHKN_INFO.KnshknInfo) {
-                        ticketInfoResult.push(TicketInfoResult.PARSE(knshknInfo));
+                        ticketInfoResult.push(TicketInfoResult.parse(knshknInfo));
                     }
                 } else {
-                    ticketInfoResult.push(TicketInfoResult.PARSE(result.KNSHKN_INFO.KnshknInfo));
+                    ticketInfoResult.push(TicketInfoResult.parse(result.KNSHKN_INFO.KnshknInfo));
                 }
             }
 
@@ -130,10 +130,10 @@ export default class FilmService extends Service {
                 if (result.BNNR_INFO !== null && result.BNNR_INFO.hasOwnProperty('BnnrInfo')) {
                     if (Array.isArray(result.BNNR_INFO.BnnrInfo)) {
                         for (const info of result.BNNR_INFO.BnnrInfo) {
-                            bnnrInfoResults.push(BnnrInfoResult.PARSE(info));
+                            bnnrInfoResults.push(BnnrInfoResult.parse(info));
                         }
                     } else {
-                        bnnrInfoResults.push(BnnrInfoResult.PARSE(result.BNNR_INFO.BnnrInfo));
+                        bnnrInfoResults.push(BnnrInfoResult.parse(result.BNNR_INFO.BnnrInfo));
                     }
                 }
             }
@@ -166,7 +166,7 @@ export default class FilmService extends Service {
             if (err) return cb(err, response, getTrailerDetailResult);
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                getTrailerDetailResult = GetTrailerDetailResult.PARSE(result);
+                getTrailerDetailResult = GetTrailerDetailResult.parse(result);
             }
 
             cb(err, response, getTrailerDetailResult);
@@ -204,10 +204,10 @@ export default class FilmService extends Service {
                 if (result.DGTLINCNTV_INFO !== null && result.DGTLINCNTV_INFO.hasOwnProperty('DgtlincntvInfo')) {
                     if (Array.isArray(result.DGTLINCNTV_INFO.DgtlincntvInfo)) {
                         for (const info of result.DGTLINCNTV_INFO.DgtlincntvInfo) {
-                            dgtlincntvInfoResults.push(DgtlincntvInfoResult.PARSE(info));
+                            dgtlincntvInfoResults.push(DgtlincntvInfoResult.parse(info));
                         }
                     } else {
-                        dgtlincntvInfoResults.push(DgtlincntvInfoResult.PARSE(result.DGTLINCNTV_INFO.DgtlincntvInfo));
+                        dgtlincntvInfoResults.push(DgtlincntvInfoResult.parse(result.DGTLINCNTV_INFO.DgtlincntvInfo));
                     }
                 }
             }
