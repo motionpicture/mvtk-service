@@ -34,7 +34,8 @@ export default class GiftCardCancelResult {
      */
     public giftcardstatus: string = '';
 
-    public static PARSE(resultObject: any): GiftCardCancelResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GiftCardCancelResult {
         const result = new GiftCardCancelResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

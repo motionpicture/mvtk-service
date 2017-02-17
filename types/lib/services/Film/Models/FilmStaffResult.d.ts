@@ -7,5 +7,10 @@ export default class FilmStaffResult {
     stffJmbtsNm: string;
     stffYkwrNm: string;
     stffJmbtsCd: string;
-    static PARSE(resultObject: any): FilmStaffResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmStaffResult} 作品スタッフout
+     */
+    static parse(resultObject: any): FilmStaffResult;
 }

@@ -22,7 +22,8 @@ export default class GetGmoExecTranResult {
     public kssierrrshriTyp: string = ''; // 決済エラー種類区分
     public kssierrrmssgTxt: string = ''; // 決済エラーメッセージ本文
 
-    public static PARSE(resultObject: any): GetGmoExecTranResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetGmoExecTranResult {
         const result = new GetGmoExecTranResult();
 
         Object.keys(resultObject).forEach((propertyName) => {

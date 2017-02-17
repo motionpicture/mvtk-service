@@ -17,8 +17,13 @@ export default class ShyzmtcktInfoResult {
     public knshInfo: KnshInfo[]; // 券種情報(itemArray)
     public dgtlincntvdwnlodgmnUrl: string; // デジタルインセンティブダウンロード画面ＵＲＬ
     public knytcktSttsKbn: string; // 購入チケットステータス区分
-
-    public static PARSE(resultObject: any): ShyzmtcktInfoResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {ShyzmtcktInfoResult} 作品詳細情報out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): ShyzmtcktInfoResult {
         const result = new ShyzmtcktInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

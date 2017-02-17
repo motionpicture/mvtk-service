@@ -1,6 +1,6 @@
 /**
- * MkknInfo
- * @class
+ * MkknInfoResultout
+ * @class MkknInfoResult
  */
 export default class MkknInfoResult {
     /**
@@ -41,7 +41,9 @@ export default class MkknInfoResult {
     shySkhnNm: string;
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {MkknInfoResult} MkknInfoResultout
      */
-    static PARSE(resultObject: any): MkknInfoResult;
+    static parse(resultObject: any): MkknInfoResult;
 }

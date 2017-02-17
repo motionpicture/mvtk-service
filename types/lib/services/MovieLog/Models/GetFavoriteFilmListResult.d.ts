@@ -16,5 +16,10 @@ export default class GetFavoriteFilmListResult {
      * 作品詳細情報(itemArray)
      */
     skhnInfo: FilmResult[];
-    static PARSE(resultObject: any): GetFavoriteFilmListResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {GetFavoriteFilmListResult} 観たい作品検索out
+     */
+    static parse(resultObject: any): GetFavoriteFilmListResult;
 }

@@ -7,7 +7,8 @@ import * as CommonUtil from '../../../Common/Util/Util';
 export default class WebMoneyEntryResult {
     public rdirktUrl: string; // リダイレクトURL
 
-    public static PARSE(resultObject: any): WebMoneyEntryResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): WebMoneyEntryResult {
         const result = new WebMoneyEntryResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

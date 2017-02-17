@@ -2,7 +2,7 @@ import BaseIn from '../../../Common/models/BaseIn';
 
 /**
  * デジタルインセンティブダウンロードin
- * @
+ * @interface IGetDigitalIncentiveDownloadIn
  */
 export interface IGetDigitalIncentiveDownloadIn {
     /**
@@ -21,7 +21,7 @@ export interface IGetDigitalIncentiveDownloadIn {
 
 /**
  * デジタルインセンティブダウンロードinクラス
- * @class
+ * @class GetDigitalIncentiveDownloadIn
  * @extends {BaseIn}
  */
 export class GetDigitalIncentiveDownloadIn extends BaseIn {

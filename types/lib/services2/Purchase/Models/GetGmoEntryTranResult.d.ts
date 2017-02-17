@@ -23,5 +23,5 @@ export default class GetGmoEntryTranResult {
      * 決済エラーメッセージ本文
      */
     kssierrrmssgTxt: string;
-    static PARSE(resultObject: any): GetGmoEntryTranResult;
+    static parse(resultObject: any): GetGmoEntryTranResult;
 }

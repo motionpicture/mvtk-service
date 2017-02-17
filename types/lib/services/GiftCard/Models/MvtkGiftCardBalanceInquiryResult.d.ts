@@ -36,7 +36,7 @@ export interface RymisiInfo {
     HHYJ_FLG: string;
 }
 /**
- * ムビチケギフトカード残高確認
+ * ムビチケギフトカード残高確認out
  * @class
  */
 export default class MvtkGiftCardBalanceInquiryResult {
@@ -76,5 +76,10 @@ export default class MvtkGiftCardBalanceInquiryResult {
      * 利用明細情報(itemArray)
      */
     rymisiInfo: RymisiInfo[];
-    static PARSE(resultObject: any): MvtkGiftCardBalanceInquiryResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {MvtkGiftCardBalanceInquiryResult} ムビチケギフトカード残高確認out
+     */
+    static parse(resultObject: any): MvtkGiftCardBalanceInquiryResult;
 }

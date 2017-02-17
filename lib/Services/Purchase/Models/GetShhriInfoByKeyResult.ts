@@ -9,7 +9,8 @@ export default class GetShhriInfoByKeyResult {
     public azkrknshhriskTyp: string; // 預り金支払先区分
     public hmbijthredmgndiknshhriskTyp: string; // 販売時3Dメガネ代金支払先区分
 
-    public static PARSE(resultObject: any): GetShhriInfoByKeyResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetShhriInfoByKeyResult {
         const result = new GetShhriInfoByKeyResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

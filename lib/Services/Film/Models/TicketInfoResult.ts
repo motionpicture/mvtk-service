@@ -93,8 +93,13 @@ export default class TicketInfoResult {
      * 券種情報(itemArray)
      */
     public knshInfo: TicketInfoTypeResult[] = [];
-
-    public static PARSE(resultObject: any): TicketInfoResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {TicketInfoResult} 鑑賞券情報検索out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): TicketInfoResult {
         const result = new TicketInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

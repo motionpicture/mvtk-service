@@ -1,7 +1,7 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
- * 作品詳細情報
+ * 作品詳細情報out
  * @class
  */
 export default class FilmResult {
@@ -65,8 +65,13 @@ export default class FilmResult {
      * 座席予約終了フラグ
      */
     public zskyykshryFlg: string;
-
-    public static PARSE(resultObject: any): FilmResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmResult} 作品詳細情報out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): FilmResult {
         const result = new FilmResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

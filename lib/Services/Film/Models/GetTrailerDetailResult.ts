@@ -1,14 +1,19 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
- * 予告編取得
+ * 予告編取得out
  * @class
  */
 export default class GetTrailerDetailResult {
     public skhnCd: string; // 作品コード
     public ykkhnInfo: YkkhnInfo[]; // 予告編情報
-
-    public static PARSE(resultObject: any): GetTrailerDetailResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {GetTrailerDetailResult} 予告編取得out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetTrailerDetailResult {
         const result = new GetTrailerDetailResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

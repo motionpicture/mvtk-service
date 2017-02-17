@@ -1,6 +1,6 @@
 /**
- * 無効券種情報
- * @class
+ * 無効券種情報out
+ * @class InvalidNoteTypeResult
  */
 export default class InvalidNoteTypeResult {
     /**
@@ -21,7 +21,9 @@ export default class InvalidNoteTypeResult {
     mkMiNum: string;
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {InvalidNoteTypeResult} 無効券種情報out
      */
-    static PARSE(resultObject: any): InvalidNoteTypeResult;
+    static parse(resultObject: any): InvalidNoteTypeResult;
 }

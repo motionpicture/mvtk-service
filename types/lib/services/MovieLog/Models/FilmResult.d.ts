@@ -1,5 +1,5 @@
 /**
- * 作品詳細情報
+ * 作品詳細情報out
  * @class
  */
 export default class FilmResult {
@@ -63,5 +63,10 @@ export default class FilmResult {
      * 座席予約終了フラグ
      */
     zskyykshryFlg: string;
-    static PARSE(resultObject: any): FilmResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmResult} 作品詳細情報out
+     */
+    static parse(resultObject: any): FilmResult;
 }

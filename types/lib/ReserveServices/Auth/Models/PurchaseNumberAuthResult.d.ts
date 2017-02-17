@@ -1,8 +1,8 @@
 import MkknInfoResult from './MkknInfoResult';
 import YkknInfoResult from './YkknInfoResult';
 /**
- * 購入管理番号認証Out
- * @class
+ * 購入管理番号認証out
+ * @class PurchaseNumberAuthResult
  */
 export default class PurchaseNumberAuthResult {
     /**
@@ -47,7 +47,9 @@ export default class PurchaseNumberAuthResult {
     mkknInfo: MkknInfoResult[];
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {PurchaseNumberAuthResult} 購入管理番号認証out
      */
-    static PARSE(resultObject: any): PurchaseNumberAuthResult;
+    static parse(resultObject: any): PurchaseNumberAuthResult;
 }

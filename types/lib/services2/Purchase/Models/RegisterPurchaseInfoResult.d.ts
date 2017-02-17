@@ -19,5 +19,5 @@ export default class RegisterPurchaseInfoResult {
      * 決済エラーメッセージ
      */
     kssierrrmssgTxt: string;
-    static PARSE(resultObject: any): RegisterPurchaseInfoResult;
+    static parse(resultObject: any): RegisterPurchaseInfoResult;
 }

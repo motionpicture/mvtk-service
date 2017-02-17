@@ -18,8 +18,13 @@ export default class GetFavoriteFilmListResult {
      * 作品詳細情報(itemArray)
      */
     public skhnInfo: FilmResult[];
-
-    public static PARSE(resultObject: any): GetFavoriteFilmListResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {GetFavoriteFilmListResult} 観たい作品検索out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetFavoriteFilmListResult {
         const result = new GetFavoriteFilmListResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

@@ -1,8 +1,8 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
- * MkknInfo
- * @class
+ * MkknInfoResultout
+ * @class MkknInfoResult
  */
 export default class MkknInfoResult {
     /**
@@ -44,9 +44,12 @@ export default class MkknInfoResult {
 
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {MkknInfoResult} MkknInfoResultout
      */
-    public static PARSE(resultObject: any): MkknInfoResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): MkknInfoResult {
         const result = new MkknInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

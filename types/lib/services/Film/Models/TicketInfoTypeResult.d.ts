@@ -19,5 +19,10 @@ export default class TicketInfoTypeResult {
     knshkmmiNum: string;
     parkntntiknshFlg: string;
     kmawsskknshTyp: string;
-    static PARSE(resultObject: any): TicketInfoTypeResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {TicketInfoTypeResult} 鑑賞券明細情報out
+     */
+    static parse(resultObject: any): TicketInfoTypeResult;
 }

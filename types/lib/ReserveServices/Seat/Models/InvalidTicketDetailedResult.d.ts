@@ -1,6 +1,6 @@
 /**
- * 無効券詳細情報
- * @class
+ * 無効券詳細情報out
+ * @class InvalidTicketDetailedResult
  */
 export default class InvalidTicketDetailedResult {
     /**
@@ -41,7 +41,9 @@ export default class InvalidTicketDetailedResult {
     shySkhnNm: string;
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {InvalidTicketDetailedResult} 無効券詳細情報out
      */
-    static PARSE(resultObject: any): InvalidTicketDetailedResult;
+    static parse(resultObject: any): InvalidTicketDetailedResult;
 }

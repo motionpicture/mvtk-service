@@ -4,7 +4,7 @@ import FilmPhotoGalleryResult from './FilmPhotoGalleryResult';
 import FilmStaffResult from './FilmStaffResult';
 import TicketInfoResult from './TicketInfoResult';
 /**
- * 作品
+ * 作品out
  * @class
  */
 export default class FilmResult {
@@ -192,7 +192,12 @@ export default class FilmResult {
      * 鑑賞券情報(itemArray)
      */
     knshknInfo: TicketInfoResult[];
-    static PARSE(resultObject: any): FilmResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmResult} 作品out
+     */
+    static parse(resultObject: any): FilmResult;
     /**
      * 公開状態かどうかを取得する
      *

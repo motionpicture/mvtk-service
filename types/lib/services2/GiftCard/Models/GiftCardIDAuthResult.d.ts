@@ -27,5 +27,5 @@ export default class GiftCardIDAuthResult {
      * 他決済利用金額
      */
     tkssiryukngk: string;
-    static PARSE(resultObject: any): GiftCardIDAuthResult;
+    static parse(resultObject: any): GiftCardIDAuthResult;
 }

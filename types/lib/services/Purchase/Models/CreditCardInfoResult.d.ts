@@ -8,7 +8,7 @@ export default class CreditCardInfoResult {
     crdykkgn: string;
     mignn: string;
     scrtyCd: string;
-    static PARSE(resultObject: any): CreditCardInfoResult;
+    static parse(resultObject: any): CreditCardInfoResult;
     /**
      * カード番号の一部を取得
      *

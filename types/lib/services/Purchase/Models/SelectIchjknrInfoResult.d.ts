@@ -43,5 +43,5 @@ export default class SelectIchjknrInfoResult {
     eishhshkTyp: string;
     knshTyp: string;
     knshkbnNm: string;
-    static PARSE(resultObject: any): SelectIchjknrInfoResult;
+    static parse(resultObject: any): SelectIchjknrInfoResult;
 }

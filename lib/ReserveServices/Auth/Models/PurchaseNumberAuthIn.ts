@@ -2,6 +2,7 @@ import BaseIn from '../../../Common/models/BaseIn';
 
 /**
  * 購入管理番号情報
+ * @interface KnyknrNoInfoIn
  */
 export interface KnyknrNoInfoIn {
     /**
@@ -16,6 +17,7 @@ export interface KnyknrNoInfoIn {
 
 /**
  * 購入管理番号認証In
+ * @interface IPurchaseNumberAuthIn
  */
 export interface IPurchaseNumberAuthIn {
     /**
@@ -46,7 +48,7 @@ export interface IPurchaseNumberAuthIn {
 
 /**
  * 購入管理番号認証Inクラス
- * @class
+ * @class PurchaseNumberAuthIn
  * @extends {BaseIn}
  */
 export class PurchaseNumberAuthIn extends BaseIn {

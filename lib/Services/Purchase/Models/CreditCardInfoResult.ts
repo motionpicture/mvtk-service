@@ -11,7 +11,8 @@ export default class CreditCardInfoResult {
     public mignn: string; // 名義人
     public scrtyCd: string; // セキュリティコード
 
-    public static PARSE(resultObject: any): CreditCardInfoResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): CreditCardInfoResult {
         const result = new CreditCardInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

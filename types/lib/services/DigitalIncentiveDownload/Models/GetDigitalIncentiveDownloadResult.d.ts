@@ -10,5 +10,10 @@ export default class GetDigitalIncentiveDownloadResult {
      * ダウンロードファイルバイナリデータ
      */
     dwnlodflDt: string;
-    static PARSE(resultObject: any): GetDigitalIncentiveDownloadResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {GetDigitalIncentiveDownloadResult} デジタルインセンティブダウンロードout
+     */
+    static parse(resultObject: any): GetDigitalIncentiveDownloadResult;
 }

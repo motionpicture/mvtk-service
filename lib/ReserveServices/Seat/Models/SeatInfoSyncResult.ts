@@ -3,7 +3,7 @@ import InvalidNoteTypeResult from './InvalidNoteTypeResult';
 import InvalidTicketDetailedResult from './InvalidTicketDetailedResult';
 
 /**
- * 購入管理番号認証Out
+ * 購入管理番号認証out
  * @class
  */
 export default class SeatInfoSyncResult {
@@ -30,9 +30,12 @@ export default class SeatInfoSyncResult {
 
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {SeatInfoSyncResult} 購入管理番号認証out
      */
-    public static PARSE(resultObject: any): SeatInfoSyncResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): SeatInfoSyncResult {
         const seatInfoSyncServiceResult = new SeatInfoSyncResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

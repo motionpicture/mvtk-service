@@ -22,7 +22,8 @@ export default class RegisterPurchaseInfoResult {
      */
     public kssierrrmssgTxt: string;
 
-    public static PARSE(resultObject: any): RegisterPurchaseInfoResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): RegisterPurchaseInfoResult {
         const result = new RegisterPurchaseInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

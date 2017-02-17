@@ -10,5 +10,5 @@ export default class GetTsuryShhziInfoResult {
     shhziRt: string;
     shhziTyp: string;
     shhziUnip: string;
-    static PARSE(resultObject: any): GetTsuryShhziInfoResult;
+    static parse(resultObject: any): GetTsuryShhziInfoResult;
 }

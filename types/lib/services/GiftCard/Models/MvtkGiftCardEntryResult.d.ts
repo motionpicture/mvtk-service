@@ -13,5 +13,10 @@ export default class MvtkGiftCardEntryResult {
     synnNo: string;
     syrykyDt: string;
     giftcardstatus: string;
-    static PARSE(resultObject: any): MvtkGiftCardEntryResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {MvtkGiftCardEntryResult} ギフトカード利用out
+     */
+    static parse(resultObject: any): MvtkGiftCardEntryResult;
 }

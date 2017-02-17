@@ -13,11 +13,11 @@ describe('購入管理番号認証サービス', () => {
             jhshbtsCd: '1',
             knyknrNoInfoIn: [
                 {
-                    KNYKNR_NO: '6890200303',
+                    KNYKNR_NO: '3472695908',
                     PIN_CD: '7648' // PINコード
                 }
             ],
-            skhnCd: '16140',
+            skhnCd: '058843',
             stCd: '18',
             jeiYmd: '2017/02/16' //上映年月日
         }).then((result) => {
@@ -49,6 +49,45 @@ describe('購入管理番号認証サービス', () => {
         // tslint:disable-next-line:variable-name
         (_err) => {
             done();
+        });
+    });
+});
+describe('座席指定情報連携サービス', () => {
+    it('座席指定情報連携', (done) => {
+        const service = mvtkService.createSeatInfoSyncService();
+        service.seatInfoSync({
+            kgygishCd: 'SSK000',
+            yykDvcTyp: '0',
+            trkshFlg: '1',
+            kgygishSstmZskyykNo: '',
+            kgygishUsrZskyykNo: '',
+            jeiDt: '2017/01/01',
+            kijYmd: '2017/01/01',
+            stCd: '18',
+            screnCd: '0',
+            knyknrNoInfo: [
+                {
+                    KNYKNR_NO: '',
+                    PIN_CD: '',
+                    KNSH_INFO: [
+                        {
+                            KNSH_TYP: '',
+                            MI_NUM: '' //枚数
+                        }
+                    ]
+                }
+            ],
+            zskInfo: [
+                {
+                    ZSK_CD: '' //座席コード
+                }
+            ],
+            skhnCd: '0' //作品コード
+        }).then((result) => {
+            console.log(result);
+            done();
+        }, (err) => {
+            done(new Error(err.message));
         });
     });
 });

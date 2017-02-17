@@ -38,7 +38,7 @@ export interface RymisiInfo {
 }
 
 /**
- * ムビチケギフトカード残高確認
+ * ムビチケギフトカード残高確認out
  * @class
  */
 export default class MvtkGiftCardBalanceInquiryResult {
@@ -79,8 +79,13 @@ export default class MvtkGiftCardBalanceInquiryResult {
      * 利用明細情報(itemArray)
      */
     public rymisiInfo: RymisiInfo[];
-
-    public static PARSE(resultObject: any): MvtkGiftCardBalanceInquiryResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {MvtkGiftCardBalanceInquiryResult} ムビチケギフトカード残高確認out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): MvtkGiftCardBalanceInquiryResult {
         const result = new MvtkGiftCardBalanceInquiryResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

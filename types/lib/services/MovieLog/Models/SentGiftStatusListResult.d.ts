@@ -36,5 +36,10 @@ export default class SentGiftStatusListResult {
      * 券種別会員購入鑑賞情報(itemArray)
      */
     knshbtskiinknygftInfo: KnshbtskiinknygftInfo[];
-    static PARSE(resultObject: any): SentGiftStatusListResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {SentGiftStatusListResult} ギフト送信状況リスト検索out
+     */
+    static parse(resultObject: any): SentGiftStatusListResult;
 }

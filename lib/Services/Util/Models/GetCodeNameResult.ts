@@ -31,7 +31,8 @@ export default class GetCodeNameResult {
      */
     public typInfo: TypInfo[];
 
-    public static PARSE(resultObject: any): GetCodeNameResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetCodeNameResult {
         const result = new GetCodeNameResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

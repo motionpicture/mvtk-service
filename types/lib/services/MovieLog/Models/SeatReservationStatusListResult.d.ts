@@ -45,5 +45,10 @@ export default class SeatReservationStatusListResult {
      * 券種別会員購入鑑賞情報(itemArray)
      */
     knshbtskiinknyyykInfo: KnshbtskiinknyyykInfo[];
-    static PARSE(resultObject: any): SeatReservationStatusListResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {SeatReservationStatusListResult} 座席予約状況out
+     */
+    static parse(resultObject: any): SeatReservationStatusListResult;
 }

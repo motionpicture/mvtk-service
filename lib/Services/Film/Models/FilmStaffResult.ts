@@ -9,8 +9,13 @@ export default class FilmStaffResult {
     public stffJmbtsNm: string; // スタッフ人物名称
     public stffYkwrNm: string; // スタッフ役割名称
     public stffJmbtsCd: string; // スタッフ人物コード
-
-    public static PARSE(resultObject: any): FilmStaffResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmStaffResult} 作品スタッフout
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): FilmStaffResult {
         const result = new FilmStaffResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

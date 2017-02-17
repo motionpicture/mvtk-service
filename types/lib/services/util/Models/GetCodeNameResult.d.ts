@@ -27,5 +27,5 @@ export default class GetCodeNameResult {
      * 区分情報(itemArray)
      */
     typInfo: TypInfo[];
-    static PARSE(resultObject: any): GetCodeNameResult;
+    static parse(resultObject: any): GetCodeNameResult;
 }

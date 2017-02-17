@@ -39,8 +39,13 @@ export default class SentGiftStatusListResult {
      * 券種別会員購入鑑賞情報(itemArray)
      */
     public knshbtskiinknygftInfo: KnshbtskiinknygftInfo[];
-
-    public static PARSE(resultObject: any): SentGiftStatusListResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {SentGiftStatusListResult} ギフト送信状況リスト検索out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): SentGiftStatusListResult {
         const result = new SentGiftStatusListResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

@@ -13,7 +13,8 @@ export default class GetTsuryShhziInfoResult {
     public shhziTyp: string; // 消費税区分
     public shhziUnip: string; // 消費税単価
 
-    public static PARSE(resultObject: any): GetTsuryShhziInfoResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetTsuryShhziInfoResult {
         const result = new GetTsuryShhziInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

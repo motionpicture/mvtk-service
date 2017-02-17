@@ -14,6 +14,7 @@ export interface KnshbtskiinknyknshInfo {
 }
 /**
  * 鑑賞記録リスト検索out
+ * @class WatchRecordResult
  */
 export default class WatchRecordResult {
     /**
@@ -40,5 +41,10 @@ export default class WatchRecordResult {
      * 券種別会員購入鑑賞情報(itemArray)
      */
     knshbtskiinknyknshInfo: KnshbtskiinknyknshInfo[];
-    static PARSE(resultObject: any): WatchRecordResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {WatchRecordResult} 鑑賞記録リスト検索out
+     */
+    static parse(resultObject: any): WatchRecordResult;
 }

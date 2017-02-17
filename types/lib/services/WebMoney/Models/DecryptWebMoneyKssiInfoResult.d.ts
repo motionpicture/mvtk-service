@@ -12,5 +12,5 @@ export default class DecryptWebMoneyKssiInfoResult {
     shhnNum: string;
     shhnCd: string;
     hcchCd: string;
-    static PARSE(resultObject: any): DecryptWebMoneyKssiInfoResult;
+    static parse(resultObject: any): DecryptWebMoneyKssiInfoResult;
 }

@@ -48,8 +48,13 @@ export default class SeatReservationStatusListResult {
      * 券種別会員購入鑑賞情報(itemArray)
      */
     public knshbtskiinknyyykInfo: KnshbtskiinknyyykInfo[];
-
-    public static PARSE(resultObject: any): SeatReservationStatusListResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {SeatReservationStatusListResult} 座席予約状況out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): SeatReservationStatusListResult {
         const result = new SeatReservationStatusListResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

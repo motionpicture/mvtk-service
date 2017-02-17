@@ -1,8 +1,8 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
- * 無効券種情報
- * @class
+ * 無効券種情報out
+ * @class InvalidNoteTypeResult
  */
 export default class InvalidNoteTypeResult {
     /**
@@ -24,9 +24,12 @@ export default class InvalidNoteTypeResult {
 
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {InvalidNoteTypeResult} 無効券種情報out
      */
-    public static PARSE(resultObject: any): InvalidNoteTypeResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): InvalidNoteTypeResult {
         const result = new InvalidNoteTypeResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

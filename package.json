@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "dependencies": {
     "@types/soap": "0.0.31",
-    "soap": "^0.18.0",
+    "soap": "^0.13.0",
     "soap-cookie": "^0.10.1"
   },
   "description": "Mvtk Client Library for Node.js",
@@ -11,6 +11,7 @@
   "scripts": {
     "test": "mocha --no-timeouts --recursive",
     "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json",
+    "tslint-fix": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json --fix",
     "jsdoc": "grunt jsdoc"
   },
   "repository": {},

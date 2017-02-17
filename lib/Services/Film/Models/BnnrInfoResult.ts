@@ -40,8 +40,13 @@ export default class BnnrInfoResult {
      * バナー掲載終了年月日
      */
     public bnnrkisishryYmd: string;
-
-    public static PARSE(resultObject: any): BnnrInfoResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {BnnrInfoResult} バナーリスト取得out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): BnnrInfoResult {
         const result = new BnnrInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

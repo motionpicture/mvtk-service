@@ -8,8 +8,13 @@ import TicktResult from './TicktResult';
 export default class GetUnusedTicketListResult {
     public kiinCd: string; // 会員コード
     public mshyticktInfo: TicktResult[]; // 作品詳細情報(itemArray)
-
-    public static PARSE(resultObject: any): GetUnusedTicketListResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {GetUnusedTicketListResult} 未使用チケット検索out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetUnusedTicketListResult {
         const result = new GetUnusedTicketListResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

@@ -46,7 +46,8 @@ export default class SelectIchjknrInfoResult {
     public knshTyp: string = ''; // 券種区分
     public knshkbnNm: string = ''; // 券種区分名称
 
-    public static PARSE(resultObject: any): SelectIchjknrInfoResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): SelectIchjknrInfoResult {
         const result = new SelectIchjknrInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

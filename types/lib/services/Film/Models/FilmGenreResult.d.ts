@@ -5,5 +5,10 @@
 export default class FilmGenreResult {
     gnrTyp: string;
     gnrKbnNm: string;
-    static PARSE(resultObject: any): FilmGenreResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmGenreResult} 作品ジャンルout
+     */
+    static parse(resultObject: any): FilmGenreResult;
 }

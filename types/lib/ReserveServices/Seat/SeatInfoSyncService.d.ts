@@ -2,8 +2,8 @@ import Service from '../../Common/Service';
 import { ISeatInfoSyncIn } from './Models/SeatInfoSyncIn';
 import SeatInfoSyncResult from './Models/SeatInfoSyncResult';
 /**
- *
- * @class 座席指定情報連携クラス
+ * 座席指定情報連携クラス
+ * @class SeatInfoSyncService
  * @extends {Service}
  *
  */

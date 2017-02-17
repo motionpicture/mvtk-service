@@ -15,8 +15,13 @@ export default class MvtkGiftCardEntryResult {
     public synnNo: string = ''; // 承認番号
     public syrykyDt: string = ''; // 処理要求日時
     public giftcardstatus: string = ''; // ギフトカードステータス
-
-    public static PARSE(resultObject: any): MvtkGiftCardEntryResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {MvtkGiftCardEntryResult} ギフトカード利用out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): MvtkGiftCardEntryResult {
         const result = new MvtkGiftCardEntryResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

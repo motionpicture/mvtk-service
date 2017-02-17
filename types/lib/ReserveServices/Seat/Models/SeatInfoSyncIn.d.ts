@@ -1,6 +1,7 @@
 import BaseIn from '../../../Common/models/BaseIn';
 /**
  * 券種情報
+ * @interface KnshInfo
  */
 export interface KnshInfo {
     /**
@@ -13,7 +14,8 @@ export interface KnshInfo {
     MI_NUM: string;
 }
 /**
- * 購入管理番号情報（itemArray）
+ * 購入管理番号情報
+ * @interface KnyknrNoInfo
  */
 export interface KnyknrNoInfo {
     /**
@@ -31,6 +33,7 @@ export interface KnyknrNoInfo {
 }
 /**
  * 座席情報
+ * @interface ZskInfo
  */
 export interface ZskInfo {
     /**
@@ -40,6 +43,7 @@ export interface ZskInfo {
 }
 /**
  * 座席指定情報連携In
+ * @interface ISeatInfoSyncIn
  */
 export interface ISeatInfoSyncIn {
     /**
@@ -93,7 +97,7 @@ export interface ISeatInfoSyncIn {
 }
 /**
  * 座席指定情報連携Inクラス
- * @class
+ * @class SeatInfoSyncIn
  * @extends {BaseIn}
  */
 export declare class SeatInfoSyncIn extends BaseIn {

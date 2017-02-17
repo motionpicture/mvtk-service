@@ -1,11 +1,16 @@
 /**
- * 予告編取得
+ * 予告編取得out
  * @class
  */
 export default class GetTrailerDetailResult {
     skhnCd: string;
     ykkhnInfo: YkkhnInfo[];
-    static PARSE(resultObject: any): GetTrailerDetailResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {GetTrailerDetailResult} 予告編取得out
+     */
+    static parse(resultObject: any): GetTrailerDetailResult;
 }
 /**
  * YkkhnInfo

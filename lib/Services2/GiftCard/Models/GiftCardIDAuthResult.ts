@@ -30,7 +30,8 @@ export default class GiftCardIDAuthResult {
      */
     public tkssiryukngk: string = '';
 
-    public static PARSE(resultObject: any): GiftCardIDAuthResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GiftCardIDAuthResult {
         const result = new GiftCardIDAuthResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

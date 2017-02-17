@@ -15,7 +15,8 @@ export default class DecryptWebMoneyKssiInfoResult {
     public shhnCd: string;
     public hcchCd: string;
 
-    public static PARSE(resultObject: any): DecryptWebMoneyKssiInfoResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): DecryptWebMoneyKssiInfoResult {
         const result = new DecryptWebMoneyKssiInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

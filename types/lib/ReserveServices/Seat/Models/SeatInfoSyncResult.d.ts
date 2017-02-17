@@ -1,7 +1,7 @@
 import InvalidNoteTypeResult from './InvalidNoteTypeResult';
 import InvalidTicketDetailedResult from './InvalidTicketDetailedResult';
 /**
- * 購入管理番号認証Out
+ * 購入管理番号認証out
  * @class
  */
 export default class SeatInfoSyncResult {
@@ -27,7 +27,9 @@ export default class SeatInfoSyncResult {
     mkknShsiInfo: InvalidTicketDetailedResult[];
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {SeatInfoSyncResult} 購入管理番号認証out
      */
-    static PARSE(resultObject: any): SeatInfoSyncResult;
+    static parse(resultObject: any): SeatInfoSyncResult;
 }

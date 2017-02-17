@@ -1,8 +1,8 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
- * 無効券詳細情報
- * @class
+ * 無効券詳細情報out
+ * @class InvalidTicketDetailedResult
  */
 export default class InvalidTicketDetailedResult {
     /**
@@ -44,9 +44,12 @@ export default class InvalidTicketDetailedResult {
 
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {InvalidTicketDetailedResult} 無効券詳細情報out
      */
-    public static PARSE(resultObject: any): InvalidTicketDetailedResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): InvalidTicketDetailedResult {
         const result = new InvalidTicketDetailedResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

@@ -26,7 +26,8 @@ export default class GetGmoEntryTranResult {
      */
     public kssierrrmssgTxt: string;
 
-    public static PARSE(resultObject: any): GetGmoEntryTranResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetGmoEntryTranResult {
         const result = new GetGmoEntryTranResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

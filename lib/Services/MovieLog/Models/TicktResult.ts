@@ -1,7 +1,7 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
- * 券種情報
+ * 券種情報out
  * @interface
  */
 export interface KnshInfo {
@@ -22,8 +22,13 @@ export default class TicktResult {
     public dgtlincntvdwnlodgmnUrl: string; // デジタルインセンティブダウンロード画面ＵＲＬ
     public zskyykkFlg: string; // 座席予約可フラグ
     public shknhikygishCd: string; // ???
-
-    public static PARSE(resultObject: any): TicktResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {TicktResult} 券種情報out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): TicktResult {
         const result = new TicktResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

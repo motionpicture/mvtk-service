@@ -8,5 +8,10 @@ export default class FilmCastResult {
     cstYkNm: string;
     cstShenFlg: string;
     cstJmbtsCd: string;
-    static PARSE(resultObject: any): FilmCastResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmCastResult} 作品キャストout
+     */
+    static parse(resultObject: any): FilmCastResult;
 }

@@ -21,8 +21,13 @@ export default class TicketInfoTypeResult {
     public knshkmmiNum: string; // 鑑賞券枚数
     public parkntntiknshFlg: string; // ペア券単体券種フラグ
     public kmawsskknshTyp: string; // 組合せ先券種区分
-
-    public static PARSE(resultObject: any): TicketInfoTypeResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {TicketInfoTypeResult} 鑑賞券明細情報out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): TicketInfoTypeResult {
         const result = new TicketInfoTypeResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

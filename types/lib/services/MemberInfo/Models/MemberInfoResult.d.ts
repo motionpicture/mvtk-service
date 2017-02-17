@@ -111,5 +111,10 @@ export default class MemberInfoResult {
      * 生年月日公開フラグ
      */
     sinngppkkiFlg: string;
-    static PARSE(resultObject: any): MemberInfoResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {MemberInfoResult} 会員情報照会out
+     */
+    static parse(resultObject: any): MemberInfoResult;
 }

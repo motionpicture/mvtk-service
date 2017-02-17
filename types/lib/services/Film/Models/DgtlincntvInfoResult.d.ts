@@ -13,5 +13,10 @@ export default class DgtlincntvInfoResult {
     dgtlincntvdwnlodykTm: string;
     dgtlincntvdwnlodjgnkiNum: string;
     skhndgtlincntvRmk: string;
-    static PARSE(resultObject: any): DgtlincntvInfoResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {DgtlincntvInfoResult} 特典取得out
+     */
+    static parse(resultObject: any): DgtlincntvInfoResult;
 }

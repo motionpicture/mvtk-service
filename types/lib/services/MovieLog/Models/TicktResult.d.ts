@@ -1,5 +1,5 @@
 /**
- * 券種情報
+ * 券種情報out
  * @interface
  */
 export interface KnshInfo {
@@ -19,5 +19,10 @@ export default class TicktResult {
     dgtlincntvdwnlodgmnUrl: string;
     zskyykkFlg: string;
     shknhikygishCd: string;
-    static PARSE(resultObject: any): TicktResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {TicktResult} 券種情報out
+     */
+    static parse(resultObject: any): TicktResult;
 }

@@ -7,7 +7,7 @@ export default class GetQuestionnaireListResult {
      * アンケート設問情報(itemArray)
      */
     qustinnarstsmnInfo: QustinnarstsmnInfo[];
-    static PARSE(resultObject: any): GetQuestionnaireListResult;
+    static parse(resultObject: any): GetQuestionnaireListResult;
 }
 /**
  * アンケート設問情報

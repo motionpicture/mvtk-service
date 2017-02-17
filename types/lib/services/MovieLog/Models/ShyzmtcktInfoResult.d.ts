@@ -15,7 +15,12 @@ export default class ShyzmtcktInfoResult {
     knshInfo: KnshInfo[];
     dgtlincntvdwnlodgmnUrl: string;
     knytcktSttsKbn: string;
-    static PARSE(resultObject: any): ShyzmtcktInfoResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {ShyzmtcktInfoResult} 作品詳細情報out
+     */
+    static parse(resultObject: any): ShyzmtcktInfoResult;
 }
 /**
  * 券種情報

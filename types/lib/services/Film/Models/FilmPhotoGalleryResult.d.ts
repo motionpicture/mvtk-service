@@ -5,5 +5,10 @@
 export default class FilmPhotoGalleryResult {
     gzNo: string;
     gzflUrl: string;
-    static PARSE(resultObject: any): FilmPhotoGalleryResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmPhotoGalleryResult} 作品画像out
+     */
+    static parse(resultObject: any): FilmPhotoGalleryResult;
 }

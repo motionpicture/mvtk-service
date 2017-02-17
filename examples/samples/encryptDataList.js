@@ -2,7 +2,8 @@ var mvtkService = require('../../lib/mvtk-service');
 
 mvtkService.initialize(
     'https://ssl.movieticket.jp',
-    'https://testservices.movieticket.jp'
+    'https://testservices.movieticket.jp',
+    'https://reservetest.movieticket.jp'
 );
 
 

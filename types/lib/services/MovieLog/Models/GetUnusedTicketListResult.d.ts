@@ -6,5 +6,10 @@ import TicktResult from './TicktResult';
 export default class GetUnusedTicketListResult {
     kiinCd: string;
     mshyticktInfo: TicktResult[];
-    static PARSE(resultObject: any): GetUnusedTicketListResult;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {GetUnusedTicketListResult} 未使用チケット検索out
+     */
+    static parse(resultObject: any): GetUnusedTicketListResult;
 }

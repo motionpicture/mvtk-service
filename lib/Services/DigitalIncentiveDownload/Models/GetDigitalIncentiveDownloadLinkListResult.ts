@@ -2,7 +2,7 @@ import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
  * デジタルインセンティブ情報
- * @interface
+ * @interface DgtlincntvInfo
  */
 export interface DgtlincntvInfo {
     /**
@@ -55,7 +55,7 @@ export interface DgtlincntvInfo {
 
 /**
  * DgtlincntvshsiInfo
- * @interface
+ * @interface DgtlincntvshsiInfo
  */
 export interface DgtlincntvshsiInfo {
     /**
@@ -84,8 +84,13 @@ export default class GetDigitalIncentiveDownloadLinkListResult {
      * デジタルインセンティブ情報（itemArray）
      */
     public dgtlincntvInfo: DgtlincntvInfo[];
-
-    public static PARSE(resultObject: any): GetDigitalIncentiveDownloadLinkListResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {GetDigitalIncentiveDownloadLinkListResult} デジタルインセンティブダウンロード情報検索out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetDigitalIncentiveDownloadLinkListResult {
         const result = new GetDigitalIncentiveDownloadLinkListResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

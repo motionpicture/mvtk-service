@@ -9,7 +9,6 @@ mvtkService.initialize(
 /**
  * テスト
  */
-
 describe('購入管理番号認証サービス', () => {
     it('購入管理番号認証　存在する', (done) => {
         const service = mvtkService.createPurchaseNumberAuthService();
@@ -18,11 +17,11 @@ describe('購入管理番号認証サービス', () => {
             jhshbtsCd: '1', //情報種別コード
             knyknrNoInfoIn: [
                 {
-                    KNYKNR_NO: '6890200303', //購入管理番号
+                    KNYKNR_NO: '3472695908', //購入管理番号
                     PIN_CD: '7648' // PINコード
                 }
             ],
-            skhnCd: '16140', //作品コード
+            skhnCd: '058843', //作品コード
             stCd: '18', //サイトコード
             jeiYmd: '2017/02/16' //上映年月日
         }).then(
@@ -58,6 +57,49 @@ describe('購入管理番号認証サービス', () => {
             // tslint:disable-next-line:variable-name
             (_err) => {
                 done();
+            }
+        );
+    });
+});
+
+describe('座席指定情報連携サービス', () => {
+    it('座席指定情報連携', (done) => {
+        const service = mvtkService.createSeatInfoSyncService();
+        service.seatInfoSync({
+            kgygishCd: 'SSK000', //興行会社コード
+            yykDvcTyp: '0', //予約デバイス区分
+            trkshFlg: '1', //取消フラグ
+            kgygishSstmZskyykNo: '', //興行会社システム座席予約番号
+            kgygishUsrZskyykNo: '', //興行会社ユーザー座席予約番号
+            jeiDt: '2017/01/01', //上映日時
+            kijYmd: '2017/01/01', //計上年月日
+            stCd: '18', //サイトコード
+            screnCd: '0', //スクリーンコード
+            knyknrNoInfo: [
+                {
+                    KNYKNR_NO: '', //購入管理番号（ムビチケ購入番号）
+                    PIN_CD: '', //PINコード（ムビチケ暗証番号）
+                    KNSH_INFO: [
+                        {
+                            KNSH_TYP: '', //券種区分
+                            MI_NUM: '' //枚数
+                        }
+                    ]
+                }
+            ],
+            zskInfo: [
+                {
+                    ZSK_CD: '' //座席コード
+                }
+            ],
+            skhnCd: '0' //作品コード
+        }).then(
+            (result) => {
+                console.log(result);
+                done();
+            },
+            (err) => {
+                done(new Error(err.message));
             }
         );
     });

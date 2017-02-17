@@ -113,8 +113,13 @@ export default class MemberInfoResult {
      * 生年月日公開フラグ
      */
     public sinngppkkiFlg: string;
-
-    public static PARSE(resultObject: any): MemberInfoResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {MemberInfoResult} 会員情報照会out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): MemberInfoResult {
         const memberInfoResult = new MemberInfoResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

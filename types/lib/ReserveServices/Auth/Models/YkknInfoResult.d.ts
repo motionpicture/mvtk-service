@@ -1,6 +1,6 @@
 /**
- * YkknInfo
- * @class
+ * YkknInfoResultout
+ * @class YkknInfoResult
  */
 export default class YkknInfoResult {
     /**
@@ -25,7 +25,9 @@ export default class YkknInfoResult {
     kijUnip: string;
     /**
      * データ整形
-     * @method
+     *
+     * @param {any} resultObject
+     * @returns {YkknInfoResult} YkknInfoResultout
      */
-    static PARSE(resultObject: any): YkknInfoResult;
+    static parse(resultObject: any): YkknInfoResult;
 }

@@ -19,5 +19,5 @@ export default class GetGmoExecTranResult {
     docomostrtUrl: string;
     kssierrrshriTyp: string;
     kssierrrmssgTxt: string;
-    static PARSE(resultObject: any): GetGmoExecTranResult;
+    static parse(resultObject: any): GetGmoExecTranResult;
 }

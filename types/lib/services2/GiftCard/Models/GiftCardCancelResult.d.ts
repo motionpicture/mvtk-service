@@ -31,5 +31,5 @@ export default class GiftCardCancelResult {
      * ギフトカードステータス
      */
     giftcardstatus: string;
-    static PARSE(resultObject: any): GiftCardCancelResult;
+    static parse(resultObject: any): GiftCardCancelResult;
 }

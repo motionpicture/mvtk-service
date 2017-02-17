@@ -10,8 +10,13 @@ export default class FilmCastResult {
     public cstYkNm: string; // キャスト役名称
     public cstShenFlg: string; // キャスト主演フラグ
     public cstJmbtsCd: string; // キャスト人物コード
-
-    public static PARSE(resultObject: any): FilmCastResult {
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmCastResult} 作品キャストout
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): FilmCastResult {
         const result = new FilmCastResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

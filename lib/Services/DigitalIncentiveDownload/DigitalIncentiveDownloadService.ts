@@ -15,7 +15,7 @@ import GetDigitalIncentiveDownloadResult from './Models/GetDigitalIncentiveDownl
 export default class DigitalIncentiveDownloadService extends Service {
     /**
      * デジタルインセンティブダウンロード
-     * @method
+     *
      * @param {IGetDigitalIncentiveDownloadIn} args
      */
     public getDigitalIncentiveDownload(
@@ -41,7 +41,7 @@ export default class DigitalIncentiveDownloadService extends Service {
 
     /**
      * デジタルインセンティブダウンロード情報検索
-     * @method
+     *
      * @param {IGetDigitalIncentiveDownloadLinkListIn} args
      */
     public getDigitalIncentiveDownloadLinkList(

@@ -10,7 +10,8 @@ export default class GetQuestionnaireListResult {
      */
     public qustinnarstsmnInfo: QustinnarstsmnInfo[];
 
-    public static PARSE(resultObject: any): GetQuestionnaireListResult {
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetQuestionnaireListResult {
         const result = new GetQuestionnaireListResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
