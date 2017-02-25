@@ -10,7 +10,7 @@ export default class YkknInfoResult {
      */
     public ykknshTyp: string;
     /**
-     * EISHHSHK_TYP
+     * 映写方式区分
      */
     public eishhshkTyp: string;
     /**
@@ -18,7 +18,7 @@ export default class YkknInfoResult {
      */
     public ykknKnshbtsmiNum: string;
     /**
-     * KNSHKNHMBI_UNIP
+     * 鑑賞券販売単価
      */
     public knshknhmbiUnip: string;
     /**

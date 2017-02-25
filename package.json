@@ -12,7 +12,8 @@
     "test": "mocha --no-timeouts --recursive",
     "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json",
     "tslint-fix": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json --fix",
-    "jsdoc": "grunt jsdoc"
+    "jsdoc": "grunt jsdoc",
+    "tsc": "tsc -p ./ -w"
   },
   "repository": {},
   "keywords": [],
@@ -32,5 +33,6 @@
     "tslint": "^4.4.2",
     "tslint-microsoft-contrib": "^4.0.0",
     "typescript": "^2.1.6"
-  }
+  },
+  "types": "./types/lib/mvtk-service.d.ts"
 }

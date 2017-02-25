@@ -20,7 +20,7 @@ export default class PurchaseNumberAuthResult {
      */
     public kgygftknknyYmd: string;
     /**
-     * KGYGFTKNYK_TM
+     * 興行ギフト券有効期間
      */
     public kgygftknykTm: string;
     /**
@@ -36,7 +36,7 @@ export default class PurchaseNumberAuthResult {
      */
     public ykknmiNum: string;
     /**
-     * MKKNMI_NUM
+     * 無効券枚数
      */
     public mkknmiNum: string;
     /**
