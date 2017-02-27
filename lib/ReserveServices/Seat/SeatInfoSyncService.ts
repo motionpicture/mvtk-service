@@ -14,22 +14,27 @@ export default class SeatInfoSyncService extends Service {
     /**
      * 座席指定情報連携
      *
-     * @param {ISeatInfoSyncIn} params
-     * @return {Promise<SeatInfoSyncResult>}
+     * @param {ISeatInfoSyncIn} params 座席指定情報連携in
+     * @return {Promise<SeatInfoSyncResult[]>} 座席指定情報連携out
      */
     public seatInfoSync(params: ISeatInfoSyncIn): Promise<SeatInfoSyncResult> {
         const method = 'SeatInfoSync';
         return new Promise((resolve, reject) => {
             const args = new SeatInfoSyncIn(params);
 
-            let seatInfoSyncResult: SeatInfoSyncResult;
-
             this.call(method, args, (err, response, result) => {
                 if (err || !response) return reject(err);
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                    seatInfoSyncResult = SeatInfoSyncResult.parse(result);
-                    return resolve(seatInfoSyncResult);
+                    const seatInfoSyncResults: SeatInfoSyncResult[] = [];
+                    if (Array.isArray(result.MKKNYKNR_NO_INFO.MkknyknrNoInfo)) {
+                        for (const info of result.MKKNYKNR_NO_INFO.MkknyknrNoInfo) {
+                            seatInfoSyncResults.push(SeatInfoSyncResult.parse(info));
+                        }
+                    } else {
+                        seatInfoSyncResults.push(SeatInfoSyncResult.parse(result.MKKNYKNR_NO_INFO.MkknyknrNoInfo));
+                    }
+                    return resolve(seatInfoSyncResults);
                 } else {
                     return reject(new Error(result.RESULT_INFO.MESSAGE));
                 }

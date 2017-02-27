@@ -15,9 +15,9 @@ export default class PurchaseNumberAuthService extends Service {
      * 購入管理番号認証
      *
      * @param {IPurchaseNumberAuthIn} params 購入管理番号認証in
-     * @return {Promise<PurchaseNumberAuthResult>} 購入管理番号認証out
+     * @return {Promise<PurchaseNumberAuthResult[]>} 購入管理番号認証out
      */
-    public purchaseNumberAuth(params: IPurchaseNumberAuthIn): Promise<PurchaseNumberAuthResult> {
+    public purchaseNumberAuth(params: IPurchaseNumberAuthIn): Promise<PurchaseNumberAuthResult[]> {
         const method = 'PurchaseNumberAuth';
         return new Promise((resolve, reject) => {
             const args = new PurchaseNumberAuthIn(params);

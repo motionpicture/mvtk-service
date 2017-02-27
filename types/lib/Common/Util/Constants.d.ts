@@ -37,5 +37,23 @@ declare const constants: {
     MLTMPLT_CD_KNYKNR_NO_TRANSFER: string;
     MLTMPLT_CD_PURCHASE_COMPLETE_MOBILE: string;
     MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: string;
+    ELECTRONIC_TICKET_ELECTRONIC: string;
+    ELECTRONIC_TICKET_PAPER: string;
+    ADVANCE_TICKET_COMMON: string;
+    ADVANCE_TICKET_THEATER: string;
+    TICKET_TYPE: {
+        '10': string;
+        '11': string;
+        '12': string;
+        '01': string;
+        '02': string;
+        '03': string;
+        '04': string;
+        '05': string;
+        '06': string;
+        '07': string;
+        '08': string;
+        '09': string;
+    };
 };
 export default constants;

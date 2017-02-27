@@ -149,7 +149,48 @@ const constants = {
     MLTMPLT_CD_PURCHASE_COMPLETE: 'U0001', // 購入完了(PC)
     MLTMPLT_CD_KNYKNR_NO_TRANSFER: 'U0004', // 購入完了(PC)
     MLTMPLT_CD_PURCHASE_COMPLETE_MOBILE: 'M0001', // 購入完了(モバイル)
-    MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: 'M0004' // 購入完了(モバイル)
+    MLTMPLT_CD_KNYKNR_NO_TRANSFER_MOBILE: 'M0004', // 購入完了(モバイル)
+
+    /**
+     * 電子券区分: 電子券
+     */
+    ELECTRONIC_TICKET_ELECTRONIC: '01',
+    /**
+     * 電子券区分: 紙券
+     */
+    ELECTRONIC_TICKET_PAPER: '02',
+
+    /**
+     * 前売券区分: 全国共通券
+     */
+    ADVANCE_TICKET_COMMON: '01',
+    /**
+     * 前売券区分: 劇場券
+     */
+    ADVANCE_TICKET_THEATER: '02',
+
+    /**
+     * 券種区分
+     */
+    TICKET_TYPE: {
+        '01': '一般2D',
+        '02': '小人2D',
+        '03': '一般3D',
+        '04': '小人3D',
+        '05': '一般IMAX2D',
+        '06': '小人IMAX2D',
+        '07': '一般IMAX3D',
+        '08': '小人IMAX3D',
+        '09': '親子ペア一般',
+        // tslint:disable-next-line:object-literal-key-quotes
+        '10': '親子ペア小人',
+        // tslint:disable-next-line:object-literal-key-quotes
+        '11': '親子ペア一般3D',
+        // tslint:disable-next-line:object-literal-key-quotes
+        '12': '親子ペア小人3D'
+    }
+
+
 };
 
 export default constants;
