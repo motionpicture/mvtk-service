@@ -1,8 +1,8 @@
 /**
  * 無効券情報
- * @class MkknInfoResult
+ * @class InvalidTicketResult
  */
-export default class MkknInfoResult {
+export default class InvalidTicketResult {
     /**
      * MKKNSH_TYP
      */
@@ -43,7 +43,7 @@ export default class MkknInfoResult {
      * データ整形
      *
      * @param {any} resultObject
-     * @returns {MkknInfoResult} MkknInfoResultout
+     * @returns {InvalidTicketResult} InvalidTicketResultout
      */
-    static parse(resultObject: any): MkknInfoResult;
+    static parse(resultObject: any): InvalidTicketResult;
 }

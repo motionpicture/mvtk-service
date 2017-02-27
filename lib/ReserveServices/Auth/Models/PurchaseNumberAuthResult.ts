@@ -1,6 +1,6 @@
 import * as CommonUtil from '../../../Common/Util/Util';
-import MkknInfoResult from './MkknInfoResult';
-import YkknInfoResult from './YkknInfoResult';
+import InvalidTicketResult from './InvalidTicketResult';
+import ValidTickettResult from './ValidTickettResult';
 
 /**
  * 購入管理番号認証out
@@ -40,13 +40,13 @@ export default class PurchaseNumberAuthResult {
      */
     public mkknmiNum: string;
     /**
-     * YKKN_INFO
+     * 有効券情報リスト
      */
-    public ykknInfo: YkknInfoResult[];
+    public ykknInfo: ValidTickettResult[];
     /**
-     * MKKN_INFO
+     * 無効券情報リスト
      */
-    public mkknInfo: MkknInfoResult[];
+    public mkknInfo: InvalidTicketResult[];
 
     /**
      * データ整形
@@ -62,29 +62,29 @@ export default class PurchaseNumberAuthResult {
             const property = resultObject[propertyName];
 
             if (normalizedName === 'ykknInfo') {
-                const ykknInfos: YkknInfoResult[] = [];
+                const ykknInfos: ValidTickettResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('YkknInfo')) {
                     if (Array.isArray(property.YkknInfo)) {
                         for (const info of property.YkknInfo) {
-                            ykknInfos.push(YkknInfoResult.parse(info));
+                            ykknInfos.push(ValidTickettResult.parse(info));
                         }
                     } else {
-                        ykknInfos.push(YkknInfoResult.parse(property.YkknInfo));
+                        ykknInfos.push(ValidTickettResult.parse(property.YkknInfo));
                     }
                 }
 
                 purchaseNumberAuthResult[normalizedName] = ykknInfos;
             } else if (normalizedName === 'mkknInfo') {
-                const mkknInfos: MkknInfoResult[] = [];
+                const mkknInfos: InvalidTicketResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('MkknInfo')) {
                     if (Array.isArray(property.MkknInfo)) {
                         for (const info of property.MkknInfo) {
-                            mkknInfos.push(MkknInfoResult.parse(info));
+                            mkknInfos.push(InvalidTicketResult.parse(info));
                         }
                     } else {
-                        mkknInfos.push(MkknInfoResult.parse(property.MkknInfo));
+                        mkknInfos.push(InvalidTicketResult.parse(property.MkknInfo));
                     }
                 }
 

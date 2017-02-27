@@ -1,10 +1,10 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
- * YkknInfoResultout
- * @class YkknInfoResult
+ * 有効券情報
+ * @class ValidTickettResult
  */
-export default class YkknInfoResult {
+export default class ValidTickettResult {
     /**
      * 有効券種区分
      */
@@ -30,11 +30,11 @@ export default class YkknInfoResult {
      * データ整形
      *
      * @param {any} resultObject
-     * @returns {YkknInfoResult} YkknInfoResultout
+     * @returns {ValidTickettResult} ValidTickettResultout
      */
     // tslint:disable-next-line:function-name
-    public static parse(resultObject: any): YkknInfoResult {
-        const result = new YkknInfoResult();
+    public static parse(resultObject: any): ValidTickettResult {
+        const result = new ValidTickettResult();
         Object.keys(resultObject).forEach((value) => {
             const propertyName = value;
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);

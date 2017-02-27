@@ -1,8 +1,8 @@
 /**
  * 有効券情報
- * @class YkknInfoResult
+ * @class ValidTickettResult
  */
-export default class YkknInfoResult {
+export default class ValidTickettResult {
     /**
      * 有効券種区分
      */
@@ -27,7 +27,7 @@ export default class YkknInfoResult {
      * データ整形
      *
      * @param {any} resultObject
-     * @returns {YkknInfoResult} YkknInfoResultout
+     * @returns {ValidTickettResult} ValidTickettResultout
      */
-    static parse(resultObject: any): YkknInfoResult;
+    static parse(resultObject: any): ValidTickettResult;
 }

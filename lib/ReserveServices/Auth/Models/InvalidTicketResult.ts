@@ -1,10 +1,10 @@
 import * as CommonUtil from '../../../Common/Util/Util';
 
 /**
- * MkknInfoResultout
- * @class MkknInfoResult
+ * 無効券情報
+ * @class InvalidTicketResult
  */
-export default class MkknInfoResult {
+export default class InvalidTicketResult {
     /**
      * MKKNSH_TYP
      */
@@ -46,11 +46,11 @@ export default class MkknInfoResult {
      * データ整形
      *
      * @param {any} resultObject
-     * @returns {MkknInfoResult} MkknInfoResultout
+     * @returns {InvalidTicketResult} InvalidTicketResultout
      */
     // tslint:disable-next-line:function-name
-    public static parse(resultObject: any): MkknInfoResult {
-        const result = new MkknInfoResult();
+    public static parse(resultObject: any): InvalidTicketResult {
+        const result = new InvalidTicketResult();
         Object.keys(resultObject).forEach((propertyName) => {
             const normalizedName = CommonUtil.normalizePropertyName(propertyName);
             const property = resultObject[propertyName];

@@ -1,5 +1,5 @@
-import MkknInfoResult from './MkknInfoResult';
-import YkknInfoResult from './YkknInfoResult';
+import InvalidTicketResult from './InvalidTicketResult';
+import ValidTickettResult from './ValidTickettResult';
 /**
  * 購入管理番号認証out
  * @class PurchaseNumberAuthResult
@@ -38,13 +38,13 @@ export default class PurchaseNumberAuthResult {
      */
     mkknmiNum: string;
     /**
-     * YKKN_INFO
+     * 有効券情報リスト
      */
-    ykknInfo: YkknInfoResult[];
+    ykknInfo: ValidTickettResult[];
     /**
-     * MKKN_INFO
+     * 無効券情報リスト
      */
-    mkknInfo: MkknInfoResult[];
+    mkknInfo: InvalidTicketResult[];
     /**
      * データ整形
      *
