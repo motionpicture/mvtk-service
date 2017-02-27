@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // tslint:disable:missing-jsdoc no-console
 const mvtkService = require("../../lib/mvtk-service");
 mvtkService.initialize('https://ssl.movieticket.jp', 'https://testservices.movieticket.jp', 'https://reservetest.movieticket.jp');
@@ -18,8 +17,8 @@ describe('購入管理番号認証サービス', () => {
                     PIN_CD: '7648' // PINコード
                 }
             ],
-            skhnCd: '058843',
-            stCd: '18',
+            skhnCd: '1622100',
+            stCd: '15',
             jeiYmd: '2017/02/16' //上映年月日
         }).then((result) => {
             console.log(result);

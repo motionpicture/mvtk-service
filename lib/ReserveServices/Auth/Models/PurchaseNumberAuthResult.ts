@@ -8,7 +8,7 @@ import YkknInfoResult from './YkknInfoResult';
  */
 export default class PurchaseNumberAuthResult {
     /**
-     * 券種管理番号
+     * 購入管理番号
      */
     public knyknrNo: string;
     /**
@@ -16,7 +16,7 @@ export default class PurchaseNumberAuthResult {
      */
     public knyknrNomkujyuCd: string;
     /**
-     * KGYGFTKNKNY_YMD
+     * 興行ギフト券購入年月日
      */
     public kgygftknknyYmd: string;
     /**
@@ -32,7 +32,7 @@ export default class PurchaseNumberAuthResult {
      */
     public znkkkytsknGkjknTyp: string;
     /**
-     * YKKNMI_NUM
+     * 有効券枚数
      */
     public ykknmiNum: string;
     /**

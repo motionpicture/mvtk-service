@@ -6,7 +6,7 @@ import * as CommonUtil from '../../../Common/Util/Util';
  */
 export default class YkknInfoResult {
     /**
-     * YKKNSH_TYP
+     * 有効券種区分
      */
     public ykknshTyp: string;
     /**
@@ -14,7 +14,7 @@ export default class YkknInfoResult {
      */
     public eishhshkTyp: string;
     /**
-     * YKKN_KNSHBTSMI_NUM
+     * 有効期限券種別枚数
      */
     public ykknKnshbtsmiNum: string;
     /**
@@ -22,7 +22,7 @@ export default class YkknInfoResult {
      */
     public knshknhmbiUnip: string;
     /**
-     * KIJ_UNIP
+     * 計上単価
      */
     public kijUnip: string;
 

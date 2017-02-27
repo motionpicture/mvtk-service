@@ -22,13 +22,19 @@ export default class PurchaseNumberAuthService extends Service {
         return new Promise((resolve, reject) => {
             const args = new PurchaseNumberAuthIn(params);
 
-            let purchaseNumberAuthResult: PurchaseNumberAuthResult;
-
             this.call(method, args.toXml(), (err, response, result) => {
                 if (err || !response) return reject(err);
+
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
-                    purchaseNumberAuthResult = PurchaseNumberAuthResult.parse(result);
-                    return resolve(purchaseNumberAuthResult);
+                    const purchaseNumberAuthResults: PurchaseNumberAuthResult[] = [];
+                    if (Array.isArray(result.KNYKNR_NO_INFO_OUT.KnyknrNoInfoOut)) {
+                        for (const info of result.KNYKNR_NO_INFO_OUT.KnyknrNoInfoOut) {
+                            purchaseNumberAuthResults.push(PurchaseNumberAuthResult.parse(info));
+                        }
+                    } else {
+                        purchaseNumberAuthResults.push(PurchaseNumberAuthResult.parse(result.KNYKNR_NO_INFO_OUT.KnyknrNoInfoOut));
+                    }
+                    return resolve(purchaseNumberAuthResults);
                 } else {
                     return reject(new Error(result.RESULT_INFO.MESSAGE));
                 }
