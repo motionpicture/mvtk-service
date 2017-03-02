@@ -1,5 +1,6 @@
 "use strict";
 // tslint:disable:missing-jsdoc no-console
+const assert = require("assert");
 const mvtkService = require("../../lib/mvtk-service");
 mvtkService.initialize('https://ssl.movieticket.jp', 'https://testservices.movieticket.jp', 'https://reservetest.movieticket.jp');
 /**
@@ -20,8 +21,7 @@ describe('購入管理番号認証サービス', () => {
             skhnCd: '1622100',
             stCd: '15',
             jeiYmd: '2017/02/16' //上映年月日
-        }).then((result) => {
-            console.log(result);
+        }).then(() => {
             done();
         }, (err) => {
             done(new Error(err.message));
@@ -57,34 +57,71 @@ describe('座席指定情報連携サービス', () => {
         const service = mvtkService.createSeatInfoSyncService();
         service.seatInfoSync({
             kgygishCd: 'SSK000',
-            yykDvcTyp: '0',
-            trkshFlg: '1',
-            kgygishSstmZskyykNo: '',
-            kgygishUsrZskyykNo: '',
-            jeiDt: '2017/01/01',
-            kijYmd: '2017/01/01',
-            stCd: '18',
-            screnCd: '0',
+            yykDvcTyp: '02',
+            trkshFlg: '0',
+            kgygishSstmZskyykNo: '118124',
+            kgygishUsrZskyykNo: '124',
+            jeiDt: '2017/03/02 10:00:00',
+            kijYmd: '2017/03/02',
+            stCd: '15',
+            screnCd: '1',
             knyknrNoInfo: [
                 {
-                    KNYKNR_NO: '',
-                    PIN_CD: '',
+                    KNYKNR_NO: '3400999842',
+                    PIN_CD: '7648',
                     KNSH_INFO: [
                         {
-                            KNSH_TYP: '',
-                            MI_NUM: '' //枚数
+                            KNSH_TYP: '01',
+                            MI_NUM: '1' //枚数
                         }
                     ]
                 }
             ],
             zskInfo: [
                 {
-                    ZSK_CD: '' //座席コード
+                    ZSK_CD: 'Ａ－２' //座席コード
                 }
             ],
-            skhnCd: '0' //作品コード
+            skhnCd: '1622100' //作品コード
         }).then((result) => {
-            console.log(result);
+            assert.equal(result.ZSKYYK_RESULT, '01');
+            done();
+        }, (err) => {
+            done(new Error(err.message));
+        });
+    });
+    it('座席指定情報連携削除', (done) => {
+        const service = mvtkService.createSeatInfoSyncService();
+        service.seatInfoSync({
+            kgygishCd: 'SSK000',
+            yykDvcTyp: '02',
+            trkshFlg: '1',
+            kgygishSstmZskyykNo: '118124',
+            kgygishUsrZskyykNo: '124',
+            jeiDt: '2017/03/02 10:00:00',
+            kijYmd: '2017/03/02',
+            stCd: '15',
+            screnCd: '1',
+            knyknrNoInfo: [
+                {
+                    KNYKNR_NO: '3400999842',
+                    PIN_CD: '7648',
+                    KNSH_INFO: [
+                        {
+                            KNSH_TYP: '01',
+                            MI_NUM: '1' //枚数
+                        }
+                    ]
+                }
+            ],
+            zskInfo: [
+                {
+                    ZSK_CD: 'Ａ－２' //座席コード
+                }
+            ],
+            skhnCd: '1622100' //作品コード
+        }).then((result) => {
+            assert.equal(result.ZSKYYK_RESULT, '11');
             done();
         }, (err) => {
             done(new Error(err.message));

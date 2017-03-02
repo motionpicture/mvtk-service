@@ -3,7 +3,7 @@ import InvalidNoteTypeResult from './InvalidNoteTypeResult';
 import InvalidTicketDetailedResult from './InvalidTicketDetailedResult';
 
 /**
- * 購入管理番号認証out
+ * 座席指定情報連携無効券
  * @class
  */
 export default class SeatInfoSyncResult {
