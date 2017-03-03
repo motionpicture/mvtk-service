@@ -2,6 +2,11 @@
  * ムビチケサービス共通の定数
  * @namespace Common.Util.Constants
  */
+/**
+ * constants
+ * @memberOf Common.Util.Constants
+ * @const constants
+ */
 declare const constants: {
     DVC_TYP_PC: string;
     DVC_TYP_MOBILE: string;

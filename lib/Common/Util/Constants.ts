@@ -1,6 +1,12 @@
-﻿/**
+/**
  * ムビチケサービス共通の定数
  * @namespace Common.Util.Constants
+ */
+
+/**
+ * constants
+ * @memberOf Common.Util.Constants
+ * @const constants
  */
 const constants = {
     /**

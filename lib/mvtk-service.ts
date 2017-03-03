@@ -5,7 +5,9 @@
 import Constants from './Common/Util/Constants';
 import * as Util from './Common/Util/Util';
 import PurchaseNumberAuthService from './ReserveServices/Auth/PurchaseNumberAuthService';
+import * as PurchaseNumberAuthUtilities from './ReserveServices/Auth/PurchaseNumberAuthUtilities';
 import SeatInfoSyncService from './ReserveServices/Seat/SeatInfoSyncService';
+import * as SeatInfoSyncUtilities from './ReserveServices/Seat/SeatInfoSyncUtilities';
 import DigitalIncentiveDownloadService from './Services/DigitalIncentiveDownload/DigitalIncentiveDownloadService';
 import FilmService from './Services/Film/FilmService';
 import * as FilmUtilities from './Services/Film/FilmUtilities';
@@ -24,16 +26,16 @@ import MailService from './Services2/Mail/MailService';
 import PurchaseServiceNew from './Services2/Purchase/PurchaseService';
 import * as PurchaseUtilities from './Services2/Purchase/PurchaseUtilities';
 import UtilServiceNew from './Services2/Util/UtilService';
-
 // import TicketChangeService from './Services2/TicketChange/TicketChangeService';
 export {
     Constants,
     Util,
     FilmUtilities,
-    // InquiryUtilities,
     MemberInfoUtilities,
     GiftCardUtilities,
-    PurchaseUtilities
+    PurchaseUtilities,
+    SeatInfoSyncUtilities,
+    PurchaseNumberAuthUtilities
 }
 
 /**

@@ -15,7 +15,7 @@ describe('購入管理番号認証サービス', () => {
         const service = mvtkService.createPurchaseNumberAuthService();
         service.purchaseNumberAuth({
             kgygishCd: 'SSK000', //興行会社コード
-            jhshbtsCd: '1', //情報種別コード
+            jhshbtsCd: mvtkService.PurchaseNumberAuthUtilities.INFORMATION_TYPE_CODE_VALID, //情報種別コード
             knyknrNoInfoIn: [
                 {
                     KNYKNR_NO: '3472695908', //購入管理番号
@@ -66,8 +66,8 @@ describe('座席指定情報連携サービス', () => {
         const service = mvtkService.createSeatInfoSyncService();
         service.seatInfoSync({
             kgygishCd: 'SSK000', //興行会社コード
-            yykDvcTyp: '02', //予約デバイス区分
-            trkshFlg: '0', //取消フラグ
+            yykDvcTyp: mvtkService.SeatInfoSyncUtilities.RESERVED_DEVICE_TYPE_MVTK_SITE, //予約デバイス区分
+            trkshFlg: mvtkService.SeatInfoSyncUtilities.DELETE_FLAG_FALSE, //取消フラグ
             kgygishSstmZskyykNo: '118124', //興行会社システム座席予約番号
             kgygishUsrZskyykNo: '124', //興行会社ユーザー座席予約番号
             jeiDt: '2017/03/02 10:00:00', //上映日時
@@ -76,7 +76,7 @@ describe('座席指定情報連携サービス', () => {
             screnCd: '1', //スクリーンコード
             knyknrNoInfo: [
                 {
-                    KNYKNR_NO: '3400999842', //購入管理番号（ムビチケ購入番号）
+                    KNYKNR_NO: '4104989123', //購入管理番号（ムビチケ購入番号）
                     PIN_CD: '7648', //PINコード（ムビチケ暗証番号）
                     KNSH_INFO: [
                         {
@@ -94,7 +94,7 @@ describe('座席指定情報連携サービス', () => {
             skhnCd: '1622100' //作品コード
         }).then(
             (result) => {
-                assert.equal(result.ZSKYYK_RESULT, '01');
+                assert.equal(result.zskyykResult, mvtkService.SeatInfoSyncUtilities.RESERVATION_SUCCESS);
                 done();
             },
             (err) => {
@@ -106,8 +106,8 @@ describe('座席指定情報連携サービス', () => {
         const service = mvtkService.createSeatInfoSyncService();
         service.seatInfoSync({
             kgygishCd: 'SSK000', //興行会社コード
-            yykDvcTyp: '02', //予約デバイス区分
-            trkshFlg: '1', //取消フラグ
+            yykDvcTyp: mvtkService.SeatInfoSyncUtilities.RESERVED_DEVICE_TYPE_MVTK_SITE, //予約デバイス区分
+            trkshFlg: mvtkService.SeatInfoSyncUtilities.DELETE_FLAG_TRUE, //取消フラグ
             kgygishSstmZskyykNo: '118124', //興行会社システム座席予約番号
             kgygishUsrZskyykNo: '124', //興行会社ユーザー座席予約番号
             jeiDt: '2017/03/02 10:00:00', //上映日時
@@ -116,7 +116,7 @@ describe('座席指定情報連携サービス', () => {
             screnCd: '1', //スクリーンコード
             knyknrNoInfo: [
                 {
-                    KNYKNR_NO: '3400999842', //購入管理番号（ムビチケ購入番号）
+                    KNYKNR_NO: '4104989123', //購入管理番号（ムビチケ購入番号）
                     PIN_CD: '7648', //PINコード（ムビチケ暗証番号）
                     KNSH_INFO: [
                         {
@@ -134,7 +134,7 @@ describe('座席指定情報連携サービス', () => {
             skhnCd: '1622100' //作品コード
         }).then(
             (result) => {
-                assert.equal(result.ZSKYYK_RESULT, '11');
+                assert.equal(result.zskyykResult, mvtkService.SeatInfoSyncUtilities.RESERVATION_CANCEL_SUCCESS);
                 done();
             },
             (err) => {

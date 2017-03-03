@@ -1,20 +1,6 @@
 import Service from '../../Common/Service';
 import { ISeatInfoSyncIn } from './Models/SeatInfoSyncIn';
-import SeatInfoSyncInvalidTicketResult from './Models/SeatInfoSyncInvalidTicketResult';
-/**
- * 座席指定情報連携out
- * @interface SeatInfoSyncResult
- */
-export interface SeatInfoSyncResult {
-    /**
-     * 座席予約結果
-     */
-    ZSKYYK_RESULT: string;
-    /**
-     * 無効購入管理番号情報
-     */
-    MKKNYKNR_NO_INFO: SeatInfoSyncInvalidTicketResult[] | null;
-}
+import SeatInfoSyncResult from './Models/SeatInfoSyncResult';
 /**
  * 座席指定情報連携クラス
  * @class SeatInfoSyncService

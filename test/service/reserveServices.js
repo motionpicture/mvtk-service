@@ -11,7 +11,7 @@ describe('購入管理番号認証サービス', () => {
         const service = mvtkService.createPurchaseNumberAuthService();
         service.purchaseNumberAuth({
             kgygishCd: 'SSK000',
-            jhshbtsCd: '1',
+            jhshbtsCd: mvtkService.PurchaseNumberAuthUtilities.INFORMATION_TYPE_CODE_VALID,
             knyknrNoInfoIn: [
                 {
                     KNYKNR_NO: '3472695908',
@@ -57,8 +57,8 @@ describe('座席指定情報連携サービス', () => {
         const service = mvtkService.createSeatInfoSyncService();
         service.seatInfoSync({
             kgygishCd: 'SSK000',
-            yykDvcTyp: '02',
-            trkshFlg: '0',
+            yykDvcTyp: mvtkService.SeatInfoSyncUtilities.RESERVED_DEVICE_TYPE_MVTK_SITE,
+            trkshFlg: mvtkService.SeatInfoSyncUtilities.DELETE_FLAG_FALSE,
             kgygishSstmZskyykNo: '118124',
             kgygishUsrZskyykNo: '124',
             jeiDt: '2017/03/02 10:00:00',
@@ -67,7 +67,7 @@ describe('座席指定情報連携サービス', () => {
             screnCd: '1',
             knyknrNoInfo: [
                 {
-                    KNYKNR_NO: '3400999842',
+                    KNYKNR_NO: '4104989123',
                     PIN_CD: '7648',
                     KNSH_INFO: [
                         {
@@ -84,7 +84,7 @@ describe('座席指定情報連携サービス', () => {
             ],
             skhnCd: '1622100' //作品コード
         }).then((result) => {
-            assert.equal(result.ZSKYYK_RESULT, '01');
+            assert.equal(result.zskyykResult, mvtkService.SeatInfoSyncUtilities.RESERVATION_SUCCESS);
             done();
         }, (err) => {
             done(new Error(err.message));
@@ -94,8 +94,8 @@ describe('座席指定情報連携サービス', () => {
         const service = mvtkService.createSeatInfoSyncService();
         service.seatInfoSync({
             kgygishCd: 'SSK000',
-            yykDvcTyp: '02',
-            trkshFlg: '1',
+            yykDvcTyp: mvtkService.SeatInfoSyncUtilities.RESERVED_DEVICE_TYPE_MVTK_SITE,
+            trkshFlg: mvtkService.SeatInfoSyncUtilities.DELETE_FLAG_TRUE,
             kgygishSstmZskyykNo: '118124',
             kgygishUsrZskyykNo: '124',
             jeiDt: '2017/03/02 10:00:00',
@@ -104,7 +104,7 @@ describe('座席指定情報連携サービス', () => {
             screnCd: '1',
             knyknrNoInfo: [
                 {
-                    KNYKNR_NO: '3400999842',
+                    KNYKNR_NO: '4104989123',
                     PIN_CD: '7648',
                     KNSH_INFO: [
                         {
@@ -121,7 +121,7 @@ describe('座席指定情報連携サービス', () => {
             ],
             skhnCd: '1622100' //作品コード
         }).then((result) => {
-            assert.equal(result.ZSKYYK_RESULT, '11');
+            assert.equal(result.zskyykResult, mvtkService.SeatInfoSyncUtilities.RESERVATION_CANCEL_SUCCESS);
             done();
         }, (err) => {
             done(new Error(err.message));

@@ -1,30 +1,17 @@
-import InvalidNoteTypeResult from './InvalidNoteTypeResult';
-import InvalidTicketDetailedResult from './InvalidTicketDetailedResult';
+import SeatInfoSyncInvalidTicketResult from './SeatInfoSyncInvalidTicketResult';
 /**
- * 購入管理番号認証out
+ * 座席指定情報連携無効券
  * @class
  */
 export default class SeatInfoSyncResult {
     /**
-     * 券種管理番号
+     * 座席予約結果
      */
-    knyknrNo: string;
+    zskyykResult: string;
     /**
-     * 購入管理番号無効事由区分
+     * 無効購入管理番号情報
      */
-    knyknrNoMkujyuTyp: string;
-    /**
-     * 購入管理番号別無効券枚数
-     */
-    knyknrNobtsMkknmiNum: string;
-    /**
-     * 無効券種情報
-     */
-    mkknshInfo: InvalidNoteTypeResult[];
-    /**
-     * 無効券詳細情報
-     */
-    mkknShsiInfo: InvalidTicketDetailedResult[];
+    mkknyknrNoInfo: SeatInfoSyncInvalidTicketResult[];
     /**
      * データ整形
      *
