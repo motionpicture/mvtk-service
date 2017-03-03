@@ -41,7 +41,7 @@ export const RESERVED_DEVICE_TYPE_TICKET_MACHINE = '05';
 export const RESERVED_DEVICE_TYPE_MVTK_TICKET_MACHINE = '06';
 
 /**
- * 取消フラグ削除
+ * 取消フラグ登録
  * @memberOf ReserveServices.Seat.SeatInfoSyncUtilities
  * @const DELETE_FLAG_FALSE
  */
