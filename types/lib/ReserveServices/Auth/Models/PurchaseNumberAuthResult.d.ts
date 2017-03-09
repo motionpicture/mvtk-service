@@ -22,11 +22,11 @@ export default class PurchaseNumberAuthResult {
      */
     kgygftknykTm: string;
     /**
-     * DNSH_KM_TYP
+     * 電子券区分
      */
     dnshKmTyp: string;
     /**
-     * ZNKKKYTSKN_GKJKN_TYP
+     * 前売券区分
      */
     znkkkytsknGkjknTyp: string;
     /**
