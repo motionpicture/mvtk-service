@@ -14,7 +14,7 @@ export default class ValidTickettResult {
      */
     public eishhshkTyp: string;
     /**
-     * 有効期限券種別枚数
+     * 有効券種別枚数
      */
     public ykknKnshbtsmiNum: string;
     /**

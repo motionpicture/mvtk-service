@@ -6,39 +6,39 @@ import * as CommonUtil from '../../../Common/Util/Util';
  */
 export default class InvalidTicketResult {
     /**
-     * MKKNSH_TYP
+     * 無効券種区分
      */
     public mkknshTyp: string;
     /**
-     * MKKN_KNSHBTSMI_NUM
+     * 無効券種別枚数
      */
     public mkknKnshbtsmiNum: string;
     /**
-     * MKJY_TYP
+     * 無効事由区分
      */
     public mkjyTyp: string;
     /**
-     * YYK_DT
+     * 予約日時
      */
     public yykDt: string;
     /**
-     * SHY_JEI_DT
+     * 使用上映日時
      */
     public shyJeiDt: string;
     /**
-     * SHY_ST_CD
+     * 使用サイトコード
      */
     public shyStCd: string;
     /**
-     * SHY_SCRN_CD
+     * 使用スクリーンコード
      */
     public shyScrnCd: string;
     /**
-     * SHY_SKHN_CD
+     * 使用作品コード
      */
     public shySkhnCd: string;
     /**
-     * SHY_SKHN_NM
+     * 使用作品名
      */
     public shySkhnNm: string;
 

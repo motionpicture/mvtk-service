@@ -13,6 +13,7 @@
     "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json",
     "tslint-fix": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json --fix",
     "jsdoc": "grunt jsdoc",
+    "tsc": "tsc -p ./ -w",
     "build": "tsc -p ./",
     "clean": "rimraf examples/**/*.js lib/**/*.js test/**/*.js types/**/*.d.ts",
     "prepublishOnly": "npm run clean && npm run tslint && npm run build"

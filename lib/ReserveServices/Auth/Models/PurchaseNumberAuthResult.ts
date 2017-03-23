@@ -12,7 +12,7 @@ export default class PurchaseNumberAuthResult {
      */
     public knyknrNo: string;
     /**
-     * KNYKNR_NO_MKUJYU_CD
+     * 購入管理番号無効事由区分
      */
     public knyknrNomkujyuCd: string;
     /**
@@ -28,7 +28,7 @@ export default class PurchaseNumberAuthResult {
      */
     public dnshKmTyp: string;
     /**
-     * 前売券区分
+     * 全国共通券・劇場券区分
      */
     public znkkkytsknGkjknTyp: string;
     /**
