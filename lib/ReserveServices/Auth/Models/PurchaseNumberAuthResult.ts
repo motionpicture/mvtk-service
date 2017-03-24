@@ -14,7 +14,7 @@ export default class PurchaseNumberAuthResult {
     /**
      * 購入管理番号無効事由区分
      */
-    public knyknrNomkujyuCd: string;
+    public knyknrNoMkujyuCd: string;
     /**
      * 興行ギフト券購入年月日
      */
