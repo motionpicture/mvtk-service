@@ -1,8 +1,20 @@
 {
+  "author": {
+    "name": "Motionpicture co.,ltd."
+  },
+  "contributors": [
+    {
+      "name": "Akito Hataguchi",
+      "email": "hataguchi@motionpicture.jp"
+    },
+    {
+      "name": "Tetsu Yamazaki",
+      "email": "yamazaki@motionpicture.jp"
+    }
+  ],
   "name": "@motionpicture/mvtk-service",
   "version": "2.0.0",
   "dependencies": {
-    "@types/soap": "0.0.31",
     "soap": "^0.13.0",
     "soap-cookie": "^0.10.1"
   },
@@ -20,7 +32,6 @@
   },
   "repository": {},
   "keywords": [],
-  "author": "Tetsu Yamazaki <yamazaki@motionpicture.jp>",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=6.0.0",
@@ -28,6 +39,7 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.39",
+    "@types/soap": "^0.18.0",
     "grunt": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-jsdoc": "^2.1.0",

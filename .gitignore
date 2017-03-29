@@ -4,3 +4,5 @@ typings/
 !.gitignore
 !.gitkeep
 docs/
+.vscode/
+.env*
