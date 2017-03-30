@@ -13,7 +13,7 @@
     }
   ],
   "name": "@motionpicture/mvtk-service",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "dependencies": {
     "soap": "^0.13.0",
     "soap-cookie": "^0.10.1"
