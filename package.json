@@ -13,7 +13,7 @@
     }
   ],
   "name": "@motionpicture/mvtk-service",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "dependencies": {
     "soap": "^0.13.0",
     "soap-cookie": "^0.10.1"
@@ -28,7 +28,7 @@
     "tsc": "tsc -p ./ -w",
     "build": "tsc -p ./",
     "clean": "rimraf examples/**/*.js lib/**/*.js test/**/*.js types/**/*.d.ts",
-    "prepublishOnly": "npm run clean && npm run tslint && npm run build"
+    "prepublish": "npm run clean && npm run tslint && npm run build"
   },
   "repository": {},
   "keywords": [],
