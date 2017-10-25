@@ -1,5 +1,9 @@
 import CommonUtil from '../../../common/util/Util';
 
+/**
+ * 特典取得out
+ * @class
+ */
 export default class DgtlincntvInfoResult {
     public dvcTyp: string; // デバイス区分
     public dgtlincntvCd: string; // デジタルインセンティブコード
@@ -11,16 +15,20 @@ export default class DgtlincntvInfoResult {
     public dgtlincntvdwnlodykTm: string; // デジタルインセンティブダウンロード有効期間
     public dgtlincntvdwnlodjgnkiNum: string; // デジタルインセンティブダウンロード上限回数
     public skhndgtlincntvRmk: string; // 作品デジタルインセンティブ備考
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {DgtlincntvInfoResult} 特典取得out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): DgtlincntvInfoResult {
+        const result = new DgtlincntvInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-    public static parse (resultObject): DgtlincntvInfoResult {
-        let result = new DgtlincntvInfoResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     };

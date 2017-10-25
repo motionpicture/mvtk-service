@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
+        "target": "es6",
+        "newLine": "CRLF",
         "noImplicitAny": false,
         "sourceMap": false,
-        "watch": true
+        "watch": false
     },
     "exclude": [
         "node_modules",

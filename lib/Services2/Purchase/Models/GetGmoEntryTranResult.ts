@@ -1,5 +1,9 @@
 import CommonUtil from '../../../common/util/Util';
 
+/**
+ * 代行会社取引登録呼出out
+ * @class
+ */
 export default class GetGmoEntryTranResult {
     /**
      * 決済管理番号
@@ -22,15 +26,15 @@ export default class GetGmoEntryTranResult {
      */
     public kssierrrmssgTxt: string;
 
-    public static parse (resultObject): GetGmoEntryTranResult {
-        let result = new GetGmoEntryTranResult();
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): GetGmoEntryTranResult {
+        const result = new GetGmoEntryTranResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     }

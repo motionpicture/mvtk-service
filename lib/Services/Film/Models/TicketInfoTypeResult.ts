@@ -1,5 +1,9 @@
 import CommonUtil from '../../../common/util/Util';
 
+/**
+ * 鑑賞券明細情報out
+ * @class
+ */
 export default class TicketInfoTypeResult {
     public knshknknrmisiNo: string; // 鑑賞券管理明細番号
     public knshTyp: string; // 券種区分
@@ -17,16 +21,20 @@ export default class TicketInfoTypeResult {
     public knshkmmiNum: string; // 鑑賞券枚数
     public parkntntiknshFlg: string; // ペア券単体券種フラグ
     public kmawsskknshTyp: string; // 組合せ先券種区分
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {TicketInfoTypeResult} 鑑賞券明細情報out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): TicketInfoTypeResult {
+        const result = new TicketInfoTypeResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-    public static parse (resultObject): TicketInfoTypeResult {
-        let result = new TicketInfoTypeResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     };

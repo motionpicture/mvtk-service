@@ -1,5 +1,5 @@
-import Service from '../../Common/Service';
-import Constants from '../../Common/util/Constants';
+import Service from '../../common/Service';
+import Constants from '../../common/util/Constants';
 import Cookie = require('soap-cookie');
 import GetCodeNameResult from './Models/GetCodeNameResult';
 

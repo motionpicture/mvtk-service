@@ -8,14 +8,32 @@
   "description": "Mvtk Client Library for Node.js",
   "main": "./lib/mvtk-service.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "typings": "typings install"
   },
   "repository": {},
   "keywords": [],
-  "author": "Tetsu Yamazaki <yamazaki@motionpicture.jp>",
+  "author": {
+    "name": "Motionpicture co.,ltd."
+  },
+  "contributors": [
+    {
+      "name": "Akito Hataguchi",
+      "email": "hataguchi@motionpicture.jp"
+    },
+    {
+      "name": "Tetsu Yamazaki",
+      "email": "yamazaki@motionpicture.jp"
+    }
+  ],
   "license": "UNLICENSED",
   "engines": {
     "node": ">=6.0.0",
-    "npm" : ">=3.8.0"
+    "npm": ">=3.8.0"
+  },
+  "devDependencies": {
+    "typescript": "2.1.6",
+    "typings": "^2.1.1"
   }
 }

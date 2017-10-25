@@ -1,5 +1,8 @@
 import CommonUtil from '../../../common/util/Util';
 
+/**
+ * バナーリスト取得out
+ */
 export default class BnnrInfoResult {
     /**
      * デバイス区分
@@ -37,16 +40,20 @@ export default class BnnrInfoResult {
      * バナー掲載終了年月日
      */
     public bnnrkisishryYmd: string;
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {BnnrInfoResult} バナーリスト取得out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): BnnrInfoResult {
+        const result = new BnnrInfoResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
-    public static parse (resultObject): BnnrInfoResult {
-        let result = new BnnrInfoResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
-
-            result[normalizedName] = property;
-        }
+            (<any>result)[normalizedName] = property;
+        });
 
         return result;
     };

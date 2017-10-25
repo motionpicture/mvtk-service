@@ -1,11 +1,15 @@
 import CommonUtil from '../../../common/util/Util';
 import FilmUtilities from '../FilmUtilities';
-import TicketInfoResult from './TicketInfoResult';
 import FilmCastResult from './FilmCastResult';
 import FilmGenreResult from './FilmGenreResult';
 import FilmPhotoGalleryResult from './FilmPhotoGalleryResult';
 import FilmStaffResult from './FilmStaffResult';
+import TicketInfoResult from './TicketInfoResult';
 
+/**
+ * 作品out
+ * @class
+ */
 export default class FilmResult {
     /**
      * 作品コード
@@ -62,15 +66,15 @@ export default class FilmResult {
     /**
      * キャスト情報（itemArray）
      */
-    public cstInfo: Array<FilmCastResult>;
+    public cstInfo: FilmCastResult[];
     /**
      * スタッフ情報（itemArray）
      */
-    public stffInfo: Array<FilmStaffResult>;
+    public stffInfo: FilmStaffResult[];
     /**
      * フォトギャラリー情報（itemArray）
      */
-    public phtgllryInfo: Array<FilmPhotoGalleryResult>;
+    public phtgllryInfo: FilmPhotoGalleryResult[];
     /**
      * 作品名オリジナル名称
      */
@@ -106,7 +110,7 @@ export default class FilmResult {
     /**
      * ジャンル情報（itemArray）
      */
-    public gnrInfo: Array<FilmGenreResult>;
+    public gnrInfo: FilmGenreResult[];
     /**
      *  観たい登録者数
      */
@@ -192,21 +196,33 @@ export default class FilmResult {
     /**
      * 鑑賞券情報(itemArray)
      */
-    public knshknInfo: Array<TicketInfoResult>;
-
-    public static parse (resultObject): FilmResult {
-        let filmResult = new FilmResult();
-
-        for (let propertyName in resultObject) {
-            let normalizedName = CommonUtil.normalizePropertyName(propertyName);
-            let property = resultObject[propertyName];
+    public knshknInfo: TicketInfoResult[];
+    /**
+     * 主管配給会社コード
+     */
+    public shknhikygishCd: string;
+    /**
+     * 特典在庫状況メッセージ本文 (在庫僅少、在庫切れ時表示メッセージ（HTMLタグを含む）)
+     */
+    public tktnzikjkymsgTxt: string[];
+    /**
+     * データ整形
+     * @param {any} resultObject
+     * @returns {FilmResult} 作品out
+     */
+    // tslint:disable-next-line:function-name
+    public static parse(resultObject: any): FilmResult {
+        const filmResult = new FilmResult();
+        Object.keys(resultObject).forEach((propertyName) => {
+            const normalizedName = CommonUtil.normalizePropertyName(propertyName);
+            const property = resultObject[propertyName];
 
             if (normalizedName === 'knshknInfo') {
-                let ticketInfos: Array<TicketInfoResult> = [];
+                const ticketInfos: TicketInfoResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('KnshknInfo')) {
                     if (Array.isArray(property.KnshknInfo)) {
-                        for (let info of property.KnshknInfo) {
+                        for (const info of property.KnshknInfo) {
                             ticketInfos.push(TicketInfoResult.parse(info));
                         }
                     } else {
@@ -216,11 +232,11 @@ export default class FilmResult {
 
                 filmResult[normalizedName] = ticketInfos;
             } else if (normalizedName === 'cstInfo') {
-                let casts: Array<FilmCastResult> = [];
+                const casts: FilmCastResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('CstInfo')) {
                     if (Array.isArray(property.CstInfo)) {
-                        for (let info of property.CstInfo) {
+                        for (const info of property.CstInfo) {
                             casts.push(FilmCastResult.parse(info));
                         }
                     } else {
@@ -230,11 +246,11 @@ export default class FilmResult {
 
                 filmResult[normalizedName] = casts;
             } else if (normalizedName === 'gnrInfo') {
-                let genres: Array<FilmGenreResult> = [];
+                const genres: FilmGenreResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('GnrInfo')) {
                     if (Array.isArray(property.GnrInfo)) {
-                        for (let info of property.GnrInfo) {
+                        for (const info of property.GnrInfo) {
                             genres.push(FilmGenreResult.parse(info));
                         }
                     } else {
@@ -244,11 +260,11 @@ export default class FilmResult {
 
                 filmResult[normalizedName] = genres;
             } else if (normalizedName === 'phtgllryInfo') {
-                let galleries: Array<FilmPhotoGalleryResult> = [];
+                const galleries: FilmPhotoGalleryResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('PhtgllryInfo')) {
                     if (Array.isArray(property.PhtgllryInfo)) {
-                        for (let info of property.PhtgllryInfo) {
+                        for (const info of property.PhtgllryInfo) {
                             galleries.push(FilmPhotoGalleryResult.parse(info));
                         }
                     } else {
@@ -258,11 +274,11 @@ export default class FilmResult {
 
                 filmResult[normalizedName] = galleries;
             } else if (normalizedName === 'stffInfo') {
-                let staffs: Array<FilmStaffResult> = [];
+                const staffs: FilmStaffResult[] = [];
 
                 if (property !== null && property.hasOwnProperty('StffInfo')) {
                     if (Array.isArray(property.StffInfo)) {
-                        for (let info of property.StffInfo) {
+                        for (const info of property.StffInfo) {
                             staffs.push(FilmStaffResult.parse(info));
                         }
                     } else {
@@ -271,10 +287,24 @@ export default class FilmResult {
                 }
 
                 filmResult[normalizedName] = staffs;
+            } else if (normalizedName === 'tktnzikjkymsgTxt') {
+                const tktnzikjkymsgTxts: string[] = [];
+
+                if (property !== null && property.hasOwnProperty('TktnzikjkymsgTxt')) {
+                    if (Array.isArray(property.TktnzikjkymsgTxt)) {
+                        for (const tktnzikjkymsgTxt of property.TktnzikjkymsgTxt) {
+                            tktnzikjkymsgTxts.push(tktnzikjkymsgTxt);
+                        }
+                    } else {
+                        tktnzikjkymsgTxts.push(property.TktnzikjkymsgTxt);
+                    }
+                }
+
+                filmResult[normalizedName] = tktnzikjkymsgTxts;
             } else {
-                filmResult[normalizedName] = property;
+                (<any>filmResult)[normalizedName] = property;
             }
-        }
+        });
 
         return filmResult;
     };
@@ -290,11 +320,11 @@ export default class FilmResult {
         }
 
         // YYYY/MM/DD HH:ii:ss形式にする
-        let startDate = new Date(this.znkkkkikishYmd + ' 00:00:00');
-        var startTimestamp = startDate.getTime();
+        const startDate = new Date(this.znkkkkikishYmd + ' 00:00:00');
+        const startTimestamp = startDate.getTime();
 
-        let nowDate = new Date();
-        var nowTimestamp = nowDate.getTime();
+        const nowDate = new Date();
+        const nowTimestamp = nowDate.getTime();
 
         return nowTimestamp >= startTimestamp;
     }
@@ -313,9 +343,9 @@ export default class FilmResult {
      *
      * @return {TicketInfoResult}
      */
-    public getOnlineTicket(): TicketInfoResult {
+    public getOnlineTicket(): TicketInfoResult | null {
         if (Array.isArray(this.knshknInfo)) {
-            for (let ticketInfo of this.knshknInfo) {
+            for (const ticketInfo of this.knshknInfo) {
                 if (ticketInfo.tcktbitiTyp === FilmUtilities.TCKTBITI_TYP_ELECTRON_TICKET) {
                     return ticketInfo;
                 }
@@ -327,9 +357,10 @@ export default class FilmResult {
 
     public getCastNames(leadingFilter: boolean = false): string {
         // 表示順でソート
-        let compare = (a: FilmCastResult, b: FilmCastResult) => {
-            let aHyjjnNo = (a.cstHyjjnNo) ? parseInt(a.cstHyjjnNo) : 0;
-            let bHyjjnNo = (b.cstHyjjnNo) ? parseInt(b.cstHyjjnNo) : 0;
+        const compare = (a: FilmCastResult, b: FilmCastResult) => {
+            const radix = 10;
+            const aHyjjnNo = (a.cstHyjjnNo) ? parseInt(a.cstHyjjnNo, radix) : 0;
+            const bHyjjnNo = (b.cstHyjjnNo) ? parseInt(b.cstHyjjnNo, radix) : 0;
 
             if (aHyjjnNo > bHyjjnNo) {
                 return 1;
@@ -338,14 +369,14 @@ export default class FilmResult {
             } else {
                 return 0;
             }
-        }
+        };
 
         this.cstInfo.sort(compare);
 
         //主役フィルター
         if (leadingFilter) {
-            let cast: string[] = []; 
-            for (let info of this.cstInfo) {
+            const cast: string[] = [];
+            for (const info of this.cstInfo) {
                 if (info.cstShenFlg === '1') {
                     cast.push(info.cstJmbtsNm);
                 }
@@ -361,10 +392,10 @@ export default class FilmResult {
     /**
      * 監督名リストを取得する
      */
-    public getDirectors(): Array<string> {
-        let directers: Array<string> = [];
+    public getDirectors(): string[] {
+        const directers: string[] = [];
 
-        for (let staff of this.stffInfo) {
+        for (const staff of this.stffInfo) {
             if (staff.stffYkwrNm === '監督') {
                 directers.push(staff.stffJmbtsNm);
             }
@@ -376,11 +407,12 @@ export default class FilmResult {
     /**
      * スタッフデータを生成
      */
-    public getStaffs(): Array<FilmStaffResult> {
+    public getStaffs(): FilmStaffResult[] {
         // 表示順でソート
-        let compare = (a: FilmStaffResult, b: FilmStaffResult) => {
-            let aHyjjnNo = (a.stffHyjjnNo) ? parseInt(a.stffHyjjnNo) : 0;
-            let bHyjjnNo = (b.stffHyjjnNo) ? parseInt(b.stffHyjjnNo) : 0;
+        const compare = (a: FilmStaffResult, b: FilmStaffResult) => {
+            const radix = 10;
+            const aHyjjnNo = (a.stffHyjjnNo) ? parseInt(a.stffHyjjnNo, radix) : 0;
+            const bHyjjnNo = (b.stffHyjjnNo) ? parseInt(b.stffHyjjnNo, radix) : 0;
 
             if (aHyjjnNo > bHyjjnNo) {
                 return 1;
@@ -389,7 +421,7 @@ export default class FilmResult {
             } else {
                 return 0;
             }
-        }
+        };
 
         this.stffInfo.sort(compare);
 

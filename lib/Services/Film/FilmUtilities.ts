@@ -1,13 +1,13 @@
 /**
-* Defines constants, enums, and utility functions for use with the Film service.
-*/
+ * Defines constants, enums, and utility functions for use with the Film service.
+ */
 export default class FilmUtilities {
     /**
      * チケット媒体区分
      */
-    public static TCKTBITI_TYP_ELECTRON_TICKET =   '01'; // 電子券（オンライン券）
+    public static TCKTBITI_TYP_ELECTRON_TICKET = '01'; // 電子券（オンライン券）
     public static TCKTBITI_TYP_ELECTRON_VOUCHAER = '02'; // 電子バウチャー
-    public static TCKTBITI_TYP_CARD_TICKET =       '03'; // カード券
+    public static TCKTBITI_TYP_CARD_TICKET = '03'; // カード券
 
     /**
      * 表示箇所区分（PC）
@@ -22,4 +22,4 @@ export default class FilmUtilities {
     public static BNNRHYJKSH_TYP_SP_UNUSED = '01';
     public static BNNRHYJKSH_TYP_SP_FILM = '02';
     public static BNNRHYJKSH_TYP_SP_PURCHASE = '03';
-};
+}

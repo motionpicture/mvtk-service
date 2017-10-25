@@ -16,6 +16,7 @@ import TicketChangeService from './services2/TicketChange/TicketChangeService';
 import UtilService from './services/util/UtilService';
 import UtilServiceNew from './services2/util/UtilService';
 import WebMoneyService from './services/WebMoney/WebMoneyService';
+import BonusGrantingService from './Services2/Bonus/BonusGrantingService';
 
 import Constants from './common/util/Constants';
 import Util from './common/util/Util';
@@ -245,6 +246,17 @@ class ServicesBuilder
     public createWebMoneyService(): WebMoneyService {
         let wsdl: string = this.endpoint + '/services/WebMoney/WebMoneySvc.svc?singleWsdl';
         let service = new WebMoneyService(wsdl);
+        service.setCookie(this.cookie);
+        return service;
+    }
+
+    /**
+     * 特典コードサービスを生成する
+     * @method
+     */
+    public  createBonusGrantingService(): BonusGrantingService {
+        const wsdl: string = this.endpoint2 + '/Services/Bonus/BonusGranting.svc?singleWsdl';
+        const service = new BonusGrantingService(wsdl);
         service.setCookie(this.cookie);
         return service;
     }
