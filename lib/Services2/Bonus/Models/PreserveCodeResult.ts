@@ -24,13 +24,13 @@ export default class PreserveCodeResult {
             if (normalizedName === 'tktncdkkhNo') {
                 const tktncdkkhNoList: string[] = [];
 
-                if (property !== null && property.hasOwnProperty('TktncdkkhNo')) {
-                    if (Array.isArray(property.TktncdkkhNo)) {
-                        for (const tktncdkkhNo of property.TktncdkkhNo) {
+                if (property !== null && property.hasOwnProperty('string')) {
+                    if (Array.isArray(property.string)) {
+                        for (const tktncdkkhNo of property.string) {
                             tktncdkkhNoList.push(tktncdkkhNo);
                         }
                     } else {
-                        tktncdkkhNoList.push(property.TktncdkkhNo);
+                        tktncdkkhNoList.push(property.string);
                     }
                 }
 
@@ -38,13 +38,13 @@ export default class PreserveCodeResult {
             } else if (normalizedName === 'tktnzikjkymsgTxt') {
                 const tktnzikjkymsgTxts: string[] = [];
 
-                if (property !== null && property.hasOwnProperty('TktnzikjkymsgTxt')) {
-                    if (Array.isArray(property.TktnzikjkymsgTxt)) {
-                        for (const tktnzikjkymsgTxt of property.TktnzikjkymsgTxt) {
+                if (property !== null && property.hasOwnProperty('string')) {
+                    if (Array.isArray(property.string)) {
+                        for (const tktnzikjkymsgTxt of property.string) {
                             tktnzikjkymsgTxts.push(tktnzikjkymsgTxt);
                         }
                     } else {
-                        tktnzikjkymsgTxts.push(property.TktnzikjkymsgTxt);
+                        tktnzikjkymsgTxts.push(property.string);
                     }
                 }
 

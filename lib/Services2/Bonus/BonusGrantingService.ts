@@ -28,7 +28,7 @@ export default class BonusGrantingService extends Service {
             let preserveCodeResult: PreserveCodeResult | null = null;
 
             if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-             || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_OVERFLOW_ERROR) {
+             || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_REPLICATION_ERROR) {
                 preserveCodeResult = PreserveCodeResult.parse(result);
             }
 

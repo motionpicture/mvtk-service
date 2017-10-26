@@ -290,13 +290,13 @@ export default class FilmResult {
             } else if (normalizedName === 'tktnzikjkymsgTxt') {
                 const tktnzikjkymsgTxts: string[] = [];
 
-                if (property !== null && property.hasOwnProperty('TktnzikjkymsgTxt')) {
-                    if (Array.isArray(property.TktnzikjkymsgTxt)) {
-                        for (const tktnzikjkymsgTxt of property.TktnzikjkymsgTxt) {
+                if (property !== null && property.hasOwnProperty('string')) {
+                    if (Array.isArray(property.string)) {
+                        for (const tktnzikjkymsgTxt of property.string) {
                             tktnzikjkymsgTxts.push(tktnzikjkymsgTxt);
                         }
                     } else {
-                        tktnzikjkymsgTxts.push(property.TktnzikjkymsgTxt);
+                        tktnzikjkymsgTxts.push(property.string);
                     }
                 }
 
