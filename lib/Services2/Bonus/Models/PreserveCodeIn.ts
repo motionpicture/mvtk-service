@@ -11,9 +11,13 @@ export class PreserveCodeIn extends BaseIn {
      */
     public TKN_ID: string;
     /**
-     * 作品コード (決済方法の区分 00：カード決済 01：auかんたん決済 02：ドコモケータイ払い 04：ギフトカード決済 07：WebMoney決済)
+     * 作品コード
      */
     public SKHN_CD: string;
+    /**
+     * 決済方法区分 (決済方法の区分 00：カード決済 01：auかんたん決済 02：ドコモケータイ払い 04：ギフトカード決済 07：WebMoney決済)
+     */
+    public KSSIHH_TYP: string;
     /**
      * 併用決済フラグ (併用決済であるかどうかのフラグ)
      */
@@ -42,29 +46,37 @@ export class PreserveCodeIn extends BaseIn {
         let message = `
 <tns:PreserveCodeIn>
     <tns:IN_PARAMETER>
-        <q5:SKHN_CD>${this.SKHN_CD}</q5:SKHN_CD>
-        <q5:KNSHKN_INFO>
+        <q1:TKN_ID>${this.TKN_ID}</q1:TKN_ID>
+        <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
+        <q1:KSSIHH_TYP>${this.KSSIHH_TYP}</q1:KSSIHH_TYP>
+        <q1:KNSHKN_INFO>
+`;
+        if (this.HIYKSSI_FLG === '1') {
+        message += `
+        <q1:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q1:HIYKSSI_FLG>
+`;
+        }
+        message += `
+        <q1:HIYKSSI_TYP>${this.HIYKSSI_TYP}</q1:HIYKSSI_TYP>
+        <q1:KNY_DT>${this.KNY_DT}</q1:KNY_DT>
 `;
 
-        for (const info of this.KNSHKN_INFO.KnshknInfo) {
-            message += `
-            <q5:KnshknInfo>
-                <q5:KNSH_TYP>${info.KNSH_TYP}</q5:KNSH_TYP>
-                <q5:KNYMI_NUM>${info.KNYMI_NUM}</q5:KNYMI_NUM>
-            </q5:KnshknInfo>
+        if (this.KNSHKN_INFO !== null) {
+        message += `
+        <q1:KNSHKN_INFO>`;
+            for (let info of this.KNSHKN_INFO.KnshknInfo) {
+                message += `
+            <q2:KNSHKN>
+                <q2:KNSH_TYP>${info.KNSH_TYP}</q2:KNSH_TYP>
+                <q2:KNYMI_NUM>${info.KNYMI_NUM}</q2:KNYMI_NUM>
+            </q2:KNSHKN>
 `;
+            }
         }
 
         message += `
-        </q5:KNSHKN_INFO>
-        <q5:KNY_DT>${this.KNY_DT}</q5:KNY_DT>
-`;
-
-        if (this.HIYKSSI_FLG === '1') {
-            message += `
-        <q5:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q5:HIYKSSI_FLG>
-`;
-        }
+        </q1:KNSHKN_INFO>
+        `;        
         // tslint:disable-next-line:no-multiline-string
         message += `
     </tns:IN_PARAMETER>
