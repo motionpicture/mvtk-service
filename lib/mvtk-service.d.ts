@@ -2278,63 +2278,6 @@ declare module "@motionpicture/mvtk-service" {
                     registerPurchaseInfo(params: models.RegisterPurchaseInfoIn, cb: (err, response, registerPurchaseInfoResult: models.RegisterPurchaseInfoResult) => void): void;
                 }
 
-                module Bonus {
-                    module models {
-                        interface IKnshknInfo {
-                            KNSH_TYP: string;
-                            KNYMI_NUM: string;
-                        }
-
-                        export interface PreserveCodeIn {
-                            /**
-                             * トークンID (購入フローユニークID)
-                             */
-                            TKN_ID: string;
-                            /**
-                             * 作品コード (決済方法の区分 00：カード決済 01：auかんたん決済 02：ドコモケータイ払い 04：ギフトカード決済 07：WebMoney決済)
-                             */
-                            SKHN_CD: string;
-                            /**
-                             * 併用決済フラグ (併用決済であるかどうかのフラグ)
-                             */
-                            HIYKSSI_FLG: string;
-                            /**
-                             * 併用決済区分 (併用決済を行う決済方法区分 04：ギフトカード決済)
-                             */
-                            HIYKSSI_TYP: string;
-                            /**
-                             * 購入日時 (チケットの購入日時)
-                             */
-                            KNY_DT: string;
-                            /**
-                             * 鑑賞券情報 (購入した鑑賞券の情報)
-                             */
-                            KNSHKN_INFO: {
-                                KnshknInfo: IKnshknInfo[];
-                            };
-                        }
-    
-                        export interface PreserveCodeResult {
-                            /**
-                             * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
-                             */
-                            tktncdkkhNo: string[] = [];
-                            /**
-                             * 特典在庫状況メッセージ本文 (在庫僅少、在庫切れ時表示メッセージ（HTMLタグを含む）)
-                             */
-                            tktnzikjkymsgTxt: string[] = [];
-                        }
-                    }
-    
-                    export class BonusGrantingService extends common.Service {
-                        /**
-                         * 特典コード確保
-                         *
-                         * @param {PreserveCodeIn} args
-                         */
-                        preserveCode(params: models.PreserveCodeIn, cb: (err, response, result: models.PreserveCodeResult) => void): void;
-                    }
-
                 module PurchaseUtilities {
                     /** 決済方法区分 */
                     export var KSSIHH_TYP_CREDIT_CARD: string;
@@ -2405,6 +2348,64 @@ declare module "@motionpicture/mvtk-service" {
                     export function isAvailableMethod(kssiTyp: string): boolean;
                 }
 
+            }
+
+            module Bonus {
+                module models {
+                    interface IKnshknInfo {
+                        KNSH_TYP: string;
+                        KNYMI_NUM: string;
+                    }
+
+                    export interface PreserveCodeIn {
+                        /**
+                         * トークンID (購入フローユニークID)
+                         */
+                        TKN_ID: string;
+                        /**
+                         * 作品コード (決済方法の区分 00：カード決済 01：auかんたん決済 02：ドコモケータイ払い 04：ギフトカード決済 07：WebMoney決済)
+                         */
+                        SKHN_CD: string;
+                        /**
+                         * 併用決済フラグ (併用決済であるかどうかのフラグ)
+                         */
+                        HIYKSSI_FLG: string;
+                        /**
+                         * 併用決済区分 (併用決済を行う決済方法区分 04：ギフトカード決済)
+                         */
+                        HIYKSSI_TYP: string;
+                        /**
+                         * 購入日時 (チケットの購入日時)
+                         */
+                        KNY_DT: string;
+                        /**
+                         * 鑑賞券情報 (購入した鑑賞券の情報)
+                         */
+                        KNSHKN_INFO: {
+                            KnshknInfo: IKnshknInfo[];
+                        };
+                    }
+
+                    export interface PreserveCodeResult {
+                        /**
+                         * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+                         */
+                        tktncdkkhNo: string[] = [];
+                        /**
+                         * 特典在庫状況メッセージ本文 (在庫僅少、在庫切れ時表示メッセージ（HTMLタグを含む）)
+                         */
+                        tktnzikjkymsgTxt: string[] = [];
+                    }
+                }
+
+                export class BonusGrantingService extends common.Service {
+                    /**
+                     * 特典コード確保
+                     *
+                     * @param {PreserveCodeIn} args
+                     */
+                    preserveCode(params: models.PreserveCodeIn, cb: (err, response, result: models.PreserveCodeResult) => void): void;
+                }
             }
 
             module TicketChange {
@@ -2524,6 +2525,11 @@ declare module "@motionpicture/mvtk-service" {
          * ウェブマネーサービスを生成する
          */
         export function createWebMoneyService(): services.WebMoney.WebMoneyService;
+
+        /**
+         * 特典コードサービスを生成する
+         */
+        export function createBonusGrantingService(): services.Bonus.BonusGrantingService;
 
         export import Constants = common.util.constants;
         export import Util = common.util.util;
