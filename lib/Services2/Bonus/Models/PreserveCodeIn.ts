@@ -44,7 +44,7 @@ export class PreserveCodeIn extends BaseIn {
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
         let message = `
-<tns:PreserveCodeIn>
+<tns:PreserveCode>
     <tns:IN_PARAMETER>
         <q1:TKN_ID>${this.TKN_ID}</q1:TKN_ID>
         <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
@@ -53,10 +53,10 @@ export class PreserveCodeIn extends BaseIn {
         if (this.HIYKSSI_FLG === '1') {
         message += `
         <q1:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q1:HIYKSSI_FLG>
+        <q1:HIYKSSI_TYP>${this.HIYKSSI_TYP}</q1:HIYKSSI_TYP>
 `;
         }
         message += `
-        <q1:HIYKSSI_TYP>${this.HIYKSSI_TYP}</q1:HIYKSSI_TYP>
         <q1:KNY_DT>${this.KNY_DT}</q1:KNY_DT>
 `;
 
@@ -79,7 +79,7 @@ export class PreserveCodeIn extends BaseIn {
         // tslint:disable-next-line:no-multiline-string
         message += `
     </tns:IN_PARAMETER>
-</tns:PreserveCodeIn>
+</tns:PreserveCode>
 `;
 
         return message;
