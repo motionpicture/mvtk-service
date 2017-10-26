@@ -1,7 +1,5 @@
 node_modules/
 typings/
 
-lib/**/*.js
-
 !.gitignore
 !.gitkeep
