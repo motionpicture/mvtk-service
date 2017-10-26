@@ -1,8 +1,8 @@
 /**
  * filmService.getFilmTopPage example
  */
-var mvtkService = require('../../lib/mvtk-service');
-mvtk.initialize(
+var mvtkService = require('../../../lib/mvtk-service');
+mvtkService.initialize(
     'https://ssl.movieticket.jp',
     'https://testservices.movieticket.jp'
 );

@@ -255,7 +255,8 @@ class ServicesBuilder
      * @method
      */
     public  createBonusGrantingService(): BonusGrantingService {
-        const wsdl: string = this.endpoint2 + 'Services/Bonus/BonusGrantingsvc.svc?singleWsdl';
+        const wsdl: string = this.endpoint2 + '/Services/Bonus/BonusGrantingsvc.svc?singleWsdl';
+        console.log(wsdl)
         const service = new BonusGrantingService(wsdl);
         service.setCookie(this.cookie);
         return service;

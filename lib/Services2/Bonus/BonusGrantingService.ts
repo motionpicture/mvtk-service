@@ -21,7 +21,7 @@ export default class BonusGrantingService extends Service {
         const method = 'PreserveCode';
 
         const args = new PreserveCodeIn(params);
-
+        
         this.call(method, args.toXml(), (err, response, result) => {
             if (err) return cb(err, response, null);
 

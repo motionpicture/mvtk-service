@@ -49,7 +49,6 @@ export class PreserveCodeIn extends BaseIn {
         <q1:TKN_ID>${this.TKN_ID}</q1:TKN_ID>
         <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
         <q1:KSSIHH_TYP>${this.KSSIHH_TYP}</q1:KSSIHH_TYP>
-        <q1:KNSHKN_INFO>
 `;
         if (this.HIYKSSI_FLG === '1') {
         message += `
@@ -66,10 +65,10 @@ export class PreserveCodeIn extends BaseIn {
         <q1:KNSHKN_INFO>`;
             for (let info of this.KNSHKN_INFO.KnshknInfo) {
                 message += `
-            <q2:KNSHKN>
+            <q2:KnshknInfo>
                 <q2:KNSH_TYP>${info.KNSH_TYP}</q2:KNSH_TYP>
                 <q2:KNYMI_NUM>${info.KNYMI_NUM}</q2:KNYMI_NUM>
-            </q2:KNSHKN>
+            </q2:KnshknInfo>
 `;
             }
         }
