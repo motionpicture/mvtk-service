@@ -2363,9 +2363,13 @@ declare module "@motionpicture/mvtk-service" {
                          */
                         TKN_ID: string;
                         /**
-                         * 作品コード (決済方法の区分 00：カード決済 01：auかんたん決済 02：ドコモケータイ払い 04：ギフトカード決済 07：WebMoney決済)
+                         * 作品コード
                          */
                         SKHN_CD: string;
+                        /**
+                         * 決済方法区分 (決済方法の区分 00：カード決済 01：auかんたん決済 02：ドコモケータイ払い 04：ギフトカード決済 07：WebMoney決済)
+                         */
+                        KSSIHH_TYP: string;
                         /**
                          * 併用決済フラグ (併用決済であるかどうかのフラグ)
                          */
