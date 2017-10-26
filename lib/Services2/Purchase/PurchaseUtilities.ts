@@ -6,21 +6,21 @@ export default class PurchaseUtilities {
     /**
      * 決済方法区分
      */
-    public KSSIHH_TYP_CREDIT_CARD: string = '00';
-    public KSSIHH_TYP_AU: string = '01';
-    public KSSIHH_TYP_DOCOMO: string = '02';
-    public KSSIHH_TYP_GIFT_CARD: string = '04'; // ムビチケオンラインギフトカード
-    public KSSIHH_TYP_WEB_MONEY: string = '07';
+    public static KSSIHH_TYP_CREDIT_CARD: string = '00';
+    public static KSSIHH_TYP_AU: string = '01';
+    public static KSSIHH_TYP_DOCOMO: string = '02';
+    public static KSSIHH_TYP_GIFT_CARD: string = '04'; // ムビチケオンラインギフトカード
+    public static KSSIHH_TYP_WEB_MONEY: string = '07';
 
     /**
      * 購入デバイス区分
      */
-    public KNYDVC_TYP_PC = '01'; // PC
-    public KNYDVC_TYP_MB = '02'; // 携帯電話
-    public KNYDVC_TYP_SP = '09'; // SmartPhone
-    public KNYDVC_TYP_CT = '91'; // 法人券
-    public KNYDVC_TYP_MC = '92'; // カード券
-    public KNYDVC_TYP_AMZN = '93'; // マーケットプレイス
+    public static KNYDVC_TYP_PC = '01'; // PC
+    public static KNYDVC_TYP_MB = '02'; // 携帯電話
+    public static KNYDVC_TYP_SP = '09'; // SmartPhone
+    public static KNYDVC_TYP_CT = '91'; // 法人券
+    public static KNYDVC_TYP_MC = '92'; // カード券
+    public static KNYDVC_TYP_AMZN = '93'; // マーケットプレイス
 
     /**
      * チケットの販売チャネル
@@ -38,46 +38,46 @@ export default class PurchaseUtilities {
      * 12:アプリケーション連携
      * 13:イーウェル
      */
-    public HMBICHNNL_TYP_MVTK_SITE = '01'; // PC
+    public static HMBICHNNL_TYP_MVTK_SITE = '01'; // PC
 
-    public HMBGISH_CD_MVTK = '000000'; // ムビチケ
+    public static HMBGISH_CD_MVTK = '000000'; // ムビチケ
 
     /**
      * カード情報入力区分
      */
-    public CRDTCRDINPUTKBN_INPUT: string = '01'; // 入力された情報を使用
-    public CRDTCRDINPUTKBN_REGISTERED: string = '02'; // 登録済みの情報を使用
+    public static CRDTCRDINPUTKBN_INPUT: string = '01'; // 入力された情報を使用
+    public static CRDTCRDINPUTKBN_REGISTERED: string = '02'; // 登録済みの情報を使用
 
     /**
      * メール送付フラグ
      */
-    public MLSF_FLG_PC = '1';
-    public MLSF_FLG_MOBILE = '2';
-    public MLSF_FLG_PC_AND_MOBILE = '3';
+    public static MLSF_FLG_PC = '1';
+    public static MLSF_FLG_MOBILE = '2';
+    public static MLSF_FLG_PC_AND_MOBILE = '3';
 
     /**
      * 本人認証サービス対応区分
      */
-    public AUTHENTICATION_SERVICE_SUPPORT: string = '01'; // 対応している
-    public AUTHENTICATION_SERVICE_NOT_SUPPORT: string = '02'; // 対応していない
+    public static AUTHENTICATION_SERVICE_SUPPORT: string = '01'; // 対応している
+    public static AUTHENTICATION_SERVICE_NOT_SUPPORT: string = '02'; // 対応していない
 
     /**
      * 決済エラー種類区分
      */
-    public CLIENT_ERROR: string = '01'; // 顧客都合によるエラー
-    public SYSTEM_ERROR: string = '02'; // システムエラー全般
+    public static CLIENT_ERROR: string = '01'; // 顧客都合によるエラー
+    public static SYSTEM_ERROR: string = '02'; // システムエラー全般
 
     /**
      * 回答方式区分
      */
-    public KITHSHK_TYP_CHOICE = '01'; // 選択式
-    public KITHSHK_TYP_TEXT = '02'; // 記述式
+    public static KITHSHK_TYP_CHOICE = '01'; // 選択式
+    public static KITHSHK_TYP_TEXT = '02'; // 記述式
 
     /**
      * method取得
      * @function
      */
-    public getMethods() {
+    public static getMethods() {
         return {
             KSSIHH_TYP_CREDIT_CARD: 'クレジットカード',
             KSSIHH_TYP_AU: 'AU',
@@ -93,7 +93,7 @@ export default class PurchaseUtilities {
      * @param {string} kssiTyp 決済区分
      * @return {boolean}
      */
-    public isAvailableMethod(kssiTyp: string): boolean {
+    public static isAvailableMethod(kssiTyp: string): boolean {
         const types: string[] = [
             this.KSSIHH_TYP_CREDIT_CARD,
             this.KSSIHH_TYP_AU,
