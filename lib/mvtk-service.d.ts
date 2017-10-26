@@ -2390,11 +2390,11 @@ declare module "@motionpicture/mvtk-service" {
                         /**
                          * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
                          */
-                        tktncdkkhNo: string[] = [];
+                        tktncdkkhNo: string[];
                         /**
                          * 特典在庫状況メッセージ本文 (在庫僅少、在庫切れ時表示メッセージ（HTMLタグを含む）)
                          */
-                        tktnzikjkymsgTxt: string[] = [];
+                        tktnzikjkymsgTxt: string[];
                     }
                 }
 
@@ -2529,7 +2529,7 @@ declare module "@motionpicture/mvtk-service" {
         /**
          * 特典コードサービスを生成する
          */
-        export function createBonusGrantingService(): services.Bonus.BonusGrantingService;
+        export function createBonusGrantingService(): services2.Bonus.BonusGrantingService;
 
         export import Constants = common.util.constants;
         export import Util = common.util.util;
