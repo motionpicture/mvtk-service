@@ -267,9 +267,9 @@ export class RegisterPurchaseInfoIn extends BaseIn {
 
         for (const code of this.TKTNCDKKH_NO) {
         message += `
-        <q1:TKTNCDKKH_NO>
-            <q1:string>${code}</q1:string>
-        </q1:TKTNCDKKH_NO>
+        <q5:TKTNCDKKH_NO>
+            <q5:string>${code}</q5:string>
+        </q5:TKTNCDKKH_NO>
 `;
         }
 
