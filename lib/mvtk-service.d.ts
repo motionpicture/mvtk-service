@@ -2195,9 +2195,14 @@ declare module "@motionpicture/mvtk-service" {
                         /** WebMoney決済情報 */
                         WEBMONEYKSSIINFO: WebmoneykssiInfo;
                         /**
-                         * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+                         * 特典コード情報
                          */
-                        TKTNCDKKH_NO: string[];
+                        tktncdkkhInfo: {
+                            /**
+                             * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+                             */
+                            TKTNCDKKH_NO: string 
+                        }[];
                     }
 
                     interface WebmoneykssiInfo {
@@ -2392,13 +2397,14 @@ declare module "@motionpicture/mvtk-service" {
 
                     export interface PreserveCodeResult {
                         /**
-                         * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+                         * 特典コード情報
                          */
-                        tktncdkkhNo: string[];
-                        /**
-                         * 特典在庫状況メッセージ本文 (在庫僅少、在庫切れ時表示メッセージ（HTMLタグを含む）)
-                         */
-                        tktnzikjkymsgTxt: string[];
+                        tktncdkkhInfo: {
+                            /**
+                             * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+                             */
+                            TKTNCDKKH_NO: string 
+                        }[];
                     }
                 }
 

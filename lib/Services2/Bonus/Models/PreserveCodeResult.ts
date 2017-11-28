@@ -7,9 +7,14 @@ import CommonUtil from '../../../common/util/Util';
 export default class PreserveCodeResult {
 
     /**
-     * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+     * 特典コード情報
      */
-    public tktncdkkhInfo: { TKTNCDKKH_NO: string }[];
+    public tktncdkkhInfo: {
+        /**
+         * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+         */
+        TKTNCDKKH_NO: string 
+    }[];
 
     // tslint:disable-next-line:function-name
     public static parse(resultObject: any): PreserveCodeResult {

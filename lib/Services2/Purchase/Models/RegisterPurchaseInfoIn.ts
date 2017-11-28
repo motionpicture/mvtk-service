@@ -146,9 +146,14 @@ export class RegisterPurchaseInfoIn extends BaseIn {
      */
     public WEBMONEYKSSIINFO: WebmoneykssiInfo;
     /**
-     * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+     * 特典情報
      */
-    public TKTNCDKKH_INFO: { TKTNCDKKH_NO: string }[];
+    public TKTNCDKKH_INFO: { 
+        /**
+         * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+         */
+        TKTNCDKKH_NO: string 
+    }[];
 
     // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
@@ -516,7 +521,12 @@ export interface IRegisterPurchaseInfoIn {
      */
     WEBMONEYKSSIINFO: WebmoneykssiInfo;
     /**
-     * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+     * 特典情報
      */
-    TKTNCDKKH_INFO?: { TKTNCDKKH_NO: string }[];
+    TKTNCDKKH_INFO?: {
+        /**
+         * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
+         */
+        TKTNCDKKH_NO: string 
+    }[];
 }
