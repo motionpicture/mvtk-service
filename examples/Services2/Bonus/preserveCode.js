@@ -24,7 +24,7 @@ bonusGrantingService.preserveCode({
     "TKN_ID": "b4aa2eb4796fbf8ec8ed89044939eff6"
 }, (err, response, result) => {
     // tslint:disable-next-line:no-console
-    console.log(err, result);
+    console.log('特典のない作品', err, result);
 });
 
 bonusGrantingService.preserveCode({

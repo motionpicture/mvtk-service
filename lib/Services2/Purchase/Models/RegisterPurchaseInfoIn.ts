@@ -148,7 +148,7 @@ export class RegisterPurchaseInfoIn extends BaseIn {
     /**
      * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
      */
-    public TKTNCDKKH_NO: string[];
+    public TKTNCDKKH_INFO: { TKTNCDKKH_NO: string }[];
 
     // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
@@ -264,17 +264,23 @@ export class RegisterPurchaseInfoIn extends BaseIn {
             //         <q5:WEBMONEYKSSIINFO/>
             // `;
         }
-
-        for (const code of this.TKTNCDKKH_NO) {
+        // tslint:disable-next-line:no-multiline-string
         message += `
-        <q5:TKTNCDKKH_NO>
-            <q5:string>${code}</q5:string>
-        </q5:TKTNCDKKH_NO>
+        <q5:TKTNCDKKH_INFO>`;
+
+        for (const tktncdkkhInfo of this.TKTNCDKKH_INFO) {
+            message += `
+        
+            <q5:TktncdkkhInfo>
+                <q5:TKTNCDKKH_NO>${tktncdkkhInfo.TKTNCDKKH_NO}</q5:TKTNCDKKH_NO>
+            </q5:TktncdkkhInfo>
+        
 `;
         }
 
         // tslint:disable-next-line:no-multiline-string
         message += `
+        </q5:TKTNCDKKH_INFO>
     </tns:IN_PARAMETER>
 </tns:RegisterPurchaseInfo>
 `;
@@ -512,5 +518,5 @@ export interface IRegisterPurchaseInfoIn {
     /**
      * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
      */
-    TKTNCDKKH_NO?: string;
+    TKTNCDKKH_INFO?: { TKTNCDKKH_NO: string }[];
 }
