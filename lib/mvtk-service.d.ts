@@ -2405,6 +2405,10 @@ declare module "@motionpicture/mvtk-service" {
                              */
                             TKTNCDKKH_NO: string 
                         }[];
+                        /**
+                         * 特典在庫状況メッセージ本文 (在庫僅少、在庫切れ時表示メッセージ（HTMLタグを含む）)
+                         */
+                        tktnzikjkymsgTxt: string[];
                     }
                 }
 
