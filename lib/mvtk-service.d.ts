@@ -2197,7 +2197,7 @@ declare module "@motionpicture/mvtk-service" {
                         /**
                          * 特典コード情報
                          */
-                        tktncdkkhInfo: {
+                        TKTNCDKKH_INFO: {
                             /**
                              * 特典コード確保番号 (特典コード確保時に採番される一意な番号)
                              */
