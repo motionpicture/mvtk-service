@@ -1,4 +1,4 @@
-import * as mvtk from '../../lib/mvtk-service';
+const mvtk = require('../../lib/mvtk-service');
 
 mvtk.service.initialize(
     'https://ssl.movieticket.jp',
