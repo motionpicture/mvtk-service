@@ -1,11 +1,12 @@
+# git #
 .git*
-**/*.ts
-.npmrc
-.env*
-npm-debug.log*
 
-docs/**/*.*
-test/**/*.*
-.vscode/**/*.*
+# Node #
+node_modules/
 
-!**/*.d.ts
+# typescript #
+lib/**/*.ts
+definitions/
+typings/
+
+!lib/**/*.d.ts

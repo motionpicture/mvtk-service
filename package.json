@@ -1,4 +1,19 @@
 {
+  "name": "@motionpicture/mvtk-service",
+  "version": "1.3.0",
+  "dependencies": {
+    "soap": "0.13.0",
+    "soap-cookie": "0.10.1"
+  },
+  "description": "Mvtk Client Library for Node.js",
+  "main": "./lib/mvtk-service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf src/**/*.js npm-debug.log*",
+    "build": "tsc --project ./ --outDir lib --locale ja-jp"
+  },
+  "repository": {},
+  "keywords": [],
   "author": {
     "name": "Motionpicture co.,ltd."
   },
@@ -12,43 +27,14 @@
       "email": "yamazaki@motionpicture.jp"
     }
   ],
-  "name": "@motionpicture/mvtk-service",
-  "version": "2.0.2",
-  "dependencies": {
-    "soap": "^0.13.0",
-    "soap-cookie": "^0.10.1"
-  },
-  "description": "Mvtk Client Library for Node.js",
-  "main": "./lib/mvtk-service.js",
-  "scripts": {
-    "test": "mocha --no-timeouts --recursive",
-    "tslint": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json",
-    "tslint-fix": "tslint -c tslint.json lib/mvtk-service.ts lib/ReserveServices/**/**.ts lib/Common/**/**.ts --project tsconfig.json --fix",
-    "jsdoc": "grunt jsdoc",
-    "tsc": "tsc -p ./ -w",
-    "build": "tsc -p ./",
-    "clean": "rimraf examples/**/*.js lib/**/*.js test/**/*.js types/**/*.d.ts",
-    "prepublish": "npm run clean && npm run tslint && npm run build"
-  },
-  "repository": {},
-  "keywords": [],
   "license": "UNLICENSED",
   "engines": {
     "node": ">=6.0.0",
     "npm": ">=3.8.0"
   },
   "devDependencies": {
-    "@types/mocha": "^2.2.39",
     "@types/soap": "^0.18.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-jsdoc": "^2.1.0",
-    "ink-docstrap": "^1.3.0",
-    "mocha": "^3.2.0",
-    "rimraf": "^2.6.1",
-    "tslint": "^4.4.2",
-    "tslint-microsoft-contrib": "^4.0.0",
-    "typescript": "^2.1.6"
-  },
-  "types": "./types/lib/mvtk-service.d.ts"
+    "rimraf": "^2.6.2",
+    "typescript": "2.1.6"
+  }
 }
