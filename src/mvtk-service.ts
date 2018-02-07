@@ -30,8 +30,7 @@ import PurchaseUtilities from './services2/Purchase/PurchaseUtilities';
  * 
  * 特定のムビチケサービスを使う場合、ここからserviceをcreateする
  */
-export class ServicesBuilder
-{
+export class ServicesBuilder {
     private static instance: ServicesBuilder;
     public Constants = Constants;
     public Util = Util;
@@ -251,7 +250,7 @@ export class ServicesBuilder
      * 特典コードサービスを生成する
      * @method
      */
-    public  createBonusGrantingService(): BonusGrantingService {
+    public createBonusGrantingService(): BonusGrantingService {
         const wsdl: string = this.endpoint2 + '/Services/Bonus/BonusGrantingsvc.svc?singleWsdl';
         console.log(wsdl)
         const service = new BonusGrantingService(wsdl);
@@ -260,4 +259,4 @@ export class ServicesBuilder
     }
 }
 
-export const servicesBuilder = ServicesBuilder.getInstance();
+export const service = ServicesBuilder.getInstance();

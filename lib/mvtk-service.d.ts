@@ -164,4 +164,4 @@ export declare class ServicesBuilder {
      */
     createBonusGrantingService(): BonusGrantingService;
 }
-export declare const servicesBuilder: ServicesBuilder;
+export declare const service: ServicesBuilder;
