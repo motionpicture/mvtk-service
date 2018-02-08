@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import RegisterMemberTemporaryIn from './Models/RegisterMemberTemporaryIn';
+import RegisterMemberTemporaryIn from './models/RegisterMemberTemporaryIn';
 
 export default class RegisterMemberService extends Service {
     /**

@@ -1,10 +1,10 @@
 import Service from '../../common/Service';
 import Constants from '../../common/Util/Constants';
-import BnnrInfoResult from './Models/BnnrInfoResult';
-import DgtlincntvInfoResult from './Models/DgtlincntvInfoResult';
-import FilmResult from './Models/FilmResult';
-import GetTrailerDetailResult from './Models/GetTrailerDetailResult';
-import TicketInfoResult from './Models/TicketInfoResult';
+import BnnrInfoResult from './models/BnnrInfoResult';
+import DgtlincntvInfoResult from './models/DgtlincntvInfoResult';
+import FilmResult from './models/FilmResult';
+import GetTrailerDetailResult from './models/GetTrailerDetailResult';
+import TicketInfoResult from './models/TicketInfoResult';
 
 /**
  * FilmService

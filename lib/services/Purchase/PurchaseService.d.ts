@@ -1,11 +1,11 @@
 import Service from '../../common/Service';
-import CreditCardInfoResult from './Models/CreditCardInfoResult';
-import GetGmoExecTranResult from './Models/GetGmoExecTranResult';
-import SelectIchjknrInfoResult from './Models/SelectIchjknrInfoResult';
-import GetShhriInfoByKeyResult from './Models/GetShhriInfoByKeyResult';
-import GetTsuryShhziInfoResult from './Models/GetTsuryShhziInfoResult';
-import TicketInfoResult from '../Film/Models/TicketInfoResult';
-import GetQuestionnaireListResult from './Models/GetQuestionnaireListResult';
+import CreditCardInfoResult from './models/CreditCardInfoResult';
+import GetGmoExecTranResult from './models/GetGmoExecTranResult';
+import SelectIchjknrInfoResult from './models/SelectIchjknrInfoResult';
+import GetShhriInfoByKeyResult from './models/GetShhriInfoByKeyResult';
+import GetTsuryShhziInfoResult from './models/GetTsuryShhziInfoResult';
+import TicketInfoResult from '../Film/models/TicketInfoResult';
+import GetQuestionnaireListResult from './models/GetQuestionnaireListResult';
 export default class PurchaseService extends Service {
     /**
      * 購入日時チェック

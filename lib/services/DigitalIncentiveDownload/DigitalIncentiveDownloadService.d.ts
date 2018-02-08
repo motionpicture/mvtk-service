@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
-import GetDigitalIncentiveDownloadResult from './Models/GetDigitalIncentiveDownloadResult';
-import GetDigitalIncentiveDownloadLinkListResult from './Models/GetDigitalIncentiveDownloadLinkListResult';
+import GetDigitalIncentiveDownloadResult from './models/GetDigitalIncentiveDownloadResult';
+import GetDigitalIncentiveDownloadLinkListResult from './models/GetDigitalIncentiveDownloadLinkListResult';
 export default class DigitalIncentiveDownloadService extends Service {
     /**
     * デジタルインセンティブダウンロード

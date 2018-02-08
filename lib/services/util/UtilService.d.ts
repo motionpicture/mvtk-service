@@ -1,5 +1,5 @@
 import Service from '../../common/Service';
-import GetCodeNameResult from './Models/GetCodeNameResult';
+import GetCodeNameResult from './models/GetCodeNameResult';
 export default class UtilService extends Service {
     /**
      * 都道府県コード検索

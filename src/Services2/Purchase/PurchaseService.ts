@@ -1,9 +1,9 @@
 import Service from '../../common/Service';
 import Constants from '../../common/Util/Constants';
-import { GetGmoEntryTranIn, IGetGmoEntryTranIn } from './Models/GetGmoEntryTranIn';
-import GetGmoEntryTranResult from './Models/GetGmoEntryTranResult';
-import { IRegisterPurchaseInfoIn, RegisterPurchaseInfoIn } from './Models/RegisterPurchaseInfoIn';
-import RegisterPurchaseInfoResult from './Models/RegisterPurchaseInfoResult';
+import { GetGmoEntryTranIn, IGetGmoEntryTranIn } from './models/GetGmoEntryTranIn';
+import GetGmoEntryTranResult from './models/GetGmoEntryTranResult';
+import { IRegisterPurchaseInfoIn, RegisterPurchaseInfoIn } from './models/RegisterPurchaseInfoIn';
+import RegisterPurchaseInfoResult from './models/RegisterPurchaseInfoResult';
 
 /**
  * PurchaseService2

@@ -1,9 +1,9 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import GetDigitalIncentiveDownloadIn from './Models/GetDigitalIncentiveDownloadIn';
-import GetDigitalIncentiveDownloadResult from './Models/GetDigitalIncentiveDownloadResult';
-import GetDigitalIncentiveDownloadLinkListIn from './Models/GetDigitalIncentiveDownloadLinkListIn';
-import GetDigitalIncentiveDownloadLinkListResult from './Models/GetDigitalIncentiveDownloadLinkListResult';
+import GetDigitalIncentiveDownloadIn from './models/GetDigitalIncentiveDownloadIn';
+import GetDigitalIncentiveDownloadResult from './models/GetDigitalIncentiveDownloadResult';
+import GetDigitalIncentiveDownloadLinkListIn from './models/GetDigitalIncentiveDownloadLinkListIn';
+import GetDigitalIncentiveDownloadLinkListResult from './models/GetDigitalIncentiveDownloadLinkListResult';
 
 export default class DigitalIncentiveDownloadService extends Service {
     /**

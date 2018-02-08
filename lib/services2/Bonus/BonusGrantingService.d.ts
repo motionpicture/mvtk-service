@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
-import { IPreserveCodeIn } from './Models/PreserveCodeIn';
-import PreserveCodeResult from './Models/PreserveCodeResult';
+import { IPreserveCodeIn } from './models/PreserveCodeIn';
+import PreserveCodeResult from './models/PreserveCodeResult';
 /**
  * BonusGrantingService
  * @class

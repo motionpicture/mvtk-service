@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
-import WebMoneyEntryResult from './Models/WebMoneyEntryResult';
-import DecryptWebMoneyKssiInfoResult from './Models/DecryptWebMoneyKssiInfoResult';
+import WebMoneyEntryResult from './models/WebMoneyEntryResult';
+import DecryptWebMoneyKssiInfoResult from './models/DecryptWebMoneyKssiInfoResult';
 export default class WebMoneyService extends Service {
     /**
      * WebMoney決済実行

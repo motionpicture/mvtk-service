@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import DeliveryIn from './Models/DeliveryIn';
+import DeliveryIn from './models/DeliveryIn';
 
 export default class MailService extends Service {
     /**

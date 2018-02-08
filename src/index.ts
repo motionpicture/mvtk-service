@@ -1,29 +1,29 @@
-import DigitalIncentiveDownloadService from './services/DigitalIncentiveDownload/DigitalIncentiveDownloadService';
-import FilmService from './services/Film/FilmService';
-import GiftCardService from './services/GiftCard/GiftCardService';
-import GiftCardServiceNew from './services2/GiftCard/GiftCardService';
-import InquiryService from './services/Inquiry/InquiryService';
-import MailService from './services2/Mail/MailService';
-import MemberInfoService from './services/MemberInfo/MemberInfoService';
-import MovieLogService from './services/MovieLog/MovieLogService';
-import PurchaseService from './services/Purchase/PurchaseService';
-import PurchaseServiceNew from './services2/Purchase/PurchaseService';
-import RegisterMemberService from './services/RegisterMember/RegisterMemberService';
-import TicketChangeService from './services2/TicketChange/TicketChangeService';
+import DigitalIncentiveDownloadService from './services/digitalIncentiveDownload/DigitalIncentiveDownloadService';
+import FilmService from './services/film/FilmService';
+import GiftCardService from './services/giftCard/GiftCardService';
+import GiftCardServiceNew from './services2/giftCard/GiftCardService';
+import InquiryService from './services/inquiry/InquiryService';
+import MailService from './services2/mail/MailService';
+import MemberInfoService from './services/memberInfo/MemberInfoService';
+import MovieLogService from './services/movieLog/MovieLogService';
+import PurchaseService from './services/purchase/PurchaseService';
+import PurchaseServiceNew from './services2/purchase/PurchaseService';
+import RegisterMemberService from './services/registerMember/RegisterMemberService';
+import TicketChangeService from './services2/ticketChange/TicketChangeService';
 import UtilService from './services/util/UtilService';
 import UtilServiceNew from './services2/util/UtilService';
-import WebMoneyService from './services/WebMoney/WebMoneyService';
-import BonusGrantingService from './Services2/Bonus/BonusGrantingService';
+import WebMoneyService from './services/webMoney/WebMoneyService';
+import BonusGrantingService from './Services2/bonus/BonusGrantingService';
 
 import Constants from './common/util/Constants';
 import Util from './common/util/Util';
 
-import DigitalIncentiveDownloadUtilities from './services/MemberInfo/MemberInfoUtilities';
-import FilmUtilities from './services/Film/FilmUtilities';
-import InquiryUtilities from './services/Inquiry/InquiryUtilities';
-import MemberInfoUtilities from './services/MemberInfo/MemberInfoUtilities';
-import GiftCardUtilities from './services2/GiftCard/GiftCardUtilities';
-import PurchaseUtilities from './services2/Purchase/PurchaseUtilities';
+import DigitalIncentiveDownloadUtilities from './services/memberInfo/MemberInfoUtilities';
+import FilmUtilities from './services/film/FilmUtilities';
+import InquiryUtilities from './services/inquiry/InquiryUtilities';
+import MemberInfoUtilities from './services/memberInfo/MemberInfoUtilities';
+import GiftCardUtilities from './services2/giftCard/GiftCardUtilities';
+import PurchaseUtilities from './services2/purchase/PurchaseUtilities';
 
 /**
  * ムビチケサービス作成クラス

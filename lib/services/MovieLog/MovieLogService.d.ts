@@ -1,10 +1,10 @@
 import Service from '../../common/Service';
-import GetFavoriteFilmListResult from './Models/GetFavoriteFilmListResult';
-import GetUnusedTicketListResult from './Models/GetUnusedTicketListResult';
-import ShyzmtcktInfoListResult from './Models/ShyzmtcktInfoListResult';
-import WatchRecordResult from './Models/WatchRecordResult';
-import SeatReservationStatusListResult from './Models/SeatReservationStatusListResult';
-import SentGiftStatusListResult from './Models/SentGiftStatusListResult';
+import GetFavoriteFilmListResult from './models/GetFavoriteFilmListResult';
+import GetUnusedTicketListResult from './models/GetUnusedTicketListResult';
+import ShyzmtcktInfoListResult from './models/ShyzmtcktInfoListResult';
+import WatchRecordResult from './models/WatchRecordResult';
+import SeatReservationStatusListResult from './models/SeatReservationStatusListResult';
+import SentGiftStatusListResult from './models/SentGiftStatusListResult';
 export default class MovieLogService extends Service {
     /**
      * 観たい作品検索

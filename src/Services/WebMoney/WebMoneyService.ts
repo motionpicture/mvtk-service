@@ -1,8 +1,8 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import WebMoneyEntryIn from './Models/WebMoneyEntryIn';
-import WebMoneyEntryResult from './Models/WebMoneyEntryResult';
-import DecryptWebMoneyKssiInfoResult from './Models/DecryptWebMoneyKssiInfoResult';
+import WebMoneyEntryIn from './models/WebMoneyEntryIn';
+import WebMoneyEntryResult from './models/WebMoneyEntryResult';
+import DecryptWebMoneyKssiInfoResult from './models/DecryptWebMoneyKssiInfoResult';
 
 export default class WebMoneyService extends Service {
     /**

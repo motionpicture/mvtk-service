@@ -1,9 +1,9 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
 import Cookie = require('soap-cookie');
-import GetCodeNameResult from './Models/GetCodeNameResult';
+import GetCodeNameResult from './models/GetCodeNameResult';
 
-import EncryptDataListIn from './Models/EncryptDataListIn';
+import EncryptDataListIn from './models/EncryptDataListIn';
 
 export default class UtilService extends Service {
     /**

@@ -1,7 +1,7 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import { IPreserveCodeIn, PreserveCodeIn } from './Models/PreserveCodeIn';
-import PreserveCodeResult from './Models/PreserveCodeResult';
+import { IPreserveCodeIn, PreserveCodeIn } from './models/PreserveCodeIn';
+import PreserveCodeResult from './models/PreserveCodeResult';
 
 /**
  * BonusGrantingService

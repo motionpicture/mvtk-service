@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import SendInquiryMailIn from './Models/SendInquiryMailIn';
+import SendInquiryMailIn from './models/SendInquiryMailIn';
 
 export default class InquiryService extends Service {
     /**

@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
-import GiftCardIDAuthResult from './Models/GiftCardIDAuthResult';
-import GiftCardCancelResult from './Models/GiftCardCancelResult';
+import GiftCardIDAuthResult from './models/GiftCardIDAuthResult';
+import GiftCardCancelResult from './models/GiftCardCancelResult';
 export default class GiftCardService extends Service {
     /**
      * ムビチケギフトカード認証

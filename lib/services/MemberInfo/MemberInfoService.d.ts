@@ -1,5 +1,5 @@
 import Service from '../../common/Service';
-import MemberInfoResult from './Models/MemberInfoResult';
+import MemberInfoResult from './models/MemberInfoResult';
 export default class MemberInfoService extends Service {
     /**
      * 会員認証

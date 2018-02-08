@@ -1,19 +1,19 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import CreditCardInfoResult from './Models/CreditCardInfoResult';
-import GetGmoExecTranIn from './Models/GetGmoExecTranIn';
-import GetGmoExecTranResult from './Models/GetGmoExecTranResult';
-import RegisterIchjknrInfoIn from './Models/RegisterIchjknrInfoIn';
-import DeleteIchjknrInfoIn from './Models/DeleteIchjknrInfoIn';
-import SelectIchjknrInfoResult from './Models/SelectIchjknrInfoResult';
-import GetShhriInfoByKeyResult from './Models/GetShhriInfoByKeyResult';
-import GetTsuryShhziInfoResult from './Models/GetTsuryShhziInfoResult';
-import GMOCancelIn from './Models/GMOCancelIn';
-import TicketInfoResult from '../Film/Models/TicketInfoResult';
-import RegisterQuestionnaireIn from './Models/RegisterQuestionnaireIn';
-import GetQuestionnaireListIn from './Models/GetQuestionnaireListIn';
-import GetQuestionnaireListResult from './Models/GetQuestionnaireListResult';
-import ForwardPurchaseInfoMailIn from './Models/ForwardPurchaseInfoMailIn';
+import CreditCardInfoResult from './models/CreditCardInfoResult';
+import GetGmoExecTranIn from './models/GetGmoExecTranIn';
+import GetGmoExecTranResult from './models/GetGmoExecTranResult';
+import RegisterIchjknrInfoIn from './models/RegisterIchjknrInfoIn';
+import DeleteIchjknrInfoIn from './models/DeleteIchjknrInfoIn';
+import SelectIchjknrInfoResult from './models/SelectIchjknrInfoResult';
+import GetShhriInfoByKeyResult from './models/GetShhriInfoByKeyResult';
+import GetTsuryShhziInfoResult from './models/GetTsuryShhziInfoResult';
+import GMOCancelIn from './models/GMOCancelIn';
+import TicketInfoResult from '../Film/models/TicketInfoResult';
+import RegisterQuestionnaireIn from './models/RegisterQuestionnaireIn';
+import GetQuestionnaireListIn from './models/GetQuestionnaireListIn';
+import GetQuestionnaireListResult from './models/GetQuestionnaireListResult';
+import ForwardPurchaseInfoMailIn from './models/ForwardPurchaseInfoMailIn';
 
 export default class PurchaseService extends Service {
     /**

@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
-import MvtkGiftCardBalanceInquiryResult from './Models/MvtkGiftCardBalanceInquiryResult';
-import MvtkGiftCardEntryResult from './Models/MvtkGiftCardEntryResult';
+import MvtkGiftCardBalanceInquiryResult from './models/MvtkGiftCardBalanceInquiryResult';
+import MvtkGiftCardEntryResult from './models/MvtkGiftCardEntryResult';
 export default class GiftCardService extends Service {
     /**
      * ムビチケギフトカード残高確認

@@ -1,9 +1,9 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import GiftCardIDAuthIn from './Models/GiftCardIDAuthIn';
-import GiftCardIDAuthResult from './Models/GiftCardIDAuthResult';
-import GiftCardCancelIn from './Models/GiftCardCancelIn';
-import GiftCardCancelResult from './Models/GiftCardCancelResult';
+import GiftCardIDAuthIn from './models/GiftCardIDAuthIn';
+import GiftCardIDAuthResult from './models/GiftCardIDAuthResult';
+import GiftCardCancelIn from './models/GiftCardCancelIn';
+import GiftCardCancelResult from './models/GiftCardCancelResult';
 
 export default class GiftCardService extends Service {
     /**

@@ -1,7 +1,7 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import EditMemberInfoIn from './Models/EditMemberInfoIn';
-import MemberInfoResult from './Models/MemberInfoResult';
+import EditMemberInfoIn from './models/EditMemberInfoIn';
+import MemberInfoResult from './models/MemberInfoResult';
 
 export default class MemberInfoService extends Service {
     /**

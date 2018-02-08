@@ -1,6 +1,6 @@
 import Service from '../../common/Service';
 import Constants from '../../common/util/Constants';
-import CreateQrCodeIn from './Models/CreateQrCodeIn';
+import CreateQrCodeIn from './models/CreateQrCodeIn';
 
 export default class UtilService extends Service {
     /**
