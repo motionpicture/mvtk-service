@@ -7,7 +7,8 @@
     "soap-cookie": "0.10.1"
   },
   "description": "Mvtk Client Library for Node.js",
-  "main": "./lib/mvtk-service.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf src/**/*.js npm-debug.log*",
