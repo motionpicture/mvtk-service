@@ -1,7 +1,10 @@
 /**
  * ムビチケサービスベースクラス
  */
-export default class Service {
+export declare class Service {
+    /**
+     * wsdl
+     */
     protected wsdl: string;
     /**
      * soapクライアント
@@ -12,14 +15,14 @@ export default class Service {
      */
     private cookie;
     constructor(wsdl: string);
-    setCookie(cookie: any): void;
+    setCookie(cookie: string): void;
     /**
      * サービスメソッドを呼び出す
      *
-     * @param {string} method メソッド名
-     * @param {Object|string} args INパラメーター(オブジェクト、あるいは、xml文字列を想定している)
+     * @param  method メソッド名
+     * @param  args INパラメーター(オブジェクト、あるいは、xml文字列を想定している)
      */
-    protected call(method: string, args: Object | string, cb: (err: Error, response: any, result: any, lastResponseHeaders: any) => void): void;
+    protected call(method: string, args: Object | string, cb: (err: any, response: any, result: any, lastResponseHeaders: any) => void): void;
     /**
      * sopaクライアントを生成する
      */

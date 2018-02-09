@@ -1,4 +1,7 @@
-export default class GetTsuryShhziInfoResult {
+/**
+ * GetTsuryShhziInfoResult
+ */
+export declare class GetTsuryShhziInfoResult {
     knshknknrmisiNo: string;
     mvitckthikyftntsuryUnip: string;
     mvitcktkgyftntsuryUnip: string;

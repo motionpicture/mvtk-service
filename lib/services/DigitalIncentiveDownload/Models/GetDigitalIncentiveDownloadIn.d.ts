@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class GetDigitalIncentiveDownloadIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * GetDigitalIncentiveDownloadIn
+ */
+export declare class GetDigitalIncentiveDownloadIn extends BaseIn {
     /**
      * 購入管理番号
      */

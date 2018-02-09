@@ -1,8 +1,7 @@
 /**
  * 代行会社取引登録呼出out
- * @class
  */
-export default class GetGmoEntryTranResult {
+export declare class GetGmoEntryTranResult {
     /**
      * 決済管理番号
      */

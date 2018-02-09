@@ -1,12 +1,13 @@
-import Service from '../../common/Service';
-import GetDigitalIncentiveDownloadResult from './models/GetDigitalIncentiveDownloadResult';
-import GetDigitalIncentiveDownloadLinkListResult from './models/GetDigitalIncentiveDownloadLinkListResult';
-export default class DigitalIncentiveDownloadService extends Service {
+import { Service } from '../../common/Service';
+import { GetDigitalIncentiveDownloadLinkListResult } from './models/GetDigitalIncentiveDownloadLinkListResult';
+import { GetDigitalIncentiveDownloadResult } from './models/GetDigitalIncentiveDownloadResult';
+/**
+ * DigitalIncentiveDownloadService
+ */
+export declare class DigitalIncentiveDownloadService extends Service {
     /**
-    * デジタルインセンティブダウンロード
-    *
-    * @param {GetDigitalIncentiveDownloadIn} args
-    */
+     * デジタルインセンティブダウンロード
+     */
     getDigitalIncentiveDownload(params: Object): Promise<{
         response: any;
         result: GetDigitalIncentiveDownloadResult;
@@ -14,7 +15,6 @@ export default class DigitalIncentiveDownloadService extends Service {
     /**
      * デジタルインセンティブダウンロード情報検索
      *
-     * @param {GetDigitalIncentiveDownloadLinkListIn} args
      */
     getDigitalIncentiveDownloadLinkList(params: Object): Promise<{
         response: any;

@@ -1,8 +1,8 @@
-import TicketInfoTypeResult from './TicketInfoTypeResult';
+import { TicketInfoTypeResult } from './TicketInfoTypeResult';
 /**
  * 鑑賞券情報検索out
  */
-export default class TicketInfoResult {
+export declare class TicketInfoResult {
     /**
      * 鑑賞券管理番号
      */
@@ -93,14 +93,10 @@ export default class TicketInfoResult {
     knshInfo: TicketInfoTypeResult[];
     /**
      * データ整形
-     * @param {any} resultObject
-     * @returns {TicketInfoResult} 鑑賞券情報検索out
      */
     static parse(resultObject: any): TicketInfoResult;
     /**
      * 販売状態かどうかを取得する
-     *
-     * @return {boolean}
      */
     isOnSale(): boolean;
 }

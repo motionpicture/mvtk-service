@@ -1,6 +1,9 @@
-import Service from '../../common/Service';
-import GetCodeNameResult from './models/GetCodeNameResult';
-export default class UtilService extends Service {
+import { Service } from '../../common/Service';
+import { GetCodeNameResult } from './models/GetCodeNameResult';
+/**
+ * UtilService
+ */
+export declare class UtilService extends Service {
     /**
      * 都道府県コード検索
      *
@@ -10,7 +13,7 @@ export default class UtilService extends Service {
      *
      * @throws sfMovieticketAPIException
      */
-    getPrefectureCode(prefectureCode?: string, addBlank?: boolean): void;
+    getPrefectureCode(_prefectureCode: string, _addBlank: boolean): Promise<void>;
     /**
      * ムビチケ対応劇場都道府県コード検索
      *
@@ -20,13 +23,13 @@ export default class UtilService extends Service {
      *
      * @throws sfMovieticketAPIException
      */
-    getPrefectureCodeWithMvitckttio(prefectureCode?: string, addBlank?: boolean): void;
+    getPrefectureCodeWithMvitckttio(_prefectureCode: string, _addBlank: boolean): Promise<void>;
     /**
      * 会員認証クッキー追加
      *
      * API側で会員情報がセッションに追加され、セッションクッキーが発行される。
      *
-     * @param {string} kiinCd ムビチケ会員コード
+     * @param kiinCd ムビチケ会員コード
      */
     signIn(kiinCd: string): Promise<{
         response: any;
@@ -44,26 +47,24 @@ export default class UtilService extends Service {
     /**
      * 電子券QRコード生成
      *
-     * @param {string}  knyknrNo 購入管理番号
-     * @param {string}  pinCd    PINコード（購入者電話番号下４桁）
+     * @param knyknrNo 購入管理番号
+     * @param pinCd    PINコード（購入者電話番号下４桁）
      */
-    createQrCode(knyknrNo: any, pinCd: any): Promise<{
+    createQrCode(knyknrNo: string, pinCd: string): Promise<{
         response: any;
         result: string;
     }>;
     /**
      * 暗号化
      *
-     * @param string $value
      * @return string 暗号化した文字列
      *
      * @throws sfMovieticketAPIException
      */
-    encryptData(value: any): void;
+    encryptData(_value: string): void;
     /**
      * 暗号化（配列）
      *
-     * @param {Object} values
      */
     encryptDataList(params: Object): Promise<{
         response: any;
@@ -72,9 +73,9 @@ export default class UtilService extends Service {
     /**
      * 各種コード検索
      *
-     * @param {string} kmkTyp 項目区分
-     * @param {string} typ 区分
-     * @param {string} blnkarFlg ブランク有フラグ
+     * @param kmkTyp 項目区分
+     * @param typ 区分
+     * @param blnkarFlg ブランク有フラグ
      */
     getCodeName(kmkTyp: string, typ: string, blnkarFlg: string): Promise<{
         response: any;

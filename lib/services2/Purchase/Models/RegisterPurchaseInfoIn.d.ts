@@ -1,7 +1,6 @@
-import BaseIn from '../../../common/models/BaseIn';
+import { BaseIn } from '../../../common/models/BaseIn';
 /**
  * 購入情報登録inクラス
- * @class
  * @extends {BaseIn}
  */
 export declare class RegisterPurchaseInfoIn extends BaseIn {
@@ -156,7 +155,6 @@ export declare class RegisterPurchaseInfoIn extends BaseIn {
 }
 /**
  * WebMoney決済情報
- * @interface
  */
 export interface WebmoneykssiInfo {
     /**
@@ -209,7 +207,6 @@ export interface WebmoneykssiInfo {
 }
 /**
  * 鑑賞券情報
- * @interface
  */
 export interface KnshknInfo {
     KNSHKNKNRMISI_NO: string;
@@ -219,7 +216,6 @@ export interface KnshknInfo {
 }
 /**
  * ギフトカード情報
- * @interface
  */
 export interface GftcrdInfo {
     GFTCRDKSSIKNR_NO: string;
@@ -235,7 +231,6 @@ export interface GftcrdInfo {
 }
 /**
  * 購入情報登録in
- * @interface
  */
 export interface IRegisterPurchaseInfoIn {
     /**

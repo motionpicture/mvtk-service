@@ -8,7 +8,10 @@ export interface KnshbtskiinknygftInfo {
      */
     knshkmmiNum: string;
 }
-export default class SentGiftStatusListResult {
+/**
+ * SentGiftStatusListResult
+ */
+export declare class SentGiftStatusListResult {
     /**
      * ギフト管理番号
      */
@@ -28,6 +31,6 @@ export default class SentGiftStatusListResult {
     /**
      * 券種別会員購入鑑賞情報(itemArray)
      */
-    knshbtskiinknygftInfo: Array<KnshbtskiinknygftInfo>;
+    knshbtskiinknygftInfo: KnshbtskiinknygftInfo[];
     static parse(resultObject: any): SentGiftStatusListResult;
 }

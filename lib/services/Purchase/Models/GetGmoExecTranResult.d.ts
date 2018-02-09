@@ -1,4 +1,7 @@
-export default class GetGmoExecTranResult {
+/**
+ * GetGmoExecTranResult
+ */
+export declare class GetGmoExecTranResult {
     acsKbn: string;
     acsurl: string;
     pareq: string;

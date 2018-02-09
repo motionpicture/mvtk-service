@@ -1,6 +1,6 @@
-const mvtk = require('../../lib/mvtk-service');
+const mvtk = require('../../lib/index');
 
-mvtk.service.initialize(
+mvtk.services.initialize(
     'https://ssl.movieticket.jp',
     'https://testservices.movieticket.jp'
 );
@@ -8,7 +8,12 @@ mvtk.service.initialize(
 main();
 
 async function main() {
-    const filmService = mvtk.service.createFilmService();
-    const filmTopPage = await filmService.getFilmTopPage(mvtk.service.Constants.DVC_TYP_PC);
-    console.log(filmTopPage.result);
+    try {
+        const filmService = mvtk.services.createFilmService();
+        const filmTopPage = await filmService.getFilmTopPage(mvtk.services.Constants.DVC_TYP_PC);
+        console.log(filmTopPage.result);
+    } catch (err) {
+        console.log(err);
+    }
+
 }

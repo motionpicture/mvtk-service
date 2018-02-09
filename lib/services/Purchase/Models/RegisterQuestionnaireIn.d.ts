@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class RegisterQuestionnaireIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * RegisterQuestionnaireIn
+ */
+export declare class RegisterQuestionnaireIn extends BaseIn {
     /**
      * 作品コード
      */
@@ -23,7 +26,7 @@ export default class RegisterQuestionnaireIn extends BaseIn {
     toXml(): string;
 }
 export interface ArrayOfQustinnarkitInfo {
-    QustinnarkitInfo: Array<QustinnarkitInfo>;
+    QustinnarkitInfo: QustinnarkitInfo[];
 }
 export interface QustinnarkitInfo {
     /**
@@ -44,7 +47,7 @@ export interface QustinnarkitInfo {
     SNTKSHKQUSTINNARKIT_INFO: ArrayOfSntkshkqustinnarkitInfo;
 }
 export interface ArrayOfSntkshkqustinnarkitInfo {
-    SntkshkqustinnarkitInfo: Array<SntkshkqustinnarkitInfo>;
+    SntkshkqustinnarkitInfo: SntkshkqustinnarkitInfo[];
 }
 export interface SntkshkqustinnarkitInfo {
     /**

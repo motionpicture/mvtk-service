@@ -1,3 +1,6 @@
-export default class BaseIn {
+/**
+ * BaseIn
+ */
+export declare class BaseIn {
     constructor(initials?: Object);
 }

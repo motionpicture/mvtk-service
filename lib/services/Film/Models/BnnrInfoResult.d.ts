@@ -1,7 +1,7 @@
 /**
  * バナーリスト取得out
  */
-export default class BnnrInfoResult {
+export declare class BnnrInfoResult {
     /**
      * デバイス区分
      */
@@ -40,8 +40,6 @@ export default class BnnrInfoResult {
     bnnrkisishryYmd: string;
     /**
      * データ整形
-     * @param {any} resultObject
-     * @returns {BnnrInfoResult} バナーリスト取得out
      */
     static parse(resultObject: any): BnnrInfoResult;
 }

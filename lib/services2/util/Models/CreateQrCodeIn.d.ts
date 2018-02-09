@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class CreateQrCodeIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * CreateQrCodeIn
+ */
+export declare class CreateQrCodeIn extends BaseIn {
     /**
      * 購入管理番号
      */

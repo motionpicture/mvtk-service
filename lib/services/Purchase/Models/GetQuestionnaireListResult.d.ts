@@ -1,8 +1,11 @@
-export default class GetQuestionnaireListResult {
+/**
+ * GetQuestionnaireListResult
+ */
+export declare class GetQuestionnaireListResult {
     /**
      * アンケート設問情報(itemArray)
      */
-    qustinnarstsmnInfo: Array<QustinnarstsmnInfo>;
+    qustinnarstsmnInfo: QustinnarstsmnInfo[];
     static parse(resultObject: any): GetQuestionnaireListResult;
 }
 export interface QustinnarstsmnInfo {
@@ -29,7 +32,7 @@ export interface QustinnarstsmnInfo {
     /**
      * アンケート選択肢情報(itemArray)
      */
-    QUSTINNARSNTKSH_INFO: Array<QustinnarsntkshInfo>;
+    QUSTINNARSNTKSH_INFO: QustinnarsntkshInfo[];
 }
 export interface QustinnarsntkshInfo {
     /**

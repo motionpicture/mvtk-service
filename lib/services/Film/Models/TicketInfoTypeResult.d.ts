@@ -1,8 +1,7 @@
 /**
  * 鑑賞券明細情報out
- * @class
  */
-export default class TicketInfoTypeResult {
+export declare class TicketInfoTypeResult {
     knshknknrmisiNo: string;
     knshTyp: string;
     shhziTyp: string;
@@ -21,8 +20,6 @@ export default class TicketInfoTypeResult {
     kmawsskknshTyp: string;
     /**
      * データ整形
-     * @param {any} resultObject
-     * @returns {TicketInfoTypeResult} 鑑賞券明細情報out
      */
     static parse(resultObject: any): TicketInfoTypeResult;
 }

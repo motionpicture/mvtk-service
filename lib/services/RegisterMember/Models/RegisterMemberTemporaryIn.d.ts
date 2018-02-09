@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class RegisterMemberTemporaryIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * RegisterMemberTemporaryIn
+ */
+export declare class RegisterMemberTemporaryIn extends BaseIn {
     kiinsiNm: string;
     kiimmiNm: string;
     kiinsiKnnm: string;

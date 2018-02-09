@@ -1,13 +1,12 @@
-import FilmCastResult from './FilmCastResult';
-import FilmGenreResult from './FilmGenreResult';
-import FilmPhotoGalleryResult from './FilmPhotoGalleryResult';
-import FilmStaffResult from './FilmStaffResult';
-import TicketInfoResult from './TicketInfoResult';
+import { FilmCastResult } from './FilmCastResult';
+import { FilmGenreResult } from './FilmGenreResult';
+import { FilmPhotoGalleryResult } from './FilmPhotoGalleryResult';
+import { FilmStaffResult } from './FilmStaffResult';
+import { TicketInfoResult } from './TicketInfoResult';
 /**
  * 作品out
- * @class
  */
-export default class FilmResult {
+export declare class FilmResult {
     /**
      * 作品コード
      */
@@ -202,26 +201,18 @@ export default class FilmResult {
     tktnzikjkymsgTxt: string[];
     /**
      * データ整形
-     * @param {any} resultObject
-     * @returns {FilmResult} 作品out
      */
     static parse(resultObject: any): FilmResult;
     /**
      * 公開状態かどうかを取得する
-     *
-     * @return {boolean}
      */
     isShowing(): boolean;
     /**
      * 媒体区分が電子券のチケットがあるかどうか
-     *
-     * @return {boolean}
      */
     hasOnlinetTicket(): boolean;
     /**
      * チケットリストから、媒体区分が電子券のチケットを取得する
-     *
-     * @return {TicketInfoResult}
      */
     getOnlineTicket(): TicketInfoResult | null;
     getCastNames(leadingFilter?: boolean): string;

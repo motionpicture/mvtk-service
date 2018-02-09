@@ -1,7 +1,7 @@
 /**
  * Defines constants, enums, and utility functions for use with the Film service.
  */
-export default class FilmUtilities {
+export declare class FilmUtilities {
     /**
      * チケット媒体区分
      */

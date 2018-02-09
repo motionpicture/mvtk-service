@@ -8,7 +8,10 @@ export interface KnshbtskiinknyknshInfo {
      */
     knshkmmiNum: string;
 }
-export default class watchRecordResult {
+/**
+ * watchRecordResult
+ */
+export declare class WatchRecordResult {
     /**
      * 座席予約番号
      */
@@ -32,6 +35,6 @@ export default class watchRecordResult {
     /**
      * 券種別会員購入鑑賞情報(itemArray)
      */
-    knshbtskiinknyknshInfo: Array<KnshbtskiinknyknshInfo>;
-    static parse(resultObject: any): watchRecordResult;
+    knshbtskiinknyknshInfo: KnshbtskiinknyknshInfo[];
+    static parse(resultObject: any): WatchRecordResult;
 }

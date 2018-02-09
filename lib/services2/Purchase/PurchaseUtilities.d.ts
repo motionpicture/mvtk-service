@@ -1,7 +1,7 @@
 /**
  * Defines constants, enums, and utility functions for use with the Purchase service.
  */
-export default class PurchaseUtilities {
+export declare class PurchaseUtilities {
     /**
      * 決済方法区分
      */
@@ -65,7 +65,6 @@ export default class PurchaseUtilities {
     static KITHSHK_TYP_TEXT: string;
     /**
      * method取得
-     * @function
      */
     static getMethods(): {
         KSSIHH_TYP_CREDIT_CARD: string;
@@ -76,9 +75,7 @@ export default class PurchaseUtilities {
     };
     /**
      * 対応している決済区分か判定
-     * @function
-     * @param {string} kssiTyp 決済区分
-     * @return {boolean}
+     * @param kssiTyp 決済区分
      */
     static isAvailableMethod(kssiTyp: string): boolean;
 }

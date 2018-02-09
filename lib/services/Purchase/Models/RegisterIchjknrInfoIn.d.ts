@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class RegisterIchjknrInfoIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * RegisterIchjknrInfoIn
+ */
+export declare class RegisterIchjknrInfoIn extends BaseIn {
     ACCESS_ID: string;
     ACCESS_PWD: string;
     TKN_ID: string;
@@ -29,7 +32,7 @@ export default class RegisterIchjknrInfoIn extends BaseIn {
     toXml(): string;
 }
 export interface ArrayOfTicketichjknrList {
-    TicketichjknrList: Array<Ticketichjknr>;
+    TicketichjknrList: Ticketichjknr[];
 }
 export interface Ticketichjknr {
     KNSHKNKNR_NO: string;

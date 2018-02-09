@@ -1,7 +1,6 @@
-import BaseIn from '../../../common/models/BaseIn';
+import { BaseIn } from '../../../common/models/BaseIn';
 /**
  * 特典コード確保inクラス
- * @class
  * @extends {BaseIn}
  */
 export declare class PreserveCodeIn extends BaseIn {
@@ -43,7 +42,6 @@ export declare class PreserveCodeIn extends BaseIn {
 }
 /**
  * 鑑賞券情報
- * @interface
  */
 export interface IKnshknInfo {
     KNSH_TYP: string;
@@ -51,7 +49,6 @@ export interface IKnshknInfo {
 }
 /**
  * 特典コード確保in型
- * @interface
  */
 export interface IPreserveCodeIn {
     /**

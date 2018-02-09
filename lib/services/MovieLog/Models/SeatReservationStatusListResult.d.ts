@@ -8,7 +8,10 @@ export interface KnshbtskiinknyyykInfo {
      */
     knshkmmiNum: string;
 }
-export default class SeatReservationStatusListResult {
+/**
+ * SeatReservationStatusListResult
+ */
+export declare class SeatReservationStatusListResult {
     /**
      * 座席予約番号
      */
@@ -36,6 +39,6 @@ export default class SeatReservationStatusListResult {
     /**
      * 券種別会員購入鑑賞情報(itemArray)
      */
-    knshbtskiinknyyykInfo: Array<KnshbtskiinknyyykInfo>;
+    knshbtskiinknyyykInfo: KnshbtskiinknyyykInfo[];
     static parse(resultObject: any): SeatReservationStatusListResult;
 }

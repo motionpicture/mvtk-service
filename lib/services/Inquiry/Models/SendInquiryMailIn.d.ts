@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class SendInquiryMailIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * SendInquiryMailIn
+ */
+export declare class SendInquiryMailIn extends BaseIn {
     /**
      * 問合せ日時
      */

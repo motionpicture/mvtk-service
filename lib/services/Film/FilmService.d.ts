@@ -1,18 +1,17 @@
-import Service from '../../common/Service';
-import BnnrInfoResult from './models/BnnrInfoResult';
-import DgtlincntvInfoResult from './models/DgtlincntvInfoResult';
-import FilmResult from './models/FilmResult';
-import GetTrailerDetailResult from './models/GetTrailerDetailResult';
-import TicketInfoResult from './models/TicketInfoResult';
+import { Service } from '../../common/Service';
+import { BnnrInfoResult } from './models/BnnrInfoResult';
+import { DgtlincntvInfoResult } from './models/DgtlincntvInfoResult';
+import { FilmResult } from './models/FilmResult';
+import { GetTrailerDetailResult } from './models/GetTrailerDetailResult';
+import { TicketInfoResult } from './models/TicketInfoResult';
 /**
  * FilmService
- * @class
  */
-export default class FilmService extends Service {
+export declare class FilmService extends Service {
     /**
      * 作品詳細情報照会
-     * @param {string} skhnCd 作品コード
-     * @param {string} dvcTyp デバイス区分
+     * @param skhnCd 作品コード
+     * @param dvcTyp デバイス区分
      */
     getFilmDetail(skhnCd: string, dvcTyp: string): Promise<{
         response: any;
@@ -20,8 +19,6 @@ export default class FilmService extends Service {
     }>;
     /**
      * トップページ作品検索
-     *
-     * @param {string} dvcTyp
      */
     getFilmTopPage(dvcTyp: string): Promise<{
         response: any;
@@ -30,7 +27,7 @@ export default class FilmService extends Service {
     /**
      * 鑑賞券情報検索
      *
-     * @param {string} skhnCd 作品コード
+     * @param skhnCd 作品コード
      */
     getTicketInfoList(skhnCd: string): Promise<{
         response: any;
@@ -39,8 +36,8 @@ export default class FilmService extends Service {
     /**
      * バナーリスト取得
      *
-     * @param {string} skhnCd 作品コード
-     * @param {string} dvcTyp デバイス区分
+     * @param skhnCd 作品コード
+     * @param dvcTyp デバイス区分
      */
     getBannerList(skhnCd: string, dvcTyp: string): Promise<{
         response: any;
@@ -49,8 +46,8 @@ export default class FilmService extends Service {
     /**
      * 予告編取得
      *
-     * @param {string} skhnCd 作品コード
-     * @param {string} dvcTyp デバイス区分
+     * @param skhnCd 作品コード
+     * @param dvcTyp デバイス区分
      */
     getTrailerDetail(skhnCd: string, dvcTyp: string): Promise<{
         response: any;
@@ -59,8 +56,8 @@ export default class FilmService extends Service {
     /**
      * 特典取得
      *
-     * @param {string} skhnCd 作品コード
-     * @param {string} dvcTyp デバイス区分
+     * @param skhnCd 作品コード
+     * @param dvcTyp デバイス区分
      */
     getDigitalIncentiveList(skhnCd: string, dvcTyp: string): Promise<{
         response: any;

@@ -1,4 +1,7 @@
-export default class GetDigitalIncentiveDownloadResult {
+/**
+ * GetDigitalIncentiveDownloadResult
+ */
+export declare class GetDigitalIncentiveDownloadResult {
     /**
      * ダウンロードファイル名
      */

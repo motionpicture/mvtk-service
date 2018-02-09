@@ -2,6 +2,9 @@ export interface KnshInfo {
     KNSHKBN_NM: string;
     KNY_NUM: string;
 }
+/**
+ * ShyzmtcktInfo
+ */
 export declare class ShyzmtcktInfo {
     mvilgNo: string;
     knyDt: string;
@@ -12,13 +15,16 @@ export declare class ShyzmtcktInfo {
     znkkkkikishYmd: string;
     znkkkkijkDspt: string;
     knshkmmisumNum: string;
-    knshInfo: Array<KnshInfo>;
+    knshInfo: KnshInfo[];
     dgtlincntvdwnlodgmnUrl: string;
     knytcktSttsKbn: string;
     static parse(resultObject: any): ShyzmtcktInfo;
 }
-export default class ShyzmtcktInfoListResult {
+/**
+ * ShyzmtcktInfoListResult
+ */
+export declare class ShyzmtcktInfoListResult {
     kiinCd: string;
-    shyzmtcktInfo: Array<ShyzmtcktInfo>;
+    shyzmtcktInfo: ShyzmtcktInfo[];
     static parse(resultObject: any): ShyzmtcktInfoListResult;
 }

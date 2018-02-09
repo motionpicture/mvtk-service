@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class GetGmoExecTranIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * GetGmoExecTranIn
+ */
+export declare class GetGmoExecTranIn extends BaseIn {
     kssiknrNo: string;
     kssihhTyp: string;
     accessId: string;

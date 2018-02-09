@@ -1,4 +1,7 @@
-export default class SelectIchjknrInfoResult {
+/**
+ * SelectIchjknrInfoResult
+ */
+export declare class SelectIchjknrInfoResult {
     accessId: string;
     accessPwd: string;
     tknId: string;

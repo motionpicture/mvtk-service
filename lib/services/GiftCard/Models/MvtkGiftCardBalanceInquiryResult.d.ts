@@ -31,7 +31,10 @@ export interface RymisiInfo {
      */
     HHYJ_FLG: string;
 }
-export default class MvtkGiftCardBalanceInquiryResult {
+/**
+ * MvtkGiftCardBalanceInquiryResult
+ */
+export declare class MvtkGiftCardBalanceInquiryResult {
     /**
      * 凸版サービス返却値
      */

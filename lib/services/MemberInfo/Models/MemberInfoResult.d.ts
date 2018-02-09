@@ -1,4 +1,7 @@
-export default class MemberInfoResult {
+/**
+ * MemberInfoResult
+ */
+export declare class MemberInfoResult {
     /**
      * 会員コード
      */

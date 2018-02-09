@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class DeliveryIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * BaseIn
+ */
+export declare class DeliveryIn extends BaseIn {
     /**
      * 決済管理番号
      */
@@ -24,7 +27,7 @@ export default class DeliveryIn extends BaseIn {
      * 鑑賞券情報(ItemArray)
      */
     KNSHKN_INFO: {
-        KNSHKN: Array<{
+        KNSHKN: {
             /**
              * 券種区分名称
              */
@@ -33,7 +36,7 @@ export default class DeliveryIn extends BaseIn {
              * 購入枚数
              */
             KNYMI_NUM: string;
-        }>;
+        }[];
     };
     /**
      * QR コード URL

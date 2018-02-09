@@ -1,8 +1,7 @@
 /**
  * 特典取得out
- * @class
  */
-export default class DgtlincntvInfoResult {
+export declare class DgtlincntvInfoResult {
     dvcTyp: string;
     dgtlincntvCd: string;
     dgtlincntvTtl: string;
@@ -15,8 +14,6 @@ export default class DgtlincntvInfoResult {
     skhndgtlincntvRmk: string;
     /**
      * データ整形
-     * @param {any} resultObject
-     * @returns {DgtlincntvInfoResult} 特典取得out
      */
     static parse(resultObject: any): DgtlincntvInfoResult;
 }

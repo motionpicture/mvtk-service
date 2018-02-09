@@ -1,4 +1,7 @@
-export default class DecryptWebMoneyKssiInfoResult {
+/**
+ * DecryptWebMoneyKssiInfoResult
+ */
+export declare class DecryptWebMoneyKssiInfoResult {
     decryptedkssiinfo: string;
     vrsinjh: string;
     wbmnysettleCd: string;

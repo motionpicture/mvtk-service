@@ -1,3 +1,6 @@
+/**
+ * SkhnInfo
+ */
 export declare class SkhnInfo {
     /**
      * 作品コード
@@ -61,7 +64,10 @@ export declare class SkhnInfo {
     zskyykshryFlg: string;
     static parse(resultObject: any): SkhnInfo;
 }
-export default class GetFavoriteFilmListResult {
+/**
+ * GetFavoriteFilmListResult
+ */
+export declare class GetFavoriteFilmListResult {
     /**
      * 会員コード
      */
@@ -73,6 +79,6 @@ export default class GetFavoriteFilmListResult {
     /**
      * 作品詳細情報(itemArray)
      */
-    skhnInfo: Array<SkhnInfo>;
+    skhnInfo: SkhnInfo[];
     static parse(resultObject: any): GetFavoriteFilmListResult;
 }

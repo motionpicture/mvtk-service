@@ -1,7 +1,7 @@
 /**
-* Defines constants, enums, and utility functions for use with the MemberInfo service.
-*/
-export default class MemberInfoUtilities {
+ * MemberInfoUtilities
+ */
+export declare class MemberInfoUtilities {
     /**
      * メールアドレス区分
      */

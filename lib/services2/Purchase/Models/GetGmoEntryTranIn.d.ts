@@ -1,7 +1,6 @@
-import BaseIn from '../../../common/models/BaseIn';
+import { BaseIn } from '../../../common/models/BaseIn';
 /**
  * 代行会社取引登録呼出inクラス
- * @class
  * @extends {BaseIn}
  */
 export declare class GetGmoEntryTranIn extends BaseIn {
@@ -41,7 +40,6 @@ export declare class GetGmoEntryTranIn extends BaseIn {
 }
 /**
  * 代行会社取引登録呼出in
- * @interface
  */
 export interface IGetGmoEntryTranIn {
     /**

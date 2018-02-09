@@ -1,8 +1,7 @@
 /**
  * 特典コード確保out
- * @class
  */
-export default class PreserveCodeResult {
+export declare class PreserveCodeResult {
     /**
      * 特典コード情報
      */

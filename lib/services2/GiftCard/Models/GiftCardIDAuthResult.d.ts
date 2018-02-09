@@ -1,4 +1,7 @@
-export default class GiftCardIDAuthResult {
+/**
+ * GiftCardIDAuthResult
+ */
+export declare class GiftCardIDAuthResult {
     /**
      * 凸版サービス返却値
      */

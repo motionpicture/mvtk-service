@@ -1,16 +1,19 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class GiftCardCancelIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * GiftCardCancelIn
+ */
+export declare class GiftCardCancelIn extends BaseIn {
     /**
      * ギフトカードID情報
      */
     MVTKGFTCRD_INFO_IN: {
-        MvtkGftcrdCancelInfo: Array<{
+        MvtkGftcrdCancelInfo: {
             MVTKGFTCRD_ID: string;
             MVTKGFTCRDPIN_CD: string;
             GFTCRDKSSIKNR_NO: string;
             RYUKNGK: string;
             SYRYKY_DT: string;
-        }>;
+        }[];
     };
     /**
      * 取消区分

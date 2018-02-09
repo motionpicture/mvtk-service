@@ -1,10 +1,13 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class GiftCardIDAuthIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * GiftCardIDAuthIn
+ */
+export declare class GiftCardIDAuthIn extends BaseIn {
     /**
      *  ギフトカードID情報
      */
     MVTKGFTCRD_INFO_IN: {
-        MvtkGftcrdInfo: Array<{
+        MvtkGftcrdInfo: {
             /**
              * ムビチケギフトカードID
              */
@@ -17,7 +20,7 @@ export default class GiftCardIDAuthIn extends BaseIn {
              * ギフトカード決済管理番号
              */
             GFTCRDKSSIKNR_NO: string;
-        }>;
+        }[];
     };
     /**
      * 利用金額

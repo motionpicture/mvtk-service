@@ -1,4 +1,7 @@
-export default class GetShhriInfoByKeyResult {
+/**
+ * GetShhriInfoByKeyResult
+ */
+export declare class GetShhriInfoByKeyResult {
     azkrknshhritmngTyp: string;
     azkrknshhriskTyp: string;
     hmbijthredmgndiknshhriskTyp: string;

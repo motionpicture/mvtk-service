@@ -1,8 +1,7 @@
 /**
  * 作品キャストout
- * @class
  */
-export default class FilmCastResult {
+export declare class FilmCastResult {
     cstHyjjnNo: string;
     cstJmbtsNm: string;
     cstYkNm: string;
@@ -10,8 +9,6 @@ export default class FilmCastResult {
     cstJmbtsCd: string;
     /**
      * データ整形
-     * @param {any} resultObject
-     * @returns {FilmCastResult} 作品キャストout
      */
     static parse(resultObject: any): FilmCastResult;
 }

@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class GMOCancelIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * GMOCancelIn
+ */
+export declare class GMOCancelIn extends BaseIn {
     accessId: string;
     accessPwd: string;
     kssihhTyp: string;

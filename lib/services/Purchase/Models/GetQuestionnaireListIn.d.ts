@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class GetQuestionnaireListIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * GetQuestionnaireListIn
+ */
+export declare class GetQuestionnaireListIn extends BaseIn {
     /**
      * 作品コード
      */

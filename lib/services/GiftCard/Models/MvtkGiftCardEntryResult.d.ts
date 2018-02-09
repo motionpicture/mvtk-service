@@ -1,4 +1,7 @@
-export default class MvtkGiftCardEntryResult {
+/**
+ * MvtkGiftCardEntryResult
+ */
+export declare class MvtkGiftCardEntryResult {
     tppnsrvcrspns: string;
     mvtkgftcrdId: string;
     mvtkgftcrdpinCd: string;

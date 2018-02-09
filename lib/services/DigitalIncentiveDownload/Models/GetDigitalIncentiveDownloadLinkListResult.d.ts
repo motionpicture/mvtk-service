@@ -1,4 +1,7 @@
-export default class GetDigitalIncentiveDownloadLinkListResult {
+/**
+ * GetDigitalIncentiveDownloadLinkListResult
+ */
+export declare class GetDigitalIncentiveDownloadLinkListResult {
     /**
      * デバイス区分
      */
@@ -58,7 +61,7 @@ export interface DgtlincntvInfo {
      * デジタルインセンティブ詳細情報 （itemArray）
      */
     DGTLINCNTVSHSI_INFO: {
-        DgtlincntvshsiInfo: Array<{
+        DgtlincntvshsiInfo: {
             /**
              * デジタルインセンティブ枝番号
              */
@@ -67,6 +70,6 @@ export interface DgtlincntvInfo {
              * デジタルインセンティブ詳細タイトル
              */
             DGTLINCNTVSHSI_TTL: string;
-        }>;
+        }[];
     };
 }

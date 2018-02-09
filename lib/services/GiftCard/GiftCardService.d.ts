@@ -1,12 +1,15 @@
-import Service from '../../common/Service';
-import MvtkGiftCardBalanceInquiryResult from './models/MvtkGiftCardBalanceInquiryResult';
-import MvtkGiftCardEntryResult from './models/MvtkGiftCardEntryResult';
-export default class GiftCardService extends Service {
+import { Service } from '../../common/Service';
+import { MvtkGiftCardBalanceInquiryResult } from './models/MvtkGiftCardBalanceInquiryResult';
+import { MvtkGiftCardEntryResult } from './models/MvtkGiftCardEntryResult';
+/**
+ * GiftCardService
+ */
+export declare class GiftCardService extends Service {
     /**
      * ムビチケギフトカード残高確認
      *
-     * @param {string} mvtkgftcrdId ギフトカードID
-     * @param {string} mvtkgftcrdpinCd ギフトカードPINコード
+     * @param mvtkgftcrdId ギフトカードID
+     * @param mvtkgftcrdpinCd ギフトカードPINコード
      */
     mvtkGiftCardBalanceInquiry(mvtkgftcrdId: string, mvtkgftcrdpinCd: string): Promise<{
         response: any;
@@ -14,8 +17,6 @@ export default class GiftCardService extends Service {
     }>;
     /**
      * ギフトカード利用
-     *
-     * @param {MvtkGiftCardEntryIn} args
      */
     mvtkGiftCardEntry(params: Object): Promise<{
         response: any;

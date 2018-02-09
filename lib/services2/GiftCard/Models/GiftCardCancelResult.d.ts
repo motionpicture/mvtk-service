@@ -1,4 +1,7 @@
-export default class GiftCardCancelResult {
+/**
+ * GiftCardCancelResult
+ */
+export declare class GiftCardCancelResult {
     /**
      * 凸版サービス返却値
      */

@@ -1,11 +1,12 @@
-import Service from '../../common/Service';
-import GiftCardIDAuthResult from './models/GiftCardIDAuthResult';
-import GiftCardCancelResult from './models/GiftCardCancelResult';
-export default class GiftCardService extends Service {
+import { Service } from '../../common/Service';
+import { GiftCardCancelResult } from './models/GiftCardCancelResult';
+import { GiftCardIDAuthResult } from './models/GiftCardIDAuthResult';
+/**
+ * GiftCardService
+ */
+export declare class GiftCardService2 extends Service {
     /**
      * ムビチケギフトカード認証
-     *
-     * @param {GiftCardIDAuthIn} args
      */
     giftCardIDAuth(params: Object): Promise<{
         response: any;
@@ -13,8 +14,6 @@ export default class GiftCardService extends Service {
     }>;
     /**
      * ムビチケギフトカード取消
-     *
-     * @param {Array<GiftCardCancelIn>} args
      */
     giftCardCancel(params: Object): Promise<{
         response: any;

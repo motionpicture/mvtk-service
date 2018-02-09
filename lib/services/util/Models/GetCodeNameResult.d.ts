@@ -2,7 +2,10 @@ export interface TypInfo {
     TYP: string;
     KBN_NM: string;
 }
-export default class GetCodeNameResult {
+/**
+ * GetCodeNameResult
+ */
+export declare class GetCodeNameResult {
     /**
      * 項目区分
      */
@@ -18,6 +21,6 @@ export default class GetCodeNameResult {
     /**
      * 区分情報(itemArray)
      */
-    typInfo: Array<TypInfo>;
+    typInfo: TypInfo[];
     static parse(resultObject: any): GetCodeNameResult;
 }

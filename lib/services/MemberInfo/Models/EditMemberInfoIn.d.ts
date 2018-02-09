@@ -1,5 +1,8 @@
-import BaseIn from '../../../common/models/BaseIn';
-export default class EditMemberInfoIn extends BaseIn {
+import { BaseIn } from '../../../common/models/BaseIn';
+/**
+ * EditMemberInfoIn
+ */
+export declare class EditMemberInfoIn extends BaseIn {
     /**
      * ニックネーム
      */

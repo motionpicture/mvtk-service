@@ -1,7 +1,7 @@
 /**
-* Defines constants, enums, and utility functions for use with the GiftCard service.
-*/
-export default class GiftCardUtilities {
+ * Defines constants, enums, and utility functions for use with the GiftCard service.
+ */
+export declare class GiftCardUtilities {
     /**
      * ムビチケギフトカード認証処理結果
      */

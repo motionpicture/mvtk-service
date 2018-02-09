@@ -1,8 +1,7 @@
 /**
  * 購入情報登録out
- * @class
  */
-export default class RegisterPurchaseInfoResult {
+export declare class RegisterPurchaseInfoResult {
     /**
      * 購入管理番号
      */

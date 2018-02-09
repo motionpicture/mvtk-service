@@ -1,9 +1,11 @@
-import Service from '../../common/Service';
-export default class UtilService extends Service {
+import { Service } from '../../common/Service';
+/**
+ * UtilService2
+ */
+export declare class UtilService2 extends Service {
     /**
      * 電子券QRコード生成
      *
-     * @param {CreateQrCodeIn} args
      */
     createQrCode(params: Object): Promise<{
         response: any;

@@ -2,6 +2,9 @@ export interface KnshInfo {
     KNSHKBN_NM: string;
     KNY_NUM: string;
 }
+/**
+ * MshyticktInfo
+ */
 export declare class MshyticktInfo {
     knyknrNo: string;
     skhnCd: string;
@@ -11,14 +14,17 @@ export declare class MshyticktInfo {
     znkkkkijkDspt: string;
     knyYmd: string;
     knymiNumSum: string;
-    knshInfo: Array<KnshInfo>;
+    knshInfo: KnshInfo[];
     dgtlincntvdwnlodgmnUrl: string;
     zskyykkFlg: string;
     shknhikygishCd: string;
     static parse(resultObject: any): MshyticktInfo;
 }
-export default class GetUnusedTicketListResult {
+/**
+ * GetUnusedTicketListResult
+ */
+export declare class GetUnusedTicketListResult {
     kiinCd: string;
-    mshyticktInfo: Array<MshyticktInfo>;
+    mshyticktInfo: MshyticktInfo[];
     static parse(resultObject: any): GetUnusedTicketListResult;
 }
