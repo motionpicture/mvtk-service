@@ -9,7 +9,7 @@ export declare class MemberInfoService extends Service {
      */
     getMemberAuthorization(kiinMladdr: string, kiinPwd: string): Promise<{
         response: any;
-        result: string;
+        result: string | null;
     }>;
     /**
      * 会員情報照会
@@ -18,7 +18,7 @@ export declare class MemberInfoService extends Service {
      */
     getMemberInfoDetail(): Promise<{
         response: any;
-        result: MemberInfoResult | null;
+        result: MemberInfoResult;
     }>;
     /**
      * パスワード変更

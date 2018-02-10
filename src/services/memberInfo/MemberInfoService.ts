@@ -21,7 +21,7 @@ export class MemberInfoService extends Service {
 
         return new Promise<{
             response: any;
-            result: string;
+            result: string | null;
         }>((resolve, reject) => {
             this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
@@ -29,14 +29,10 @@ export class MemberInfoService extends Service {
 
                     return;
                 }
-                let kiinCd = null;
+                let kiinCd: null | string = null;
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     kiinCd = result.KIIN_CD;
-                } else {
-                    reject(new Error(result.RESULT_INFO.MESSAGE));
-
-                    return;
                 }
                 resolve({
                     response: result,
@@ -59,7 +55,7 @@ export class MemberInfoService extends Service {
 
         return new Promise<{
             response: any;
-            result: MemberInfoResult | null;
+            result: MemberInfoResult;
         }>((resolve, reject) => {
             this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
@@ -67,10 +63,14 @@ export class MemberInfoService extends Service {
 
                     return;
                 }
-                let memberInfoResult: MemberInfoResult | null = null;
+                let memberInfoResult: MemberInfoResult;
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     memberInfoResult = MemberInfoResult.parse(result);
+                } else {
+                    reject(new Error(result.RESULT_INFO.MESSAGE));
+
+                    return;
                 }
                 resolve({
                     response: result,
