@@ -1,13 +1,14 @@
+import { IConstants } from './common/util/Constants';
 import { Util } from './common/util/Util';
 import { DigitalIncentiveDownloadService } from './services/digitalIncentiveDownload/DigitalIncentiveDownloadService';
 import { DigitalIncentiveDownloadUtilities } from './services/digitalIncentiveDownload/DigitalIncentiveDownloadUtilities';
 import { FilmService } from './services/film/FilmService';
-import { FilmUtilities } from './services/film/FilmUtilities';
+import { IFilmUtilities } from './services/film/FilmUtilities';
 import { GiftCardService } from './services/giftCard/GiftCardService';
 import { InquiryService } from './services/inquiry/InquiryService';
 import { InquiryUtilities } from './services/inquiry/InquiryUtilities';
 import { MemberInfoService } from './services/memberInfo/MemberInfoService';
-import { MemberInfoUtilities } from './services/memberInfo/MemberInfoUtilities';
+import { IMemberInfoUtilities } from './services/memberInfo/MemberInfoUtilities';
 import { MovieLogService } from './services/movieLog/MovieLogService';
 import { PurchaseService } from './services/purchase/PurchaseService';
 import { RegisterMemberService } from './services/registerMember/RegisterMemberService';
@@ -15,10 +16,10 @@ import { UtilService } from './services/util/UtilService';
 import { WebMoneyService } from './services/webMoney/WebMoneyService';
 import { BonusGrantingService } from './services2/bonus/BonusGrantingService';
 import { GiftCardService2 } from './services2/giftCard/GiftCardService';
-import { GiftCardUtilities } from './services2/giftCard/GiftCardUtilities';
+import { IGiftCardUtilities } from './services2/giftCard/GiftCardUtilities';
 import { MailService } from './services2/mail/MailService';
 import { PurchaseService2 } from './services2/purchase/PurchaseService';
-import { PurchaseUtilities } from './services2/purchase/PurchaseUtilities';
+import { IPurchaseUtilities } from './services2/purchase/PurchaseUtilities';
 import { TicketChangeService } from './services2/ticketChange/TicketChangeService';
 import { UtilService2 } from './services2/util/UtilService';
 /**
@@ -28,14 +29,14 @@ import { UtilService2 } from './services2/util/UtilService';
  */
 export declare class ServicesBuilder {
     private static instance;
-    Constants: any;
+    Constants: IConstants;
     Util: Util;
     DigitalIncentiveDownloadUtilities: DigitalIncentiveDownloadUtilities;
-    FilmUtilities: FilmUtilities;
+    FilmUtilities: IFilmUtilities;
     InquiryUtilities: InquiryUtilities;
-    MemberInfoUtilities: MemberInfoUtilities;
-    GiftCardUtilities: GiftCardUtilities;
-    PurchaseUtilities: PurchaseUtilities;
+    MemberInfoUtilities: IMemberInfoUtilities;
+    GiftCardUtilities: IGiftCardUtilities;
+    PurchaseUtilities: IPurchaseUtilities;
     /**
      * ムビチケサービスエンドポイント
      */

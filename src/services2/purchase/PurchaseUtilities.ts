@@ -103,3 +103,125 @@ export class PurchaseUtilities {
         return (types.indexOf(kssiTyp) >= 0);
     }
 }
+
+export interface IPurchaseUtilities {
+    /**
+     * 決済方法区分 クレジットカード
+     */
+    KSSIHH_TYP_CREDIT_CARD: string;
+    /**
+     * 決済方法区分 AU
+     */
+    KSSIHH_TYP_AU: string;
+    /**
+     * 決済方法区分 DOCOMO
+     */
+    KSSIHH_TYP_DOCOMO: string;
+    /**
+     * 決済方法区分 GIFT
+     */
+    KSSIHH_TYP_GIFT_CARD: string;
+    /**
+     * 決済方法区分 WEBMONEY
+     */
+    KSSIHH_TYP_WEB_MONEY: string;
+
+    /**
+     * 購入デバイス区分 PC
+     */
+    KNYDVC_TYP_PC: string;
+    /**
+     * 購入デバイス区分 携帯電話
+     */
+    KNYDVC_TYP_MB: string;
+    /**
+     * 購入デバイス区分 SmartPhone
+     */
+    KNYDVC_TYP_SP: string;
+    /**
+     * 購入デバイス区分 法人券
+     */
+    KNYDVC_TYP_CT: string;
+    /**
+     * 購入デバイス区分 カード券
+     */
+    KNYDVC_TYP_MC: string;
+    /**
+     * 購入デバイス区分 マーケットプレイス
+     */
+    KNYDVC_TYP_AMZN: string;
+
+    /**
+     * チケットの販売チャネル PC
+     */
+    HMBICHNNL_TYP_MVTK_SITE: string;
+    /**
+     * チケットの販売チャネル ムビチケ
+     */
+    HMBGISH_CD_MVTK: string;
+
+    /**
+     * カード情報入力区分 入力された情報を使用
+     */
+    CRDTCRDINPUTKBN_INPUT: string;
+    /**
+     * カード情報入力区分 登録済みの情報を使用
+     */
+    CRDTCRDINPUTKBN_REGISTERED: string;
+
+    /**
+     * メール送付フラグ PC
+     */
+    MLSF_FLG_PC: string;
+    /**
+     * メール送付フラグ SP
+     */
+    MLSF_FLG_MOBILE: string;
+    /**
+     * メール送付フラグ PC&SP
+     */
+    MLSF_FLG_PC_AND_MOBILE: string;
+
+    /**
+     * 本人認証サービス対応区分 対応している
+     */
+    AUTHENTICATION_SERVICE_SUPPORT: string;
+    /**
+     * 本人認証サービス対応区分 対応していない
+     */
+    AUTHENTICATION_SERVICE_NOT_SUPPORT: string;
+
+    /**
+     * 決済エラー種類区分 顧客都合によるエラー
+     */
+    CLIENT_ERROR: string;
+    /**
+     * 決済エラー種類区分 システムエラー全般
+     */
+    SYSTEM_ERROR: string;
+
+    /**
+     * 回答方式区分 選択式
+     */
+    KITHSHK_TYP_CHOICE: string;
+    /**
+     * 回答方式区分 記述式
+     */
+    KITHSHK_TYP_TEXT: string;
+
+    /**
+     * method取得
+     */
+    getMethods(): {
+        KSSIHH_TYP_CREDIT_CARD: string;
+        KSSIHH_TYP_AU: string;
+        KSSIHH_TYP_DOCOMO: string;
+        KSSIHH_TYP_GIFT_CARD: string;
+        KSSIHH_TYP_WEB_MONEY: string;
+    };
+
+    /**
+     * 対応している決済区分か判定
+     */
+    isAvailableMethod(kssiTyp: string): boolean;
+}

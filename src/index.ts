@@ -1,15 +1,15 @@
 import * as debug from 'debug';
-import { Constants } from './common/util/Constants';
+import { Constants, IConstants } from './common/util/Constants';
 import { Util } from './common/util/Util';
 import { DigitalIncentiveDownloadService } from './services/digitalIncentiveDownload/DigitalIncentiveDownloadService';
 import { DigitalIncentiveDownloadUtilities } from './services/digitalIncentiveDownload/DigitalIncentiveDownloadUtilities';
 import { FilmService } from './services/film/FilmService';
-import { FilmUtilities } from './services/film/FilmUtilities';
+import { FilmUtilities, IFilmUtilities } from './services/film/FilmUtilities';
 import { GiftCardService } from './services/giftCard/GiftCardService';
 import { InquiryService } from './services/inquiry/InquiryService';
 import { InquiryUtilities } from './services/inquiry/InquiryUtilities';
 import { MemberInfoService } from './services/memberInfo/MemberInfoService';
-import { MemberInfoUtilities } from './services/memberInfo/MemberInfoUtilities';
+import { IMemberInfoUtilities, MemberInfoUtilities } from './services/memberInfo/MemberInfoUtilities';
 import { MovieLogService } from './services/movieLog/MovieLogService';
 import { PurchaseService } from './services/purchase/PurchaseService';
 import { RegisterMemberService } from './services/registerMember/RegisterMemberService';
@@ -17,15 +17,13 @@ import { UtilService } from './services/util/UtilService';
 import { WebMoneyService } from './services/webMoney/WebMoneyService';
 import { BonusGrantingService } from './services2/bonus/BonusGrantingService';
 import { GiftCardService2 } from './services2/giftCard/GiftCardService';
-import { GiftCardUtilities } from './services2/giftCard/GiftCardUtilities';
+import { GiftCardUtilities, IGiftCardUtilities } from './services2/giftCard/GiftCardUtilities';
 import { MailService } from './services2/mail/MailService';
 import { PurchaseService2 } from './services2/purchase/PurchaseService';
-import { PurchaseUtilities } from './services2/purchase/PurchaseUtilities';
+import { IPurchaseUtilities, PurchaseUtilities } from './services2/purchase/PurchaseUtilities';
 import { TicketChangeService } from './services2/ticketChange/TicketChangeService';
 import { UtilService2 } from './services2/util/UtilService';
 const log = debug('MVTK:index');
-
-// tslint:disable:no-console
 
 /**
  * ムビチケサービス作成クラス
@@ -34,15 +32,15 @@ const log = debug('MVTK:index');
  */
 export class ServicesBuilder {
     private static instance: ServicesBuilder;
-    public Constants: any = Constants;
+    public Constants: IConstants = Constants;
     public Util: Util = Util;
 
     public DigitalIncentiveDownloadUtilities: DigitalIncentiveDownloadUtilities = DigitalIncentiveDownloadUtilities;
-    public FilmUtilities: FilmUtilities = FilmUtilities;
+    public FilmUtilities: IFilmUtilities = FilmUtilities;
     public InquiryUtilities: InquiryUtilities = InquiryUtilities;
-    public MemberInfoUtilities: MemberInfoUtilities = MemberInfoUtilities;
-    public GiftCardUtilities: GiftCardUtilities = GiftCardUtilities;
-    public PurchaseUtilities: PurchaseUtilities = PurchaseUtilities;
+    public MemberInfoUtilities: IMemberInfoUtilities = MemberInfoUtilities;
+    public GiftCardUtilities: IGiftCardUtilities = GiftCardUtilities;
+    public PurchaseUtilities: IPurchaseUtilities = PurchaseUtilities;
 
     /**
      * ムビチケサービスエンドポイント
@@ -269,7 +267,6 @@ export class ServicesBuilder {
      */
     public createBonusGrantingService(): BonusGrantingService {
         const wsdl: string = `${this.endpoint2}/Services/Bonus/BonusGrantingsvc.svc?singleWsdl`;
-        console.log(wsdl);
         const service = new BonusGrantingService(wsdl);
         service.setCookie(this.cookie);
 
