@@ -23,7 +23,7 @@ export class WebMoneyService extends Service {
             response: any;
             result: WebMoneyEntryResult;
         }>((resolve, reject) => {
-            this.call(method, message, (err: any, response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -40,7 +40,7 @@ export class WebMoneyService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: webMoneyEntryResult
                 });
             });
@@ -62,7 +62,7 @@ export class WebMoneyService extends Service {
             response: any;
             result: DecryptWebMoneyKssiInfoResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -79,7 +79,7 @@ export class WebMoneyService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: decryptWebMoneyKssiInfoResult
                 });
             });

@@ -36,7 +36,7 @@ export class MovieLogService extends Service {
             response: any;
             result: GetFavoriteFilmListResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -51,7 +51,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getFavoriteFilmListResult
                 });
             });
@@ -78,7 +78,7 @@ export class MovieLogService extends Service {
             response: any;
             result: GetUnusedTicketListResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -93,7 +93,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getUnusedTicketListResult
                 });
             });
@@ -120,7 +120,7 @@ export class MovieLogService extends Service {
             response: any;
             result: ShyzmtcktInfoListResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -136,7 +136,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: shyzmtcktInfoListResult
                 });
             });
@@ -163,7 +163,7 @@ export class MovieLogService extends Service {
             response: any;
             result: ShyzmtcktInfoListResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -179,7 +179,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: shyzmtcktInfoListResult
                 });
             });
@@ -206,7 +206,7 @@ export class MovieLogService extends Service {
             response: any;
             result: ShyzmtcktInfoListResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -222,7 +222,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: shyzmtcktInfoListResult
                 });
             });
@@ -249,7 +249,7 @@ export class MovieLogService extends Service {
             response: any;
             result: ShyzmtcktInfoListResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -265,7 +265,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: shyzmtcktInfoListResult
                 });
             });
@@ -290,7 +290,7 @@ export class MovieLogService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -302,7 +302,7 @@ export class MovieLogService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -327,7 +327,7 @@ export class MovieLogService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -338,7 +338,7 @@ export class MovieLogService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -385,7 +385,7 @@ export class MovieLogService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -397,7 +397,7 @@ export class MovieLogService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -422,7 +422,7 @@ export class MovieLogService extends Service {
             response: any;
             result: SeatReservationStatusListResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -445,7 +445,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: seatReservationStatusListResults
                 });
             });
@@ -470,7 +470,7 @@ export class MovieLogService extends Service {
             response: any;
             result: WatchRecordResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -493,7 +493,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: watchRecordResults
                 });
             });
@@ -518,7 +518,7 @@ export class MovieLogService extends Service {
             response: any;
             result: SentGiftStatusListResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -541,7 +541,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: sentGiftStatusListResults
                 });
             });
@@ -566,7 +566,7 @@ export class MovieLogService extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -581,7 +581,7 @@ export class MovieLogService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: qrcdUrl
                 });
             });

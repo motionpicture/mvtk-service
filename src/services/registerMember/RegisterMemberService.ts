@@ -19,7 +19,7 @@ export class RegisterMemberService extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -36,7 +36,7 @@ export class RegisterMemberService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: kiinCd
                 });
             });
@@ -57,7 +57,7 @@ export class RegisterMemberService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -70,7 +70,7 @@ export class RegisterMemberService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -95,7 +95,7 @@ export class RegisterMemberService extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -112,7 +112,7 @@ export class RegisterMemberService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: kiinCd
                 });
             });

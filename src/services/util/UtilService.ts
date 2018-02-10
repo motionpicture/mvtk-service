@@ -108,7 +108,7 @@ export class UtilService extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, args, (err, response, result, lastResponseHeaders) => {
+            this.call(method, args, (err, _response, result, lastResponseHeaders) => {
                 if (err) {
                     reject(err);
 
@@ -126,7 +126,7 @@ export class UtilService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: cookieString
                 });
             });
@@ -150,7 +150,7 @@ export class UtilService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err, response, result, _lastResponseHeaders) => {
+            this.call(method, args, (err, _response, result, _lastResponseHeaders) => {
                 if (err) {
                     reject(err);
 
@@ -161,7 +161,7 @@ export class UtilService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -186,7 +186,7 @@ export class UtilService extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -203,7 +203,7 @@ export class UtilService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: qrcdUrl
                 });
             });
@@ -252,7 +252,7 @@ export class UtilService extends Service {
             response: any;
             result: string[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -269,7 +269,7 @@ export class UtilService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: encryptedStrings
                 });
             });
@@ -298,7 +298,7 @@ export class UtilService extends Service {
             response: any;
             result: GetCodeNameResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -313,7 +313,7 @@ export class UtilService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getCodeNameResult
                 });
             });

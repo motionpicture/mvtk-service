@@ -36,7 +36,7 @@ export class PurchaseService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -54,7 +54,7 @@ export class PurchaseService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isOnSale
                 });
             });
@@ -75,7 +75,7 @@ export class PurchaseService extends Service {
             response: any;
             result: CreditCardInfoResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -91,7 +91,7 @@ export class PurchaseService extends Service {
                         creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo);
                     }
                     resolve({
-                        response: response,
+                        response: result,
                         result: creditCardInfoResult
                     });
                 } else {
@@ -118,7 +118,7 @@ export class PurchaseService extends Service {
             response: any;
             result: TicketInfoResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -135,7 +135,7 @@ export class PurchaseService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: ticketInfoResult
                 });
             });
@@ -160,7 +160,7 @@ export class PurchaseService extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -178,7 +178,7 @@ export class PurchaseService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: kssiknrNo
                 });
             });
@@ -202,7 +202,7 @@ export class PurchaseService extends Service {
             response: any;
             result: GetGmoExecTranResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -219,7 +219,7 @@ export class PurchaseService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getGmoExecTranResult
                 });
             });
@@ -246,7 +246,7 @@ export class PurchaseService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -259,7 +259,7 @@ export class PurchaseService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -280,7 +280,7 @@ export class PurchaseService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, message, (err: any, response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -293,7 +293,7 @@ export class PurchaseService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -315,7 +315,7 @@ export class PurchaseService extends Service {
             response: any;
             result: SelectIchjknrInfoResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -339,7 +339,7 @@ export class PurchaseService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: selectIchjknrInfoResults
                 });
             });
@@ -361,7 +361,7 @@ export class PurchaseService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, message, (err: any, response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -374,7 +374,7 @@ export class PurchaseService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -397,7 +397,7 @@ export class PurchaseService extends Service {
             response: any;
             result: GetTsuryShhziInfoResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -425,7 +425,7 @@ export class PurchaseService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getTsuryShhziInfoResults
                 });
             });
@@ -448,7 +448,7 @@ export class PurchaseService extends Service {
             response: any;
             result: GetShhriInfoByKeyResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -465,7 +465,7 @@ export class PurchaseService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getShhriInfoByKeyResult
                 });
             });
@@ -484,7 +484,7 @@ export class PurchaseService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -497,7 +497,7 @@ export class PurchaseService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -518,7 +518,7 @@ export class PurchaseService extends Service {
             response: any;
             result: GetQuestionnaireListResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -533,7 +533,7 @@ export class PurchaseService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getQuestionnaireListResult
                 });
             });
@@ -555,7 +555,7 @@ export class PurchaseService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, message, (err: any, response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -566,7 +566,7 @@ export class PurchaseService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -587,7 +587,7 @@ export class PurchaseService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -598,7 +598,7 @@ export class PurchaseService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });

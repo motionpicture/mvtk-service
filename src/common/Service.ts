@@ -37,7 +37,7 @@ export class Service {
     protected call(
         method: string,
         args: Object | string,
-        cb: (err: any, response: any, result: any, lastResponseHeaders: any) => void
+        cb: (err: any, _response: any, result: any, lastResponseHeaders: any) => void
     ) {
         // let logger = log4js.getLogger('system');
 

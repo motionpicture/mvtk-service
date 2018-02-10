@@ -28,7 +28,7 @@ export class GiftCardService extends Service {
             response: any;
             result: MvtkGiftCardBalanceInquiryResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -43,7 +43,7 @@ export class GiftCardService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: mvtkGiftCardBalanceInquiryResult
                 });
             });
@@ -62,7 +62,7 @@ export class GiftCardService extends Service {
             response: any;
             result: MvtkGiftCardEntryResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -83,7 +83,7 @@ export class GiftCardService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: mvtkGiftCardEntryResults
                 });
             });

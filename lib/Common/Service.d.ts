@@ -22,7 +22,7 @@ export declare class Service {
      * @param  method メソッド名
      * @param  args INパラメーター(オブジェクト、あるいは、xml文字列を想定している)
      */
-    protected call(method: string, args: Object | string, cb: (err: any, response: any, result: any, lastResponseHeaders: any) => void): void;
+    protected call(method: string, args: Object | string, cb: (err: any, _response: any, result: any, lastResponseHeaders: any) => void): void;
     /**
      * sopaクライアントを生成する
      */

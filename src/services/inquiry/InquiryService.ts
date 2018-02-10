@@ -21,7 +21,7 @@ export class InquiryService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -31,7 +31,7 @@ export class InquiryService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });

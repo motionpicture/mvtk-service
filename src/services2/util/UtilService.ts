@@ -22,7 +22,7 @@ export class UtilService2 extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, message, (err: any, response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -39,7 +39,7 @@ export class UtilService2 extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: qrcdUrl
                 });
             });

@@ -24,7 +24,7 @@ export class PurchaseService2 extends Service {
             response: any;
             result: GetGmoEntryTranResult;
         }>((resolve, reject) => {
-            this.call(method, message, (err: any, response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -41,7 +41,7 @@ export class PurchaseService2 extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getGmoEntryTranResult
                 });
             });
@@ -64,7 +64,7 @@ export class PurchaseService2 extends Service {
             response: any;
             result: RegisterPurchaseInfoResult;
         }>((resolve, reject) => {
-            this.call(method, message, (err: any, response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -81,7 +81,7 @@ export class PurchaseService2 extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: registerPurchaseInfoResult
                 });
             });

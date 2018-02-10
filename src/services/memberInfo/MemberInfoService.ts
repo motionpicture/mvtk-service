@@ -23,7 +23,7 @@ export class MemberInfoService extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -39,7 +39,7 @@ export class MemberInfoService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: kiinCd
                 });
             });
@@ -59,25 +59,21 @@ export class MemberInfoService extends Service {
 
         return new Promise<{
             response: any;
-            result: MemberInfoResult;
+            result: MemberInfoResult | null;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
                     return;
                 }
-                let memberInfoResult: MemberInfoResult;
+                let memberInfoResult: MemberInfoResult | null = null;
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     memberInfoResult = MemberInfoResult.parse(result);
-                } else {
-                    reject(new Error(result.RESULT_INFO.MESSAGE));
-
-                    return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: memberInfoResult
                 });
             });
@@ -106,7 +102,7 @@ export class MemberInfoService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -118,7 +114,7 @@ export class MemberInfoService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -147,7 +143,7 @@ export class MemberInfoService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -159,7 +155,7 @@ export class MemberInfoService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -182,7 +178,7 @@ export class MemberInfoService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -194,7 +190,7 @@ export class MemberInfoService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });
@@ -219,7 +215,7 @@ export class MemberInfoService extends Service {
             response: any;
             result: string;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -235,7 +231,7 @@ export class MemberInfoService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: kiinCd
                 });
             });
@@ -254,7 +250,7 @@ export class MemberInfoService extends Service {
             response: any;
             result: boolean;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -266,7 +262,7 @@ export class MemberInfoService extends Service {
                     isSuccess = true;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: isSuccess
                 });
             });

@@ -29,7 +29,7 @@ export class FilmService extends Service {
             response: any;
             result: FilmResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -43,7 +43,7 @@ export class FilmService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: filmResult
                 });
             });
@@ -66,7 +66,7 @@ export class FilmService extends Service {
             response: any;
             result: FilmResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -87,7 +87,7 @@ export class FilmService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: filmResults
                 });
             });
@@ -112,7 +112,7 @@ export class FilmService extends Service {
             response: any;
             result: TicketInfoResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -134,7 +134,7 @@ export class FilmService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: ticketInfoResult
                 });
             });
@@ -161,7 +161,7 @@ export class FilmService extends Service {
             response: any;
             result: BnnrInfoResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -186,7 +186,7 @@ export class FilmService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: bnnrInfoResults
                 });
             });
@@ -213,7 +213,7 @@ export class FilmService extends Service {
             response: any;
             result: GetTrailerDetailResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -227,7 +227,7 @@ export class FilmService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getTrailerDetailResult
                 });
             });
@@ -254,7 +254,7 @@ export class FilmService extends Service {
             response: any;
             result: DgtlincntvInfoResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -279,7 +279,7 @@ export class FilmService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: dgtlincntvInfoResults
                 });
             });

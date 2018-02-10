@@ -21,7 +21,7 @@ export class DigitalIncentiveDownloadService extends Service {
             response: any;
             result: GetDigitalIncentiveDownloadResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -36,7 +36,7 @@ export class DigitalIncentiveDownloadService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getDigitalIncentiveDownloadResult
                 });
             });
@@ -56,7 +56,7 @@ export class DigitalIncentiveDownloadService extends Service {
             response: any;
             result: GetDigitalIncentiveDownloadLinkListResult;
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -71,7 +71,7 @@ export class DigitalIncentiveDownloadService extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: getDigitalIncentiveDownloadLinkListResult
                 });
             });

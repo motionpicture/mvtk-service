@@ -18,7 +18,7 @@ export declare class MemberInfoService extends Service {
      */
     getMemberInfoDetail(): Promise<{
         response: any;
-        result: MemberInfoResult;
+        result: MemberInfoResult | null;
     }>;
     /**
      * パスワード変更

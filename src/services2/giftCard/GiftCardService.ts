@@ -22,7 +22,7 @@ export class GiftCardService2 extends Service {
             response: any;
             result: GiftCardIDAuthResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, response: any, result: any) => {
+            this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -45,7 +45,7 @@ export class GiftCardService2 extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: giftCardIDAuthResults
                 });
             });
@@ -66,7 +66,7 @@ export class GiftCardService2 extends Service {
             response: any;
             result: GiftCardCancelResult[];
         }>((resolve, reject) => {
-            this.call(method, message, (err: any, response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
@@ -89,7 +89,7 @@ export class GiftCardService2 extends Service {
                     return;
                 }
                 resolve({
-                    response: response,
+                    response: result,
                     result: giftCardCancelResults
                 });
             });
