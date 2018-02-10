@@ -300,10 +300,6 @@ export class MovieLogService extends Service {
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
                     || result.RESULT_INFO.STATUS === 'L002') {
                     isSuccess = true;
-                } else {
-                    reject(new Error(result.RESULT_INFO.MESSAGE));
-
-                    return;
                 }
                 resolve({
                     response: response,
@@ -340,10 +336,6 @@ export class MovieLogService extends Service {
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     isSuccess = true;
-                } else {
-                    reject(new Error(result.RESULT_INFO.MESSAGE));
-
-                    return;
                 }
                 resolve({
                     response: response,
@@ -403,10 +395,6 @@ export class MovieLogService extends Service {
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
                     || result.RESULT_INFO.STATUS === 'L001') {
                     isSuccess = true;
-                } else {
-                    reject(new Error(result.RESULT_INFO.MESSAGE));
-
-                    return;
                 }
                 resolve({
                     response: response,

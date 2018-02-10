@@ -31,10 +31,6 @@ export class MailService extends Service {
 
                 if (result.ResultInfo.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     isSuccess = true;
-                } else {
-                    reject(new Error(result.RESULT_INFO.MESSAGE));
-
-                    return;
                 }
                 resolve({
                     response: response,
