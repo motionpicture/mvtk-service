@@ -1,277 +1,98 @@
-import * as debug from 'debug';
-import { Constants, IConstants } from './common/util/Constants';
-import { Util } from './common/util/Util';
-import { DigitalIncentiveDownloadService } from './services/digitalIncentiveDownload/DigitalIncentiveDownloadService';
-import { DigitalIncentiveDownloadUtilities } from './services/digitalIncentiveDownload/DigitalIncentiveDownloadUtilities';
-import { FilmService } from './services/film/FilmService';
-import { FilmUtilities, IFilmUtilities } from './services/film/FilmUtilities';
-import { GiftCardService } from './services/giftCard/GiftCardService';
-import { InquiryService } from './services/inquiry/InquiryService';
-import { InquiryUtilities } from './services/inquiry/InquiryUtilities';
-import { MemberInfoService } from './services/memberInfo/MemberInfoService';
-import { IMemberInfoUtilities, MemberInfoUtilities } from './services/memberInfo/MemberInfoUtilities';
-import { MovieLogService } from './services/movieLog/MovieLogService';
-import { PurchaseService } from './services/purchase/PurchaseService';
-import { RegisterMemberService } from './services/registerMember/RegisterMemberService';
-import { UtilService } from './services/util/UtilService';
-import { WebMoneyService } from './services/webMoney/WebMoneyService';
-import { BonusGrantingService } from './services2/bonus/BonusGrantingService';
-import { GiftCardService2 } from './services2/giftCard/GiftCardService';
-import { GiftCardUtilities, IGiftCardUtilities } from './services2/giftCard/GiftCardUtilities';
-import { MailService } from './services2/mail/MailService';
-import { PurchaseService2 } from './services2/purchase/PurchaseService';
-import { IPurchaseUtilities, PurchaseUtilities } from './services2/purchase/PurchaseUtilities';
-import { TicketChangeService } from './services2/ticketChange/TicketChangeService';
-import { UtilService2 } from './services2/util/UtilService';
-const log = debug('MVTK:index');
-
 /**
- * ムビチケサービス作成クラス
- *
- * 特定のムビチケサービスを使う場合、ここからserviceをcreateする
+ * index
  */
-export class ServicesBuilder {
-    private static instance: ServicesBuilder;
-    public Constants: IConstants = Constants;
-    public Util: Util = Util;
+// tslint:disable:max-line-length
+import { ServicesBuilder } from './service';
+import * as GetDigitalIncentiveDownloadLinkList from './services/digitalIncentiveDownload/models/GetDigitalIncentiveDownloadLinkListResult';
+import * as GetDigitalIncentiveDownload from './services/digitalIncentiveDownload/models/GetDigitalIncentiveDownloadResult';
+import * as BnnrInfo from './services/film/models/BnnrInfoResult';
+import * as DgtlincntvInfo from './services/film/models/DgtlincntvInfoResult';
+import * as FilmCast from './services/film/models/FilmCastResult';
+import * as FilmGenre from './services/film/models/FilmGenreResult';
+import * as FilmPhotoGallery from './services/film/models/FilmPhotoGalleryResult';
+import * as Film from './services/film/models/FilmResult';
+import * as FilmStaff from './services/film/models/FilmStaffResult';
+import * as GetTrailerDetail from './services/film/models/GetTrailerDetailResult';
+import * as TicketInfo from './services/film/models/TicketInfoResult';
+import * as TicketInfoType from './services/film/models/TicketInfoTypeResult';
+import * as MvtkGiftCardBalanceInquiry from './services/giftCard/models/MvtkGiftCardBalanceInquiryResult';
+import * as MvtkGiftCardEntry from './services/giftCard/models/MvtkGiftCardEntryResult';
+import * as MemberInfo from './services/memberInfo/models/MemberInfoResult';
+import * as GetFavoriteFilmList from './services/movieLog/models/GetFavoriteFilmListResult';
+import * as GetUnusedTicketList from './services/movieLog/models/GetUnusedTicketListResult';
+import * as SeatReservationStatusList from './services/movieLog/models/SeatReservationStatusListResult';
+import * as SentGiftStatusList from './services/movieLog/models/SentGiftStatusListResult';
+import * as ShyzmtcktInfoList from './services/movieLog/models/ShyzmtcktInfoListResult';
+import * as WatchRecord from './services/movieLog/models/WatchRecordResult';
+import * as CreditCardInfo from './services/purchase/models/CreditCardInfoResult';
+import * as GetGmoExecTran from './services/purchase/models/GetGmoExecTranResult';
+import * as GetQuestionnaireList from './services/purchase/models/GetQuestionnaireListResult';
+import * as GetShhriInfoByKey from './services/purchase/models/GetShhriInfoByKeyResult';
+import * as GetTsuryShhziInfo from './services/purchase/models/GetTsuryShhziInfoResult';
+import * as GetCodeName from './services/util/models/GetCodeNameResult';
+import * as PreserveCode from './services2/bonus/models/PreserveCodeResult';
+import * as GiftCardCancel from './services2/giftCard/models/GiftCardCancelResult';
+import * as GiftCardIDAuth from './services2/giftCard/models/GiftCardIDAuthResult';
+import * as GetGmoEntryTran from './services2/purchase/models/GetGmoEntryTranResult';
+import * as RegisterPurchaseInfo from './services2/purchase/models/RegisterPurchaseInfoResult';
 
-    public DigitalIncentiveDownloadUtilities: DigitalIncentiveDownloadUtilities = DigitalIncentiveDownloadUtilities;
-    public FilmUtilities: IFilmUtilities = FilmUtilities;
-    public InquiryUtilities: InquiryUtilities = InquiryUtilities;
-    public MemberInfoUtilities: IMemberInfoUtilities = MemberInfoUtilities;
-    public GiftCardUtilities: IGiftCardUtilities = GiftCardUtilities;
-    public PurchaseUtilities: IPurchaseUtilities = PurchaseUtilities;
+export const service = ServicesBuilder.getInstance();
 
-    /**
-     * ムビチケサービスエンドポイント
-     */
-    private endpoint: string;
-
-    /**
-     * 新ムビチケサービスエンドポイント
-     * リニューアルでサービスのドメインがひとつ増えたため
-     */
-    private endpoint2: string;
-
-    /**
-     * クッキー文字列
-     * サービス側でユーザーのログイン状態を判別するために用いる
-     */
-    private cookie: string;
-
-    public static getInstance(): ServicesBuilder {
-        log('getInstance');
-        if (ServicesBuilder.instance === undefined) {
-            ServicesBuilder.instance = new ServicesBuilder();
+export namespace models {
+    export namespace services {
+        export namespace digitalIncentiveDownload {
+            export import GetDigitalIncentiveDownloadLinkListResult = GetDigitalIncentiveDownloadLinkList.GetDigitalIncentiveDownloadLinkListResult;
+            export import GetDigitalIncentiveDownloadResult = GetDigitalIncentiveDownload.GetDigitalIncentiveDownloadResult;
         }
-
-        return ServicesBuilder.instance;
+        export namespace film {
+            export import BnnrInfoResult = BnnrInfo.BnnrInfoResult;
+            export import DgtlincntvInfoResult = DgtlincntvInfo.DgtlincntvInfoResult;
+            export import FilmCastResult = FilmCast.FilmCastResult;
+            export import FilmGenreResult = FilmGenre.FilmGenreResult;
+            export import FilmPhotoGalleryResult = FilmPhotoGallery.FilmPhotoGalleryResult;
+            export import FilmResult = Film.FilmResult;
+            export import FilmStaffResult = FilmStaff.FilmStaffResult;
+            export import GetTrailerDetailResult = GetTrailerDetail.GetTrailerDetailResult;
+            export import TicketInfoResult = TicketInfo.TicketInfoResult;
+            export import TicketInfoTypeResult = TicketInfoType.TicketInfoTypeResult;
+        }
+        export namespace giftCard {
+            export import MvtkGiftCardBalanceInquiryResult = MvtkGiftCardBalanceInquiry.MvtkGiftCardBalanceInquiryResult;
+            export import MvtkGiftCardEntryResult = MvtkGiftCardEntry.MvtkGiftCardEntryResult;
+        }
+        export namespace memberInfo {
+            export import MemberInfoResult = MemberInfo.MemberInfoResult;
+        }
+        export namespace movieLog {
+            export import GetFavoriteFilmListResult = GetFavoriteFilmList.GetFavoriteFilmListResult;
+            export import GetUnusedTicketListResult = GetUnusedTicketList.GetUnusedTicketListResult;
+            export import SeatReservationStatusListResult = SeatReservationStatusList.SeatReservationStatusListResult;
+            export import SentGiftStatusListResult = SentGiftStatusList.SentGiftStatusListResult;
+            export import ShyzmtcktInfoListResult = ShyzmtcktInfoList.ShyzmtcktInfoListResult;
+            export import WatchRecordResult = WatchRecord.WatchRecordResult;
+        }
+        export namespace purchase {
+            export import GetFavoriteFilmLisCreditCardInfoResultResult = CreditCardInfo.CreditCardInfoResult;
+            export import GetGmoExecTranResult = GetGmoExecTran.GetGmoExecTranResult;
+            export import GetQuestionnaireListResult = GetQuestionnaireList.GetQuestionnaireListResult;
+            export import GetShhriInfoByKeyResult = GetShhriInfoByKey.GetShhriInfoByKeyResult;
+            export import GetTsuryShhziInfoResult = GetTsuryShhziInfo.GetTsuryShhziInfoResult;
+        }
+        export namespace util {
+            export import GetCodeNameResult = GetCodeName.GetCodeNameResult;
+        }
     }
-
-    /**
-     * サービスビルダー初期化
-     */
-    public initialize(endpoint: string, endpoint2: string): void {
-        log('initialize');
-        this.endpoint = endpoint;
-        this.endpoint2 = endpoint2;
-    }
-
-    /**
-     * 新しいインスタンスを複製する
-     */
-    public createInstance(): ServicesBuilder {
-        log('createInstance');
-        const instance = new ServicesBuilder();
-        instance.initialize(this.endpoint, this.endpoint2);
-
-        return instance;
-    }
-
-    public getCookie() {
-        return this.cookie;
-    }
-
-    public setCookie(cookie: string) {
-        this.cookie = cookie;
-    }
-
-    /**
-     * デジタルインセンティブサービスを生成する
-     */
-    public createDigitalIncentiveDownloadService(): DigitalIncentiveDownloadService {
-        const wsdl: string = `${this.endpoint}/services/DigitalIncentive/DigitalIncentiveDownloadsvc.svc?singleWsdl`;
-        const service = new DigitalIncentiveDownloadService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 作品サービスを生成する
-     */
-    public createFilmService(): FilmService {
-        const wsdl: string = `${this.endpoint}/services/Film/Filmsvc.svc?singleWsdl`;
-        const service = new FilmService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * ギフトカードサービスを生成する
-     */
-    public createGiftCardService(): GiftCardService {
-        const wsdl: string = `${this.endpoint}/services/MvtkGiftCard/MvtkGiftCardSvc.svc?singleWsdl`;
-        const service = new GiftCardService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 新ギフトカードサービスを生成する
-     */
-    public createGiftCardService2(): GiftCardService2 {
-        const wsdl: string = `${this.endpoint2}/services/giftcard/giftcardsvc.svc?singleWsdl`;
-        const service = new GiftCardService2(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 問い合わせサービスを生成する
-     */
-    public createInquiryService(): InquiryService {
-        const wsdl: string = `${this.endpoint}/services/Inquiry/Inquirysvc.svc?singleWsdl`;
-        const service = new InquiryService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * メールサービスを生成する
-     */
-    public createMailService(): MailService {
-        const wsdl: string = `${this.endpoint2}/services/mail/mailsvc.svc?singleWsdl`;
-        const service = new MailService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 会員情報サービスを生成する
-     */
-    public createMemberInfoService(): MemberInfoService {
-        const wsdl: string = `${this.endpoint}/services/Member/MemberInfoSvc.svc?singleWsdl`;
-        const service = new MemberInfoService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * ユーザー作品履歴サービスを生成する
-     */
-    public createMovieLogService(): MovieLogService {
-        const wsdl: string = `${this.endpoint}/services/MovieLog/MovieLogSvc.svc?singleWsdl`;
-        const service = new MovieLogService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 購入サービスを生成する
-     */
-    public createPurchaseService(): PurchaseService {
-        const wsdl: string = `${this.endpoint}/services/Purchase/PurchaseSvc.svc?singleWsdl`;
-        const service = new PurchaseService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 新購入サービスを生成する
-     */
-    public createPurchaseService2(): PurchaseService2 {
-        const wsdl: string = `${this.endpoint2}/services/purchase/purchasesvc.svc?singleWsdl`;
-        const service = new PurchaseService2(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 会員登録サービスを生成する
-     */
-    public createRegisterMemberService(): RegisterMemberService {
-        const wsdl: string = `${this.endpoint}/services/Member/RegisterMemberSvc.svc?singleWsdl`;
-        const service = new RegisterMemberService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * お直りサービスを生成する
-     */
-    public createTicketChangeService(): TicketChangeService {
-        const wsdl: string = `${this.endpoint}/services/ticketchange/Ticketchangesvc.svc?singleWsdl`;
-        const service = new TicketChangeService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * ユーティリティサービスを生成する
-     */
-    public createUtilService(): UtilService {
-        const wsdl: string = `${this.endpoint}/services/util/Utilsvc.svc?singleWsdl`;
-        const service = new UtilService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 新ユーティリティサービスを生成する
-     */
-    public createUtilService2(): UtilService2 {
-        const wsdl: string = `${this.endpoint2}/services/util/utilsvc.svc?singleWsdl`;
-        const service = new UtilService2(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * ウェブマネーサービスを生成する
-     */
-    public createWebMoneyService(): WebMoneyService {
-        const wsdl: string = `${this.endpoint}/services/WebMoney/WebMoneySvc.svc?singleWsdl`;
-        const service = new WebMoneyService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
-    }
-
-    /**
-     * 特典コードサービスを生成する
-     * @method
-     */
-    public createBonusGrantingService(): BonusGrantingService {
-        const wsdl: string = `${this.endpoint2}/Services/Bonus/BonusGrantingsvc.svc?singleWsdl`;
-        const service = new BonusGrantingService(wsdl);
-        service.setCookie(this.cookie);
-
-        return service;
+    export namespace services2 {
+        export namespace bounus {
+            export import PreserveCodeResult = PreserveCode.PreserveCodeResult;
+        }
+        export namespace giftCard {
+            export import GiftCardCancelResult = GiftCardCancel.GiftCardCancelResult;
+            export import GiftCardIDAuthResult = GiftCardIDAuth.GiftCardIDAuthResult;
+        }
+        export namespace purchase {
+            export import GetGmoEntryTranResult = GetGmoEntryTran.GetGmoEntryTranResult;
+            export import RegisterPurchaseInfoResult = RegisterPurchaseInfo.RegisterPurchaseInfoResult;
+        }
     }
 }
-
-export const services = ServicesBuilder.getInstance();
