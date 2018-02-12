@@ -29,6 +29,8 @@ import * as GetQuestionnaireList from './services/purchase/models/GetQuestionnai
 import * as GetShhriInfoByKey from './services/purchase/models/GetShhriInfoByKeyResult';
 import * as GetTsuryShhziInfo from './services/purchase/models/GetTsuryShhziInfoResult';
 import * as GetCodeName from './services/util/models/GetCodeNameResult';
+import * as DecryptWebMoneyKssiInfo from './services/webMoney/models/DecryptWebMoneyKssiInfoResult';
+import * as WebMoneyEntry from './services/webMoney/models/WebMoneyEntryResult';
 import * as PreserveCode from './services2/bonus/models/PreserveCodeResult';
 import * as GiftCardCancel from './services2/giftCard/models/GiftCardCancelResult';
 import * as GiftCardIDAuth from './services2/giftCard/models/GiftCardIDAuthResult';
@@ -77,6 +79,10 @@ export declare namespace models {
         }
         namespace util {
             export import GetCodeNameResult = GetCodeName.GetCodeNameResult;
+        }
+        namespace webMoney {
+            export import DecryptWebMoneyKssiInfoResult = DecryptWebMoneyKssiInfo.DecryptWebMoneyKssiInfoResult;
+            export import WebMoneyEntryResult = WebMoneyEntry.WebMoneyEntryResult;
         }
     }
     namespace services2 {
