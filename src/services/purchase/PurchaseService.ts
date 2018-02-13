@@ -516,7 +516,7 @@ export class PurchaseService extends Service {
 
         return new Promise<{
             response: any;
-            result: GetQuestionnaireListResult;
+            result?: GetQuestionnaireListResult;
         }>((resolve, reject) => {
             this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
@@ -527,10 +527,6 @@ export class PurchaseService extends Service {
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     getQuestionnaireListResult = GetQuestionnaireListResult.parse(result);
-                } else {
-                    reject(new Error(result.RESULT_INFO.MESSAGE));
-
-                    return;
                 }
                 resolve({
                     response: result,

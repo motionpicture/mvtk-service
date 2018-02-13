@@ -247,12 +247,13 @@ export class UtilService extends Service {
         const method = 'EncryptDataList';
 
         const args = new EncryptDataListIn(params);
+        const message = args.toXml();
 
         return new Promise<{
             response: any;
             result: string[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, _response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 

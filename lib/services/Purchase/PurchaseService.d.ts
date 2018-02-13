@@ -120,7 +120,7 @@ export declare class PurchaseService extends Service {
      */
     getQuestionnaireList(params: Object): Promise<{
         response: any;
-        result: GetQuestionnaireListResult;
+        result?: GetQuestionnaireListResult | undefined;
     }>;
     /**
      * アンケート設問登録
