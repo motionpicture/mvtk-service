@@ -35,32 +35,32 @@ export class GetGmoExecTranIn extends BaseIn {
     <tns:httpUserAgent>${this.httpUserAgent}</tns:httpUserAgent>
     <tns:dvcTyp>${this.dvcTyp}</tns:dvcTyp>
 `;
-        if (this.crdtcrdNo !== undefined) {
+        if (this.crdtcrdNo !== undefined && this.crdtcrdNo !== null && this.crdtcrdNo !== '') {
             message += `
     <tns:crdtcrdNo>${this.crdtcrdNo}</tns:crdtcrdNo>
 `;
         }
-        if (this.crdykkgn !== undefined) {
+        if (this.crdykkgn !== undefined && this.crdykkgn !== null && this.crdykkgn !== '') {
             message += `
     <tns:crdykkgn>${this.crdykkgn}</tns:crdykkgn>
 `;
         }
-        if (this.scrtyCd !== undefined) {
+        if (this.scrtyCd !== undefined && this.scrtyCd !== null && this.scrtyCd !== '') {
             message += `
     <tns:scrtyCd>${this.scrtyCd}</tns:scrtyCd>
 `;
         }
-        if (this.kiinCd !== undefined) {
+        if (this.kiinCd !== undefined && this.kiinCd !== null && this.kiinCd !== '') {
             message += `
     <tns:kiinCd>${this.kiinCd}</tns:kiinCd>
 `;
         }
-        if (this.cardseq !== undefined) {
+        if (this.cardseq !== undefined && this.cardseq !== null && this.cardseq !== '') {
             message += `
     <tns:cardseq>${this.cardseq}</tns:cardseq>
 `;
         }
-        if (this.knyshNm !== undefined) {
+        if (this.knyshNm !== undefined && this.knyshNm !== null && this.knyshNm !== '') {
             message += `
     <tns:knyshNm>${this.knyshNm}</tns:knyshNm>
 `;

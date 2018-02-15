@@ -87,7 +87,7 @@ export class GiftCardIDAuthIn extends BaseIn {
         }
 
         message += '</q1:MVTKGFTCRD_INFO_IN>';
-        if (this.KSSIKNR_NO !== undefined) {
+        if (this.KSSIKNR_NO !== undefined && this.KSSIKNR_NO !== null && this.KSSIKNR_NO !== '') {
             message += `
         <q1:KSSIKNR_NO>${this.KSSIKNR_NO}</q1:KSSIKNR_NO>
 `;

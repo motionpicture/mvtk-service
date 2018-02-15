@@ -17,12 +17,13 @@ export class GiftCardService2 extends Service {
         const method = 'GiftCardIDAuth';
 
         const args = new GiftCardIDAuthIn(params);
+        const message = args.toXml();
 
         return new Promise<{
             response: any;
             result: GiftCardIDAuthResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, _response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 

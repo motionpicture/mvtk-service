@@ -52,7 +52,7 @@ export class GiftCardCancelIn extends BaseIn {
                 <q3:GFTCRDKSSIKNR_NO>${info.GFTCRDKSSIKNR_NO}</q3:GFTCRDKSSIKNR_NO>
                 <q3:RYUKNGK>${info.RYUKNGK}</q3:RYUKNGK>
 `;
-            if (info.SYRYKY_DT !== undefined) {
+            if (info.SYRYKY_DT !== undefined && info.SYRYKY_DT !== null && info.SYRYKY_DT !== '') {
                 message += `
                 <q3:SYRYKY_DT>${info.SYRYKY_DT}</q3:SYRYKY_DT>
 `;

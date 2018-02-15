@@ -92,7 +92,7 @@ export class RegisterQuestionnaireIn extends BaseIn {
     <tns:knyshCd>${this.knyshCd}</tns:knyshCd>
 `;
 
-        if (this.kticmmntTxt !== undefined) {
+        if (this.kticmmntTxt !== undefined && this.kticmmntTxt !== null && this.kticmmntTxt !== '') {
         message += `
     <tns:kticmmntTxt>${this.kticmmntTxt}</tns:kticmmntTxt>
 `;

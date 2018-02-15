@@ -59,7 +59,7 @@ export class RegisterIchjknrInfoIn extends BaseIn {
             <q23:KSSIKNR_NO>${this.KSSIKNR_NO}</q23:KSSIKNR_NO>
             <q23:MLSF_FLG>${this.MLSF_FLG}</q23:MLSF_FLG>
             <q23:SKHN_CD>${this.SKHN_CD}</q23:SKHN_CD>
-            <q23:THREDMGNDIKN_UNIP xsi:nil="true">${(this.THREDMGNDIKN_UNIP !== undefined) ? this.THREDMGNDIKN_UNIP : ''}</q23:THREDMGNDIKN_UNIP>
+            <q23:THREDMGNDIKN_UNIP xsi:nil="true">${(this.THREDMGNDIKN_UNIP !== undefined && this.THREDMGNDIKN_UNIP !== null && (<any>this.THREDMGNDIKN_UNIP) !== '') ? this.THREDMGNDIKN_UNIP : ''}</q23:THREDMGNDIKN_UNIP>
             <q23:TICKETICHJKNR_LIST>
 `;
 
