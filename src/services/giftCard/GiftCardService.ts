@@ -57,12 +57,13 @@ export class GiftCardService extends Service {
         const method = 'MvtkGiftCardEntry';
 
         const args = new MvtkGiftCardEntryIn(params);
+        const message = args.toXml();
 
         return new Promise<{
             response: any;
             result: MvtkGiftCardEntryResult[];
         }>((resolve, reject) => {
-            this.call(method, args, (err: any, _response: any, result: any) => {
+            this.call(method, message, (err: any, _response: any, result: any) => {
                 if (err) {
                     reject(err);
 
