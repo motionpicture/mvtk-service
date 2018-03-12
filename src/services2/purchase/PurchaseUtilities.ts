@@ -12,6 +12,7 @@ export class PurchaseUtilities {
     public static KSSIHH_TYP_DOCOMO: string = '02';
     public static KSSIHH_TYP_GIFT_CARD: string = '04'; // ムビチケオンラインギフトカード
     public static KSSIHH_TYP_WEB_MONEY: string = '07';
+    public static KSSIHH_TYP_POINT: string = '12';
 
     /**
      * 購入デバイス区分
@@ -83,7 +84,8 @@ export class PurchaseUtilities {
             KSSIHH_TYP_AU: 'AU',
             KSSIHH_TYP_DOCOMO: 'ドコモケータイ払い',
             KSSIHH_TYP_GIFT_CARD: 'ムビチケギフトカード',
-            KSSIHH_TYP_WEB_MONEY: 'WebMoney'
+            KSSIHH_TYP_WEB_MONEY: 'WebMoney',
+            KSSIHH_TYP_POINT: 'ポイント'
         };
     }
 
@@ -97,7 +99,8 @@ export class PurchaseUtilities {
             this.KSSIHH_TYP_AU,
             this.KSSIHH_TYP_DOCOMO,
             this.KSSIHH_TYP_GIFT_CARD,
-            this.KSSIHH_TYP_WEB_MONEY
+            this.KSSIHH_TYP_WEB_MONEY,
+            this.KSSIHH_TYP_POINT
         ];
 
         return (types.indexOf(kssiTyp) >= 0);
@@ -125,6 +128,10 @@ export interface IPurchaseUtilities {
      * 決済方法区分 WEBMONEY
      */
     KSSIHH_TYP_WEB_MONEY: string;
+    /**
+     * 決済方法区分 ポイントのみ
+     */
+    KSSIHH_TYP_POINT: string;
 
     /**
      * 購入デバイス区分 PC
@@ -218,6 +225,7 @@ export interface IPurchaseUtilities {
         KSSIHH_TYP_DOCOMO: string;
         KSSIHH_TYP_GIFT_CARD: string;
         KSSIHH_TYP_WEB_MONEY: string;
+        KSSIHH_TYP_POINT: string;
     };
 
     /**

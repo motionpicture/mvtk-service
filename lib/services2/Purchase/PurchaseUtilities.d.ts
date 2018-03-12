@@ -10,6 +10,7 @@ export declare class PurchaseUtilities {
     static KSSIHH_TYP_DOCOMO: string;
     static KSSIHH_TYP_GIFT_CARD: string;
     static KSSIHH_TYP_WEB_MONEY: string;
+    static KSSIHH_TYP_POINT: string;
     /**
      * 購入デバイス区分
      */
@@ -72,6 +73,7 @@ export declare class PurchaseUtilities {
         KSSIHH_TYP_DOCOMO: string;
         KSSIHH_TYP_GIFT_CARD: string;
         KSSIHH_TYP_WEB_MONEY: string;
+        KSSIHH_TYP_POINT: string;
     };
     /**
      * 対応している決済区分か判定
@@ -100,6 +102,10 @@ export interface IPurchaseUtilities {
      * 決済方法区分 WEBMONEY
      */
     KSSIHH_TYP_WEB_MONEY: string;
+    /**
+     * 決済方法区分 ポイントのみ
+     */
+    KSSIHH_TYP_POINT: string;
     /**
      * 購入デバイス区分 PC
      */
@@ -185,6 +191,7 @@ export interface IPurchaseUtilities {
         KSSIHH_TYP_DOCOMO: string;
         KSSIHH_TYP_GIFT_CARD: string;
         KSSIHH_TYP_WEB_MONEY: string;
+        KSSIHH_TYP_POINT: string;
     };
     /**
      * 対応している決済区分か判定
