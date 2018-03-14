@@ -105,6 +105,12 @@ export class PurchaseUtilities {
 
         return (types.indexOf(kssiTyp) >= 0);
     }
+    /**
+     * ポイント利用フラグ
+     */
+    public static PINTRY_FLG_NOT_USED = '0';
+    public static PINTRY_FLG_USED = '1';
+    
 }
 
 export interface IPurchaseUtilities {
@@ -232,4 +238,10 @@ export interface IPurchaseUtilities {
      * 対応している決済区分か判定
      */
     isAvailableMethod(kssiTyp: string): boolean;
+
+    /**
+     * ポイント利用フラグ
+     */
+    PINTRY_FLG_NOT_USED: string;
+    PINTRY_FLG_USED: string;
 }

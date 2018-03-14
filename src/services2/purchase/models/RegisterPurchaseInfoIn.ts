@@ -154,6 +154,21 @@ export class RegisterPurchaseInfoIn extends BaseIn {
         TKTNCDKKH_NO: string;
     }[];
 
+    /**
+     * ポイント利用フラグ
+     */
+    PINTRY_FLG: '0' | '1';
+
+    /**
+     * ポイント決済UUID
+     */
+    PTKSSI_UUID?: string;
+
+    /**
+     * 利用ポイント数
+     */
+    RY_PT: number;
+
     // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
@@ -283,6 +298,16 @@ export class RegisterPurchaseInfoIn extends BaseIn {
         // tslint:disable-next-line:no-multiline-string
         message += `
         </q5:TKTNCDKKH_INFO>
+
+        <q5:PINTRY_FLG>${this.PINTRY_FLG}</q5:PINTRY_FLG>
+        `
+        if (this.PTKSSI_UUID !== undefined) {
+            message += `
+            <q5:PTKSSI_UUID>${this.PTKSSI_UUID}</q5:PTKSSI_UUID>
+            `
+        }
+        message += `
+        <q5:RY_PT>${this.RY_PT}</q5:RY_PT>
     </tns:IN_PARAMETER>
 </tns:RegisterPurchaseInfo>
 `;
@@ -522,4 +547,18 @@ export interface IRegisterPurchaseInfoIn {
          */
         TKTNCDKKH_NO: string;
     }[];
+    /**
+     * ポイント利用フラグ
+     */
+    PINTRY_FLG: '0' | '1';
+
+    /**
+     * ポイント決済UUID
+     */
+    PTKSSI_UUID?: string;
+
+    /**
+     * 利用ポイント数
+     */
+    RY_PT: number;
 }

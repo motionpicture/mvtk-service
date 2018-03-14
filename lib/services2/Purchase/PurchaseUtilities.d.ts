@@ -80,6 +80,11 @@ export declare class PurchaseUtilities {
      * @param kssiTyp 決済区分
      */
     static isAvailableMethod(kssiTyp: string): boolean;
+    /**
+     * ポイント利用フラグ
+     */
+    static PINTRY_FLG_NOT_USED: string;
+    static PINTRY_FLG_USED: string;
 }
 export interface IPurchaseUtilities {
     /**
@@ -197,4 +202,9 @@ export interface IPurchaseUtilities {
      * 対応している決済区分か判定
      */
     isAvailableMethod(kssiTyp: string): boolean;
+    /**
+     * ポイント利用フラグ
+     */
+    PINTRY_FLG_NOT_USED: string;
+    PINTRY_FLG_USED: string;
 }

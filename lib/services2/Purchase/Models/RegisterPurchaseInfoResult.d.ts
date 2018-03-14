@@ -18,5 +18,9 @@ export declare class RegisterPurchaseInfoResult {
      * 決済エラーメッセージ
      */
     kssierrrmssgTxt: string;
+    /**
+     * 獲得ポイント
+     */
+    kktkPt: string;
     static parse(resultObject: any): RegisterPurchaseInfoResult;
 }

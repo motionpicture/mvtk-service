@@ -151,6 +151,18 @@ export declare class RegisterPurchaseInfoIn extends BaseIn {
          */
         TKTNCDKKH_NO: string;
     }[];
+    /**
+     * ポイント利用フラグ
+     */
+    PINTRY_FLG: '0' | '1';
+    /**
+     * ポイント決済UUID
+     */
+    PTKSSI_UUID?: string;
+    /**
+     * 利用ポイント数
+     */
+    RY_PT: number;
     toXml(): string;
 }
 /**
@@ -380,4 +392,16 @@ export interface IRegisterPurchaseInfoIn {
          */
         TKTNCDKKH_NO: string;
     }[];
+    /**
+     * ポイント利用フラグ
+     */
+    PINTRY_FLG: '0' | '1';
+    /**
+     * ポイント決済UUID
+     */
+    PTKSSI_UUID?: string;
+    /**
+     * 利用ポイント数
+     */
+    RY_PT: number;
 }

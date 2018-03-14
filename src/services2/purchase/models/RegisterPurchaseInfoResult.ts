@@ -20,6 +20,10 @@ export class RegisterPurchaseInfoResult {
      * 決済エラーメッセージ
      */
     public kssierrrmssgTxt: string;
+    /**
+     * 獲得ポイント
+     */
+    public kktkPt: string;
 
     // tslint:disable-next-line:function-name
     public static parse(resultObject: any): RegisterPurchaseInfoResult {
