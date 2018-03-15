@@ -158,11 +158,11 @@ export declare class RegisterPurchaseInfoIn extends BaseIn {
     /**
      * ポイント決済UUID
      */
-    PTKSSI_UUID?: string;
+    PINTKSSI_UUID?: string;
     /**
      * 利用ポイント数
      */
-    RY_PT: number;
+    RYPINT_NUM: number;
     toXml(): string;
 }
 /**
@@ -399,9 +399,9 @@ export interface IRegisterPurchaseInfoIn {
     /**
      * ポイント決済UUID
      */
-    PTKSSI_UUID?: string;
+    PINTKSSI_UUID?: string;
     /**
      * 利用ポイント数
      */
-    RY_PT: number;
+    RYPINT_NUM: number;
 }

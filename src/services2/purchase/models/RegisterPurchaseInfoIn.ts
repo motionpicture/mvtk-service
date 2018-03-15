@@ -162,12 +162,12 @@ export class RegisterPurchaseInfoIn extends BaseIn {
     /**
      * ポイント決済UUID
      */
-    PTKSSI_UUID?: string;
+    PINTKSSI_UUID?: string;
 
     /**
      * 利用ポイント数
      */
-    RY_PT: number;
+    RYPINT_NUM: number;
 
     // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
@@ -301,13 +301,13 @@ export class RegisterPurchaseInfoIn extends BaseIn {
 
         <q5:PINTRY_FLG>${this.PINTRY_FLG}</q5:PINTRY_FLG>
         `
-        if (this.PTKSSI_UUID !== undefined) {
+        if (this.PINTKSSI_UUID !== undefined) {
             message += `
-            <q5:PTKSSI_UUID>${this.PTKSSI_UUID}</q5:PTKSSI_UUID>
+            <q5:PINTKSSI_UUID>${this.PINTKSSI_UUID}</q5:PINTKSSI_UUID>
             `
         }
         message += `
-        <q5:RY_PT>${this.RY_PT}</q5:RY_PT>
+        <q5:RYPINT_NUM>${this.RYPINT_NUM}</q5:RYPINT_NUM>
     </tns:IN_PARAMETER>
 </tns:RegisterPurchaseInfo>
 `;
@@ -555,10 +555,10 @@ export interface IRegisterPurchaseInfoIn {
     /**
      * ポイント決済UUID
      */
-    PTKSSI_UUID?: string;
+    PINTKSSI_UUID?: string;
 
     /**
      * 利用ポイント数
      */
-    RY_PT: number;
+    RYPINT_NUM: number;
 }

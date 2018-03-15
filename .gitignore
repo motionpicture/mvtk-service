@@ -3,3 +3,4 @@ typings/
 
 !.gitignore
 !.gitkeep
+.vscode/settings.json
