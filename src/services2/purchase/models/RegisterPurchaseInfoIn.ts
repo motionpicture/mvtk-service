@@ -157,17 +157,27 @@ export class RegisterPurchaseInfoIn extends BaseIn {
     /**
      * ポイント利用フラグ
      */
-    PINTRY_FLG: '0' | '1';
+    public PINTRY_FLG: '0' | '1';
 
     /**
      * ポイント決済UUID
      */
-    PINTKSSI_UUID?: string;
+    public PINTKSSI_UUID?: string;
 
     /**
      * 利用ポイント数
      */
-    RYPINT_NUM: number;
+    public RYPINT_NUM: number;
+
+    /**
+     * 契約コード 簡易法人決済時のみセット
+     */
+    public KIYK_CD?: string;
+
+    /**
+     * 購入者コード 会員購入時のみセット
+     */
+    public KNYSH_CD?: string;
 
     // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
@@ -300,14 +310,28 @@ export class RegisterPurchaseInfoIn extends BaseIn {
         </q5:TKTNCDKKH_INFO>
 
         <q5:PINTRY_FLG>${this.PINTRY_FLG}</q5:PINTRY_FLG>
-        `
+        `;
         if (this.PINTKSSI_UUID !== undefined) {
             message += `
             <q5:PINTKSSI_UUID>${this.PINTKSSI_UUID}</q5:PINTKSSI_UUID>
-            `
+            `;
         }
         message += `
         <q5:RYPINT_NUM>${this.RYPINT_NUM}</q5:RYPINT_NUM>
+        `;
+
+        if (this.KIYK_CD !== undefined) {
+            message += `
+        <q5:KIYK_CD>${this.KIYK_CD}</q5:KIYK_CD>
+        `;
+        }
+
+        if (this.KNYSH_CD !== undefined) {
+            message += `
+        <q5:KNYSH_CD>${this.KNYSH_CD}</q5:KNYSH_CD>
+        `;
+        }
+        message += `
     </tns:IN_PARAMETER>
 </tns:RegisterPurchaseInfo>
 `;
@@ -561,4 +585,14 @@ export interface IRegisterPurchaseInfoIn {
      * 利用ポイント数
      */
     RYPINT_NUM: number;
+
+    /**
+     * 契約コード 簡易法人決済時のみセット
+     */
+    KIYK_CD?: string;
+
+    /**
+     * 購入者コード 会員購入時のみセット
+     */
+    KNYSH_CD?: string;
 }

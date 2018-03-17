@@ -62,5 +62,9 @@ export declare class DeliveryIn extends BaseIn {
      * 作品コード
      */
     SKHN_CD: string;
+    /**
+     * 獲得ポイント
+     */
+    KKTK_PT: number;
     toXml(): string;
 }

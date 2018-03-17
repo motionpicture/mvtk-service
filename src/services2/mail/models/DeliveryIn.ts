@@ -63,6 +63,10 @@ export class DeliveryIn extends BaseIn {
      * 作品コード
      */
     public SKHN_CD: string;
+    /**
+     * 獲得ポイント
+     */
+    public KKTK_PT: number;
 
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
@@ -97,6 +101,7 @@ export class DeliveryIn extends BaseIn {
         <q1:MLTMPLT_CD>${this.MLTMPLT_CD}</q1:MLTMPLT_CD>
         <q1:TOTALCOST>${this.TOTALCOST}</q1:TOTALCOST>
         <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
+        <q1:KKTK_PT>${this.KKTK_PT}</q1:KKTK_PT>
     </tns:IN_PARAMETER>
 </tns:Delivery>
 `;

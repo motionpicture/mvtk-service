@@ -76,6 +76,12 @@ export class PurchaseUtilities {
     public static KITHSHK_TYP_TEXT = '02'; // 記述式
 
     /**
+     * ポイント利用フラグ
+     */
+    public static PINTRY_FLG_NOT_USED = '0';
+    public static PINTRY_FLG_USED = '1';
+
+    /**
      * method取得
      */
     public static getMethods() {
@@ -105,12 +111,6 @@ export class PurchaseUtilities {
 
         return (types.indexOf(kssiTyp) >= 0);
     }
-    /**
-     * ポイント利用フラグ
-     */
-    public static PINTRY_FLG_NOT_USED = '0';
-    public static PINTRY_FLG_USED = '1';
-    
 }
 
 export interface IPurchaseUtilities {
@@ -223,6 +223,12 @@ export interface IPurchaseUtilities {
     KITHSHK_TYP_TEXT: string;
 
     /**
+     * ポイント利用フラグ
+     */
+    PINTRY_FLG_NOT_USED: string;
+    PINTRY_FLG_USED: string;
+
+    /**
      * method取得
      */
     getMethods(): {
@@ -238,10 +244,4 @@ export interface IPurchaseUtilities {
      * 対応している決済区分か判定
      */
     isAvailableMethod(kssiTyp: string): boolean;
-
-    /**
-     * ポイント利用フラグ
-     */
-    PINTRY_FLG_NOT_USED: string;
-    PINTRY_FLG_USED: string;
 }

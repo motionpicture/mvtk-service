@@ -163,6 +163,14 @@ export declare class RegisterPurchaseInfoIn extends BaseIn {
      * 利用ポイント数
      */
     RYPINT_NUM: number;
+    /**
+     * 契約コード 簡易法人決済時のみセット
+     */
+    KIYK_CD?: string;
+    /**
+     * 購入者コード 会員購入時のみセット
+     */
+    KNYSH_CD?: string;
     toXml(): string;
 }
 /**
@@ -404,4 +412,12 @@ export interface IRegisterPurchaseInfoIn {
      * 利用ポイント数
      */
     RYPINT_NUM: number;
+    /**
+     * 契約コード 簡易法人決済時のみセット
+     */
+    KIYK_CD?: string;
+    /**
+     * 購入者コード 会員購入時のみセット
+     */
+    KNYSH_CD?: string;
 }
