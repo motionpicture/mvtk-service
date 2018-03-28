@@ -1,1 +1,2 @@
+set NPM_TOKEN=b8cacbc0-8077-475f-9283-97fe3917c9b7
 set DEBUG=MVTK
