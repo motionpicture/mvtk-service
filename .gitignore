@@ -1,6 +1,7 @@
 node_modules/
 typings/
 doc/
+lib/
 
 !.gitignore
 !.gitkeep
