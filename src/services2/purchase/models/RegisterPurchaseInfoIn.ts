@@ -179,6 +179,11 @@ export class RegisterPurchaseInfoIn extends BaseIn {
      */
     public KNYSH_CD?: string;
 
+    /**
+     * 獲得予定ポイント
+     */
+    public KKTKYTI_PT?: string;
+
     // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
@@ -329,6 +334,12 @@ export class RegisterPurchaseInfoIn extends BaseIn {
         if (this.KNYSH_CD !== undefined) {
             message += `
         <q5:KNYSH_CD>${this.KNYSH_CD}</q5:KNYSH_CD>
+        `;
+        }
+
+        if (this.KKTKYTI_PT !== undefined) {
+            message += `
+        <q5:KKTKYTI_PT>${this.KKTKYTI_PT}</q5:KKTKYTI_PT>
         `;
         }
         message += `
