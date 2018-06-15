@@ -35,6 +35,10 @@ export class PreserveCodeIn extends BaseIn {
     public KNSHKN_INFO: {
         KnshknInfo: IKnshknInfo[];
     };
+    /**
+     * 決済でポイントを利用しているか否かのフラグ
+     */
+    public PINTRY_FLG: string;
 
     /**
      * XML変換
@@ -72,6 +76,10 @@ export class PreserveCodeIn extends BaseIn {
         }
 
         message += '</q1:KNSHKN_INFO>';
+
+        message += `
+        <q1:PINTRY_FLG>${this.PINTRY_FLG}</q1:PINTRY_FLG>
+`;
         message += '</tns:IN_PARAMETER>';
         message += '</tns:PreserveCode>';
 
@@ -121,4 +129,8 @@ export interface IPreserveCodeIn {
     KNSHKN_INFO: {
         KnshknInfo: IKnshknInfo[];
     };
+    /**
+     * 決済でポイントを利用しているか否かのフラグ
+     */
+    PINTRY_FLG: string;
 }
