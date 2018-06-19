@@ -43,7 +43,8 @@ export class MovieLogService extends Service {
                     return;
                 }
 
-                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
+                    || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_CHECK_ERROR) {
                     getFavoriteFilmListResult = GetFavoriteFilmListResult.parse(result);
                 } else {
                     reject(new Error(result.RESULT_INFO.MESSAGE));
@@ -85,7 +86,8 @@ export class MovieLogService extends Service {
                     return;
                 }
 
-                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
+                    || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_CHECK_ERROR) {
                     getUnusedTicketListResult = GetUnusedTicketListResult.parse(result);
                 } else {
                     reject(new Error(result.RESULT_INFO.MESSAGE));
@@ -128,7 +130,7 @@ export class MovieLogService extends Service {
                 }
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-                    || result.RESULT_INFO.STATUS === 'L001') {
+                    || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_CHECK_ERROR) {
                     shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
                 } else {
                     reject(new Error(result.RESULT_INFO.MESSAGE));
@@ -171,7 +173,7 @@ export class MovieLogService extends Service {
                 }
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-                    || result.RESULT_INFO.STATUS === 'L001') {
+                    || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_CHECK_ERROR) {
                     shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
                 } else {
                     reject(new Error(result.RESULT_INFO.MESSAGE));
@@ -214,7 +216,7 @@ export class MovieLogService extends Service {
                 }
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-                    || result.RESULT_INFO.STATUS === 'L001') {
+                    || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_CHECK_ERROR) {
                     shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
                 } else {
                     reject(new Error(result.RESULT_INFO.MESSAGE));
@@ -257,7 +259,7 @@ export class MovieLogService extends Service {
                 }
 
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
-                    || result.RESULT_INFO.STATUS === 'L001') {
+                    || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_CHECK_ERROR) {
                     shyzmtcktInfoListResult = ShyzmtcktInfoListResult.parse(result);
                 } else {
                     reject(new Error(result.RESULT_INFO.MESSAGE));
@@ -477,7 +479,8 @@ export class MovieLogService extends Service {
                     return;
                 }
 
-                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
+                    || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_CHECK_ERROR) {
                     watchRecordResults = [];
 
                     if (Array.isArray(result.KNSHKRK_INFO.KnshkrkInfo)) {
@@ -525,7 +528,8 @@ export class MovieLogService extends Service {
                     return;
                 }
 
-                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS
+                    || result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_CHECK_ERROR) {
                     sentGiftStatusListResults = [];
 
                     if (Array.isArray(result.ZSKYYKJYKY_INFO.ZskyykjykyInfo)) {
