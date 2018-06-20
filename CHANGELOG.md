@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.0.2 - 2018-06-20
+### Fixed
+ - クレジットカード情報未登録時取得エラー修正
+
 ## v3.0.1 - 2018-06-16
 ### Fixed
  - MovieLogServiceリストなしの際のエラー修正
