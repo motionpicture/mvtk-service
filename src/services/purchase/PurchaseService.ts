@@ -73,7 +73,7 @@ export class PurchaseService extends Service {
 
         return new Promise<{
             response: any;
-            result: CreditCardInfoResult;
+            result: CreditCardInfoResult | null;
         }>((resolve, reject) => {
             this.call(method, args, (err: any, _response: any, result: any) => {
                 if (err) {
@@ -82,13 +82,17 @@ export class PurchaseService extends Service {
                     return;
                 }
 
-                let creditCardInfoResult: CreditCardInfoResult;
+                let creditCardInfoResult: CreditCardInfoResult | null;
 
-                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS && result.CRDJHUM_FLG !== '0') {
-                    if (Array.isArray(result.CRDTCRD_INFO.CrdtcrdInfo)) {
-                        creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo[0]);
+                if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
+                    if (result.CRDJHUM_FLG === '1') {
+                        if (Array.isArray(result.CRDTCRD_INFO.CrdtcrdInfo)) {
+                            creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo[0]);
+                        } else {
+                            creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo);
+                        }
                     } else {
-                        creditCardInfoResult = CreditCardInfoResult.parse(result.CRDTCRD_INFO.CrdtcrdInfo);
+                        creditCardInfoResult = null;
                     }
                     resolve({
                         response: result,
