@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.0.3 - 2018-07-18
+### Changed
+ - ムビチケサービスのtimeout値をenvで設定できるように調整
+
 ## v3.0.2 - 2018-06-20
 ### Fixed
  - クレジットカード情報未登録時取得エラー修正
