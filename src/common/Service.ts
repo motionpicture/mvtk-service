@@ -60,7 +60,7 @@ export class Service {
 
             const options = {
                 timeout: process.env.MVTK_SERVICE_CONNECTION_TIMEOUT_MILLISEC !== undefined ?
-                    parseInt(<string>process.env.MVTK_SERVICE_CONNECTION_TIMEOUT_MILLISEC, 10) : 60000
+                    parseInt(process.env.MVTK_SERVICE_CONNECTION_TIMEOUT_MILLISEC, 10) : 60000
             };
 
             const extraHeaders: {
