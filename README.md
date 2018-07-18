@@ -2,6 +2,12 @@
 
 This project provides a Node.js package that makes it easy to use Mvtk Services.
 
+### Environment variables
+
+| Name                              | Required | Value                     | Purpose                                  |
+| --------------------------------- | -------- | ------------------------- | ---------------------------------------- |
+| `MVTK_SERVICE_CONNECTION_TIMEOUT_MILLISEC`                        | false     |                           | 環境名(ムビチケサービスのtimeout)    |
+
 # Features
 
 - DigitalIncentiveDownload
