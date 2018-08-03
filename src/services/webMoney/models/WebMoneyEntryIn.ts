@@ -16,6 +16,7 @@ export class WebMoneyEntryIn extends BaseIn {
             KNYMI_NUM: string;
         }[];
     };
+    public rykngk: string; // 利用金額（=チケット合計金額-併用決済金額-ムビチケポイント）
 
     public toXml(): string {
         let message = `
@@ -40,6 +41,7 @@ export class WebMoneyEntryIn extends BaseIn {
 
         message += `
     </tns:knshknInfo>
+    <tns:rykngk>${this.rykngk}</tns:rykngk>
 </tns:WebMoneyEntry>
 `;
 
