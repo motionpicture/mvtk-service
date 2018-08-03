@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.1.0 - 2018-08-03
+### Changed
+ - WebMoneyEntryに利用金額（rykngk）追加
+
 ## v3.0.3 - 2018-07-18
 ### Changed
  - ムビチケサービスのtimeout値をenvで設定できるように調整
