@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.1.1 - 2018-10-03
+### Fixed
+ - ポイント単独決済時に特典コード確保APIのポイント利用フラグがnullでセットされているのを調整
+
 ## v3.1.0 - 2018-08-03
 ### Changed
  - WebMoneyEntryに利用金額（rykngk）追加
