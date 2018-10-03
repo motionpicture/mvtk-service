@@ -35,6 +35,10 @@ export class PreserveCodeIn extends BaseIn {
     public KNSHKN_INFO: {
         KnshknInfo: IKnshknInfo[];
     };
+    /**
+     * ポイント利用フラグ
+     */    
+    public PINTRY_FLG: '0' | '1'
 
     /**
      * XML変換
@@ -50,7 +54,7 @@ export class PreserveCodeIn extends BaseIn {
         <q1:KSSIHH_TYP>${this.KSSIHH_TYP}</q1:KSSIHH_TYP>
 `;
         if (this.HIYKSSI_FLG === '1') {
-        message += `
+            message += `
         <q1:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q1:HIYKSSI_FLG>
         <q1:HIYKSSI_TYP>${this.HIYKSSI_TYP}</q1:HIYKSSI_TYP>
 `;
@@ -60,8 +64,8 @@ export class PreserveCodeIn extends BaseIn {
 `;
 
         if (this.KNSHKN_INFO !== null) {
-        message += '<q1:KNSHKN_INFO>';
-        for (const info of this.KNSHKN_INFO.KnshknInfo) {
+            message += '<q1:KNSHKN_INFO>';
+            for (const info of this.KNSHKN_INFO.KnshknInfo) {
                 message += `
             <q2:KnshknInfo>
                 <q2:KNSH_TYP>${info.KNSH_TYP}</q2:KNSH_TYP>
@@ -72,6 +76,10 @@ export class PreserveCodeIn extends BaseIn {
         }
 
         message += '</q1:KNSHKN_INFO>';
+
+        message += `
+        <q1:PINTRY_FLG>${this.PINTRY_FLG}</q1:PINTRY_FLG>
+`;
         message += '</tns:IN_PARAMETER>';
         message += '</tns:PreserveCode>';
 
@@ -121,4 +129,8 @@ export interface IPreserveCodeIn {
     KNSHKN_INFO: {
         KnshknInfo: IKnshknInfo[];
     };
+    /**
+     * ポイント利用フラグ
+     */
+    PINTRY_FLG: '0' | '1'
 }
