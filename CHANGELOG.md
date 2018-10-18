@@ -16,6 +16,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+
+## v3.1.2 - 2018-10-18
+### Fixed
+ - 一時管理データ取得失敗ハンドリングの調整
+
 ## v3.1.1 - 2018-10-03
 ### Fixed
  - ポイント単独決済時に特典コード確保APIのポイント利用フラグがnullでセットされているのを調整
