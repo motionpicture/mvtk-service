@@ -338,7 +338,7 @@ export class PurchaseService extends Service {
                         selectIchjknrInfoResults.push(SelectIchjknrInfoResult.parse(result.SelectIchjknrInfoOut));
                     }
                 } else {
-                    reject(new Error(result.RESULT_INFO.MESSAGE));
+                    reject(new Error("一時管理データを取得できませんでした。"));
 
                     return;
                 }
