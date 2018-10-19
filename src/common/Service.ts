@@ -39,7 +39,7 @@ export class Service {
      */
     protected setWsdllogger = async(method: string) => {
 
-        const env = process.env.NODE_ENV === undefined ? process.env.NODE_ENV : 'dev';
+        const env = process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : 'dev';
         const logDir = `${process.cwd()}/logs/${env}/frontend/api/${moment().format('YYYYMMDD')}`;
 
         return new Promise<void>((resolve, reject) => {
