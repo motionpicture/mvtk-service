@@ -1,10 +1,49 @@
 import * as soap from 'soap';
-// import log4js = require('log4js');
+const log4js = require('log4js');
+import * as fs from 'fs-extra';
 
 /**
  * ムビチケサービスベースクラス
  */
 export class Service {
+
+    /**
+     * 購入プロセス用のロガーを設定する
+     * 1決済管理番号につき、1ログファイル
+     * 
+     * @param {string} method 決済管理番号
+     */
+    protected async setWsdllogger(method: string) {
+        let env = process.env.NODE_ENV || 'dev';
+        let moment = require('moment');
+        let logDir = `${process.cwd()}/logs/${env}/frontend/api/${moment().format('YYYYMMDD')}`;
+
+        return new Promise<void>((resolve, reject) => {
+            fs.mkdirs(logDir, (err: any) => {
+                if (err) {
+                    reject(new Error('ログの作成に失敗しました。'));
+                }
+
+                log4js.configure({
+                    appenders: [
+                        {
+                            category: 'wsdl',
+                            type: 'dateFile',
+                            filename: `${logDir}/${method}.log`,
+                            pattern: '-yyyy-MM-dd',
+                            backups: 3
+                        }
+                    ],
+                    levels: {
+                        wsdl: 'ALL'
+                    }
+                });
+
+                resolve(log4js.getLogger('wsdl'));
+            });
+        });
+    }
+
     /**
      * wsdl
      */
@@ -39,11 +78,8 @@ export class Service {
         args: Object | string,
         cb: (err: any, _response: any, result: any, lastResponseHeaders: any) => void
     ) {
-        // let logger = log4js.getLogger('system');
 
-        // logger.debug('MvtkService calling...', method, args);
-
-        this.createClient((err, client) => {
+        let req = () => this.createClient((err, client) => {
             // クライアント生成に失敗したら終了
             if (err) {
                 cb(err, null, null, null);
@@ -92,6 +128,15 @@ export class Service {
                 options,
                 extraHeaders);
         });
+
+        if (process.env.WSDL_LOGGING_ENABLED === "1" ) {
+            this.setWsdllogger(method).then((logger4wsdl: any) => {
+                logger4wsdl.info('MvtkService calling...', method, args);
+                req()
+            });
+        } else {
+            req()
+        }
     }
 
     /**
