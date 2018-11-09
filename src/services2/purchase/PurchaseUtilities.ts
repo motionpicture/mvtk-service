@@ -88,7 +88,7 @@ export class PurchaseUtilities {
     public static getMethods() {
         return {
             KSSIHH_TYP_CREDIT_CARD: 'クレジットカード',
-            KSSIHH_TYP_RAKUTEN_PAY: '楽天ペイ',
+            KSSIHH_TYP_RAKUTEN_PAY: '楽天ペイ(旧:楽天ID決済)',
             KSSIHH_TYP_AU: 'AU',
             KSSIHH_TYP_DOCOMO: 'ドコモケータイ払い',
             KSSIHH_TYP_GIFT_CARD: 'ムビチケギフトカード',
