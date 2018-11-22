@@ -13,6 +13,7 @@ export class PurchaseUtilities {
     public static KSSIHH_TYP_GIFT_CARD: string = '04'; // ムビチケオンラインギフトカード
     public static KSSIHH_TYP_WEB_MONEY: string = '07';
     public static KSSIHH_TYP_POINT: string = '12';
+    public static KSSIHH_TYP_RAKUTEN_PAY: string = '22';
 
     /**
      * 購入デバイス区分
@@ -87,6 +88,7 @@ export class PurchaseUtilities {
     public static getMethods() {
         return {
             KSSIHH_TYP_CREDIT_CARD: 'クレジットカード',
+            KSSIHH_TYP_RAKUTEN_PAY: '楽天ペイ(旧:楽天ID決済)',
             KSSIHH_TYP_AU: 'AU',
             KSSIHH_TYP_DOCOMO: 'ドコモケータイ払い',
             KSSIHH_TYP_GIFT_CARD: 'ムビチケギフトカード',
@@ -102,6 +104,7 @@ export class PurchaseUtilities {
     public static isAvailableMethod(kssiTyp: string): boolean {
         const types: string[] = [
             this.KSSIHH_TYP_CREDIT_CARD,
+            this.KSSIHH_TYP_RAKUTEN_PAY,
             this.KSSIHH_TYP_AU,
             this.KSSIHH_TYP_DOCOMO,
             this.KSSIHH_TYP_GIFT_CARD,
@@ -118,6 +121,10 @@ export interface IPurchaseUtilities {
      * 決済方法区分 クレジットカード
      */
     KSSIHH_TYP_CREDIT_CARD: string;
+    /**
+     * 決済方法区分 楽天ペイ
+     */
+    KSSIHH_TYP_RAKUTEN_PAY: string;
     /**
      * 決済方法区分 AU
      */
@@ -233,6 +240,7 @@ export interface IPurchaseUtilities {
      */
     getMethods(): {
         KSSIHH_TYP_CREDIT_CARD: string;
+        KSSIHH_TYP_RAKUTEN_PAY: string;
         KSSIHH_TYP_AU: string;
         KSSIHH_TYP_DOCOMO: string;
         KSSIHH_TYP_GIFT_CARD: string;
