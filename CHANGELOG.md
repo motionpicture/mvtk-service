@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.1.4 - 2018-11-26
+### Added
+ - WSDL logging対応（In パラメータ）
+
 ## v3.1.3 - 2018-11-22
 ### Added
  - 楽天ペイ対応
