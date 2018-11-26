@@ -37,8 +37,8 @@ export class PreserveCodeIn extends BaseIn {
     };
     /**
      * ポイント利用フラグ
-     */    
-    public PINTRY_FLG: '0' | '1'
+     */
+    public PINTRY_FLG: '0' | '1';
 
     /**
      * XML変換
@@ -132,5 +132,5 @@ export interface IPreserveCodeIn {
     /**
      * ポイント利用フラグ
      */
-    PINTRY_FLG: '0' | '1'
+    PINTRY_FLG: '0' | '1';
 }
