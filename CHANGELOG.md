@@ -16,6 +16,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.1.5 - 2018-11-28
+### Added
+ - カード情報保存もtoken化
+ - アンケートパラメータ順調整
+
 ## v3.1.4 - 2018-11-26
 ### Added
  - WSDL logging対応（In パラメータ）
