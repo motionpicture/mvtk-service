@@ -233,17 +233,15 @@ export class PurchaseService extends Service {
     /**
      * 代行会社カード登録更新呼出
      *
-     * @param kssiknrNo       決済管理番号
      * @param kiinCd          会員コード
-     * @param mignn  クレジットカード名義人
+     * @param gmoToken        gmoトークン
      */
-    public async getGmoSaveCard(kssiknrNo: string, kiinCd: string, mignn: string) {
-        const method = 'GetGmoSaveCard';
+    public async gmoSaveCard(kiinCd: string, gmoToken: string) {
+        const method = 'GmoSaveCard';
 
         const args = {
-            kssiknrNo: kssiknrNo,
             kiinCd: kiinCd,
-            mignn: mignn
+            token: gmoToken
         };
 
         return new Promise<{
