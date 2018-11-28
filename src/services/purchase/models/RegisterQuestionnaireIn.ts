@@ -52,6 +52,7 @@ export class RegisterQuestionnaireIn extends BaseIn {
         <q19:QustinnarkitInfo>
             <q19:KITHSHK_TYP>${qustinnarkitInfo.KITHSHK_TYP}</q19:KITHSHK_TYP>
             <q19:KJTSKIT_TXT>${qustinnarkitInfo.KJTSKIT_TXT}</q19:KJTSKIT_TXT>
+            <q19:QUSTINNARSTSMN_NO>${qustinnarkitInfo.QUSTINNARSTSMN_NO}</q19:QUSTINNARSTSMN_NO>
             <q19:SNTKSHKQUSTINNARKIT_INFO>
 `;
 
@@ -74,7 +75,6 @@ export class RegisterQuestionnaireIn extends BaseIn {
 
                     message += `
             </q19:SNTKSHKQUSTINNARKIT_INFO>
-            <q19:QUSTINNARSTSMN_NO>${qustinnarkitInfo.QUSTINNARSTSMN_NO}</q19:QUSTINNARSTSMN_NO>
         </q19:QustinnarkitInfo>
 `;
                 }
