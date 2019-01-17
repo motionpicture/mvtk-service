@@ -1,6 +1,6 @@
 {
   "name": "@motionpicture/mvtk-service",
-  "version": "3.1.5",
+  "version": "3.1.6-MWSR-264-alpha.0",
   "dependencies": {
     "debug": "^3.1.0",
     "fs-extra": "^7.0.1",
@@ -13,7 +13,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "check": "npm run tslint && nsp check",
+    "check": "npm run tslint",
     "test": "npm run check",
     "build": "tsc --project ./ --outDir lib --locale ja-jp",
     "tslint": "tslint --type-check --project tsconfig.json -c tslint.json --exclude \"**/*.spec.ts\" src/**/*.ts",

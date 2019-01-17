@@ -40,9 +40,10 @@ export class PurchaseUtilities {
      * 11:小売店
      * 12:アプリケーション連携
      * 13:イーウェル
+     * 16:アプリ
      */
     public static HMBICHNNL_TYP_MVTK_SITE = '01'; // PC
-
+    public static HMBICHNNL_TYP_MVTK_APPS = '16'; // アプリ
     public static HMBGISH_CD_MVTK = '000000'; // ムビチケ
 
     /**
