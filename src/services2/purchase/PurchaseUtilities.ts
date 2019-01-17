@@ -176,6 +176,12 @@ export interface IPurchaseUtilities {
      * チケットの販売チャネル PC
      */
     HMBICHNNL_TYP_MVTK_SITE: string;
+
+    /**
+     * チケットの販売チャネル アプリ
+     */
+    HMBICHNNL_TYP_MVTK_APPS: string;
+
     /**
      * チケットの販売チャネル ムビチケ
      */
