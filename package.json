@@ -10,7 +10,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "check": "npm run tslint && nsp check",
+    "check": "npm run tslint",
     "test": "npm run check",
     "build": "tsc --project ./ --outDir lib --locale ja-jp",
     "tslint": "tslint --type-check --project tsconfig.json -c tslint.json --exclude \"**/*.spec.ts\" src/**/*.ts",
