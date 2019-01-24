@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.1.6 - 2019-01-24
+### Fixed
+ - loggingをconsoleに出力
+
 ## v3.1.5 - 2018-11-28
 ### Added
  - カード情報保存もtoken化
