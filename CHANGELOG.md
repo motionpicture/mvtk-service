@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.1.8 - 2019-01-24
+### Fixed
+ - loggingでtoppageのresは除外する。
+
 ## v3.1.7 - 2019-01-24
 ### Fixed
  - env名調整
