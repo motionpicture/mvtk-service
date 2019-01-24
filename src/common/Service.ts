@@ -87,7 +87,7 @@ export class Service {
                     }
 
                     // tslint:disable-next-line:no-console
-                    if (process.env.c === '1') { console.info(`${method} [res]: `, args); }
+                    if (process.env.WSDL_LOGGING_ENABLED === '1') { console.info(`${method} [res]: `, args); }
                     cb(err2, response, result, client.lastResponseHeaders);
                 },
                 options,
