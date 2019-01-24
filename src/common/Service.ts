@@ -67,8 +67,10 @@ export class Service {
                 extraHeaders.Cookie = this.cookie;
             }
 
-            // tslint:disable-next-line:no-console
-            if (process.env.WSDL_LOGGING_ENABLED === '1') { console.info(`${method} [req]: `, args); }
+            if (process.env.WSDL_LOGGING_ENABLED === '1') {
+                // tslint:disable-next-line:no-console
+                console.info(`${method} [req]: `, args);
+            }
 
             (<any>client)[method](
                 args,
@@ -86,8 +88,11 @@ export class Service {
                         result = response[`${method}Result`];
                     }
 
-                    // tslint:disable-next-line:no-console
-                    if (process.env.WSDL_LOGGING_ENABLED === '1') { console.info(`${method} [res]: `, args); }
+                    //toppageのresponseだけは除外しておく。（too logn!!!）
+                    if (process.env.WSDL_LOGGING_ENABLED === '1' && method !== 'GetFilmTopPage') {
+                        // tslint:disable-next-line:no-console
+                        console.info(`${method} [res]: `, args);
+                    }
                     cb(err2, response, result, client.lastResponseHeaders);
                 },
                 options,
