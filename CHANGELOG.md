@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.2.1 - 2019-01-30
+### Added
+ - GMOmethod名を調整
+
 ## v3.1.8 - 2019-01-24
 ### Fixed
  - loggingでtoppageのresは除外する。
