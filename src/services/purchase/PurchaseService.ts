@@ -237,7 +237,7 @@ export class PurchaseService extends Service {
      * @param gmoToken        gmoトークン
      */
     public async gmoSaveCard(kiinCd: string, gmoToken: string) {
-        const method = 'GmoSaveCard';
+        const method = 'GetGmoSaveCard';
 
         const args = {
             kiinCd: kiinCd,
