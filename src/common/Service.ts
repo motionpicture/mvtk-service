@@ -1,9 +1,4 @@
-import * as fs from 'fs-extra';
-import * as moment from 'moment';
 import * as soap from 'soap';
-
-// tslint:disable-next-line:variable-name no-var-requires no-require-imports
-const log4js = require('log4js');
 
 /**
  * ムビチケサービスベースクラス
@@ -34,41 +29,6 @@ export class Service {
     }
 
     /**
-     * wsdl用のロガーを設定する
-     * method毎に1ログファイル
-     */
-    protected setWsdllogger = async(method: string) => {
-
-        const env = process.env.NODE_ENV !== undefined ? process.env.NODE_ENV : 'dev';
-        const logDir = `${process.cwd()}/logs/${env}/frontend/api/${moment().format('YYYYMMDD')}`;
-
-        return new Promise<void>((resolve, reject) => {
-            fs.mkdirs(logDir, (err: any) => {
-                if (err) {
-                    reject(new Error('ログの作成に失敗しました。'));
-                }
-
-                log4js.configure({
-                    appenders: [
-                        {
-                            category: 'wsdl',
-                            type: 'dateFile',
-                            filename: `${logDir}/${method}.log`,
-                            pattern: '-yyyy-MM-dd',
-                            backups: 3
-                        }
-                    ],
-                    levels: {
-                        wsdl: 'ALL'
-                    }
-                });
-
-                resolve(log4js.getLogger('wsdl'));
-            });
-        });
-    }
-
-    /**
      * サービスメソッドを呼び出す
      *
      * @param  method メソッド名
@@ -79,69 +39,65 @@ export class Service {
         args: Object | string,
         cb: (err: any, _response: any, result: any, lastResponseHeaders: any) => void
     ) {
+        this.createClient((err, client) => {
+            // クライアント生成に失敗したら終了
+            if (err) {
+                cb(err, null, null, null);
 
-        const req = () => {
-            this.createClient((err, client) => {
-                // クライアント生成に失敗したら終了
-                if (err) {
-                    cb(err, null, null, null);
+                return;
+            }
 
-                    return;
-                }
+            // logger.debug('MvtkService client.describe...', client.describe());
 
-                // logger.debug('MvtkService client.describe...', client.describe());
+            // 一度だけ再試行(二度目は例外スロー)
+            // if (canRetry) {
+            //     return this.createClient(options, sessionCookie, false);
+            // }
 
-                // 一度だけ再試行(二度目は例外スロー)
-                // if (canRetry) {
-                //     return this.createClient(options, sessionCookie, false);
-                // }
+            const options = {
+                timeout: process.env.MVTK_SERVICE_CONNECTION_TIMEOUT_MILLISEC !== undefined ?
+                    parseInt(process.env.MVTK_SERVICE_CONNECTION_TIMEOUT_MILLISEC, 10) : 60000
+            };
 
-                const options = {
-                    timeout: process.env.MVTK_SERVICE_CONNECTION_TIMEOUT_MILLISEC !== undefined ?
-                        parseInt(process.env.MVTK_SERVICE_CONNECTION_TIMEOUT_MILLISEC, 10) : 60000
-                };
+            const extraHeaders: {
+                Cookie?: string;
+            } = {};
+            // クッキー文字列がある場合はヘッダーで送信(サービス側でログイン状態が判別される)
+            if (this.cookie !== undefined) {
+                extraHeaders.Cookie = this.cookie;
+            }
 
-                const extraHeaders: {
-                    Cookie?: string;
-                } = {};
-                // クッキー文字列がある場合はヘッダーで送信(サービス側でログイン状態が判別される)
-                if (this.cookie !== undefined) {
-                    extraHeaders.Cookie = this.cookie;
-                }
+            if (process.env.WSDL_LOGGING_ENABLED === '1') {
+                // tslint:disable-next-line:no-console
+                console.info(`${method} [req]: `, args);
+            }
 
-                (<any>client)[method](
-                    args,
-                    (err2: any, response: any) => {
-                        // response is a javascript object
-                        // raw is the raw response
-                        // header is the response soap header as a javascript object
+            (<any>client)[method](
+                args,
+                (err2: any, response: any) => {
+                    // response is a javascript object
+                    // raw is the raw response
+                    // header is the response soap header as a javascript object
 
-                        // logger.debug('MvtkService response coming...lastRequest:', client.lastRequest);
-                        // logger.debug('MvtkService response coming...', method, err, response, raw);
+                    // logger.debug('MvtkService response coming...lastRequest:', client.lastRequest);
+                    // logger.debug('MvtkService response coming...', method, err, response, raw);
 
-                        let result = null;
-                        // プロパティ名`${method}Result`に結果が入っている
-                        if (response && response.hasOwnProperty(`${method}Result`)) {
-                            result = response[`${method}Result`];
-                        }
+                    let result = null;
+                    // プロパティ名`${method}Result`に結果が入っている
+                    if (response && response.hasOwnProperty(`${method}Result`)) {
+                        result = response[`${method}Result`];
+                    }
 
-                        cb(err2, response, result, client.lastResponseHeaders);
-                    },
-                    options,
-                    extraHeaders);
-            });
-        };
-
-        if (process.env.WSDL_LOGGING_ENABLED === '1') {
-            this.setWsdllogger(method)
-                .then((logger4wsdl: any) => {
-                    logger4wsdl.info('MvtkService calling...', method, args);
-                    req();
-                })
-                .catch((err) => { cb(err, null, null, null); });
-        } else {
-            req();
-        }
+                    //toppageのresponseだけは除外しておく。（too logn!!!）
+                    if (process.env.WSDL_LOGGING_ENABLED === '1' && method !== 'GetFilmTopPage') {
+                        // tslint:disable-next-line:no-console
+                        console.info(`${method} [res]: `, args);
+                    }
+                    cb(err2, response, result, client.lastResponseHeaders);
+                },
+                options,
+                extraHeaders);
+        });
     }
 
     /**

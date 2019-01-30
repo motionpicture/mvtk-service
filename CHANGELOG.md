@@ -16,6 +16,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.1.8 - 2019-01-24
+### Fixed
+ - loggingでtoppageのresは除外する。
+
+## v3.1.7 - 2019-01-24
+### Fixed
+ - env名調整
+
+## v3.1.6 - 2019-01-24
+### Fixed
+ - loggingをconsoleに出力
+
 ## v3.1.5 - 2018-11-28
 ### Added
  - カード情報保存もtoken化
