@@ -68,44 +68,78 @@ export class DeliveryIn extends BaseIn {
      */
     public KKTK_PT: number;
 
-    public toXml(): string {
+    public toXml(): any {
         // パラメータの順序が異なるとエラーになるので注意
-        let message = `
-<tns:Delivery>
-    <tns:IN_PARAMETER>
-        <q1:KSSIKNR_NO>${this.KSSIKNR_NO}</q1:KSSIKNR_NO>
-        <q1:KNYKNR_NO>${this.KNYKNR_NO}</q1:KNYKNR_NO>
-        <q1:MAILADDRESS>${this.MAILADDRESS}</q1:MAILADDRESS>
-        <q1:ADDRESS>${this.ADDRESS}</q1:ADDRESS>
-        <q1:SKHN_NM>${this.SKHN_NM}</q1:SKHN_NM>
-`;
-
-        if (this.KNSHKN_INFO !== null) {
-            message += '<q1:KNSHKN_INFO>';
-            for (const info of this.KNSHKN_INFO.KNSHKN) {
-                message += `
-            <q2:KNSHKN>
-                <q2:KNSHKBN_NM>${info.KNSHKBN_NM}</q2:KNSHKBN_NM>
-                <q2:KNYMI_NUM>${info.KNYMI_NUM}</q2:KNYMI_NUM>
-            </q2:KNSHKN>
-`;
+        return {
+            IN_PARAMETER: {
+                KSSIKNR_NO: this.KSSIKNR_NO,
+                KNYKNR_NO: this.KNYKNR_NO,
+                MAILADDRESS: this.MAILADDRESS,
+                ADDRESS: this.ADDRESS,
+                SKHN_NM: this.SKHN_NM,
+                KNSHKN_INFO: this.KNSHKN_INFO !== null ? {
+                    KNSHKN: this.KNSHKN_INFO.KNSHKN.map((info) => {
+                        return {
+                            KNSHKBN_NM: info.KNSHKBN_NM,
+                            KNYMI_NUM: info.KNYMI_NUM,
+                            targetNSAlias: 'tns',
+                            // tslint:disable-next-line:no-http-string max-line-length
+                            targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                        };
+                    }),
+                    targetNSAlias: 'tns',
+                    // tslint:disable-next-line:no-http-string max-line-length
+                    targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                } : undefined,
+                QRCD_URL: this.QRCD_URL,
+                DGTLINCNTV_URL: this.DGTLINCNTV_URL,
+                DVC_TYP: this.DVC_TYP,
+                MLTMPLT_CD: this.MLTMPLT_CD,
+                TOTALCOST: this.TOTALCOST,
+                SKHN_CD: this.SKHN_CD,
+                KKTK_PT: Number(this.KKTK_PT),
+                targetNSAlias: 'q1',
+                // tslint:disable-next-line:no-http-string max-line-length
+                targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
             }
+        };
 
-            message += '</q1:KNSHKN_INFO>';
-        }
+        //         let message = `
+        // <tns:Delivery>
+        //     <tns:IN_PARAMETER>
+        //         <q1:KSSIKNR_NO>${this.KSSIKNR_NO}</q1:KSSIKNR_NO>
+        //         <q1:KNYKNR_NO>${this.KNYKNR_NO}</q1:KNYKNR_NO>
+        //         <q1:MAILADDRESS>${this.MAILADDRESS}</q1:MAILADDRESS>
+        //         <q1:ADDRESS>${this.ADDRESS}</q1:ADDRESS>
+        //         <q1:SKHN_NM>${this.SKHN_NM}</q1:SKHN_NM>
+        // `;
 
-        message += `
-        <q1:QRCD_URL>${this.QRCD_URL}</q1:QRCD_URL>
-        <q1:DGTLINCNTV_URL>${this.DGTLINCNTV_URL}</q1:DGTLINCNTV_URL>
-        <q1:DVC_TYP>${this.DVC_TYP}</q1:DVC_TYP>
-        <q1:MLTMPLT_CD>${this.MLTMPLT_CD}</q1:MLTMPLT_CD>
-        <q1:TOTALCOST>${this.TOTALCOST}</q1:TOTALCOST>
-        <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
-        <q1:KKTK_PT>${this.KKTK_PT}</q1:KKTK_PT>
-    </tns:IN_PARAMETER>
-</tns:Delivery>
-`;
+        //         if (this.KNSHKN_INFO !== null) {
+        //             message += '<q1:KNSHKN_INFO>';
+        //             for (const info of this.KNSHKN_INFO.KNSHKN) {
+        //                 message += `
+        //             <q2:KNSHKN>
+        //                 <q2:KNSHKBN_NM>${info.KNSHKBN_NM}</q2:KNSHKBN_NM>
+        //                 <q2:KNYMI_NUM>${info.KNYMI_NUM}</q2:KNYMI_NUM>
+        //             </q2:KNSHKN>
+        // `;
+        //             }
 
-        return message;
+        //             message += '</q1:KNSHKN_INFO>';
+        //         }
+
+        //         message += `
+        //         <q1:QRCD_URL>${this.QRCD_URL}</q1:QRCD_URL>
+        //         <q1:DGTLINCNTV_URL>${this.DGTLINCNTV_URL}</q1:DGTLINCNTV_URL>
+        //         <q1:DVC_TYP>${this.DVC_TYP}</q1:DVC_TYP>
+        //         <q1:MLTMPLT_CD>${this.MLTMPLT_CD}</q1:MLTMPLT_CD>
+        //         <q1:TOTALCOST>${this.TOTALCOST}</q1:TOTALCOST>
+        //         <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
+        //         <q1:KKTK_PT>${this.KKTK_PT}</q1:KKTK_PT>
+        //     </tns:IN_PARAMETER>
+        // </tns:Delivery>
+        // `;
+
+        //         return message;
     }
 }

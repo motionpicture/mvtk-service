@@ -47,8 +47,7 @@ export class Service {
                 return;
             }
 
-            // logger.debug('MvtkService client.describe...', client.describe());
-
+            // console.log(`MvtkService client.describe4${ method }...`, JSON.stringify(client.describe()));
             // 一度だけ再試行(二度目は例外スロー)
             // if (canRetry) {
             //     return this.createClient(options, sessionCookie, false);
@@ -69,12 +68,13 @@ export class Service {
 
             if (process.env.WSDL_LOGGING_ENABLED === '1') {
                 // tslint:disable-next-line:no-console
-                console.info(`${method} [req]: `, args);
+                console.info(`${method}[req]: `, JSON.stringify(args));
             }
 
             (<any>client)[method](
                 args,
                 (err2: any, response: any) => {
+                    // console.log('MvtkService response coming...lastRequest:', client.lastRequest);
                     // response is a javascript object
                     // raw is the raw response
                     // header is the response soap header as a javascript object
@@ -83,7 +83,7 @@ export class Service {
                     // logger.debug('MvtkService response coming...', method, err, response, raw);
 
                     let result = null;
-                    // プロパティ名`${method}Result`に結果が入っている
+                    // プロパティ名`${ method }Result`に結果が入っている
                     if (response && response.hasOwnProperty(`${method}Result`)) {
                         result = response[`${method}Result`];
                     }
@@ -91,7 +91,7 @@ export class Service {
                     //toppageのresponseだけは除外しておく。（too logn!!!）
                     if (process.env.WSDL_LOGGING_ENABLED === '1' && method !== 'GetFilmTopPage') {
                         // tslint:disable-next-line:no-console
-                        console.info(`${method} [res]: `, args);
+                        console.info(`${method}[res]: `, JSON.stringify(response));
                     }
                     cb(err2, response, result, client.lastResponseHeaders);
                 },
