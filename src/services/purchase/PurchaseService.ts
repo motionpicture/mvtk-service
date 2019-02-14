@@ -257,6 +257,9 @@ export class PurchaseService extends Service {
 
                 let isSuccess = false;
 
+                if (result.RESULT_INFO === undefined) {
+                    reject('サービスエラーが発生しました。');
+                }
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     isSuccess = true;
                 }
