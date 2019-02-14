@@ -16,6 +16,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.2.2 - 2019-02-14
+### Added
+ - GMOmethod名を再調整
+ - エラーハンドリングを調整
+
 ## v3.2.1 - 2019-01-30
 ### Added
  - GMOmethod名を調整
