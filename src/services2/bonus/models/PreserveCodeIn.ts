@@ -14,7 +14,7 @@ export class PreserveCodeIn extends BaseIn {
      */
     public SKHN_CD: string;
     /**
-     * 決済方法区分 (決済方法の区分 00：カード決済 01：auかんたん決済 02：ドコモケータイ払い 04：ギフトカード決済 07：WebMoney決済)
+     * 決済方法区分 (決済方法の区分 00：カード決済 01：auかんたん決済 02：ドコモケータイ払い 04：ギフトカード決済 07：WebMoney決済 12：ポイント 22：楽天ペイ 26：プロモーションコード)
      */
     public KSSIHH_TYP: string;
     /**
@@ -39,6 +39,10 @@ export class PreserveCodeIn extends BaseIn {
      * ポイント利用フラグ
      */
     public PINTRY_FLG: '0' | '1';
+    /**
+     * プロモーションコード利用フラグ
+     */
+    public PRMTNCDRY_FLG: '0' | '1';
 
     /**
      * XML変換
@@ -79,6 +83,7 @@ export class PreserveCodeIn extends BaseIn {
 
         message += `
         <q1:PINTRY_FLG>${this.PINTRY_FLG}</q1:PINTRY_FLG>
+        <q1:PRMTNCDRY_FLG>${this.PRMTNCDRY_FLG}</q1:PRMTNCDRY_FLG>
 `;
         message += '</tns:IN_PARAMETER>';
         message += '</tns:PreserveCode>';
@@ -133,4 +138,8 @@ export interface IPreserveCodeIn {
      * ポイント利用フラグ
      */
     PINTRY_FLG: '0' | '1';
+    /**
+     * プロモーションコード利用フラグ
+     */
+    PRMTNCDRY_FLG: '0' | '1';
 }
