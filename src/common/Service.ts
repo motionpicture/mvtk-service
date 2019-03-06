@@ -69,34 +69,41 @@ export class Service {
 
             if (process.env.WSDL_LOGGING_ENABLED === '1') {
                 // tslint:disable-next-line:no-console
-                console.info(`${method} [req]: `, args);
+                console.info(`${method} [req]: `, JSON.stringify(args));
             }
 
-            (<any>client)[method](
-                args,
-                (err2: any, response: any) => {
-                    // response is a javascript object
-                    // raw is the raw response
-                    // header is the response soap header as a javascript object
+            try {
+                (<any>client)[method](
+                    args,
+                    (err2: any, response: any) => {
+                        // response is a javascript object
+                        // raw is the raw response
+                        // header is the response soap header as a javascript object
 
-                    // logger.debug('MvtkService response coming...lastRequest:', client.lastRequest);
-                    // logger.debug('MvtkService response coming...', method, err, response, raw);
+                        // logger.debug('MvtkService response coming...lastRequest:', client.lastRequest);
+                        // logger.debug('MvtkService response coming...', method, err, response, raw);
 
-                    let result = null;
-                    // プロパティ名`${method}Result`に結果が入っている
-                    if (response && response.hasOwnProperty(`${method}Result`)) {
-                        result = response[`${method}Result`];
-                    }
+                        let result = null;
+                        // プロパティ名`${method}Result`に結果が入っている
+                        if (response && response.hasOwnProperty(`${method}Result`)) {
+                            result = response[`${method}Result`];
+                        }
 
-                    //toppageのresponseだけは除外しておく。（too logn!!!）
-                    if (process.env.WSDL_LOGGING_ENABLED === '1' && method !== 'GetFilmTopPage') {
-                        // tslint:disable-next-line:no-console
-                        console.info(`${method} [res]: `, args);
-                    }
-                    cb(err2, response, result, client.lastResponseHeaders);
-                },
-                options,
-                extraHeaders);
+                        //toppageのresponseだけは除外しておく。（too logn!!!）
+                        if (process.env.WSDL_LOGGING_ENABLED === '1' && method !== 'GetFilmTopPage') {
+                            // tslint:disable-next-line:no-console
+                            console.info(`${method} [res]: `, JSON.stringify(response));
+                        }
+                        cb(err2, response, result, client.lastResponseHeaders);
+                    },
+                    options,
+                    extraHeaders);
+            } catch (error) {
+                cb(error, null, null, null);
+
+                return;
+            }
+
         });
     }
 

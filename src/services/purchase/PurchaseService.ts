@@ -237,7 +237,7 @@ export class PurchaseService extends Service {
      * @param gmoToken        gmoトークン
      */
     public async gmoSaveCard(kiinCd: string, gmoToken: string) {
-        const method = 'GetGmoSaveCard';
+        const method = 'GmoSaveCard';
 
         const args = {
             kiinCd: kiinCd,
@@ -257,6 +257,9 @@ export class PurchaseService extends Service {
 
                 let isSuccess = false;
 
+                if (result.RESULT_INFO === undefined) {
+                    reject('サービスエラーが発生しました。');
+                }
                 if (result.RESULT_INFO.STATUS === Constants.RESULT_INFO_STATUS_SUCCESS) {
                     isSuccess = true;
                 }
