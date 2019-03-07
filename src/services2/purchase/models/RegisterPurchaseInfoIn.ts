@@ -367,24 +367,25 @@ export class RegisterPurchaseInfoIn extends BaseIn {
             message += `
         <q5:PRMTNCDRY_FLG>${this.PRMTNCDRY_FLG}</q5:PRMTNCDRY_FLG>
         `;
-        }
-
-        if (this.PRMTN_CD !== undefined) {
-            message += `
+            if (this.PRMTNCDRY_FLG == '1') {
+                if (this.PRMTN_CD !== undefined) {
+                    message += `
         <q5:PRMTN_CD>${this.PRMTN_CD}</q5:PRMTN_CD>
         `;
-        }
+                }
 
-        if (this.PRMTNCDKSSI_UUID !== undefined) {
-            message += `
+                if (this.PRMTNCDKSSI_UUID !== undefined) {
+                    message += `
         <q5:PRMTNCDKSSI_UUID>${this.PRMTNCDKSSI_UUID}</q5:PRMTNCDKSSI_UUID>
         `;
-        }
+                }
 
-        if (this.PRMTNCDWRBK_GK !== undefined) {
-            message += `
+                if (this.PRMTNCDWRBK_GK !== undefined) {
+                    message += `
         <q5:PRMTNCDWRBK_GK>${this.PRMTNCDWRBK_GK}</q5:PRMTNCDWRBK_GK>
         `;
+                }
+            }
         }
         message += `
     </tns:IN_PARAMETER>
@@ -654,7 +655,7 @@ export interface IRegisterPurchaseInfoIn {
     /**
      * プロモーションコード利用フラグ
      */
-    PRMTNCDRY_FLG: string;
+    PRMTNCDRY_FLG:  '0' | '1';
 
     /**
      * プロモーションコード
