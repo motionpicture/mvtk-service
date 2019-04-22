@@ -187,22 +187,22 @@ export class RegisterPurchaseInfoIn extends BaseIn {
     /**
      * プロモーションコード利用フラグ
      */
-    PRMTNCDRY_FLG: string;
+    public PRMTNCDRY_FLG: string;
 
     /**
      * プロモーションコード
      */
-    PRMTN_CD: string;
+    public PRMTN_CD: string;
 
     /**
      * プロモーションコード決済UUID
      */
-    PRMTNCDKSSI_UUID: string;
+    public PRMTNCDKSSI_UUID: string;
 
     /**
      * プロモーションコード割引額
      */
-    PRMTNCDWRBK_GK: string;
+    public PRMTNCDWRBK_GK: string;
 
     // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
@@ -367,7 +367,7 @@ export class RegisterPurchaseInfoIn extends BaseIn {
             message += `
         <q5:PRMTNCDRY_FLG>${this.PRMTNCDRY_FLG}</q5:PRMTNCDRY_FLG>
         `;
-            if (this.PRMTNCDRY_FLG == '1') {
+            if (this.PRMTNCDRY_FLG === '1') {
                 if (this.PRMTN_CD !== undefined) {
                     message += `
         <q5:PRMTN_CD>${this.PRMTN_CD}</q5:PRMTN_CD>
@@ -655,7 +655,7 @@ export interface IRegisterPurchaseInfoIn {
     /**
      * プロモーションコード利用フラグ
      */
-    PRMTNCDRY_FLG:  '0' | '1';
+    PRMTNCDRY_FLG: '0' | '1';
 
     /**
      * プロモーションコード
