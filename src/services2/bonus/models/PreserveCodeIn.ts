@@ -39,6 +39,10 @@ export class PreserveCodeIn extends BaseIn {
      * ポイント利用フラグ
      */
     public PINTRY_FLG: '0' | '1';
+    /**
+     * 映画ギフト利用フラグ
+     */
+    public EGGFTRY_FLG: '0' | '1';
 
     /**
      * XML変換
@@ -79,6 +83,10 @@ export class PreserveCodeIn extends BaseIn {
 
         message += `
         <q1:PINTRY_FLG>${this.PINTRY_FLG}</q1:PINTRY_FLG>
+`;
+
+        message += `
+        <q1:EGGFTRY_FLG>${this.EGGFTRY_FLG}</q1:EGGFTRY_FLG>
 `;
         message += '</tns:IN_PARAMETER>';
         message += '</tns:PreserveCode>';
@@ -133,4 +141,9 @@ export interface IPreserveCodeIn {
      * ポイント利用フラグ
      */
     PINTRY_FLG: '0' | '1';
+
+    /**
+     * 映画ギフト利用フラグ
+     */
+    EGGFTRY_FLG:  '0' | '1';
 }

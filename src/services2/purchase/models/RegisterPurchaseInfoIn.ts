@@ -184,6 +184,18 @@ export class RegisterPurchaseInfoIn extends BaseIn {
      */
     public KKTKYTI_PT?: string;
 
+    /**
+     * 映画ギフト利用フラグ
+     */
+    public EGGFTRY_FLG: string;
+
+    /**
+     * 映画ギフト情報
+     */
+    public EGGFT_INFO: {
+        EggftInfo: EggftInfo[];
+    };
+
     // tslint:disable-next-line:max-func-body-length
     public toXml(): string {
         // パラメータの順序が異なるとエラーになるので注意
@@ -342,6 +354,39 @@ export class RegisterPurchaseInfoIn extends BaseIn {
         <q5:KKTKYTI_PT>${this.KKTKYTI_PT}</q5:KKTKYTI_PT>
         `;
         }
+
+        if (this.EGGFTRY_FLG !== undefined) {
+            message += `
+        <q5:EGGFTRY_FLG>${this.EGGFTRY_FLG}</q5:EGGFTRY_FLG>
+        `;
+        }
+
+        if (this.EGGFT_INFO !== null && this.EGGFT_INFO.EggftInfo.length > 0) {
+            // tslint:disable-next-line:no-multiline-string
+            message += `
+        <q5:EGGFT_INFO>
+`;
+
+            for (const info of this.EGGFT_INFO.EggftInfo) {
+                message += `
+            <q5:EggftInfo>
+                <q5:EGGFT_CD>${info.EGGFT_CD}</q5:EGGFT_CD>
+                <q5:EGGFTPIN_CD>${info.EGGFTPIN_CD}</q5:EGGFTPIN_CD>
+                <q5:EGGFTKSSIKNR_NO>${info.EGGFTKSSIKNR_NO}</q5:EGGFTKSSIKNR_NO>
+                <q5:EGGFTKSSI_DT>${info.EGGFTKSSI_DT}</q5:EGGFTKSSI_DT>
+                <q5:EGGFTKSSISYNN_NO>${info.EGGFTKSSISYNN_NO}</q5:EGGFTKSSISYNN_NO>
+                <q5:RY_MNY>${info.RY_MNY}</q5:RY_MNY>
+                <q5:RYME_ZNDK>${info.RYME_ZNDK}</q5:RYME_ZNDK>
+                <q5:RYG_ZNDK>${info.RYG_ZNDK}</q5:RYG_ZNDK>
+            </q5:GftCrdInfo>
+`;
+            }
+            // tslint:disable-next-line:no-multiline-string
+            message += `
+        </q5:GFTCRD_INFO>
+`;
+        }
+
         message += `
     </tns:IN_PARAMETER>
 </tns:RegisterPurchaseInfo>
@@ -403,6 +448,45 @@ export interface WebmoneykssiInfo {
      */
     HCCH_CD: string;
 }
+
+/**
+ * 映画ギフト情報
+ */
+export interface EggftInfo {
+    /**
+     * 映画ギフトコード
+     */
+    EGGFT_CD : string;
+    /**
+     * 映画ギフトPINコード
+     */
+    EGGFTPIN_CD : string;
+    /**
+     * 映画ギフト決済管理番号
+     */
+    EGGFTKSSIKNR_NO : string;
+    /**
+     * 映画ギフト決済日時
+     */
+    EGGFTKSSI_DT : string;
+    /**
+     * 映画ギフト決済承認番号
+     */
+    EGGFTKSSISYNN_NO : string;
+    /**
+     * 映画ギフト利用金額
+     */
+    RY_MNY : number;
+    /**
+     * 映画ギフト利用前残高
+     */
+    RYME_ZNDK : number;
+    /**
+     * 映画ギフト利用後残高
+     */
+    RYG_ZNDK : number;
+}
+
 
 /**
  * 鑑賞券情報
@@ -606,4 +690,16 @@ export interface IRegisterPurchaseInfoIn {
      * 購入者コード 会員購入時のみセット
      */
     KNYSH_CD?: string;
+
+    /**
+     * 映画ギフト利用フラグ
+     */
+    EGGFTRY_FLG: '0' | '1';
+
+    /**
+     * 映画ギフト情報
+     */
+    EGGFT_INFO?: {
+        EggftInfo: EggftInfo[];
+    };
 }
