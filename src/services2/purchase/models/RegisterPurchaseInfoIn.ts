@@ -185,6 +185,26 @@ export class RegisterPurchaseInfoIn extends BaseIn {
     public KKTKYTI_PT?: string;
 
     /**
+     * プロモーションコード利用フラグ
+     */
+    public PRMTNCDRY_FLG: string;
+
+    /**
+     * プロモーションコード
+     */
+    public PRMTN_CD: string;
+
+    /**
+     * プロモーションコード決済UUID
+     */
+    public PRMTNCDKSSI_UUID: string;
+
+    /**
+     * プロモーションコード割引額
+     */
+    public PRMTNCDWRBK_GK: string;
+
+    /**
      * 映画ギフト利用フラグ
      */
     public EGGFTRY_FLG: string;
@@ -353,6 +373,31 @@ export class RegisterPurchaseInfoIn extends BaseIn {
             message += `
         <q5:KKTKYTI_PT>${this.KKTKYTI_PT}</q5:KKTKYTI_PT>
         `;
+        }
+
+        if (this.PRMTNCDRY_FLG !== undefined) {
+            message += `
+        <q5:PRMTNCDRY_FLG>${this.PRMTNCDRY_FLG}</q5:PRMTNCDRY_FLG>
+        `;
+            if (this.PRMTNCDRY_FLG === '1') {
+                if (this.PRMTN_CD !== undefined) {
+                    message += `
+        <q5:PRMTN_CD>${this.PRMTN_CD}</q5:PRMTN_CD>
+        `;
+                }
+
+                if (this.PRMTNCDKSSI_UUID !== undefined) {
+                    message += `
+        <q5:PRMTNCDKSSI_UUID>${this.PRMTNCDKSSI_UUID}</q5:PRMTNCDKSSI_UUID>
+        `;
+                }
+
+                if (this.PRMTNCDWRBK_GK !== undefined) {
+                    message += `
+        <q5:PRMTNCDWRBK_GK>${this.PRMTNCDWRBK_GK}</q5:PRMTNCDWRBK_GK>
+        `;
+                }
+            }
         }
 
         if (this.EGGFTRY_FLG !== undefined) {
@@ -690,6 +735,26 @@ export interface IRegisterPurchaseInfoIn {
      * 購入者コード 会員購入時のみセット
      */
     KNYSH_CD?: string;
+
+    /**
+     * プロモーションコード利用フラグ
+     */
+    PRMTNCDRY_FLG: '0' | '1';
+
+    /**
+     * プロモーションコード
+     */
+    PRMTN_CD: string;
+
+    /**
+     * プロモーションコード決済UUID
+     */
+    PRMTNCDKSSI_UUID: string;
+
+    /**
+     * プロモーションコード割引額
+     */
+    PRMTNCDWRBK_GK: string;
 
     /**
      * 映画ギフト利用フラグ
