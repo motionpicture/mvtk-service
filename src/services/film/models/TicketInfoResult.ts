@@ -3,6 +3,9 @@
  */
 import { Util } from '../../../common/util/Util';
 import { TicketInfoTypeResult } from './TicketInfoTypeResult';
+import * as moment from 'moment-timezone';
+
+moment.tz.setDefault('Asia/Tokyo');
 
 /**
  * 鑑賞券情報検索out
@@ -158,7 +161,7 @@ export class TicketInfoResult {
         const endStr = `${this.knshknhmbishryYmd.substring(0, 4)}/${this.knshknhmbishryYmd.substring(4, 6)}/${this.knshknhmbishryYmd.substring(6)} 23:59:59`;
         const endTimestamp = Date.parse(endStr);
 
-        const nowTimestamp = Date.now();
+        const nowTimestamp = moment.now();
 
         return (startTimestamp <= nowTimestamp && nowTimestamp <= endTimestamp);
     }

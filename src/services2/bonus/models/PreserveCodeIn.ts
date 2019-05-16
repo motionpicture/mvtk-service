@@ -44,46 +44,75 @@ export class PreserveCodeIn extends BaseIn {
      * XML変換
      * @method toXml
      */
-    public toXml(): string {
+    public toXml(): any {
         // パラメータの順序が異なるとエラーになるので注意
-        let message = `
-<tns:PreserveCode>
-    <tns:IN_PARAMETER>
-        <q1:TKN_ID>${this.TKN_ID}</q1:TKN_ID>
-        <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
-        <q1:KSSIHH_TYP>${this.KSSIHH_TYP}</q1:KSSIHH_TYP>
-`;
-        if (this.HIYKSSI_FLG === '1') {
-            message += `
-        <q1:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q1:HIYKSSI_FLG>
-        <q1:HIYKSSI_TYP>${this.HIYKSSI_TYP}</q1:HIYKSSI_TYP>
-`;
-        }
-        message += `
-        <q1:KNY_DT>${this.KNY_DT}</q1:KNY_DT>
-`;
-
-        if (this.KNSHKN_INFO !== null) {
-            message += '<q1:KNSHKN_INFO>';
-            for (const info of this.KNSHKN_INFO.KnshknInfo) {
-                message += `
-            <q2:KnshknInfo>
-                <q2:KNSH_TYP>${info.KNSH_TYP}</q2:KNSH_TYP>
-                <q2:KNYMI_NUM>${info.KNYMI_NUM}</q2:KNYMI_NUM>
-            </q2:KnshknInfo>
-`;
+        return {
+            IN_PARAMETER: {
+                TKN_ID: this.TKN_ID,
+                SKHN_CD: this.SKHN_CD,
+                KSSIHH_TYP: this.KSSIHH_TYP,
+                HIYKSSI_FLG: this.HIYKSSI_FLG === '1' ? this.HIYKSSI_FLG : undefined,
+                HIYKSSI_TYP: this.HIYKSSI_FLG === '1' ? this.HIYKSSI_TYP : undefined,
+                KNY_DT: this.KNY_DT,
+                KNSHKN_INFO: this.KNSHKN_INFO !== null ? {
+                    KnshknInfo: this.KNSHKN_INFO.KnshknInfo.map((info) => {
+                        return {
+                            KNSH_TYP: info.KNSH_TYP,
+                            KNYMI_NUM: Number(info.KNYMI_NUM),
+                            targetNSAlias: 'tns',
+                            // tslint:disable-next-line:no-http-string max-line-length
+                            targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                        };
+                    }),
+                    targetNSAlias: 'tns',
+                    // tslint:disable-next-line:no-http-string max-line-length
+                    targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                } : undefined,
+                PINTRY_FLG: this.PINTRY_FLG,
+                targetNSAlias: 'q1',
+                // tslint:disable-next-line:no-http-string max-line-length
+                targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
             }
-        }
+        };
 
-        message += '</q1:KNSHKN_INFO>';
+        //         let message = `
+        // <tns:PreserveCode>
+        //     <tns:IN_PARAMETER>
+        //         <q1:TKN_ID>${this.TKN_ID}</q1:TKN_ID>
+        //         <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
+        //         <q1:KSSIHH_TYP>${this.KSSIHH_TYP}</q1:KSSIHH_TYP>
+        // `;
+        //         if (this.HIYKSSI_FLG === '1') {
+        //             message += `
+        //         <q1:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q1:HIYKSSI_FLG>
+        //         <q1:HIYKSSI_TYP>${this.HIYKSSI_TYP}</q1:HIYKSSI_TYP>
+        // `;
+        //         }
+        //         message += `
+        //         <q1:KNY_DT>${this.KNY_DT}</q1:KNY_DT>
+        // `;
 
-        message += `
-        <q1:PINTRY_FLG>${this.PINTRY_FLG}</q1:PINTRY_FLG>
-`;
-        message += '</tns:IN_PARAMETER>';
-        message += '</tns:PreserveCode>';
+        //         if (this.KNSHKN_INFO !== null) {
+        //             message += '<q1:KNSHKN_INFO>';
+        //             for (const info of this.KNSHKN_INFO.KnshknInfo) {
+        //                 message += `
+        //             <q2:KnshknInfo>
+        //                 <q2:KNSH_TYP>${info.KNSH_TYP}</q2:KNSH_TYP>
+        //                 <q2:KNYMI_NUM>${info.KNYMI_NUM}</q2:KNYMI_NUM>
+        //             </q2:KnshknInfo>
+        // `;
+        //             }
+        //         }
 
-        return message;
+        //         message += '</q1:KNSHKN_INFO>';
+
+        //         message += `
+        //         <q1:PINTRY_FLG>${this.PINTRY_FLG}</q1:PINTRY_FLG>
+        // `;
+        //         message += '</tns:IN_PARAMETER>';
+        //         message += '</tns:PreserveCode>';
+
+        //         return message;
     }
 }
 

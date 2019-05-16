@@ -47,8 +47,7 @@ export class Service {
                 return;
             }
 
-            // logger.debug('MvtkService client.describe...', client.describe());
-
+            // console.log(`MvtkService client.describe4${ method }...`, JSON.stringify(client.describe()));
             // 一度だけ再試行(二度目は例外スロー)
             // if (canRetry) {
             //     return this.createClient(options, sessionCookie, false);
