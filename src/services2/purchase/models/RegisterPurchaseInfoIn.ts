@@ -185,169 +185,278 @@ export class RegisterPurchaseInfoIn extends BaseIn {
     public KKTKYTI_PT?: string;
 
     // tslint:disable-next-line:max-func-body-length
-    public toXml(): string {
+    public toXml(): any {
         // パラメータの順序が異なるとエラーになるので注意
-        let message = `
-<tns:RegisterPurchaseInfo>
-    <tns:IN_PARAMETER>
-        <q5:KSSIKNR_NO>${this.KSSIKNR_NO}</q5:KSSIKNR_NO>
-        <q5:ACCESS_ID>${this.ACCESS_ID}</q5:ACCESS_ID>
-        <q5:ACCESS_PWD>${this.ACCESS_PWD}</q5:ACCESS_PWD>
-        <q5:SKHN_CD>${this.SKHN_CD}</q5:SKHN_CD>
-        <q5:KNSHKNKNR_NO>${this.KNSHKNKNR_NO}</q5:KNSHKNKNR_NO>
-        <q5:KNSHKN_INFO>
-`;
-
-        for (const info of this.KNSHKN_INFO.KnshknInfo) {
-            message += `
-            <q5:KnshknInfo>
-                <q5:KNSHKNKNRMISI_NO>${info.KNSHKNKNRMISI_NO}</q5:KNSHKNKNRMISI_NO>
-                <q5:KNSH_TYP>${info.KNSH_TYP}</q5:KNSH_TYP>
-                <q5:KNYMI_NUM>${info.KNYMI_NUM}</q5:KNYMI_NUM>
-                <q5:KNSHKNHMBI_UNIP>${info.KNSHKNHMBI_UNIP}</q5:KNSHKNHMBI_UNIP>
-            </q5:KnshknInfo>
-`;
-        }
-
-        message += `
-        </q5:KNSHKN_INFO>
-        <q5:KIIN_FLG>${this.KIIN_FLG}</q5:KIIN_FLG>
-        <q5:KSSIHH_TYP>${this.KSSIHH_TYP}</q5:KSSIHH_TYP>
-        <q5:KNYSHSI_NM>${this.KNYSHSI_NM}</q5:KNYSHSI_NM>
-        <q5:KNYSHMI_NM>${this.KNYSHMI_NM}</q5:KNYSHMI_NM>
-        <q5:KNYSHSI_KNNM>${this.KNYSHSI_KNNM}</q5:KNYSHSI_KNNM>
-        <q5:KNYSHMI_KNNM>${this.KNYSHMI_KNNM}</q5:KNYSHMI_KNNM>
-        <q5:KNYSHPC_MLADDR>${this.KNYSHPC_MLADDR}</q5:KNYSHPC_MLADDR>
-        <q5:KNYSHKITI_MLADDR>${this.KNYSHKITI_MLADDR}</q5:KNYSHKITI_MLADDR>
-        <q5:KNYSHSHGIKYK_NO>${this.KNYSHSHGIKYK_NO}</q5:KNYSHSHGIKYK_NO>
-        <q5:KNYSHSHNIKYK_NO>${this.KNYSHSHNIKYK_NO}</q5:KNYSHSHNIKYK_NO>
-        <q5:KNYSHKNYSH_NO>${this.KNYSHKNYSH_NO}</q5:KNYSHKNYSH_NO>
-        <q5:KNY_DT>${this.KNY_DT}</q5:KNY_DT>
-        <q5:HMBICHNNL_TYP>${this.HMBICHNNL_TYP}</q5:HMBICHNNL_TYP>
-        <q5:HMBGISH_CD>${this.HMBGISH_CD}</q5:HMBGISH_CD>
-        <q5:TRAN_DT>${this.TRAN_DT}</q5:TRAN_DT>
-        <q5:FORWARD_CD>${this.FORWARD_CD}</q5:FORWARD_CD>
-        <q5:APPROVE_NO>${this.APPROVE_NO}</q5:APPROVE_NO>
-        <q5:TRAN_ID>${this.TRAN_ID}</q5:TRAN_ID>
-        <q5:GRYKNGK>${this.GRYKNGK}</q5:GRYKNGK>
-        <q5:KNYDVC_TYP>${this.KNYDVC_TYP}</q5:KNYDVC_TYP>
-`;
-
-        if (this.AU_PAYMETHOD !== '') {
-            message += `
-        <q5:AU_PAYMETHOD>${this.AU_PAYMETHOD}</q5:AU_PAYMETHOD>
-`;
-        }
-
-        if (this.GFTCRD_INFO !== null && this.GFTCRD_INFO.GftcrdInfo.length > 0) {
-            // tslint:disable-next-line:no-multiline-string
-            message += `
-        <q5:GFTCRD_INFO>
-`;
-
-            for (const info of this.GFTCRD_INFO.GftcrdInfo) {
-                message += `
-            <q5:GftCrdInfo>
-                <q5:GFTCRD_ID>${info.GFTCRD_ID}</q5:GFTCRD_ID>
-                <q5:GFTCRDPIN_CD>${info.GFTCRDPIN_CD}</q5:GFTCRDPIN_CD>
-                <q5:GFTCRDKSSIKNR_NO>${info.GFTCRDKSSIKNR_NO}</q5:GFTCRDKSSIKNR_NO>
-                <q5:KSSI_DT>${info.KSSI_DT}</q5:KSSI_DT>
-                <q5:KSSISYNN_NO>${info.KSSISYNN_NO}</q5:KSSISYNN_NO>
-                <q5:GFTCRD_STTS>${info.GFTCRD_STTS}</q5:GFTCRD_STTS>
-                <q5:RY_MNY>${info.RY_MNY}</q5:RY_MNY>
-                <q5:RYME_ZNDK>${info.RYME_ZNDK}</q5:RYME_ZNDK>
-                <q5:RYG_ZNDK>${info.RYG_ZNDK}</q5:RYG_ZNDK>
-                <q5:TPPNSRVCRSPNS>${info.TPPNSRVCRSPNS.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</q5:TPPNSRVCRSPNS>
-            </q5:GftCrdInfo>
-`;
+        return {
+            IN_PARAMETER: {
+                KSSIKNR_NO: this.KSSIKNR_NO,
+                ACCESS_ID: this.ACCESS_ID,
+                ACCESS_PWD: this.ACCESS_PWD,
+                SKHN_CD: this.SKHN_CD,
+                KNSHKNKNR_NO: this.KNSHKNKNR_NO,
+                KNSHKN_INFO: {
+                    KnshknInfo: this.KNSHKN_INFO.KnshknInfo.map((info) => {
+                        return {
+                            KNSHKNKNRMISI_NO: info.KNSHKNKNRMISI_NO,
+                            KNSH_TYP: info.KNSH_TYP,
+                            KNYMI_NUM: Number(info.KNYMI_NUM),
+                            KNSHKNHMBI_UNIP: Number(info.KNSHKNHMBI_UNIP),
+                            targetNSAlias: 'tns',
+                            // tslint:disable-next-line:no-http-string max-line-length
+                            targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                        };
+                    }),
+                    targetNSAlias: 'tns',
+                    // tslint:disable-next-line:no-http-string max-line-length
+                    targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                },
+                KIIN_FLG: this.KIIN_FLG,
+                KSSIHH_TYP: this.KSSIHH_TYP,
+                KNYSHSI_NM: this.KNYSHSI_NM,
+                KNYSHMI_NM: this.KNYSHMI_NM,
+                KNYSHSI_KNNM: this.KNYSHSI_KNNM === null || this.KNYSHSI_KNNM === undefined ? `null` : this.KNYSHSI_KNNM,
+                KNYSHMI_KNNM: this.KNYSHMI_KNNM === null || this.KNYSHMI_KNNM === undefined ? `null` : this.KNYSHMI_KNNM,
+                KNYSHPC_MLADDR: this.KNYSHPC_MLADDR,
+                KNYSHKITI_MLADDR: this.KNYSHSHGIKYK_NO,
+                KNYSHSHGIKYK_NO: this.KNYSHSHGIKYK_NO,
+                KNYSHSHNIKYK_NO: this.KNYSHSHNIKYK_NO,
+                KNYSHKNYSH_NO: this.KNYSHKNYSH_NO,
+                KNY_DT: this.KNY_DT,
+                HMBICHNNL_TYP: this.HMBICHNNL_TYP,
+                HMBGISH_CD: this.HMBGISH_CD,
+                TRAN_DT: this.TRAN_DT,
+                FORWARD_CD: this.FORWARD_CD,
+                APPROVE_NO: this.APPROVE_NO,
+                TRAN_ID: this.TRAN_ID,
+                GRYKNGK: Number(this.GRYKNGK),
+                KNYDVC_TYP: this.KNYDVC_TYP,
+                AU_PAYMETHOD: this.AU_PAYMETHOD !== '' ? this.AU_PAYMETHOD : undefined,
+                GFTCRD_INFO: (this.GFTCRD_INFO !== null && this.GFTCRD_INFO.GftcrdInfo.length > 0) ? {
+                    GftCrdInfo: this.GFTCRD_INFO.GftcrdInfo.map((info) => {
+                        return {
+                            GFTCRD_ID: info.GFTCRD_ID,
+                            GFTCRDPIN_CD: info.GFTCRDPIN_CD,
+                            GFTCRDKSSIKNR_NO: info.GFTCRDKSSIKNR_NO,
+                            KSSI_DT: info.KSSI_DT,
+                            KSSISYNN_NO: info.KSSISYNN_NO,
+                            GFTCRD_STTS: info.GFTCRD_STTS,
+                            RY_MNY: Number(info.RY_MNY),
+                            RYME_ZNDK: Number(info.RYME_ZNDK),
+                            RYG_ZNDK: Number(info.RYG_ZNDK),
+                            TPPNSRVCRSPNS: info.TPPNSRVCRSPNS,
+                            targetNSAlias: 'tns',
+                            // tslint:disable-next-line:no-http-string max-line-length
+                            targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                        };
+                    }),
+                    targetNSAlias: 'tns',
+                    // tslint:disable-next-line:no-http-string max-line-length
+                    targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                } : undefined,
+                DVC_TYP: this.DVC_TYP,
+                HIYKSSI_FLG: this.HIYKSSI_FLG === '1' ? this.HIYKSSI_FLG : undefined,
+                HIYKSSIHH_TYP: this.HIYKSSI_FLG === '1' ? this.HIYKSSIHH_TYP : undefined,
+                HIYKSSIRYGKI_MNY: this.HIYKSSI_FLG === '1' ? Number(this.HIYKSSIRYGKI_MNY) : undefined,
+                WEBMONEYKSSIINFO: this.WEBMONEYKSSIINFO !== null ? {
+                    DECRYPTEDKSSIINFO: this.WEBMONEYKSSIINFO.DECRYPTEDKSSIINFO,
+                    VRSINJH: this.WEBMONEYKSSIINFO.VRSINJH,
+                    WBMNYSETTLE_CD: this.WEBMONEYKSSIINFO.WBMNYSETTLE_CD,
+                    TRAN_DT: this.WEBMONEYKSSIINFO.TRAN_DT,
+                    WBMNYMANAGEMENT_NO: this.WEBMONEYKSSIINFO.WBMNYMANAGEMENT_NO,
+                    SINYJSHKBTS_FLG: this.WEBMONEYKSSIINFO.SINYJSHKBTS_FLG,
+                    SHHN_NUM: this.WEBMONEYKSSIINFO.SHHN_NUM,
+                    SHHN_CD: this.WEBMONEYKSSIINFO.SHHN_CD,
+                    HCCH_CD: this.WEBMONEYKSSIINFO.HCCH_CD,
+                    targetNSAlias: 'tns',
+                    // tslint:disable-next-line:no-http-string max-line-length
+                    targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                } : undefined,
+                TKTNCDKKH_INFO: {
+                    TktncdkkhInfo: this.TKTNCDKKH_INFO.map((info) => {
+                        return {
+                            TKTNCDKKH_NO: info.TKTNCDKKH_NO,
+                            targetNSAlias: 'tns',
+                            // tslint:disable-next-line:no-http-string max-line-length
+                            targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                        };
+                    }),
+                    targetNSAlias: 'tns',
+                    // tslint:disable-next-line:no-http-string max-line-length
+                    targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                },
+                PINTRY_FLG: this.PINTRY_FLG,
+                PINTKSSI_UUID: this.PINTKSSI_UUID !== undefined ? this.PINTKSSI_UUID : undefined,
+                RYPINT_NUM: Number(this.RYPINT_NUM),
+                KIYK_CD: this.KIYK_CD !== undefined ? this.KIYK_CD : undefined,
+                KNYSH_CD: this.KNYSH_CD !== undefined ? this.KNYSH_CD : undefined,
+                KKTKYTI_PT: this.KKTKYTI_PT !== undefined ? Number(this.KKTKYTI_PT) : undefined,
+                targetNSAlias: 'q5',
+                // tslint:disable-next-line:no-http-string max-line-length
+                targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
             }
-            // tslint:disable-next-line:no-multiline-string
-            message += `
-        </q5:GFTCRD_INFO>
-`;
-        }
+        };
 
-        message += `
-        <q5:DVC_TYP>${this.DVC_TYP}</q5:DVC_TYP>
-`;
+        //         let message = `
+        // <tns:RegisterPurchaseInfo>
+        //     <tns:IN_PARAMETER>
+        //         <q5:KSSIKNR_NO>${this.KSSIKNR_NO}</q5:KSSIKNR_NO>
+        //         <q5:ACCESS_ID>${this.ACCESS_ID}</q5:ACCESS_ID>
+        //         <q5:ACCESS_PWD>${this.ACCESS_PWD}</q5:ACCESS_PWD>
+        //         <q5:SKHN_CD>${this.SKHN_CD}</q5:SKHN_CD>
+        //         <q5:KNSHKNKNR_NO>${this.KNSHKNKNR_NO}</q5:KNSHKNKNR_NO>
+        //         <q5:KNSHKN_INFO>
+        // `;
 
-        if (this.HIYKSSI_FLG === '1') {
-            message += `
-        <q5:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q5:HIYKSSI_FLG>
-        <q5:HIYKSSIHH_TYP>${this.HIYKSSIHH_TYP}</q5:HIYKSSIHH_TYP>
-        <q5:HIYKSSIRYGKI_MNY>${this.HIYKSSIRYGKI_MNY}</q5:HIYKSSIRYGKI_MNY>
-`;
-        }
+        //         for (const info of this.KNSHKN_INFO.KnshknInfo) {
+        //             message += `
+        //             <q5:KnshknInfo>
+        //                 <q5:KNSHKNKNRMISI_NO>${info.KNSHKNKNRMISI_NO}</q5:KNSHKNKNRMISI_NO>
+        //                 <q5:KNSH_TYP>${info.KNSH_TYP}</q5:KNSH_TYP>
+        //                 <q5:KNYMI_NUM>${info.KNYMI_NUM}</q5:KNYMI_NUM>
+        //                 <q5:KNSHKNHMBI_UNIP>${info.KNSHKNHMBI_UNIP}</q5:KNSHKNHMBI_UNIP>
+        //             </q5:KnshknInfo>
+        // `;
+        //         }
 
-        if (this.WEBMONEYKSSIINFO !== null) {
-            message += `
-        <q5:WEBMONEYKSSIINFO>
-            <q5:DECRYPTEDKSSIINFO>${this.WEBMONEYKSSIINFO.DECRYPTEDKSSIINFO}</q5:DECRYPTEDKSSIINFO>
-            <q5:VRSINJH>${this.WEBMONEYKSSIINFO.VRSINJH}</q5:VRSINJH>
-            <q5:WBMNYSETTLE_CD>${this.WEBMONEYKSSIINFO.WBMNYSETTLE_CD}</q5:WBMNYSETTLE_CD>
-            <q5:TRAN_DT>${this.WEBMONEYKSSIINFO.TRAN_DT}</q5:TRAN_DT>
-            <q5:WBMNYMANAGEMENT_NO>${this.WEBMONEYKSSIINFO.WBMNYMANAGEMENT_NO}</q5:WBMNYMANAGEMENT_NO>
-            <q5:SINYJSHKBTS_FLG>${this.WEBMONEYKSSIINFO.SINYJSHKBTS_FLG}</q5:SINYJSHKBTS_FLG>
-            <q5:SHHN_NUM>${this.WEBMONEYKSSIINFO.SHHN_NUM}</q5:SHHN_NUM>
-            <q5:SHHN_CD>${this.WEBMONEYKSSIINFO.SHHN_CD}</q5:SHHN_CD>
-            <q5:HCCH_CD>${this.WEBMONEYKSSIINFO.HCCH_CD}</q5:HCCH_CD>
-        </q5:WEBMONEYKSSIINFO>
-`;
-        } else {
-            //             format += `
-            //         <q5:WEBMONEYKSSIINFO/>
-            // `;
-        }
-        // tslint:disable-next-line:no-multiline-string
-        message += `
-        <q5:TKTNCDKKH_INFO>`;
+        //         message += `
+        //         </q5:KNSHKN_INFO>
+        //         <q5:KIIN_FLG>${this.KIIN_FLG}</q5:KIIN_FLG>
+        //         <q5:KSSIHH_TYP>${this.KSSIHH_TYP}</q5:KSSIHH_TYP>
+        //         <q5:KNYSHSI_NM>${this.KNYSHSI_NM}</q5:KNYSHSI_NM>
+        //         <q5:KNYSHMI_NM>${this.KNYSHMI_NM}</q5:KNYSHMI_NM>
+        //         <q5:KNYSHSI_KNNM>${this.KNYSHSI_KNNM}</q5:KNYSHSI_KNNM>
+        //         <q5:KNYSHMI_KNNM>${this.KNYSHMI_KNNM}</q5:KNYSHMI_KNNM>
+        //         <q5:KNYSHPC_MLADDR>${this.KNYSHPC_MLADDR}</q5:KNYSHPC_MLADDR>
+        //         <q5:KNYSHKITI_MLADDR>${this.KNYSHKITI_MLADDR}</q5:KNYSHKITI_MLADDR>
+        //         <q5:KNYSHSHGIKYK_NO>${this.KNYSHSHGIKYK_NO}</q5:KNYSHSHGIKYK_NO>
+        //         <q5:KNYSHSHNIKYK_NO>${this.KNYSHSHNIKYK_NO}</q5:KNYSHSHNIKYK_NO>
+        //         <q5:KNYSHKNYSH_NO>${this.KNYSHKNYSH_NO}</q5:KNYSHKNYSH_NO>
+        //         <q5:KNY_DT>${this.KNY_DT}</q5:KNY_DT>
+        //         <q5:HMBICHNNL_TYP>${this.HMBICHNNL_TYP}</q5:HMBICHNNL_TYP>
+        //         <q5:HMBGISH_CD>${this.HMBGISH_CD}</q5:HMBGISH_CD>
+        //         <q5:TRAN_DT>${this.TRAN_DT}</q5:TRAN_DT>
+        //         <q5:FORWARD_CD>${this.FORWARD_CD}</q5:FORWARD_CD>
+        //         <q5:APPROVE_NO>${this.APPROVE_NO}</q5:APPROVE_NO>
+        //         <q5:TRAN_ID>${this.TRAN_ID}</q5:TRAN_ID>
+        //         <q5:GRYKNGK>${this.GRYKNGK}</q5:GRYKNGK>
+        //         <q5:KNYDVC_TYP>${this.KNYDVC_TYP}</q5:KNYDVC_TYP>
+        // `;
 
-        for (const tktncdkkhInfo of this.TKTNCDKKH_INFO) {
-            message += `
-            <q5:TktncdkkhInfo>
-                <q5:TKTNCDKKH_NO>${tktncdkkhInfo.TKTNCDKKH_NO}</q5:TKTNCDKKH_NO>
-            </q5:TktncdkkhInfo>
-`;
-        }
+        //         if (this.AU_PAYMETHOD !== '') {
+        //             message += `
+        //         <q5:AU_PAYMETHOD>${this.AU_PAYMETHOD}</q5:AU_PAYMETHOD>
+        // `;
+        //         }
 
-        // tslint:disable-next-line:no-multiline-string
-        message += `
-        </q5:TKTNCDKKH_INFO>
+        //         if (this.GFTCRD_INFO !== null && this.GFTCRD_INFO.GftcrdInfo.length > 0) {
+        //             // tslint:disable-next-line:no-multiline-string
+        //             message += `
+        //         <q5:GFTCRD_INFO>
+        // `;
 
-        <q5:PINTRY_FLG>${this.PINTRY_FLG}</q5:PINTRY_FLG>
-        `;
-        if (this.PINTKSSI_UUID !== undefined) {
-            message += `
-            <q5:PINTKSSI_UUID>${this.PINTKSSI_UUID}</q5:PINTKSSI_UUID>
-            `;
-        }
-        message += `
-        <q5:RYPINT_NUM>${this.RYPINT_NUM}</q5:RYPINT_NUM>
-        `;
+        //             for (const info of this.GFTCRD_INFO.GftcrdInfo) {
+        //                 message += `
+        //             <q5:GftCrdInfo>
+        //                 <q5:GFTCRD_ID>${info.GFTCRD_ID}</q5:GFTCRD_ID>
+        //                 <q5:GFTCRDPIN_CD>${info.GFTCRDPIN_CD}</q5:GFTCRDPIN_CD>
+        //                 <q5:GFTCRDKSSIKNR_NO>${info.GFTCRDKSSIKNR_NO}</q5:GFTCRDKSSIKNR_NO>
+        //                 <q5:KSSI_DT>${info.KSSI_DT}</q5:KSSI_DT>
+        //                 <q5:KSSISYNN_NO>${info.KSSISYNN_NO}</q5:KSSISYNN_NO>
+        //                 <q5:GFTCRD_STTS>${info.GFTCRD_STTS}</q5:GFTCRD_STTS>
+        //                 <q5:RY_MNY>${info.RY_MNY}</q5:RY_MNY>
+        //                 <q5:RYME_ZNDK>${info.RYME_ZNDK}</q5:RYME_ZNDK>
+        //                 <q5:RYG_ZNDK>${info.RYG_ZNDK}</q5:RYG_ZNDK>
+        //                 <q5:TPPNSRVCRSPNS>${info.TPPNSRVCRSPNS.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</q5:TPPNSRVCRSPNS>
+        //             </q5:GftCrdInfo>
+        // `;
+        //             }
+        //             // tslint:disable-next-line:no-multiline-string
+        //             message += `
+        //         </q5:GFTCRD_INFO>
+        // `;
+        //         }
 
-        if (this.KIYK_CD !== undefined) {
-            message += `
-        <q5:KIYK_CD>${this.KIYK_CD}</q5:KIYK_CD>
-        `;
-        }
+        //         message += `
+        //         <q5:DVC_TYP>${this.DVC_TYP}</q5:DVC_TYP>
+        // `;
 
-        if (this.KNYSH_CD !== undefined) {
-            message += `
-        <q5:KNYSH_CD>${this.KNYSH_CD}</q5:KNYSH_CD>
-        `;
-        }
+        //         if (this.HIYKSSI_FLG === '1') {
+        //             message += `
+        //         <q5:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q5:HIYKSSI_FLG>
+        //         <q5:HIYKSSIHH_TYP>${this.HIYKSSIHH_TYP}</q5:HIYKSSIHH_TYP>
+        //         <q5:HIYKSSIRYGKI_MNY>${this.HIYKSSIRYGKI_MNY}</q5:HIYKSSIRYGKI_MNY>
+        // `;
+        //         }
 
-        if (this.KKTKYTI_PT !== undefined) {
-            message += `
-        <q5:KKTKYTI_PT>${this.KKTKYTI_PT}</q5:KKTKYTI_PT>
-        `;
-        }
-        message += `
-    </tns:IN_PARAMETER>
-</tns:RegisterPurchaseInfo>
-`;
+        //         if (this.WEBMONEYKSSIINFO !== null) {
+        //             message += `
+        //         <q5:WEBMONEYKSSIINFO>
+        //             <q5:DECRYPTEDKSSIINFO>${this.WEBMONEYKSSIINFO.DECRYPTEDKSSIINFO}</q5:DECRYPTEDKSSIINFO>
+        //             <q5:VRSINJH>${this.WEBMONEYKSSIINFO.VRSINJH}</q5:VRSINJH>
+        //             <q5:WBMNYSETTLE_CD>${this.WEBMONEYKSSIINFO.WBMNYSETTLE_CD}</q5:WBMNYSETTLE_CD>
+        //             <q5:TRAN_DT>${this.WEBMONEYKSSIINFO.TRAN_DT}</q5:TRAN_DT>
+        //             <q5:WBMNYMANAGEMENT_NO>${this.WEBMONEYKSSIINFO.WBMNYMANAGEMENT_NO}</q5:WBMNYMANAGEMENT_NO>
+        //             <q5:SINYJSHKBTS_FLG>${this.WEBMONEYKSSIINFO.SINYJSHKBTS_FLG}</q5:SINYJSHKBTS_FLG>
+        //             <q5:SHHN_NUM>${this.WEBMONEYKSSIINFO.SHHN_NUM}</q5:SHHN_NUM>
+        //             <q5:SHHN_CD>${this.WEBMONEYKSSIINFO.SHHN_CD}</q5:SHHN_CD>
+        //             <q5:HCCH_CD>${this.WEBMONEYKSSIINFO.HCCH_CD}</q5:HCCH_CD>
+        //         </q5:WEBMONEYKSSIINFO>
+        // `;
+        //         } else {
+        //             //             format += `
+        //             //         <q5:WEBMONEYKSSIINFO/>
+        //             // `;
+        //         }
+        //         // tslint:disable-next-line:no-multiline-string
+        //         message += `
+        //         <q5:TKTNCDKKH_INFO>`;
 
-        return message;
+        //         for (const tktncdkkhInfo of this.TKTNCDKKH_INFO) {
+        //             message += `
+        //             <q5:TktncdkkhInfo>
+        //                 <q5:TKTNCDKKH_NO>${tktncdkkhInfo.TKTNCDKKH_NO}</q5:TKTNCDKKH_NO>
+        //             </q5:TktncdkkhInfo>
+        // `;
+        //         }
+
+        //         // tslint:disable-next-line:no-multiline-string
+        //         message += `
+        //         </q5:TKTNCDKKH_INFO>
+
+        //         <q5:PINTRY_FLG>${this.PINTRY_FLG}</q5:PINTRY_FLG>
+        //         `;
+        //         if (this.PINTKSSI_UUID !== undefined) {
+        //             message += `
+        //             <q5:PINTKSSI_UUID>${this.PINTKSSI_UUID}</q5:PINTKSSI_UUID>
+        //             `;
+        //         }
+        //         message += `
+        //         <q5:RYPINT_NUM>${this.RYPINT_NUM}</q5:RYPINT_NUM>
+        //         `;
+
+        //         if (this.KIYK_CD !== undefined) {
+        //             message += `
+        //         <q5:KIYK_CD>${this.KIYK_CD}</q5:KIYK_CD>
+        //         `;
+        //         }
+
+        //         if (this.KNYSH_CD !== undefined) {
+        //             message += `
+        //         <q5:KNYSH_CD>${this.KNYSH_CD}</q5:KNYSH_CD>
+        //         `;
+        //         }
+
+        //         if (this.KKTKYTI_PT !== undefined) {
+        //             message += `
+        //         <q5:KKTKYTI_PT>${this.KKTKYTI_PT}</q5:KKTKYTI_PT>
+        //         `;
+        //         }
+        //         message += `
+        //     </tns:IN_PARAMETER>
+        // </tns:RegisterPurchaseInfo>
+        // `;
+
+        //         return message;
     }
 }
 

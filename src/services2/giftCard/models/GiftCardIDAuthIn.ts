@@ -61,64 +61,98 @@ export class GiftCardIDAuthIn extends BaseIn {
      */
     public SKHN_CD: string;
 
-    public toXml(): string {
+    public toXml(): any {
         // パラメータの順序が異なるとエラーになるので注意
-        let message = '<tns:GiftCardIDAuth>';
-        message += '<tns:IN_PARAMETER>';
-        message += '<q1:MVTKGFTCRD_INFO_IN>';
-
-        for (const info of this.MVTKGFTCRD_INFO_IN.MvtkGftcrdInfo) {
-            if (this.LOCK_FLG === '1') {
-                message += `
-            <q1:MvtkGftcrdInfo>
-                <q1:MVTKGFTCRD_ID>${info.MVTKGFTCRD_ID}</q1:MVTKGFTCRD_ID>
-                <q1:MVTKGFTCRDPIN_CD>${info.MVTKGFTCRDPIN_CD}</q1:MVTKGFTCRDPIN_CD>
-                <q1:GFTCRDKSSIKNR_NO>${info.GFTCRDKSSIKNR_NO}</q1:GFTCRDKSSIKNR_NO>
-            </q1:MvtkGftcrdInfo>
-`;
-            } else {
-                message += `
-            <q1:MvtkGftcrdInfo>
-                <q1:MVTKGFTCRD_ID>${info.MVTKGFTCRD_ID}</q1:MVTKGFTCRD_ID>
-                <q1:MVTKGFTCRDPIN_CD>${info.MVTKGFTCRDPIN_CD}</q1:MVTKGFTCRDPIN_CD>
-            </q1:MvtkGftcrdInfo>
-`;
+        return {
+            IN_PARAMETER: {
+                MVTKGFTCRD_INFO_IN: {
+                    MvtkGftcrdInfo: this.MVTKGFTCRD_INFO_IN.MvtkGftcrdInfo.map((info) => {
+                        return {
+                            MVTKGFTCRD_ID: info.MVTKGFTCRD_ID,
+                            MVTKGFTCRDPIN_CD: info.MVTKGFTCRDPIN_CD,
+                            GFTCRDKSSIKNR_NO: this.LOCK_FLG === '1' ? info.GFTCRDKSSIKNR_NO : undefined,
+                            targetNSAlias: 'tns',
+                            // tslint:disable-next-line:no-http-string max-line-length
+                            targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                        };
+                    }),
+                    targetNSAlias: 'tns',
+                    // tslint:disable-next-line:no-http-string max-line-length
+                    targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                },
+                // tslint:disable-next-line:max-line-length
+                KSSIKNR_NO: this.KSSIKNR_NO !== undefined && this.KSSIKNR_NO !== null && this.KSSIKNR_NO !== '' ? this.KSSIKNR_NO : undefined,
+                RYUKNGK: Number(this.RYUKNGK),
+                DVC_TYP: this.DVC_TYP,
+                LOCK_FLG: Number(this.LOCK_FLG),
+                HIYKSSI_FLG: this.HIYKSSI_FLG,
+                HIYKSSI_TYP: this.HIYKSSI_FLG === '1' ? this.HIYKSSI_TYP : undefined,
+                KNYSH_CD: this.KIIN_FLG === '1' ? this.KNYSH_CD : undefined,
+                KIIN_FLG: this.KIIN_FLG,
+                SKHN_CD: this.SKHN_CD,
+                targetNSAlias: 'q1',
+                // tslint:disable-next-line:no-http-string max-line-length
+                targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
             }
-        }
+        };
 
-        message += '</q1:MVTKGFTCRD_INFO_IN>';
-        if (this.KSSIKNR_NO !== undefined && this.KSSIKNR_NO !== null && this.KSSIKNR_NO !== '') {
-            message += `
-        <q1:KSSIKNR_NO>${this.KSSIKNR_NO}</q1:KSSIKNR_NO>
-`;
-        }
+        //         // パラメータの順序が異なるとエラーになるので注意
+        //         let message = '<tns:GiftCardIDAuth>';
+        //         message += '<tns:IN_PARAMETER>';
+        //         message += '<q1:MVTKGFTCRD_INFO_IN>';
 
-        message += `
-        <q1:RYUKNGK>${this.RYUKNGK}</q1:RYUKNGK>
-        <q1:DVC_TYP>${this.DVC_TYP}</q1:DVC_TYP>
-        <q1:LOCK_FLG>${this.LOCK_FLG}</q1:LOCK_FLG>
-        <q1:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q1:HIYKSSI_FLG>
-`;
+        //         for (const info of this.MVTKGFTCRD_INFO_IN.MvtkGftcrdInfo) {
+        //             if (this.LOCK_FLG === '1') {
+        //                 message += `
+        //             <q1:MvtkGftcrdInfo>
+        //                 <q1:MVTKGFTCRD_ID>${info.MVTKGFTCRD_ID}</q1:MVTKGFTCRD_ID>
+        //                 <q1:MVTKGFTCRDPIN_CD>${info.MVTKGFTCRDPIN_CD}</q1:MVTKGFTCRDPIN_CD>
+        //                 <q1:GFTCRDKSSIKNR_NO>${info.GFTCRDKSSIKNR_NO}</q1:GFTCRDKSSIKNR_NO>
+        //             </q1:MvtkGftcrdInfo>
+        // `;
+        //             } else {
+        //                 message += `
+        //             <q1:MvtkGftcrdInfo>
+        //                 <q1:MVTKGFTCRD_ID>${info.MVTKGFTCRD_ID}</q1:MVTKGFTCRD_ID>
+        //                 <q1:MVTKGFTCRDPIN_CD>${info.MVTKGFTCRDPIN_CD}</q1:MVTKGFTCRDPIN_CD>
+        //             </q1:MvtkGftcrdInfo>
+        // `;
+        //             }
+        //         }
 
-        if (this.HIYKSSI_FLG === '1') {
-            message += `
-        <q1:HIYKSSI_TYP>${this.HIYKSSI_TYP}</q1:HIYKSSI_TYP>
-`;
-        }
+        //         message += '</q1:MVTKGFTCRD_INFO_IN>';
+        //         if (this.KSSIKNR_NO !== undefined && this.KSSIKNR_NO !== null && this.KSSIKNR_NO !== '') {
+        //             message += `
+        //         <q1:KSSIKNR_NO>${this.KSSIKNR_NO}</q1:KSSIKNR_NO>
+        // `;
+        //         }
 
-        if (this.KIIN_FLG === '1') {
-            message += `
-        <q1:KNYSH_CD>${this.KNYSH_CD}</q1:KNYSH_CD>
-`;
-        }
+        //         message += `
+        //         <q1:RYUKNGK>${this.RYUKNGK}</q1:RYUKNGK>
+        //         <q1:DVC_TYP>${this.DVC_TYP}</q1:DVC_TYP>
+        //         <q1:LOCK_FLG>${this.LOCK_FLG}</q1:LOCK_FLG>
+        //         <q1:HIYKSSI_FLG>${this.HIYKSSI_FLG}</q1:HIYKSSI_FLG>
+        // `;
 
-        message += `
-        <q1:KIIN_FLG>${this.KIIN_FLG}</q1:KIIN_FLG>
-        <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
-    </tns:IN_PARAMETER>
-</tns:GiftCardIDAuth>
-`;
+        //         if (this.HIYKSSI_FLG === '1') {
+        //             message += `
+        //         <q1:HIYKSSI_TYP>${this.HIYKSSI_TYP}</q1:HIYKSSI_TYP>
+        // `;
+        //         }
 
-        return message;
+        //         if (this.KIIN_FLG === '1') {
+        //             message += `
+        //         <q1:KNYSH_CD>${this.KNYSH_CD}</q1:KNYSH_CD>
+        // `;
+        //         }
+
+        //         message += `
+        //         <q1:KIIN_FLG>${this.KIIN_FLG}</q1:KIIN_FLG>
+        //         <q1:SKHN_CD>${this.SKHN_CD}</q1:SKHN_CD>
+        //     </tns:IN_PARAMETER>
+        // </tns:GiftCardIDAuth>
+        // `;
+
+        //         return message;
     }
 }
