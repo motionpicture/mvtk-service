@@ -1,6 +1,6 @@
 {
   "name": "@motionpicture/mvtk-service",
-  "version": "3.2.3-alpha.0",
+  "version": "3.2.3",
   "dependencies": {
     "@types/bluebird": "^3.5.18",
     "debug": "^3.1.0",
