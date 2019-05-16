@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.2.3 - 2019-05-16
+### Added
+ - nodejsを10にアップグレード
+
 ## v3.2.2 - 2019-02-14
 ### Added
  - GMOmethod名を再調整
