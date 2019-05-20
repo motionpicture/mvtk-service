@@ -9,23 +9,33 @@ export class EncryptDataListIn extends BaseIn {
      */
     public list: string[];
 
-    public toXml(): string {
-        let message = `
-<tns:EncryptDataList>
-    <tns:list>
+    public toXml(): any {
+        // パラメータの順序が異なるとエラーになるので注意
+        return {
+            list: {
+                string: this.list,
+                targetNSAlias: 'q13',
+                // tslint:disable-next-line:no-http-string max-line-length
+                targetNamespace: `http://schemas.microsoft.com/2003/10/Serialization/Arrays`
+            }
+        };
 
-`;
-        for (const data of this.list) {
-            message += `
-        <q13:string>${data}</q13:string>
-`;
-        }
+        //         let message = `
+        // <tns:EncryptDataList>
+        //     <tns:list>
 
-        message += `
-    </tns:list>
-</tns:EncryptDataList>
-`;
+        // `;
+        //         for (const data of this.list) {
+        //             message += `
+        //         <q13:string>${data}</q13:string>
+        // `;
+        //         }
 
-        return message;
+        //         message += `
+        //     </tns:list>
+        // </tns:EncryptDataList>
+        // `;
+
+        //         return message;
     }
 }
