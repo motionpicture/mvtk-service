@@ -42,7 +42,7 @@ export class RegisterIchjknrInfoIn extends BaseIn {
                     AZKRKNSHHRISK_TYP: this.AZKRKNSHHRISK_TYP,
                     AZKRKNSHHRITMNG_TYP: this.AZKRKNSHHRITMNG_TYP,
                     CRDJHHJ_FLG: this.CRDJHHJ_FLG,
-                    CRDMIGNN_NM: this.CRDJHHJ_FLG,
+                    CRDMIGNN_NM: this.CRDMIGNN_NM,
                     HMBIJTHREDMGNDIKNSHHRISK_TYP: this.HMBIJTHREDMGNDIKNSHHRISK_TYP,
                     HYJCRD_NO: this.HYJCRD_NO,
                     KIIN_FLG: this.KIIN_FLG,
