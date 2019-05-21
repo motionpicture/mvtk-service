@@ -237,7 +237,7 @@ export class RegisterPurchaseInfoIn extends BaseIn {
                 KNYSHSI_KNNM: this.KNYSHSI_KNNM === null || this.KNYSHSI_KNNM === undefined ? `null` : this.KNYSHSI_KNNM,
                 KNYSHMI_KNNM: this.KNYSHMI_KNNM === null || this.KNYSHMI_KNNM === undefined ? `null` : this.KNYSHMI_KNNM,
                 KNYSHPC_MLADDR: this.KNYSHPC_MLADDR,
-                KNYSHKITI_MLADDR: this.KNYSHSHGIKYK_NO,
+                KNYSHKITI_MLADDR: this.KNYSHKITI_MLADDR,
                 KNYSHSHGIKYK_NO: this.KNYSHSHGIKYK_NO,
                 KNYSHSHNIKYK_NO: this.KNYSHSHNIKYK_NO,
                 KNYSHKNYSH_NO: this.KNYSHKNYSH_NO,
