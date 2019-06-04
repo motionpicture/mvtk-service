@@ -9,31 +9,31 @@ export class DeleteIchjknrInfoIn extends BaseIn {
 
     public toXml(): any {
         // パラメータの順序が異なるとエラーになるので注意
-        return {
-            list: {
-                string: this.accessIdList,
-                targetNSAlias: 'q11',
-                // tslint:disable-next-line:no-http-string max-line-length
-                targetNamespace: `http://schemas.microsoft.com/2003/10/Serialization/Arrays`
-            }
-        };
+        // return {
+        //     list: {
+        //         string: this.accessIdList,
+        //         targetNSAlias: 'q11',
+        //         // tslint:disable-next-line:no-http-string max-line-length
+        //         targetNamespace: `http://schemas.microsoft.com/2003/10/Serialization/Arrays`
+        //     }
+        // };
 
-        //         let message = `
-        // <tns:DeleteIchjknr>
-        //     <tns:model>
+                let message = `
+        <tns:DeleteIchjknr>
+            <tns:model>
 
-        // `;
-        //         for (const accessId of this.accessIdList) {
-        //             message += `
-        //     <q25:string>${accessId}</q25:string>
-        // `;
-        //         }
+        `;
+                for (const accessId of this.accessIdList) {
+                    message += `
+            <q25:string>${accessId}</q25:string>
+        `;
+                }
 
-        //         message += `
-        //     </tns:model>
-        // </tns:DeleteIchjknr>
-        // `;
+                message += `
+            </tns:model>
+        </tns:DeleteIchjknr>
+        `;
 
-        //         return message;
+        return { _xml: message };
     }
 }
