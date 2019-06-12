@@ -16,6 +16,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.2.7 - 2019-06-04
+### Added
+ - 一部、soap通信のパラメータをstring形式に戻す 
+
 ## v3.2.4 - 2019-05-16
 ### Added
  - nodejsを10にアップグレード
