@@ -15,6 +15,7 @@ export class PurchaseUtilities {
     public static KSSIHH_TYP_POINT: string = '12';
     public static KSSIHH_TYP_RAKUTEN_PAY: string = '22';
     public static KSSIHH_TYP_PROMOTION_CODE: string = '26';
+    public static KSSIHH_TYP_EIGA_GIFT: string = '50';
 
     /**
      * 購入デバイス区分
@@ -96,7 +97,8 @@ export class PurchaseUtilities {
             KSSIHH_TYP_GIFT_CARD: 'ムビチケギフトカード',
             KSSIHH_TYP_WEB_MONEY: 'WebMoney',
             KSSIHH_TYP_POINT: 'ポイント',
-            KSSIHH_TYP_PROMOTION_CODE: 'プロモーションコード'
+            KSSIHH_TYP_PROMOTION_CODE: 'プロモーションコード',
+            KSSIHH_TYP_EIGA_GIFT: '映画GIFT'
         };
     }
 
@@ -113,7 +115,8 @@ export class PurchaseUtilities {
             this.KSSIHH_TYP_GIFT_CARD,
             this.KSSIHH_TYP_WEB_MONEY,
             this.KSSIHH_TYP_POINT,
-            this.KSSIHH_TYP_PROMOTION_CODE
+            this.KSSIHH_TYP_PROMOTION_CODE,
+            this.KSSIHH_TYP_EIGA_GIFT
         ];
 
         return (types.indexOf(kssiTyp) >= 0);
@@ -153,6 +156,10 @@ export interface IPurchaseUtilities {
      * 決済方法区分 プロモーションコードのみ
      */
     KSSIHH_TYP_PROMOTION_CODE: string;
+    /**
+     * 決済方法区分 映画GIFTのみ
+     */
+    KSSIHH_TYP_EIGA_GIFT: string;
 
     /**
      * 購入デバイス区分 PC
@@ -261,6 +268,7 @@ export interface IPurchaseUtilities {
         KSSIHH_TYP_WEB_MONEY: string;
         KSSIHH_TYP_POINT: string;
         KSSIHH_TYP_PROMOTION_CODE: string;
+        KSSIHH_TYP_EIGA_GIFT: string;
     };
 
     /**
