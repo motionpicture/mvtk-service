@@ -94,6 +94,10 @@ export interface QustinnarstsmnInfo {
      * アンケート選択肢情報(itemArray)
      */
     QUSTINNARSNTKSH_INFO: QustinnarsntkshInfo[];
+    /**
+     * 設問区分（00:前売当日共通／01:前売のみ／02:当日のみ）
+     */
+    STSMN_TYP: string;
 }
 
 export interface QustinnarsntkshInfo {
