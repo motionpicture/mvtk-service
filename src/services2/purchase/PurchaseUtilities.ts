@@ -16,6 +16,8 @@ export class PurchaseUtilities {
     public static KSSIHH_TYP_RAKUTEN_PAY: string = '22';
     public static KSSIHH_TYP_PROMOTION_CODE: string = '26';
     public static KSSIHH_TYP_EIGA_GIFT: string = '50';
+    public static KSSIHH_TYP_LINE_PAY: string = '76';
+    public static KSSIHH_TYP_FAMIPAY: string = '88';
 
     /**
      * 購入デバイス区分
