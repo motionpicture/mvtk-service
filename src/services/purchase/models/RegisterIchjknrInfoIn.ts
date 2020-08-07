@@ -94,7 +94,7 @@ export class RegisterIchjknrInfoIn extends BaseIn {
         //     }
         // };
 
-                let message = `
+        let message = `
         <tns:RegisterIchjknr>
             <tns:model>
                 <q23:RegisterIchjknrInfoIn>
@@ -125,8 +125,8 @@ export class RegisterIchjknrInfoIn extends BaseIn {
                     <q23:TICKETICHJKNR_LIST>
         `;
 
-                for (const info of this.TICKETICHJKNR_LIST.TicketichjknrList) {
-                    message += `
+        for (const info of this.TICKETICHJKNR_LIST.TicketichjknrList) {
+            message += `
                         <q23:TicketichjknrList>
                             <q23:KNSHKNHMBI_UNIP>${info.KNSHKNHMBI_UNIP}</q23:KNSHKNHMBI_UNIP>
                             <q23:KNSHKNKNRMISI_NO>${info.KNSHKNKNRMISI_NO}</q23:KNSHKNKNRMISI_NO>
@@ -140,9 +140,9 @@ export class RegisterIchjknrInfoIn extends BaseIn {
                             <q23:SHHZI_UNIP>${info.SHHZI_UNIP}</q23:SHHZI_UNIP>
                         </q23:TicketichjknrList>
         `;
-                }
+        }
 
-                message += `
+        message += `
                     </q23:TICKETICHJKNR_LIST>
                     <q23:TKN_ID>${this.TKN_ID}</q23:TKN_ID>
                 </q23:RegisterIchjknrInfoIn>

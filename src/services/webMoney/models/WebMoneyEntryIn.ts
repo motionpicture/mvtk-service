@@ -44,7 +44,7 @@ export class WebMoneyEntryIn extends BaseIn {
         //     rykngk: this.rykngk
         // };
 
-                let message = `
+        let message = `
         <tns:WebMoneyEntry>
             <tns:kssiknrNo>${this.kssiknrNo}</tns:kssiknrNo>
             <tns:skhnNm>${this.skhnNm}</tns:skhnNm>
@@ -53,8 +53,8 @@ export class WebMoneyEntryIn extends BaseIn {
             <tns:knshknInfo>
         `;
 
-                for (const info of this.knshknInfo.KnshInfoIn) {
-                    message += `
+        for (const info of this.knshknInfo.KnshInfoIn) {
+            message += `
                 <q1:KnshInfoIn>
                     <q1:KNSHKBN_NM>${info.KNSHKBN_NM}</q1:KNSHKBN_NM>
                     <q1:KNSHKNHMBI_UNIP>${Math.floor(parseInt(info.KNSHKNHMBI_UNIP, 10)).toString()}</q1:KNSHKNHMBI_UNIP>
@@ -62,14 +62,16 @@ export class WebMoneyEntryIn extends BaseIn {
                     <q1:KNYMI_NUM>${info.KNYMI_NUM}</q1:KNYMI_NUM>
                 </q1:KnshInfoIn>
         `;
-                }
+        }
 
-                message += `
+        message += `
             </tns:knshknInfo>
             <tns:rykngk>${this.rykngk}</tns:rykngk>
         </tns:WebMoneyEntry>
         `;
 
-        return { _xml: message };
+        return {
+            _xml: message
+        };
     }
 }

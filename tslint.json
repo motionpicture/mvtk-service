@@ -24,6 +24,7 @@
       true,
       "LF"
     ],
+    "cyclomatic-complexity": false,
     "no-any": false,
     "no-backbone-get-set-outside-model": false,
     "no-default-export": false,

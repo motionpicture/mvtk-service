@@ -18,6 +18,7 @@ export class PurchaseUtilities {
     public static KSSIHH_TYP_EIGA_GIFT: string = '50';
     public static KSSIHH_TYP_LINE_PAY: string = '76';
     public static KSSIHH_TYP_FAMIPAY: string = '88';
+    public static KSSIHH_TYP_PAYPAY: string = 'AA';
 
     /**
      * 購入デバイス区分
@@ -102,7 +103,8 @@ export class PurchaseUtilities {
             KSSIHH_TYP_PROMOTION_CODE: 'プロモーションコード',
             KSSIHH_TYP_EIGA_GIFT: '映画GIFT',
             KSSIHH_TYP_LINE_PAY: 'LINE Pay',
-            KSSIHH_TYP_FAMIPAY: 'ファミペイ'
+            KSSIHH_TYP_FAMIPAY: 'ファミペイ',
+            KSSIHH_TYP_PAYPAY: 'PayPay'
 
         };
     }
@@ -123,7 +125,8 @@ export class PurchaseUtilities {
             this.KSSIHH_TYP_PROMOTION_CODE,
             this.KSSIHH_TYP_EIGA_GIFT,
             this.KSSIHH_TYP_LINE_PAY,
-            this.KSSIHH_TYP_FAMIPAY
+            this.KSSIHH_TYP_FAMIPAY,
+            this.KSSIHH_TYP_PAYPAY
         ];
 
         return (types.indexOf(kssiTyp) >= 0);
@@ -175,6 +178,10 @@ export interface IPurchaseUtilities {
      * 決済方法区分 ファミペイのみ
      */
     KSSIHH_TYP_FAMIPAY: string;
+    /**
+     * 決済方法区分 PayPayのみ
+     */
+    KSSIHH_TYP_PAYPAY: string;
 
     /**
      * 購入デバイス区分 PC
@@ -286,6 +293,7 @@ export interface IPurchaseUtilities {
         KSSIHH_TYP_EIGA_GIFT: string;
         KSSIHH_TYP_LINE_PAY: string;
         KSSIHH_TYP_FAMIPAY: string;
+        KSSIHH_TYP_PAYPAY: string;
     };
 
     /**

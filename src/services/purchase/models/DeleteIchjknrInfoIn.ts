@@ -18,18 +18,18 @@ export class DeleteIchjknrInfoIn extends BaseIn {
         //     }
         // };
 
-                let message = `
+        let message = `
         <tns:DeleteIchjknr>
             <tns:model>
 
         `;
-                for (const accessId of this.accessIdList) {
-                    message += `
+        for (const accessId of this.accessIdList) {
+            message += `
             <q25:string>${accessId}</q25:string>
         `;
-                }
+        }
 
-                message += `
+        message += `
             </tns:model>
         </tns:DeleteIchjknr>
         `;

@@ -1,9 +1,9 @@
 /**
  * TicketInfoResult
  */
+import * as moment from 'moment-timezone';
 import { Util } from '../../../common/util/Util';
 import { TicketInfoTypeResult } from './TicketInfoTypeResult';
-import * as moment from 'moment-timezone';
 
 moment.tz.setDefault('Asia/Tokyo');
 

@@ -33,26 +33,6 @@ export class MvtkGiftCardEntryIn extends BaseIn {
     public DVC_TYP: string;
 
     public toXml(): any {
-        // パラメータの順序が異なるとエラーになるので注意
-        // return {
-        //     MVTKGFTCRD_INFO_IN: {
-        //         MvtkgftcrdInfoIn: this.MVTKGFTCRD_INFO_IN.MvtkgftcrdInfoIn.map((info) => {
-        //             return {
-        //                 GFTCRDKSSIKNR_NO: info.GFTCRDKSSIKNR_NO,
-        //                 MVTKGFTCRDPIN_CD: info.MVTKGFTCRDPIN_CD,
-        //                 MVTKGFTCRD_ID: info.MVTKGFTCRD_ID,
-        //                 RYUKNGK: info.RYUKNGK,
-        //                 targetNSAlias: 'tns',
-        //                 // tslint:disable-next-line:no-http-string max-line-length
-        //                 targetNamespace: 'http://schemas.datacontract.org/2004/07/MTES.WCFModel.MvtkGiftCard.MvtkGiftCardSvc.MvtkGiftCardEntryModel'
-        //             };
-        //         }),
-        //         targetNSAlias: 'q4',
-        //         // tslint:disable-next-line:no-http-string max-line-length
-        //         targetNamespace: 'http://schemas.datacontract.org/2004/07/MTES.WCFModel.MvtkGiftCard.MvtkGiftCardSvc.MvtkGiftCardEntryModel'
-        //     },
-        //     DVC_TYP: this.DVC_TYP
-        // };
 
         // パラメータの順序が異なるとエラーになるので注意
         let message = `

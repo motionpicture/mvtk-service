@@ -341,7 +341,7 @@ export class RegisterPurchaseInfoIn extends BaseIn {
                             targetNSAlias: 'tns',
                             // tslint:disable-next-line:no-http-string max-line-length
                             targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
-                        }
+                        };
                     }),
                     targetNSAlias: 'tns',
                     // tslint:disable-next-line:no-http-string max-line-length
@@ -531,7 +531,7 @@ export class RegisterPurchaseInfoIn extends BaseIn {
         // `;
         //         }
         //     }
-        // }        
+        // }
         //         message += `
         //     </tns:IN_PARAMETER>
         // </tns:RegisterPurchaseInfo>
@@ -601,37 +601,36 @@ export interface EggftInfo {
     /**
      * 映画ギフトコード
      */
-    EGGFT_CD : string;
+    EGGFT_CD: string;
     /**
      * 映画ギフトPINコード
      */
-    EGGFTPIN_CD : string;
+    EGGFTPIN_CD: string;
     /**
      * 映画ギフト決済管理番号
      */
-    EGGFTKSSIKNR_NO : string;
+    EGGFTKSSIKNR_NO: string;
     /**
      * 映画ギフト決済日時
      */
-    EGGFTKSSI_DT : string;
+    EGGFTKSSI_DT: string;
     /**
      * 映画ギフト決済承認番号
      */
-    EGGFTKSSISYNN_NO : string;
+    EGGFTKSSISYNN_NO: string;
     /**
      * 映画ギフト利用金額
      */
-    RY_MNY : number;
+    RY_MNY: number;
     /**
      * 映画ギフト利用前残高
      */
-    RYME_ZNDK : number;
+    RYME_ZNDK: number;
     /**
      * 映画ギフト利用後残高
      */
-    RYG_ZNDK : number;
+    RYG_ZNDK: number;
 }
-
 
 /**
  * 鑑賞券情報
