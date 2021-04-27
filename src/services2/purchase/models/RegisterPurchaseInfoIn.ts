@@ -215,6 +215,16 @@ export class RegisterPurchaseInfoIn extends BaseIn {
     public EGGFT_INFO: {
         EggftInfo: EggftInfo[];
     };
+    
+    /**
+     * サイト識別コード
+     */
+    public STSHKBTS_CD?: string;
+    
+    /**
+     * ユーザー識別コード
+     */
+    public USRSHKBTS_CD?: string;
 
     // tslint:disable-next-line:max-func-body-length
     public toXml(): any {
@@ -347,6 +357,8 @@ export class RegisterPurchaseInfoIn extends BaseIn {
                     // tslint:disable-next-line:no-http-string max-line-length
                     targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
                 } : undefined,
+                STSHKBTS_CD: this.STSHKBTS_CD,
+                USRSHKBTS_CD: this.USRSHKBTS_CD,
                 targetNSAlias: 'q5',
                 // tslint:disable-next-line:no-http-string max-line-length
                 targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
