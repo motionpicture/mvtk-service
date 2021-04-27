@@ -39,10 +39,14 @@ export class PreserveCodeIn extends BaseIn {
      * ポイント利用フラグ
      */
     public PINTRY_FLG: '0' | '1';
-    /**
+    /*
      * プロモーションコード利用フラグ
      */
     public PRMTNCDRY_FLG: '0' | '1';
+    /**
+     * 映画ギフト利用フラグ
+     */
+    public EGGFTRY_FLG: '0' | '1';
 
     /**
      * XML変換
@@ -74,6 +78,7 @@ export class PreserveCodeIn extends BaseIn {
                 } : undefined,
                 PINTRY_FLG: this.PINTRY_FLG,
                 PRMTNCDRY_FLG: this.PRMTNCDRY_FLG,
+                EGGFTRY_FLG: this.EGGFTRY_FLG,
                 targetNSAlias: 'q1',
                 // tslint:disable-next-line:no-http-string max-line-length
                 targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
@@ -96,7 +101,6 @@ export class PreserveCodeIn extends BaseIn {
         //         message += `
         //         <q1:KNY_DT>${this.KNY_DT}</q1:KNY_DT>
         // `;
-
         //         if (this.KNSHKN_INFO !== null) {
         //             message += '<q1:KNSHKN_INFO>';
         //             for (const info of this.KNSHKN_INFO.KnshknInfo) {
@@ -177,4 +181,8 @@ export interface IPreserveCodeIn {
      * プロモーションコード利用フラグ
      */
     PRMTNCDRY_FLG: '0' | '1';
+    /**
+     * 映画ギフト利用フラグ
+     */
+    EGGFTRY_FLG:  '0' | '1';
 }

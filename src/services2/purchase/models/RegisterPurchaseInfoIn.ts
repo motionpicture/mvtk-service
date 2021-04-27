@@ -204,6 +204,18 @@ export class RegisterPurchaseInfoIn extends BaseIn {
      */
     public PRMTNCDWRBK_GK: string;
 
+    /**
+     * 映画ギフト利用フラグ
+     */
+    public EGGFTRY_FLG: string;
+
+    /**
+     * 映画ギフト情報
+     */
+    public EGGFT_INFO: {
+        EggftInfo: EggftInfo[];
+    };
+
     // tslint:disable-next-line:max-func-body-length
     public toXml(): any {
         // パラメータの順序が異なるとエラーになるので注意
@@ -314,6 +326,27 @@ export class RegisterPurchaseInfoIn extends BaseIn {
                 PRMTN_CD: this.PRMTNCDRY_FLG === '1' && this.PRMTN_CD !== undefined ? this.PRMTN_CD : undefined,
                 PRMTNCDKSSI_UUID: this.PRMTNCDRY_FLG === '1' && this.PRMTNCDKSSI_UUID !== undefined ? this.PRMTNCDKSSI_UUID : undefined,
                 PRMTNCDWRBK_GK: this.PRMTNCDRY_FLG === '1' && this.PRMTNCDWRBK_GK !== undefined ? this.PRMTNCDWRBK_GK : undefined,
+                EGGFTRY_FLG: this.EGGFTRY_FLG !== undefined ? this.EGGFTRY_FLG : undefined,
+                EGGFT_INFO: (this.EGGFT_INFO !== null && this.EGGFT_INFO.EggftInfo.length > 0) ? {
+                    EggftInfo: this.EGGFT_INFO.EggftInfo.map((info) => {
+                        return {
+                            EGGFT_CD: info.EGGFT_CD,
+                            EGGFTPIN_CD: info.EGGFTPIN_CD,
+                            EGGFTKSSIKNR_NO: info.EGGFTKSSIKNR_NO,
+                            EGGFTKSSI_DT: info.EGGFTKSSI_DT,
+                            EGGFTKSSISYNN_NO: info.EGGFTKSSISYNN_NO,
+                            RY_MNY: info.RY_MNY,
+                            RYME_ZNDK: info.RYME_ZNDK,
+                            RYG_ZNDK: info.RYG_ZNDK,
+                            targetNSAlias: 'tns',
+                            // tslint:disable-next-line:no-http-string max-line-length
+                            targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                        };
+                    }),
+                    targetNSAlias: 'tns',
+                    // tslint:disable-next-line:no-http-string max-line-length
+                    targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
+                } : undefined,
                 targetNSAlias: 'q5',
                 // tslint:disable-next-line:no-http-string max-line-length
                 targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
@@ -498,7 +531,7 @@ export class RegisterPurchaseInfoIn extends BaseIn {
         // `;
         //         }
         //     }
-        // }        
+        // }
         //         message += `
         //     </tns:IN_PARAMETER>
         // </tns:RegisterPurchaseInfo>
@@ -559,6 +592,44 @@ export interface WebmoneykssiInfo {
      * WebMoney の発注コード
      */
     HCCH_CD: string;
+}
+
+/**
+ * 映画ギフト情報
+ */
+export interface EggftInfo {
+    /**
+     * 映画ギフトコード
+     */
+    EGGFT_CD: string;
+    /**
+     * 映画ギフトPINコード
+     */
+    EGGFTPIN_CD: string;
+    /**
+     * 映画ギフト決済管理番号
+     */
+    EGGFTKSSIKNR_NO: string;
+    /**
+     * 映画ギフト決済日時
+     */
+    EGGFTKSSI_DT: string;
+    /**
+     * 映画ギフト決済承認番号
+     */
+    EGGFTKSSISYNN_NO: string;
+    /**
+     * 映画ギフト利用金額
+     */
+    RY_MNY: number;
+    /**
+     * 映画ギフト利用前残高
+     */
+    RYME_ZNDK: number;
+    /**
+     * 映画ギフト利用後残高
+     */
+    RYG_ZNDK: number;
 }
 
 /**
@@ -783,4 +854,16 @@ export interface IRegisterPurchaseInfoIn {
      * プロモーションコード割引額
      */
     PRMTNCDWRBK_GK: string;
+
+    /**
+     * 映画ギフト利用フラグ
+     */
+    EGGFTRY_FLG: '0' | '1';
+
+    /**
+     * 映画ギフト情報
+     */
+    EGGFT_INFO?: {
+        EggftInfo: EggftInfo[];
+    };
 }

@@ -14,6 +14,7 @@ export class MemberInfoUtilities {
      */
     public static SIBTS_TYP_MEN: string = '01';
     public static SIBTS_TYP_WOMEN: string = '02';
+    public static SIBTS_TYP_OTHER: string = '03';
 }
 
 export interface IMemberInfoUtilities {
@@ -34,4 +35,8 @@ export interface IMemberInfoUtilities {
      * 性別区分 女
      */
     SIBTS_TYP_WOMEN: string;
+    /**
+     * 性別区分 その他
+     */
+    SIBTS_TYP_OTHER: string;
 }

@@ -1,9 +1,9 @@
 /**
  * TicketInfoResult
  */
+import * as moment from 'moment-timezone';
 import { Util } from '../../../common/util/Util';
 import { TicketInfoTypeResult } from './TicketInfoTypeResult';
-import * as moment from 'moment-timezone';
 
 moment.tz.setDefault('Asia/Tokyo');
 
@@ -153,15 +153,15 @@ export class TicketInfoResult {
             startTimeStr = '00:00:00';
         }
         // tslint:disable-next-line:max-line-length
-        const startStr = `${this.knshknhmbikishYmd.substring(0, 4)}/${this.knshknhmbikishYmd.substring(4, 6)}/${this.knshknhmbikishYmd.substring(6)} ${startTimeStr}`;
-        const startTimestamp = Date.parse(startStr);
+        const startStr = `${this.knshknhmbikishYmd.substring(0, 4)}-${this.knshknhmbikishYmd.substring(4, 6)}-${this.knshknhmbikishYmd.substring(6)} ${startTimeStr}`;
+        const startTimestamp = moment(startStr);
 
         // 終日なので23時59分59秒
         // tslint:disable-next-line:max-line-length
-        const endStr = `${this.knshknhmbishryYmd.substring(0, 4)}/${this.knshknhmbishryYmd.substring(4, 6)}/${this.knshknhmbishryYmd.substring(6)} 23:59:59`;
-        const endTimestamp = Date.parse(endStr);
+        const endStr = `${this.knshknhmbishryYmd.substring(0, 4)}-${this.knshknhmbishryYmd.substring(4, 6)}-${this.knshknhmbishryYmd.substring(6)} 23:59:59`;
+        const endTimestamp = moment(endStr);
 
-        const nowTimestamp = moment.now();
+        const nowTimestamp = moment();
 
         return (startTimestamp <= nowTimestamp && nowTimestamp <= endTimestamp);
     }
