@@ -195,7 +195,7 @@ export class RegisterPurchaseInfoIn extends BaseIn {
     public PRMTN_CD: string;
 
     /**
-     * プロモーションコード決済UUID
+     * プロモーションコード決済UUID（複数のプロモコードを利用する場合カンマ区切りで指定）
      */
     public PRMTNCDKSSI_UUID: string;
 
