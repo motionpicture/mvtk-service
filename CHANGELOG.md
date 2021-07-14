@@ -16,14 +16,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.3.0 - 2021-07-14
+### Added
+- 決済方法区分に新しい区分を追加
+    - ソフトバンクまとめて支払い
+    - メルペイ
+    - エポスかんたん決済
+
+## v3.2.8 - 2021-04-27
+
 ## v3.2.7 - 2019-06-04
 ### Added
- - 一部、soap通信のパラメータをstring形式に戻す 
+ - 一部、soap通信のパラメータをstring形式に戻す
 
 ## v3.2.4 - 2019-05-16
 ### Added
  - nodejsを10にアップグレード
- - クーポン対応 
+ - クーポン対応
 
 ## v3.2.2 - 2019-02-14
 ### Added
