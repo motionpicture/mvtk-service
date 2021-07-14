@@ -19,6 +19,9 @@ export class PurchaseUtilities {
     public static KSSIHH_TYP_LINE_PAY: string = '76';
     public static KSSIHH_TYP_FAMIPAY: string = '88';
     public static KSSIHH_TYP_PAYPAY: string = 'AA';
+    public static KSSIHH_TYP_SOFT_BANK: string = 'BA';
+    public static KSSIHH_TYP_MERPAY: string = 'CA';
+    public static KSSIHH_TYP_EPOS: string = 'DA';
 
     /**
      * 購入デバイス区分
@@ -104,8 +107,10 @@ export class PurchaseUtilities {
             KSSIHH_TYP_EIGA_GIFT: '映画GIFT',
             KSSIHH_TYP_LINE_PAY: 'LINE Pay',
             KSSIHH_TYP_FAMIPAY: 'ファミペイ',
-            KSSIHH_TYP_PAYPAY: 'PayPay'
-
+            KSSIHH_TYP_PAYPAY: 'PayPay',
+            KSSIHH_TYP_SOFT_BANK: 'ソフトバンクまとめて支払い・ワイモバイルまとめて支払い',
+            KSSIHH_TYP_MERPAY: 'メルペイ',
+            KSSIHH_TYP_EPOS: 'エポスかんたん決済'
         };
     }
 
@@ -126,7 +131,10 @@ export class PurchaseUtilities {
             this.KSSIHH_TYP_EIGA_GIFT,
             this.KSSIHH_TYP_LINE_PAY,
             this.KSSIHH_TYP_FAMIPAY,
-            this.KSSIHH_TYP_PAYPAY
+            this.KSSIHH_TYP_PAYPAY,
+            this.KSSIHH_TYP_SOFT_BANK,
+            this.KSSIHH_TYP_MERPAY,
+            this.KSSIHH_TYP_EPOS
         ];
 
         return (types.indexOf(kssiTyp) >= 0);
@@ -182,6 +190,18 @@ export interface IPurchaseUtilities {
      * 決済方法区分 PayPayのみ
      */
     KSSIHH_TYP_PAYPAY: string;
+    /**
+     * 決済方法区分 ソフトバンクまとめて支払い・ワイモバイルまとめて支払いのみ
+     */
+    KSSIHH_TYP_SOFT_BANK: string;
+    /**
+     * 決済方法区分 メルペイのみ
+     */
+    KSSIHH_TYP_MERPAY: string;
+    /**
+     * 決済方法区分 エポスかんたん決済のみ
+     */
+    KSSIHH_TYP_EPOS: string;
 
     /**
      * 購入デバイス区分 PC
@@ -294,6 +314,9 @@ export interface IPurchaseUtilities {
         KSSIHH_TYP_LINE_PAY: string;
         KSSIHH_TYP_FAMIPAY: string;
         KSSIHH_TYP_PAYPAY: string;
+        KSSIHH_TYP_SOFT_BANK: string;
+        KSSIHH_TYP_MERPAY: string;
+        KSSIHH_TYP_EPOS: string;
     };
 
     /**
