@@ -255,6 +255,21 @@ export interface IPurchaseUtilities {
     HMBGISH_CD_MVTK: string;
 
     /**
+     * 遷移元券種選択画面区分 販売サイト
+     */
+    SNIMTKNSHSNTKGMN_TYP_MVTK_SITE: string;
+
+    /**
+     * 遷移元券種選択画面区分 アプリ
+     */
+    SNIMTKNSHSNTKGMN_TYP_MWAPP: string;
+
+    /**
+     * 遷移元券種選択画面区分 ウィジェット
+     */
+    SNIMTKNSHSNTKGMN_TYP_WIDGET: string;
+
+    /**
      * カード情報入力区分 入力された情報を使用
      */
     CRDTCRDINPUTKBN_INPUT: string;
