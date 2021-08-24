@@ -55,6 +55,17 @@ export class PurchaseUtilities {
     public static HMBGISH_CD_MVTK = '000000'; // ムビチケ
 
     /**
+     * 遷移元券種選択画面区分チャネル
+     *
+     * 01:販売サイト（mvtk.jpの作品ページから）
+     * 02:MWアプリ
+     * 03:ウィジェット
+     */
+    public static SNIMTKNSHSNTKGMN_TYP_MVTK_SITE = '01';
+    public static SNIMTKNSHSNTKGMN_TYP_MWAPP = '02';
+    public static SNIMTKNSHSNTKGMN_TYP_WIDGET = '03';
+
+    /**
      * カード情報入力区分
      */
     public static CRDTCRDINPUTKBN_INPUT: string = '01'; // 入力された情報を使用
@@ -242,6 +253,21 @@ export interface IPurchaseUtilities {
      * チケットの販売チャネル ムビチケ
      */
     HMBGISH_CD_MVTK: string;
+
+    /**
+     * 遷移元券種選択画面区分 販売サイト
+     */
+    SNIMTKNSHSNTKGMN_TYP_MVTK_SITE: string;
+
+    /**
+     * 遷移元券種選択画面区分 アプリ
+     */
+    SNIMTKNSHSNTKGMN_TYP_MWAPP: string;
+
+    /**
+     * 遷移元券種選択画面区分 ウィジェット
+     */
+    SNIMTKNSHSNTKGMN_TYP_WIDGET: string;
 
     /**
      * カード情報入力区分 入力された情報を使用
