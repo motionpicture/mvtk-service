@@ -225,6 +225,10 @@ export class RegisterPurchaseInfoIn extends BaseIn {
      * ユーザー識別コード
      */
     public USRSHKBTS_CD?: string;
+    /**
+     * 遷移元券種選択画面区分
+     */
+    public SNIMTKNSHSNTKGMN_TYP?: string;
 
     // tslint:disable-next-line:max-func-body-length
     public toXml(): any {
@@ -359,6 +363,7 @@ export class RegisterPurchaseInfoIn extends BaseIn {
                 } : undefined,
                 STSHKBTS_CD: typeof this.STSHKBTS_CD === 'undefined' ? undefined : this.STSHKBTS_CD,
                 USRSHKBTS_CD: typeof this.USRSHKBTS_CD === 'undefined' ? undefined : this.USRSHKBTS_CD,
+                SNIMTKNSHSNTKGMN_TYP: typeof this.SNIMTKNSHSNTKGMN_TYP === 'undefined' ? undefined : this.SNIMTKNSHSNTKGMN_TYP,
                 targetNSAlias: 'q5',
                 // tslint:disable-next-line:no-http-string max-line-length
                 targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
