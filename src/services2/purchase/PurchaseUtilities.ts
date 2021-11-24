@@ -61,10 +61,12 @@ export class PurchaseUtilities {
      * 01:販売サイト（mvtk.jpの作品ページから）
      * 02:MWアプリ
      * 03:ウィジェット
+     * 04:限定販売（mvtk.jpの限定販売作品ページから）
      */
     public static SNIMTKNSHSNTKGMN_TYP_MVTK_SITE = '01';
     public static SNIMTKNSHSNTKGMN_TYP_MWAPP = '02';
     public static SNIMTKNSHSNTKGMN_TYP_WIDGET = '03';
+    public static SNIMTKNSHSNTKGMN_TYP_LIMITEDSALES = '04';
 
     /**
      * カード情報入力区分
@@ -275,6 +277,11 @@ export interface IPurchaseUtilities {
      * 遷移元券種選択画面区分 ウィジェット
      */
     SNIMTKNSHSNTKGMN_TYP_WIDGET: string;
+
+    /**
+     * 遷移元券種選択画面区分 限定販売
+     */
+    SNIMTKNSHSNTKGMN_TYP_LIMITEDSALES: string;
 
     /**
      * カード情報入力区分 入力された情報を使用
