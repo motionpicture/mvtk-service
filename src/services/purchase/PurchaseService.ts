@@ -576,6 +576,8 @@ export class PurchaseService extends Service {
 
     /**
      * 購入管理番号メール転送
+     *
+     * @deprecated MWSR-494でREST APIへ移行される
      */
     public async forwardPurchaseInfoMail(params: Object) {
         const method = 'ForwardPurchaseInfoMail';

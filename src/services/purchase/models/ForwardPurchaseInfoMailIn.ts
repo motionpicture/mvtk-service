@@ -3,6 +3,8 @@ import { BaseIn } from '../../../common/models/BaseIn';
 
 /**
  * ForwardPurchaseInfoMailIn
+ *
+ * @deprecated APIが廃止予定
  */
 export class ForwardPurchaseInfoMailIn extends BaseIn {
     /**
