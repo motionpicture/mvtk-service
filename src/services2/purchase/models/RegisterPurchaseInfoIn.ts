@@ -361,9 +361,9 @@ export class RegisterPurchaseInfoIn extends BaseIn {
                     // tslint:disable-next-line:no-http-string max-line-length
                     targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
                 } : undefined,
-                STSHKBTS_CD: typeof this.STSHKBTS_CD === 'undefined' ? undefined : this.STSHKBTS_CD,
-                USRSHKBTS_CD: typeof this.USRSHKBTS_CD === 'undefined' ? undefined : this.USRSHKBTS_CD,
-                SNIMTKNSHSNTKGMN_TYP: typeof this.SNIMTKNSHSNTKGMN_TYP === 'undefined' ? undefined : this.SNIMTKNSHSNTKGMN_TYP,
+                STSHKBTS_CD: typeof this.STSHKBTS_CD === undefined ? undefined : this.STSHKBTS_CD,
+                USRSHKBTS_CD: typeof this.USRSHKBTS_CD === undefined ? undefined : this.USRSHKBTS_CD,
+                SNIMTKNSHSNTKGMN_TYP: typeof this.SNIMTKNSHSNTKGMN_TYP === undefined ? undefined : this.SNIMTKNSHSNTKGMN_TYP,
                 targetNSAlias: 'q5',
                 // tslint:disable-next-line:no-http-string max-line-length
                 targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
