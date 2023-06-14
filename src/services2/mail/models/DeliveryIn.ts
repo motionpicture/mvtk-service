@@ -67,6 +67,10 @@ export class DeliveryIn extends BaseIn {
      * 獲得ポイント
      */
     public KKTK_PT: number;
+    /**
+     * 販売区分
+     */
+    public HMBI_TYP: string;
 
     public toXml(): any {
         // パラメータの順序が異なるとエラーになるので注意
@@ -98,6 +102,7 @@ export class DeliveryIn extends BaseIn {
                 TOTALCOST: this.TOTALCOST,
                 SKHN_CD: this.SKHN_CD,
                 KKTK_PT: Number(this.KKTK_PT),
+                HMBI_TYP: this.HMBI_TYP,
                 targetNSAlias: 'q1',
                 // tslint:disable-next-line:no-http-string max-line-length
                 targetNamespace: 'http://schemas.datacontract.org/2004/07/MWCFWebRole.Model.Services'
