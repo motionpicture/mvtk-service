@@ -6,3 +6,6 @@ lib/
 !.gitignore
 !.gitkeep
 .vscode/settings.json
+
+Dockerfile
+.devcontainer/
